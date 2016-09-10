@@ -32,7 +32,6 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.(js|jsx)$/,
-				exclude: /(node_modules|bower_components)/,
 				loaders: ['react-hot', 'babel'],
 				include: [
 					path.resolve(__dirname, config.root),
@@ -40,22 +39,18 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /(node_modules|bower_components)/,
 				loader: 'style!css?localIdentName=' + config.styles + '!postcss'
 			},
 			{
 				test: /\.json$/,
-				exclude: /(node_modules|bower_components)/,
 				loader: 'json'
 			},
 			{
 				test: /\.(gif|jpe?g|png|svg|ico)/,
-				exclude: /(node_modules|bower_components)/,
 				loader: 'url-loader?limit=8192'
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2)$/,
-				exclude: /(node_modules|bower_components)/,
 				loader: 'file'
 			},
 		]
@@ -64,15 +59,16 @@ module.exports = {
     return [
       require('postcss-import')({ addDependencyTo: webpack }),
       require('postcss-url')(),
+			require('postcss-css-reset')(),
       require('postcss-cssnext')(
 				{
 					browsers: ['> 1%'],
 					warnForDuplicates: true,
 				}
 			),
+			require('postcss-mixins')(),
 			require('postcss-nested')(),
 			require('postcss-simple-vars')(),
-			require('postcss-mixins')(),
 			require('postcss-extend')(),
       require('postcss-browser-reporter')(),
       require('postcss-reporter')(),

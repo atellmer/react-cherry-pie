@@ -8,7 +8,8 @@ class Hello extends Component {
     return (
       <div className={style.flex}>
         <img src={require('../../assets/images/cat.jpg')} alt=""/>
-        <h1 className={style.title}>Hello, I am react-boilerplate!</h1>
+        <div className={style.title}>Hello, I am react-boilerplate!</div>
+        <button>Press me</button>
       </div>
 	  );
   }
