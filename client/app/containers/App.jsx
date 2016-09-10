@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Hello from '../components/hello';
+import Hello from '../components/hello/index.js';
 
 class App extends Component {
   render() {

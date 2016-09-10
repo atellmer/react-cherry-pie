@@ -3,7 +3,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var nib = require('nib');
 var clc = require('cli-color');
 
 var config = require('./config');
@@ -16,11 +15,11 @@ console.log(clc.green('-------------------------------------------'));
 module.exports = {
 	devtool: null,
 	resolve: {
-		extensions: ['', '.js', '.jsx', '.styl', '.css', '.html']
+		extensions: ['', '.js', '.jsx', '.css', '.html']
 	},
-	entry: path.join(__dirname, config.root + '/app/index'),
+	entry: path.resolve(__dirname, config.root + '/app/index'),
 	output: {
-		path: path.join(__dirname, config.root + '/' + config.distDir + '/'),
+		path: path.resolve(__dirname, config.root + '/' + config.distDir + '/'),
 		filename: config.bundle,
 		publicPath: config.distDir + '/'
 	},
@@ -28,6 +27,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.(js|jsx)$/,
+				exclude: /(node_modules|bower_components)/,
 				loaders: ['babel'],
 				include: [
 					path.resolve(__dirname, config.root),
@@ -35,40 +35,53 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: 'style!css?localIdentName=' + config.styles
-			},
-			{
-				test: /\.styl$/,
-				loader: 'style!css?localIdentName=' + config.styles + '!stylus?paths=node_modules/bootstrap-stylus/stylus/'
-			},
-			{
-				test: /\.html$/,
-				loader: 'html'
+				exclude: /(node_modules|bower_components)/,
+				loader: 'style!css?localIdentName=' + config.styles + '!postcss'
 			},
 			{
 				test: /\.json$/,
+				exclude: /(node_modules|bower_components)/,
 				loader: 'json'
 			},
 			{
 				test: /\.(gif|jpe?g|png|svg|ico)/,
-				loader: 'url-loader?limit=10000'
+				exclude: /(node_modules|bower_components)/,
+				loader: 'url-loader?limit=8192'
 			},
 			{
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file'
+				test: /\.(eot|svg|ttf|woff|woff2)$/,
+				exclude: /(node_modules|bower_components)/,
+				loader: 'file'
 			},
 		]
 	},
-	stylus: {
-		use: [nib()],
-		import: ['~nib/lib/nib/index.styl'],
-		compress: true
-	},
+	postcss: function (webpack) {
+    return [
+      require('postcss-import')({ addDependencyTo: webpack }),
+      require('postcss-url')(),
+      require('postcss-cssnext')(
+				{
+					browsers: ['> 1%'],
+					warnForDuplicates: false,
+				}
+			),
+			require('cssnano')(),
+			require('postcss-nested')(),
+			require('postcss-simple-vars')(),
+			require('postcss-mixins')(),
+			require('postcss-extend')(),
+      require('postcss-browser-reporter')(),
+      require('postcss-reporter')(),
+    ]
+  },
 	plugins: [
 		new HtmlWebpackPlugin({
-			filename: path.join(__dirname, config.root + '/index.html'),
-			template: path.join(__dirname, config.root + '/app/template/index.html'),
-			hash: true
+			filename: path.resolve(__dirname, config.root + '/index.html'),
+			template: path.resolve(__dirname, config.root + '/app/assets/template.html'),
+			hash: true,
+			minify: {
+				collapseWhitespace: true,
+			}
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
@@ -77,6 +90,6 @@ module.exports = {
 				warnings: false
 			}
 		}),
-		new webpack.NoErrorsPlugin()
-	]
+		new webpack.NoErrorsPlugin(),
+	],
 }
