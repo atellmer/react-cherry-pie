@@ -15,11 +15,17 @@ console.log(clc.green('-------------------------------------------'));
 module.exports = {
 	devtool: null,
 	resolve: {
+		moduleDirectories: ['node_modules'],
 		extensions: ['', '.js', '.jsx', '.css', '.html']
 	},
-	entry: path.resolve(__dirname, config.root + '/app/index'),
+	resolveLoader: {
+		moduleDirectories: ['node_modules'],
+		moduleTemplates: ['*-loader', '*'],
+		extensions: ['', '.js']
+	},
+	entry: path.resolve(__dirname, config.root + '/src/index'),
 	output: {
-		path: path.resolve(__dirname, config.root + '/' + config.distDir + '/'),
+		path: path.resolve(__dirname, config.root + '/public/' + config.distDir + '/'),
 		filename: config.bundle,
 		publicPath: config.distDir + '/'
 	},
@@ -72,12 +78,15 @@ module.exports = {
   },
 	plugins: [
 		new HtmlWebpackPlugin({
-			filename: path.resolve(__dirname, config.root + '/index.html'),
-			template: path.resolve(__dirname, config.root + '/app/assets/template.html'),
+			filename: path.resolve(__dirname, config.root + '/public/index.html'),
+			template: path.resolve(__dirname, config.root + '/src/assets/template.html'),
 			hash: true,
 			minify: {
 				collapseWhitespace: true,
 			}
+		}),
+		new webpack.DefinePlugin({
+			environment: JSON.stringify(config.mode)
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),

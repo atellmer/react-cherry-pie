@@ -11,7 +11,7 @@ var compiler = webpack(webpackConfig);
 var port = config.port;
 
 var server = new webpackDevServer(compiler, {
-	contentBase: './' + config.root + '/',
+	contentBase: './' + config.root + '/public/',
 	publicPath: webpackConfig.output.publicPath,
 	hot: true,
 	historyApiFallback: true,
