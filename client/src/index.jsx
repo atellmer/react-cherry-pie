@@ -8,13 +8,12 @@ import configureStore from './store/configureStore';
 import App from './containers/App';
 
 
-
 const store = configureStore();
 const root = document.querySelector('#root');
 
 render(
 	<Provider store={store}>
 		<App/>
-	</Provider>, 
+	</Provider>,
 	root
 );

@@ -30,52 +30,49 @@ module.exports = {
 		publicPath: config.distDir + '/'
 	},
 	module: {
-		loaders: [
-			{
-				test: /\.(js|jsx)$/,
-				loaders: ['babel'],
-				include: [
-					path.resolve(__dirname, config.root),
-				]
-			},
-			{
-				test: /\.css$/,
-				loader: 'style!css?localIdentName=' + config.styles + '!postcss'
-			},
-			{
-				test: /\.json$/,
-				loader: 'json'
-			},
-			{
-				test: /\.(gif|jpe?g|png|svg|ico)/,
-				loader: 'url-loader?limit=8192'
-			},
-			{
-				test: /\.(eot|svg|ttf|woff|woff2)$/,
-				loader: 'file'
-			},
-		]
+		loaders: [{
+			test: /\.(js|jsx)$/,
+			loaders: ['babel', 'eslint'],
+			include: [
+				path.resolve(__dirname, config.root),
+			]
+		}, {
+			test: /\.css$/,
+			loaders: ['style', 'css?localIdentName=' + config.styles, 'postcss']
+		}, {
+			test: /\.json$/,
+			loader: 'json'
+		}, {
+			test: /\.(gif|jpe?g|png|svg|ico)/,
+			loader: 'url-loader?limit=8192'
+		}, {
+			test: /\.(eot|svg|ttf|woff|woff2)$/,
+			loader: 'file'
+		}, ]
+	},
+	eslint: {
+		configFile: '.eslintrc'
 	},
 	postcss: function (webpack) {
-    return [
-      require('postcss-import')({ addDependencyTo: webpack }),
-      require('postcss-url')(),
+		return [
+			require('postcss-import')({
+				addDependencyTo: webpack
+			}),
+			require('postcss-url')(),
 			require('postcss-css-reset')(),
-      require('postcss-cssnext')(
-				{
-					browsers: ['> 1%'],
-					warnForDuplicates: false,
-				}
-			),
+			require('postcss-cssnext')({
+				browsers: ['> 1%'],
+				warnForDuplicates: false,
+			}),
 			require('postcss-mixins')(),
 			require('postcss-nested')(),
 			require('postcss-simple-vars')(),
 			require('postcss-extend')(),
 			require('cssnano')(),
-      require('postcss-browser-reporter')(),
-      require('postcss-reporter')(),
-    ]
-  },
+			require('postcss-browser-reporter')(),
+			require('postcss-reporter')(),
+		]
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			filename: path.resolve(__dirname, config.root + '/public/index.html'),

@@ -1,7 +1,7 @@
 import {
 	createStore,
 	applyMiddleware,
-	compose,
+	compose
 } from 'redux';
 import rootReducer from '../reducers/index';
 import ReduxPromise from 'redux-promise';
