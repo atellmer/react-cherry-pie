@@ -4,7 +4,7 @@
   "description": "cherry-pie",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=development&& npm run dev && node server.js",
+    "start": "set NODE_ENV=development&& npm run dev && node webpack.dev-server.js",
     "build": "set NODE_ENV=production&& webpack --config webpack.prod.config.js",
     "dev": "webpack --config webpack.dev.config.js"
   },
@@ -52,11 +52,14 @@
     "webpack-dev-server": "^1.15.1"
   },
   "dependencies": {
-    "react": "^15.3.1",
-    "react-dom": "^15.3.1",
+    "material-ui": "^0.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.0",
+    "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.6.0",
-    "redux-promise": "^0.5.3"
+    "redux-promise": "^0.5.3",
+    "reflexbox": "^2.2.2"
   }
 }

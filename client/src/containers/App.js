@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
-import Hello from '../components/hello/index.js';
+import TmAppBar from '../components/app-bar';
+import './App.css';
+
 
 class App extends Component {
 	render() {
 		return (
 			<div>
-				<Hello/>
+				<TmAppBar/>
 			</div>
 		);
 	}

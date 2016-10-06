@@ -1,0 +1,20 @@
+.paper-shadow-z1 {
+	box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
+}
+
+:local(.root) {
+	width: 100%;
+	height: auto;
+	min-height: 42px;
+	background-color: #503276;
+	padding: 0 16px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	transition: all .2s ease-in-out;
+	@extend .paper-shadow-z1;
+	@media all and (min-width: 480px) {
+		min-height: 48px;
+	}
+}
