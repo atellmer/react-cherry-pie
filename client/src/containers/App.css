@@ -1,15 +1,17 @@
-@reset-global pc;
+:local(.root) {
+	.l-TmPanel {
+		width: 100%;
+		max-width: 360px;
+		@media (width <= 480px) {
+			display: none;
+		}
+	}
 
-*, *:before, *:after {
-	box-sizing: border-box;
-}
-
-html, body {
-	width: 100%;
-	height: 100%;
-}
-
-body {
-	font-family: 'Roboto';
-	background-color: #fafafa;
+	.l-TmCanvas {
+		width: 100%;
+		padding-top: 42px;
+		@media (width >= 480px) {
+			padding-top: 48px;
+		}
+	}
 }

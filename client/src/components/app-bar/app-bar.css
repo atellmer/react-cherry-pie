@@ -1,16 +1,26 @@
+:root {
+  --mainColor: #503276;
+	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
+}
+
 :local(.root) {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
 	width: 100%;
 	height: auto;
 	min-height: 42px;
-	background-color: #503276;
+	background-color: var(--mainColor);
 	padding: 0 16px;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: space-between;
 	align-items: center;
-	transition: all .2s ease-in-out;
-	box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
-	@media all and (min-width: 480px) {
+	transition: height .2s ease-in-out;
+	box-shadow: var(--shadowZ1);
+	@media (width >= 480px) {
 		min-height: 48px;
 	}
 
@@ -23,13 +33,10 @@
 	}
 
 	button {
-		@media all and (max-width: 480px) {
+		@media (width <= 480px) {
 			padding: 9px!important;
 			width: 42px!important;
 			height: 42px!important;
 		}
 	}
 }
-
-
-

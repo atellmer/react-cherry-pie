@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
 import { Flex, Box } from 'reflexbox';
 import Avatar from 'material-ui/Avatar';
 import IconButton from 'material-ui/IconButton';
@@ -9,15 +8,16 @@ import css from './app-bar.css';
 import TmLogo from '../logo';
 
 
-@Radium
 class TmAppBar extends Component {
 	render() {
 		return (
 			<div className={css.root}>
-				<TmLogo/>
+				<div>
+					<TmLogo/>
+				</div>
 				<Flex align='center'>
 					<Box className='l-Avatar'>
-						<Avatar src={require('../../assets/images/user.jpg')} size={34} backgroundColor={'#fff'}/>
+						<Avatar src={require('../../assets/images/user.jpg')} size={34} backgroundColor={'transparent'}/>
 					</Box>
 					<Box className='l-IconButton'>
 						<IconButton>
