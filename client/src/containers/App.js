@@ -4,12 +4,12 @@ import { Flex, Box } from 'reflexbox';
 import TmAppBar from '../components/app-bar';
 import TmPanel from '../components/panel';
 import './main.css';
-import style from './app.css';
+import css from './app.css';
 
 class App extends Component {
 	render() {
 		return (
-			<div className={style.root}>
+			<div className={css.root}>
 				<TmAppBar/>
 				<Flex>
 					<Box className='l-TmPanel'>

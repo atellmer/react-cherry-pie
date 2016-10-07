@@ -4,22 +4,22 @@
 }
 
 :local(.root) {
-	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
-	width: 100%;
-	height: auto;
-	min-height: 42px;
-	background-color: var(--mainColor);
-	padding: 0 16px;
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
 	align-items: center;
-	transition: height .2s ease-in-out;
+	justify-content: space-between;
+	padding: 0 16px;
+	min-height: 42px;
+	width: 100%;
+	height: auto;
+	background-color: var(--mainColor);
 	box-shadow: var(--shadowZ1);
+	transition: height .2s ease-in-out;
+
 	@media (width >= 480px) {
 		min-height: 48px;
 	}
@@ -27,11 +27,9 @@
 	.l-Avatar {
 		margin: 2px;
 	}
-
 	.l-IconButton {
 		margin: 0 -16px 0 0;
 	}
-
 	button {
 		@media (width <= 480px) {
 			padding: 9px!important;

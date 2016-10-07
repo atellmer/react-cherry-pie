@@ -1,15 +1,16 @@
 :local(.root) {
 	.l-TmPanel {
-		width: 100%;
 		max-width: 360px;
+		width: 100%;
+
 		@media (width <= 480px) {
 			display: none;
 		}
 	}
-
 	.l-TmCanvas {
-		width: 100%;
 		padding-top: 42px;
+		width: 100%;
+
 		@media (width >= 480px) {
 			padding-top: 48px;
 		}
