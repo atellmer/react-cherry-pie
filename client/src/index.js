@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { StyleRoot } from 'radium';
 
 import configureStore from './store/configureStore';
 
@@ -17,7 +18,9 @@ const root = document.querySelector('#root');
 render(
 	<Provider store={store}>
 		<MuiThemeProvider>
-			<App/>
+			<StyleRoot>
+				<App/>
+			</StyleRoot>
 		</MuiThemeProvider>
 	</Provider>,
 	root

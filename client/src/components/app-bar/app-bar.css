@@ -1,7 +1,3 @@
-.paper-shadow-z1 {
-	box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
-}
-
 :local(.root) {
 	width: 100%;
 	height: auto;
@@ -13,8 +9,27 @@
 	justify-content: space-between;
 	align-items: center;
 	transition: all .2s ease-in-out;
-	@extend .paper-shadow-z1;
+	box-shadow: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
 	@media all and (min-width: 480px) {
 		min-height: 48px;
 	}
+
+	.l-Avatar {
+		margin: 2px;
+	}
+
+	.l-IconButton {
+		margin: 0 -16px 0 0;
+	}
+
+	button {
+		@media all and (max-width: 480px) {
+			padding: 9px!important;
+			width: 42px!important;
+			height: 42px!important;
+		}
+	}
 }
+
+
+
