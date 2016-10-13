@@ -1,11 +1,13 @@
+/* @flow */
 import React, { Component } from 'react';
 
-import style from './logo.css';
+import css from './logo.css';
+
 
 class TmLogo extends Component {
 	render() {
 		return (
-			<div className={style.root}/>
+			<div className={css.root}/>
 		);
 	}
 }

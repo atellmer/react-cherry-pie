@@ -1,7 +1,8 @@
+/* @flow */
 import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox';
-import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
+import Avatar from 'material-ui/Avatar/index';
+import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import css from './app-bar.css';
