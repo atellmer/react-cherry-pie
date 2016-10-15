@@ -14,7 +14,9 @@ class TmAppBar extends Component {
 		return (
 			<div className={css.root}>
 				<div>
-					<TmLogo/>
+					<div className='l-Logo'>
+						<TmLogo/>
+					</div>
 				</div>
 				<Flex align='center'>
 					<Box className='l-Avatar'>

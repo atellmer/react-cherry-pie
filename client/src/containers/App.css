@@ -1,49 +1,99 @@
+:root {
+	--darkPurple: #503276;
+  --lightPurple: #653e96;
+	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
+	--shadowZ2: 0 3px 10px rgba(0,0,0,0.16), 0 3px 10px rgba(0,0,0,0.23);
+	--shadowZ3: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
+	--shadowZ4: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
+	--shadowZ5: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
+	--appBarZIndex: 98;
+	--panelZIndex: 99;
+	--canvasZIndex: 1;
+}
+
 :local(.root) {
-	position: relative;
+	position: fixed;
+	min-height: 100vh;
+	width: 100%;
+	height: auto;
 
 	.l-TmAppBar {
 		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: 98;
+		z-index: var(--appBarZIndex);
 		width: 100%;
+		height: auto;
+
+		@media (max-width: 600px) {
+			z-index: calc(var(--appBarZIndex) + 1);
+		}
+	}
+	.animatable {
+		@media (min-width: 600px) {
+			animation: contentMotion .3s ease-in-out forwards;
+		}
 	}
 	.l-TmPanel {
 		position: relative;
-		z-index: 99;
+		z-index: var(--panelZIndex);
 		max-width: 360px;
 		width: 100%;
-		animation: panelMotionSlideRight .2s ease-in-out forwards;
+		height: auto;
 
 		@media (max-width: 600px) {
-			animation: panelMotionSlideLeft .2s ease-in-out forwards;
+			z-index: calc(var(--appBarZIndex) - 1);
+			max-width: none;
+			width: 100%;
+			animation: panelMotion .3s ease-in-out forwards;
 		}
 	}
 	.l-TmCanvas {
 		position: relative;
-		z-index: 1;
+		z-index: var(--canvasZIndex);
 		width: 100%;
+		height: auto;
+
+		@media (max-width: 600px) {
+			position: absolute;
+			visibility: hidden;
+		}
+		@media (min-width: 600px) {
+			animation: canvasMotion .4s ease-in-out forwards;
+		}
 	}
 }
 
-@keyframes panelMotionSlideLeft {
+@keyframes contentMotion {
 	0% {
-		position: relative;
-		transform: translate3D(0, 0, 0);
+		opacity: 0;
+		transform: translate(-100%, 0);
 	}
 	100% {
-		position: absolute;
-		transform: translate3D(-100%, 0, 0);
+		opacity: 1;
+		transform: translate(0, 0);
 	}
 }
 
-@keyframes panelMotionSlideRight {
+@keyframes panelMotion {
 	0% {
-		position: absolute;
-		transform: translate3D(-100%, 0, 0);
+		opacity: 0;
+		transform: translate(-100%, 0);
 	}
 	100% {
-		position: relative;
-		transform: translate3D(0, 0, 0);
+		opacity: 1;
+		transform: translate(0, 0);
 	}
 }
+
+@keyframes canvasMotion {
+	0% {
+		opacity: 0;
+		transform: translate(-100%, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+

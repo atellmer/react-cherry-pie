@@ -6,6 +6,10 @@
 	.scrolable {
 		width: 100%;
 		height: calc(100vh - 152px)!important;
+		overflow-y: auto;
+		@media (max-width: 600px) {
+			height: calc(100vh - 48px)!important;
+		}
 	}
 	.item {
 		padding: 15px 16px;

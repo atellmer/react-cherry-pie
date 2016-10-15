@@ -17,10 +17,15 @@
 	box-shadow: var(--shadowZ1);
 	transition: height .2s ease-in-out;
 
-	@media (min-width: 480px) {
+	@media (min-width: 600px) {
 		min-height: 48px;
 	}
 
+	.l-Logo {
+		@media (min-width: 600px) {
+			display: none;
+		}
+	}
 	.l-Avatar {
 		margin: 2px;
 	}
@@ -28,7 +33,7 @@
 		margin: 0 -16px 0 0;
 	}
 	button {
-		@media (max-width: 480px) {
+		@media (max-width: 600px) {
 			padding: 9px!important;
 			width: 42px!important;
 			height: 42px!important;

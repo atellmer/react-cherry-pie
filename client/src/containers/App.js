@@ -6,7 +6,7 @@ import TmAppBar from '../components/app-bar';
 import TmPanel from '../components/panel';
 import TmCanvas from '../components/canvas';
 import '../main.css';
-import css from './app.css';
+import css from './App.css';
 
 class App extends Component {
 	render() {
@@ -16,11 +16,15 @@ class App extends Component {
 					<TmAppBar/>
 				</div>
 				<Flex>
-					<Box className='l-TmPanel'>
-						<TmPanel/>
+					<Box className='l-TmPanel' flexAuto>
+						<div className='animatable'>
+							<TmPanel/>
+						</div>
 					</Box>
-					<Box className='l-TmCanvas'>
-						<TmCanvas/>
+					<Box className='l-TmCanvas' flexAuto>
+						<div className='animatable'>
+							<TmCanvas/>
+						</div>
 					</Box>
 				</Flex>
 			</div>
