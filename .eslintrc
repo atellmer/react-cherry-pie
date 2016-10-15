@@ -378,6 +378,5 @@
 		"no-bitwise": 2
 	},
 	"globals": {
-		"environment": true
 	}
 }

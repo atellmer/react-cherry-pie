@@ -83,7 +83,7 @@ module.exports = {
 			}
 		}),
 		new webpack.DefinePlugin({
-			environment: JSON.stringify(config.mode)
+			'process.env.NODE_ENV': JSON.stringify(config.mode)
 		}),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
