@@ -3,6 +3,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 var clc = require('cli-color');
 
 var config = require('./config');
@@ -93,5 +94,8 @@ module.exports = {
 			}
 		}),
 		new webpack.NoErrorsPlugin(),
+		new FlowStatusWebpackPlugin({
+			failOnError: true
+		}),
 	],
 }
