@@ -18,6 +18,8 @@ class TmMessagesView extends Component {
 			<div className={css.root}>
 				<Scrollbars className='scrolable'>
 					{itemsTemplate}
+					{itemsTemplate}
+					{itemsTemplate}
 				</Scrollbars>
 			</div>
 		);
