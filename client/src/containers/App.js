@@ -4,6 +4,7 @@ import { Flex, Box } from 'reflexbox';
 
 import TmAppBar from '../components/app-bar';
 import TmPanel from '../components/panel';
+import TmCanvas from '../components/canvas';
 import './main.css';
 import css from './app.css';
 
@@ -17,7 +18,7 @@ class App extends Component {
 						<TmPanel/>
 					</Box>
 					<Box className='l-TmCanvas'>
-						<div>TmCanvas</div>
+						<TmCanvas/>
 					</Box>
 				</Flex>
 			</div>

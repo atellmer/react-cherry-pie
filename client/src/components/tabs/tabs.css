@@ -1,0 +1,12 @@
+:root {
+	--darkPurple: #503276;
+  --lightPurple: #653e96;
+}
+
+:local(.root) {
+	.content {
+		width: 100%;
+		height: calc(100vh - 152px);
+		background-color: var(--lightPurple);
+	}
+}

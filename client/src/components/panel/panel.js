@@ -1,20 +1,28 @@
 /* @flow */
 import React, { Component } from 'react';
-import { Flex, Box } from 'reflexbox';
+import { Flex } from 'reflexbox';
 
 import css from './panel.css';
 import TmLogo from '../logo';
+import TmSearchBar from '../search-bar';
+import TmTabs from '../tabs';
 
 
 class TmPanel extends Component {
 	render() {
 		return (
 			<div className={css.root}>
-				<Flex className='l-Header' align='center'>
-					<Box>
+				<div className='header'>
+					<Flex className='l-Logo' align='center'>
 						<TmLogo/>
-					</Box>
-				</Flex>
+					</Flex>
+					<Flex className='l-SearchBar' align='center'>
+						<TmSearchBar/>
+					</Flex>
+				</div>
+				<div className='content'>
+					<TmTabs/>
+				</div>
 			</div>
 		);
 	}

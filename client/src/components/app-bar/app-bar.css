@@ -1,5 +1,5 @@
 :root {
-  --mainColor: #503276;
+  --darkPurple: #503276;
 	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
 }
 
@@ -16,11 +16,11 @@
 	min-height: 42px;
 	width: 100%;
 	height: auto;
-	background-color: var(--mainColor);
+	background-color: var(--darkPurple);
 	box-shadow: var(--shadowZ1);
 	transition: height .2s ease-in-out;
 
-	@media (width >= 480px) {
+	@media (min-width: 480px) {
 		min-height: 48px;
 	}
 
@@ -31,7 +31,7 @@
 		margin: 0 -16px 0 0;
 	}
 	button {
-		@media (width <= 480px) {
+		@media (max-width: 480px) {
 			padding: 9px!important;
 			width: 42px!important;
 			height: 42px!important;

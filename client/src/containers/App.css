@@ -3,16 +3,11 @@
 		max-width: 360px;
 		width: 100%;
 
-		@media (width <= 480px) {
+		@media (max-width: 480px) {
 			display: none;
 		}
 	}
 	.l-TmCanvas {
-		padding-top: 42px;
 		width: 100%;
-
-		@media (width >= 480px) {
-			padding-top: 48px;
-		}
 	}
 }

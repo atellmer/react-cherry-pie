@@ -1,14 +1,9 @@
 :local(.root) {
-	width: calc(195px / 2.5);
-	height: calc(78px / 2.5);
+	width: calc(820px / 11);
+	height: calc(323px / 11);
 	background-image: url('../../assets/images/logo.png');
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
 	transition: all .2s ease-in-out;
-
-	@media (width >= 480px) {
-		width: calc(195px / 2);
-		height: calc(78px / 2);
-	}
 }

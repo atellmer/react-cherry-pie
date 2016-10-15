@@ -1,0 +1,36 @@
+:root {
+	--darkPurple: #503276;
+  --lightPurple: #653e96;
+	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
+}
+
+:local(.root) {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 42px;
+	border-radius: 3px;
+	background-color: rgba(255, 255, 255, 0.15);
+	box-shadow: var(--shadowZ1);
+	padding: 0 16px;
+
+	.l-icon {
+		display: flex;
+		align-items: center;
+	}
+
+	.l-input {
+		display: flex;
+		align-items: center;
+	}
+
+	.input {
+		background-color: transparent;
+		border: 0;
+		color: #fff;
+		padding: 0 8px;
+		font-size: 1.6em;
+	}
+}

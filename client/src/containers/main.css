@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 @reset-global pc;
 @reset-global mobile;
 
@@ -13,4 +15,6 @@ html, body {
 body {
 	background-color: #fafafa;
 	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 10px;
 }

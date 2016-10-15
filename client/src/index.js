@@ -8,7 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { StyleRoot } from 'radium';
 
 import configureStore from './store/configureStore';
-
+import muiTheme from './config/theme';
 import App from './containers/App';
 
 injectTapEventPlugin();
@@ -18,7 +18,7 @@ const root = document.querySelector('#root');
 
 render(
 	<Provider store={store}>
-		<MuiThemeProvider>
+		<MuiThemeProvider muiTheme={muiTheme}>
 			<StyleRoot>
 				<App/>
 			</StyleRoot>
