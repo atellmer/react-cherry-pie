@@ -1,0 +1,58 @@
+[
+	{
+		"avatar": "linktoavatar",
+		"firstname": "Нина",
+		"lastname": "Ковалева",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+	{
+		"avatar": "linktoavatar",
+		"firstname": "Марина",
+		"lastname": "Петрова",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+		{
+		"avatar": "linktoavatar",
+		"firstname": "Александра",
+		"lastname": "Вышнегородская",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+		{
+		"avatar": "linktoavatar",
+		"firstname": "Кристина",
+		"lastname": "Инокентьева",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+		{
+		"avatar": "linktoavatar",
+		"firstname": "Ирина",
+		"lastname": "Кондратьева",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+		{
+		"avatar": "linktoavatar",
+		"firstname": "Валерия",
+		"lastname": "Александрович",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	},
+		{
+		"avatar": "linktoavatar",
+		"firstname": "Кристина",
+		"lastname": "Иванова",
+		"lastMessage": "lorem ipsum dolor",
+		"timestamp": "12:57",
+		"online": true
+	}
+]

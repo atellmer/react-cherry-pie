@@ -1,13 +1,37 @@
 :local(.root) {
 	.l-TmPanel {
+		position: relative;
 		max-width: 360px;
 		width: 100%;
+		animation: panelMotionSlideRight .2s ease-in-out forwards;
 
-		@media (max-width: 480px) {
-			display: none;
+		@media (max-width: 600px) {
+			animation: panelMotionSlideLeft .2s ease-in-out forwards;
 		}
 	}
 	.l-TmCanvas {
 		width: 100%;
+	}
+}
+
+@keyframes :global(panelMotionSlideLeft) {
+	0% {
+		position: relative;
+		transform: translate3D(0, 0, 0);
+	}
+	100% {
+		position: absolute;
+		transform: translate3D(-100%, 0, 0);
+	}
+}
+
+@keyframes :global(panelMotionSlideRight) {
+	0% {
+		position: absolute;
+		transform: translate3D(-100%, 0, 0);
+	}
+	100% {
+		position: relative;
+		transform: translate3D(0, 0, 0);
 	}
 }

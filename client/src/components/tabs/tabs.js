@@ -1,7 +1,10 @@
+/** @flow */
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
+import TmMessagesView from '../messages-view';
 
 import css from './tabs.css';
+
 
 class TmTabs extends Component {
 	render() {
@@ -9,7 +12,7 @@ class TmTabs extends Component {
 			<div className={css.root}>
 				<Tabs contentContainerClassName='content'>
 					<Tab label='Все'>
-						one
+						<TmMessagesView/>
 					</Tab>
 					<Tab label='Новые'>
 						two
