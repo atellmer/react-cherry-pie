@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 var clc = require('cli-color');
@@ -79,6 +80,12 @@ module.exports = {
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin(
+			[path.resolve(__dirname, config.root + '/public/' + config.distDir + '/')], {
+				root: '',
+				verbose: true,
+				dry: false,
+			}),
 		new HtmlWebpackPlugin({
 			filename: path.resolve(__dirname, config.root + '/public/index.html'),
 			template: path.resolve(__dirname, config.root + '/src/assets/template.html'),
