@@ -12,31 +12,34 @@
 	position: relative;
 	display: block;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	background-color: var(--lightPurple);
 	box-shadow: var(--shadowZ1);
+}
 
-	.header {
-		background-color: var(--darkPurple);
-	}
+:local(.headerLayout) {
+	background-color: var(--darkPurple);
+}
 
-	.l-Logo {
-		padding: 0 16px;
-		min-height: 48px;
-		width: 100%;
-		height: auto;
-		@media (max-width: 600px) {
-			min-height: 42px;
-			visibility: hidden;
-		}
+:local(.logoLayout) {
+	padding: 0 16px;
+	min-height: 48px;
+	width: 100%;
+	height: auto;
+
+	@media (max-width: 600px) {
+		visibility: hidden;
+		min-height: 42px;
 	}
-	.l-SearchBar {
-		padding: 0 16px;
-		width: 100%;
-		height: 56px;
-		@media (max-width: 600px) {
-			position: absolute;
-			visibility: hidden;
-		}
+}
+
+:local(.searchbarLayout) {
+	padding: 0 16px;
+	width: 100%;
+	height: 56px;
+
+	@media (max-width: 600px) {
+		position: absolute;
+		visibility: hidden;
 	}
 }

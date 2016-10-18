@@ -4,7 +4,7 @@ import { Flex } from 'reflexbox';
 
 import css from './panel.css';
 import TmLogo from '../logo';
-import TmSearchBar from '../search-bar';
+import TmSearchbar from '../searchbar';
 import TmTabs from '../tabs';
 
 
@@ -12,15 +12,15 @@ class TmPanel extends Component {
 	render() {
 		return (
 			<div className={css.root}>
-				<div className='header'>
-					<Flex className='l-Logo' align='center'>
+				<div className={css.headerLayout}>
+					<Flex className={css.logoLayout} align='center'>
 						<TmLogo/>
 					</Flex>
-					<Flex className='l-SearchBar' align='center'>
-						<TmSearchBar/>
+					<Flex className={css.searchbarLayout} align='center'>
+						<TmSearchbar/>
 					</Flex>
 				</div>
-				<div className='content'>
+				<div>
 					<TmTabs/>
 				</div>
 			</div>

@@ -12,15 +12,15 @@ class TmMessagePanel extends Component {
 	render() {
 		return (
 			<Flex className={css.root} align='center'>
-				<Box className='l-button'>
+				<Box>
 					<IconButton>
 						<SentimentSatisfiedIcon color={'#7f7f7f'}/>
 					</IconButton>
 				</Box>
-				<Box className='l-texarea' flexAuto>
+				<Box flexAuto>
 					textarea
 				</Box>
-				<Box className='l-button'>
+				<Box>
 					<IconButton>
 						<SendIcon color={'#9a85cd'}/>
 					</IconButton>

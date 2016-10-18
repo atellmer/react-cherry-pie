@@ -16,20 +16,24 @@
 	border-radius: 3px;
 	background-color: rgba(255, 255, 255, 0.15);
 	box-shadow: var(--shadowZ1);
+}
 
-	.l-icon {
-		display: flex;
-		align-items: center;
-	}
-	.l-input {
-		display: flex;
-		align-items: center;
-	}
-	.input {
-		padding: 0 8px;
-		border: 0;
-		background-color: transparent;
-		color: #fff;
-		font-size: 1.6em;
-	}
+:local(.iconLayout) {
+	display: flex;
+	align-items: center;
+}
+
+:local(.inputLayout) {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+:local(.input) {
+	padding: 0 8px;
+	width: 100%;
+	border: 0;
+	background-color: transparent;
+	color: #fff;
+	font-size: 1.6em;
 }

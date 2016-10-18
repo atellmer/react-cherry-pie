@@ -20,18 +20,21 @@
 	@media (min-width: 600px) {
 		min-height: 48px;
 	}
+}
 
-	.l-Logo {
-		@media (min-width: 600px) {
-			display: none;
-		}
+:local(.logoLayout) {
+	@media (min-width: 600px) {
+		display: none;
 	}
-	.l-Avatar {
-		margin: 2px;
-	}
-	.l-IconButton {
-		margin: 0 -16px 0 0;
-	}
+}
+
+:local(.avatarLayout) {
+	margin: 2px;
+}
+
+:local(.iconButtonLayout) {
+	margin: 0 -16px 0 0;
+
 	button {
 		@media (max-width: 600px) {
 			padding: 9px!important;

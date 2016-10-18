@@ -14,7 +14,7 @@ import App from './containers/App';
 injectTapEventPlugin();
 
 const store = configureStore();
-const root = document.querySelector('#root');
+const root = document.querySelector('#react-root');
 
 render(
 	<Provider store={store}>

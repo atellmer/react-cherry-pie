@@ -2,17 +2,17 @@
 import React, { Component } from 'react';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-import css from './search-bar.css';
+import css from './searchbar.css';
 
 class TmSearchbar extends Component {
 	render() {
 		return (
 			<div className={css.root}>
-				<div className='l-icon'>
+				<div className={css.iconLayout}>
 					<SearchIcon color={'#fff'}/>
 				</div>
-				<div className='l-input'>
-					<input type='text' className='input' placeholder='Поиск'/>
+				<div className={css.inputLayout}>
+					<input type='text' className={css.input} placeholder='Поиск'/>
 				</div>
 			</div>
 		);

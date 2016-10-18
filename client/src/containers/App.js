@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox';
 
-import TmAppBar from '../components/app-bar';
+import TmAppbar from '../components/appbar';
 import TmPanel from '../components/panel';
 import TmCanvas from '../components/canvas';
 import '../main.css';
@@ -12,19 +12,15 @@ class App extends Component {
 	render() {
 		return (
 			<div className={css.root}>
-				<div className='l-TmAppBar'>
-					<TmAppBar/>
+				<div className={css.appbarLayout}>
+					<TmAppbar/>
 				</div>
-				<Flex>
-					<Box className='l-TmPanel' flexAuto>
-						<div className='animatable'>
-							<TmPanel/>
-						</div>
+				<Flex className={css.contentLayout}>
+					<Box className={css.panelLayout}>
+						<TmPanel/>
 					</Box>
-					<Box className='l-TmCanvas' flexAuto>
-						<div className='animatable'>
-							<TmCanvas/>
-						</div>
+					<Box className={css.canvasLayout}>
+						<TmCanvas/>
 					</Box>
 				</Flex>
 			</div>

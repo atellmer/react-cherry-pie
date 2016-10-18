@@ -23,3 +23,9 @@ body {
 	font-family: 'Roboto';
 	-webkit-tap-highlight-color: transparent;
 }
+
+#react-root, [data-reactroot] {
+	height: 100%;
+}
+
+

@@ -5,24 +5,24 @@ import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import css from './app-bar.css';
+import css from './appbar.css';
 import TmLogo from '../logo';
 
 
-class TmAppBar extends Component {
+class TmAppbar extends Component {
 	render() {
 		return (
 			<div className={css.root}>
 				<div>
-					<div className='l-Logo'>
+					<div className={css.logoLayout}>
 						<TmLogo/>
 					</div>
 				</div>
 				<Flex align='center'>
-					<Box className='l-Avatar'>
+					<Box className={css.avatarLayout}>
 						<Avatar src={require('../../assets/images/user.jpg')} size={34} backgroundColor={'transparent'}/>
 					</Box>
-					<Box className='l-IconButton'>
+					<Box className={css.iconButtonLayout}>
 						<IconButton>
 							<MoreVertIcon color={'#fff'}/>
 						</IconButton>
@@ -33,4 +33,4 @@ class TmAppBar extends Component {
 	}
 }
 
-export default TmAppBar;
+export default TmAppbar;
