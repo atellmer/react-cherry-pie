@@ -217,7 +217,7 @@
 		],
 		"max-len": [
 			2,
-			128,
+			256,
 			4,
 			{
 				"ignoreUrls": true,
@@ -357,6 +357,8 @@
 			2,
 			{
 				"order": [
+					"type-annotations",
+					"constructor",
 					"lifecycle",
 					"/^handle.+$/",
 					"/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/",
