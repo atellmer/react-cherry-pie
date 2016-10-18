@@ -19,8 +19,8 @@ class TmCanvas extends Component {
 
 		return (
 			<div className={css.root}>
-				<div>
-					<Scrollbars className={css.scrollable}>
+				<div className={css.contentLayout}>
+					<Scrollbars className={css.scrollableView}>
 						{itemsTemplate}
 						{itemsTemplate}
 						{itemsTemplate}
