@@ -20,7 +20,8 @@ class TmCanvas extends Component {
 		return (
 			<div className={css.root}>
 				<div className={css.contentLayout}>
-					<Scrollbars className={css.scrollableView}>
+					<Scrollbars autoHide autoHideTimeout={1000}
+						autoHideDuration={200} className={css.scrollableView}>
 						{itemsTemplate}
 						{itemsTemplate}
 						{itemsTemplate}

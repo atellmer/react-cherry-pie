@@ -45,7 +45,8 @@ class TmTabs extends Component {
 					<Tab label='Новые' value={1}/>
 				</Tabs>
 				<SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange}>
-					<Scrollbars className={css.scrollableView}>
+					<Scrollbars autoHide autoHideTimeout={1000}
+						autoHideDuration={200} className={css.scrollableView}>
 						{itemsTemplate}
 						{itemsTemplate}
 						{itemsTemplate}

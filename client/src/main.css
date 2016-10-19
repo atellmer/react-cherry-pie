@@ -17,14 +17,28 @@ body {
 	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	background-color: #fafafa;
 	font-weight: 400;
 	font-size: 10px;
 	font-family: 'Roboto';
 	-webkit-tap-highlight-color: transparent;
+	background: linear-gradient(270deg, #F8BBD0, #90CAF9);
+	background-size: 400% 400%;
+	animation: bgAnimation 30s ease-in-out infinite;
 }
 
 #react-root, [data-reactroot] {
 	width: 100%;
 	height: 100%;
+}
+
+@keyframes bgAnimation { 
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
 }
