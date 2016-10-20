@@ -1,1 +1,1 @@
-# Cherry Pie Project
+# Cherry Pie Project for Web
