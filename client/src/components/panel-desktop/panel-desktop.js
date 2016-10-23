@@ -2,13 +2,13 @@
 import React, { Component } from 'react';
 import { Flex } from 'reflexbox';
 
-import css from './panel.css';
+import css from './panel-desktop.css';
 import TmLogo from '../logo';
 import TmSearchbar from '../searchbar';
 import TmTabs from '../tabs';
 
 
-class TmPanel extends Component {
+class TmPanelDesktop extends Component {
 	render() {
 		return (
 			<div className={css.root}>
@@ -28,4 +28,4 @@ class TmPanel extends Component {
 	}
 }
 
-export default TmPanel;
+export default TmPanelDesktop;

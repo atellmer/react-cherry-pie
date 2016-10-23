@@ -35,29 +35,51 @@
 	}
 }
 
-:local(.contentLayout) {
+:local(.contentPhoneLayout) {
+	width: 100%;
+	height: 100%;
+
+	@media (min-width: 600px) {
+		position: absolute;
+		visibility: hidden;
+	}
+}
+
+:local(.panelPhoneLayout) {
+	position: relative;
 	width: 100%;
 	height: 100%;
 }
 
-:local(.panelLayout) {
+:local(.canvasPhoneLayout) {
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+:local(.contentDesktopLayout) {
+	width: 100%;
+	height: 100%;
+
+	@media (max-width: 600px) {
+		display: none!important;
+	}
+}
+
+:local(.panelDesktopLayout) {
 	position: relative;
 	z-index: var(--panelZIndex);
-	max-width: 320px;
-	width: 100%;
+	flex-basis: 300px;
 	height: 100%;
 
-	@media (max-width: 768px) {
-		max-width: 300px;
-	}
-	@media (max-width: 600px) {
-		display: none;
+	@media (min-width: 768px) {
+		flex-basis: 320px;
 	}
 }
 
-:local(.canvasLayout) {
+:local(.canvasDesktopLayout) {
 	position: relative;
 	z-index: var(--canvasZIndex);
-	width: 100%;
+	flex-grow: 1;
 	height: 100%;
 }
