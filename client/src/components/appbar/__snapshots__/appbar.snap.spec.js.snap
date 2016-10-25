@@ -1,4 +1,4 @@
-exports[`test Jest: TmAppbar component test cap 1`] = `
+exports[`test Jest: TmAppbar (Snapshot) 1`] = `
 <div
   className="root">
   <div>
