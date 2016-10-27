@@ -1,7 +1,5 @@
-:root {
-	--darkPurple: #503276;
-  --lightPurple: #653e96;
-}
+@import '../../variables.css';
+
 
 :local(.root) {
 	position: relative;

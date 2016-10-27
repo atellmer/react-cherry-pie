@@ -1,23 +1,16 @@
-:root {
-	--darkPurple: #503276;
-  --lightPurple: #653e96;
-	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
-	--shadowZ2: 0 3px 10px rgba(0,0,0,0.16), 0 3px 10px rgba(0,0,0,0.23);
-	--shadowZ3: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
-	--shadowZ4: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
-	--shadowZ5: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
-}
+@import '../../variables.css';
+
 
 :local(.root) {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-color: var(--lightPurple);
-	box-shadow: var(--shadowZ1);
+	background-color: var(--primaryColorSecond);
+	box-shadow: var(--shadowElevationZ1);
 }
 
 :local(.headerLayout) {
-	background-color: var(--darkPurple);
+	background-color: var(--primaryColorFirst);
 }
 
 :local(.logoLayout) {

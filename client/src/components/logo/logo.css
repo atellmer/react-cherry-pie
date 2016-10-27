@@ -1,3 +1,6 @@
+@import '../../variables.css';
+
+
 :local(.root) {
 	width: calc(820px / 11);
 	height: calc(323px / 11);

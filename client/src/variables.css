@@ -1,0 +1,31 @@
+:root {
+	/*z-indexes*/
+	--zIndex1: 1000;
+	--zIndex2: 2000;
+	--zIndex3: 3000;
+	--zIndex4: 4000;
+	--zIndex5: 5000;
+	--zIndex6: 6000;
+	--zIndex7: 7000;
+	--zIndex8: 8000;
+	--zIndex9: 9000;
+	--zIndex10: 10000;
+
+	/*Colors*/
+	--primaryColorFirst: #503276;
+  --primaryColorSecond: #653e96;
+	--secondaryColor: #E91E63;
+	--backgroundColor: #fafafa;
+
+	/*Material Shadows*/
+	--shadowElevationZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
+	--shadowElevationZ2: 0 3px 10px rgba(0,0,0,0.16), 0 3px 10px rgba(0,0,0,0.23);
+	--shadowElevationZ3: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
+	--shadowElevationZ4: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
+	--shadowElevationZ5: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
+
+	/*Layout z-indexes*/
+	--appbarZIndex: var(--zIndex2);
+	--panelZIndex: var(--zIndex3);
+	--canvasZIndex: var(--zIndex1);
+}

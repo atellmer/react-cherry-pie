@@ -7,9 +7,7 @@ import TmAppbar from '../components/appbar';
 import TmPanelDesktop from '../components/panel-desktop';
 import TmPanelPhone from '../components/panel-phone';
 import TmCanvas from '../components/canvas';
-import '../main.css';
 import css from './App.css';
-
 
 type Props = {};
 

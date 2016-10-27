@@ -1,7 +1,5 @@
-:root {
-  --darkPurple: #503276;
-	--shadowZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.12);
-}
+@import '../../variables.css';
+
 
 :local(.root) {
 	position: relative;
@@ -13,8 +11,8 @@
 	min-height: 42px;
 	width: 100%;
 	height: auto;
-	background-color: var(--darkPurple);
-	box-shadow: var(--shadowZ1);
+	background-color: var(--primaryColorFirst);
+	box-shadow: var(--shadowElevationZ1);
 	transition: height .2s ease-in-out;
 
 	@media (min-width: 600px) {

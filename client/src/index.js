@@ -9,6 +9,7 @@ import { StyleRoot } from 'radium';
 
 import configureStore from './store/configureStore';
 import muiTheme from './config/theme';
+import './main.css';
 import App from './containers/App';
 
 injectTapEventPlugin();

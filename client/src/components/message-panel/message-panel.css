@@ -1,3 +1,6 @@
+@import '../../variables.css';
+
+
 :local(.root) {
 	position: relative;
 	margin: 0;
