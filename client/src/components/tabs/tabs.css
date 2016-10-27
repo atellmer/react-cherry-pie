@@ -1,16 +1,15 @@
 @import '../../variables.css';
 
-
 :local(.root) {
 	position: relative;
 }
 
 :local(.scrollableView) {
 	width: 100%;
-	height: calc(100vh - 152px)!important;
+	height: calc(100vh - 152px) !important;
 }
 
-/*Temp*/
+/* Temp */
 :local(.item) {
 	padding: 15px 16px;
 	color: #fff;

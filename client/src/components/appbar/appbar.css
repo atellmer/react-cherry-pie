@@ -1,6 +1,5 @@
 @import '../../variables.css';
 
-
 :local(.root) {
 	position: relative;
 	display: flex;
@@ -35,9 +34,9 @@
 
 	button {
 		@media (max-width: 600px) {
-			padding: 9px!important;
-			width: 42px!important;
-			height: 42px!important;
+			padding: 9px !important;
+			width: 42px !important;
+			height: 42px !important;
 		}
 	}
 }

@@ -3,7 +3,9 @@
 @reset-global pc;
 @reset-global mobile;
 
-*, *:before, *:after {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
 }
 
@@ -24,7 +26,8 @@ body {
 	background-color: cornflowerblue;
 }
 
-#react-root, [data-reactroot] {
+#react-root,
+[data-reactroot] {
 	width: 100%;
 	height: 100%;
 }
