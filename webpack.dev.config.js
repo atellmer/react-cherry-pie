@@ -71,10 +71,6 @@ module.exports = {
 				browsers: ['> 1%'],
 				warnForDuplicates: true,
 			}),
-			require('postcss-mixins')(),
-			require('postcss-nested')(),
-			require('postcss-simple-vars')(),
-			require('postcss-extend')(),
 			require('postcss-browser-reporter')(),
 			require('postcss-reporter')(),
 		]
