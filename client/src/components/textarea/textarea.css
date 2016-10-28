@@ -1,0 +1,11 @@
+@import '../../variables.css';
+
+:local(.root) {
+	width: 100%;
+	border: 0;
+	font-size: 1.4em;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}

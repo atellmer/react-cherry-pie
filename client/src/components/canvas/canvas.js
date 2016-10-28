@@ -7,7 +7,15 @@ import css from './canvas.css';
 
 import items from '../../models/message-items.json';
 
+
+type Props = {
+	messagePanelHeight: number,
+	reciveMessagePanelHeight: Function
+}
+
 class TmCanvas extends Component {
+	props: Props;
+
 	render() {
 		const itemsTemplate = items.map((item, index) => {
 			return (
@@ -19,7 +27,7 @@ class TmCanvas extends Component {
 
 		return (
 			<div className={css.root}>
-				<div className={css.contentLayout}>
+				<div className={css.contentLayout} style={{ paddingBottom: this.props.messagePanelHeight }}>
 					<Scrollbars autoHide autoHideTimeout={1000}
 						autoHideDuration={200} className={css.scrollableView}>
 						{itemsTemplate}
@@ -28,7 +36,7 @@ class TmCanvas extends Component {
 					</Scrollbars>
 				</div>
 				<div className={css.messagePanelLayout}>
-					<TmMessagePanel/>
+					<TmMessagePanel reciveMessagePanelHeight={this.props.reciveMessagePanelHeight}/>
 				</div>
 			</div>
 		);

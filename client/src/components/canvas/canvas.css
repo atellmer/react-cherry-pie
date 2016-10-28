@@ -8,7 +8,7 @@
 }
 
 :local(.contentLayout) {
-	padding: 48px 0;
+	padding: 48px 0 49px;
 	width: 100%;
 	height: 100%;
 }

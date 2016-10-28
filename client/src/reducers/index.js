@@ -1,8 +1,11 @@
 /* @flow */
 import { combineReducers } from 'redux';
 
+import layout from './layout';
+
+
 const rootReducer = combineReducers({
-	state: (state = {}) => state
+	layout
 });
 
 export default rootReducer;

@@ -1,1 +1,2 @@
 /* @flow */
+export const RECIVE_MESSAGE_PANEL_HEIGHT = 'RECIVE_MESSAGE_PANEL_HEIGHT';

@@ -6,7 +6,7 @@ import detector from 'device-detect.js/lib/device';
 import TmAppbar from '../components/appbar';
 import TmPanelDesktop from '../components/panel-desktop';
 import TmPanelPhone from '../components/panel-phone';
-import TmCanvas from '../components/canvas';
+import TmCanvasContainer from './CanvasContainer';
 import css from './App.css';
 
 type Props = {};
@@ -33,7 +33,7 @@ class App extends Component {
 					<TmPanelPhone/>
 				</Box>
 				<Box className={css.canvasPhoneLayout}>
-					<TmCanvas/>
+					<TmCanvasContainer/>
 				</Box>
 			</Flex>
 		);
@@ -46,7 +46,7 @@ class App extends Component {
 					<TmPanelDesktop/>
 				</Box>
 				<Box className={css.canvasDesktopLayout}>
-					<TmCanvas/>
+					<TmCanvasContainer/>
 				</Box>
 			</Flex>
 		);
