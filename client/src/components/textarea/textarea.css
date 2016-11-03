@@ -4,6 +4,7 @@
 	width: 100%;
 	border: 0;
 	font-size: 1.4em;
+	overflow-x: hidden;
 
 	&::-webkit-scrollbar {
 		display: none;
