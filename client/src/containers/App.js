@@ -3,9 +3,8 @@ import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox';
 import detector from 'device-detect.js/lib/device';
 
-import TmAppbar from '../components/appbar';
-import TmPanelDesktop from '../components/panel-desktop';
-import TmPanelPhone from '../components/panel-phone';
+import TmAppbarContainer from '../containers/AppbarContainer';
+import TmPanelContainer from '../containers/PanelContainer';
 import TmCanvasContainer from './CanvasContainer';
 import css from './App.css';
 
@@ -21,7 +20,7 @@ class App extends Component {
 	getAppbarTemplate = () => {
 		return (
 			<div className={css.appbarLayout}>
-				<TmAppbar/>
+				<TmAppbarContainer/>
 			</div>
 		);
 	}
@@ -30,7 +29,7 @@ class App extends Component {
 		return (
 			<Flex className={css.contentPhoneLayout}>
 				<Box className={css.panelPhoneLayout}>
-					<TmPanelPhone/>
+					<TmPanelContainer/>
 				</Box>
 				<Box className={css.canvasPhoneLayout}>
 					<TmCanvasContainer/>
@@ -43,7 +42,7 @@ class App extends Component {
 		return (
 			<Flex className={css.contentDesktopLayout}>
 				<Box className={css.panelDesktopLayout}>
-					<TmPanelDesktop/>
+					<TmPanelContainer/>
 				</Box>
 				<Box className={css.canvasDesktopLayout}>
 					<TmCanvasContainer/>
@@ -87,12 +86,7 @@ class App extends Component {
 		if (detector.tablet()) {
 			return this.renderTabletTemplate();
 		}
-		if (detector.desktop()) {
-			return this.renderDesktopTemplate();
-		}
-		return (
-			<div>...</div>
-		);
+		return this.renderDesktopTemplate();
 	}
 
 	render() {

@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-import TmMessagePanel from '../message-panel';
-import css from './canvas.css';
+import TmMessagePanel from '../messagePanel';
+import css from './canvasDesktop.css';
 
 import items from '../../models/message-items.json';
 
@@ -13,7 +13,7 @@ type Props = {
 	reciveMessagePanelHeight: Function
 }
 
-class TmCanvas extends Component {
+class TmCanvasDesktop extends Component {
 	props: Props;
 
 	render() {
@@ -43,4 +43,4 @@ class TmCanvas extends Component {
 	}
 }
 
-export default TmCanvas;
+export default TmCanvasDesktop;

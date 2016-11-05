@@ -6,7 +6,7 @@ import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satis
 import SendIcon from 'material-ui/svg-icons/content/send';
 import TmTextarea from '../textarea';
 
-import css from './message-panel.css';
+import css from './messagePanel.css';
 
 
 type Props = {

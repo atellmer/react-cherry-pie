@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 
-import css from './messages-view.css';
+import css from './messagesView.css';
 
 class TmMessagesView extends Component {
 

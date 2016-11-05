@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Flex } from 'reflexbox';
 
-import css from './panel-desktop.css';
+import css from './panelDesktop.css';
 import TmLogo from '../logo';
 import TmSearchbar from '../searchbar';
 import TmTabs from '../tabs';

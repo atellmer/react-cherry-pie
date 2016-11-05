@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import items from '../../models/message-items.json';
-import css from './panel-phone.css';
+import css from './panelPhone.css';
 
 
 class TmPanelPhone extends Component {

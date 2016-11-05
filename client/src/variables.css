@@ -14,8 +14,9 @@
 	/* Colors */
 	--primaryColorFirst: #503276;
 	--primaryColorSecond: #653e96;
-	--secondaryColor: #e91e63;
+	--accentColor: #e91e63;
 	--backgroundColor: #fafafa;
+	--textareaPhoneBackground: #f5f5f5;
 
 	/* Material Shadows */
 	--shadowElevationZ1: 0 1px 6px rgba(0,0,0,0.12), 0 1px 4px rgba(0, 0, 0, 0.12);

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import detector from 'device-detect.js/lib/device';
 
-import TmCanvas from '../components/canvas';
+import TmCanvasDesktop from '../components/canvasDesktop';
+import TmCanvasPhone from '../components/canvasPhone';
 import * as layoutActions from '../actions/LayoutActions';
 
 type Props = {
@@ -13,14 +15,24 @@ type Props = {
 class TmCanvasContainer extends Component {
 	props: Props;
 
-	render() {
+	renderTemplate = () => {
 		const { messagePanelHeight } = this.props;
 		const { reciveMessagePanelHeight } = this.props.layoutActions;
 
+		if (detector.mobile()) {
+			return (
+				<TmCanvasPhone messagePanelHeight={messagePanelHeight}
+					reciveMessagePanelHeight={reciveMessagePanelHeight}/>
+			);
+		}
 		return (
-			<TmCanvas messagePanelHeight={messagePanelHeight}
+			<TmCanvasDesktop messagePanelHeight={messagePanelHeight}
 				reciveMessagePanelHeight={reciveMessagePanelHeight}/>
 		);
+	}
+
+	render() {
+		return this.renderTemplate();
 	}
 }
 
