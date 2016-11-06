@@ -1,58 +1,79 @@
 [
 	{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/1.png",
 		"firstname": "Нина",
 		"lastname": "Ковалева",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Привет, как дела, че молчим?",
 		"timestamp": "12:57",
+		"sender": "you",
+		"messageStatus": "delivered",
+		"newMessageCount": 0,
 		"online": true
 	},
 	{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/2.png",
 		"firstname": "Марина",
 		"lastname": "Петрова",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Я тоже так хочу. А когда вы планируете приехать?",
 		"timestamp": "12:57",
-		"online": true
+		"sender": "you",
+		"messageStatus": "read",
+		"newMessageCount": 0,
+		"online": false
 	},
 		{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/3.png",
 		"firstname": "Александра",
 		"lastname": "Вышнегородская",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Привет. Все также. А вы как поживаете?",
 		"timestamp": "12:57",
-		"online": true
+		"sender": "interlocutor",
+		"messageStatus": "new",
+		"newMessageCount": 2,
+		"online": false
 	},
 		{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/4.png",
 		"firstname": "Кристина",
 		"lastname": "Инокентьева",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Привет, как дела?",
 		"timestamp": "12:57",
+		"sender": "interlocutor",
+		"messageStatus": "read",
+		"newMessageCount": 0,
 		"online": true
 	},
 		{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/5.png",
 		"firstname": "Ирина",
 		"lastname": "Кондратьева",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Приветики)))",
 		"timestamp": "12:57",
+		"sender": "you",
+		"messageStatus": "delivered",
+		"newMessageCount": 0,
 		"online": true
 	},
 		{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/6.png",
 		"firstname": "Валерия",
 		"lastname": "Александрович",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "А ты что делаешь? Я вот, например, играю в компьютерные игры...",
 		"timestamp": "12:57",
+		"sender": "interlocutor",
+		"messageStatus": "new",
+		"newMessageCount": 14,
 		"online": true
 	},
 		{
-		"avatar": "linktoavatar",
+		"avatar": "http://golovinpavel.ru/cherry/api/users/7.png",
 		"firstname": "Кристина",
 		"lastname": "Иванова",
-		"lastMessage": "lorem ipsum dolor",
+		"lastMessage": "Почему молчим?",
 		"timestamp": "12:57",
-		"online": true
+		"sender": "you",
+		"messageStatus": "read",
+		"newMessageCount": 0,
+		"online": false
 	}
 ]

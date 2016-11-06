@@ -1,0 +1,65 @@
+@import '../../variables.css';
+
+:local(.root) {
+	position: relative;
+	padding: 8px 16px;
+	width: 100%;
+	height: auto;
+}
+
+:local(.avatarLayout) {
+	position: relative;
+	display: flex;
+	align-items: center;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+	}
+}
+
+:local(.online) {
+	&::after {
+		background-color: var(--onlineStatusColor);
+	}
+}
+
+:local(.offline) {
+	&::after {
+		background-color: var(--offlineStatusColor);
+	}
+}
+
+:local(.messageBodyLayout) {
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	max-width: calc(100% - 48px);
+}
+
+:local(.messageBody) {
+	padding: 0 8px;
+	color: #fff;
+}
+
+:local(.name) {
+	font-weight: 400;
+	font-size: 1.4em;
+}
+
+:local(.textMessage) {
+	font-weight: 300;
+	font-size: 1.4em;
+}
+
+:local(.textClip) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	-moz-binding: url('/examples/text-overflow.xml#ellipsis');
+}

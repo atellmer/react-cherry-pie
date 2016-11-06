@@ -4,7 +4,8 @@ import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-import items from '../../models/message-items.json';
+import TmMessageItem from '../messageItem';
+import messages from '../../models/message-items.json';
 import css from './tabs.css';
 
 type Props = {};
@@ -29,15 +30,15 @@ class TmTabs extends Component {
 		});
 	}
 
-	render() {
-		const itemsTemplate = items.map((item, index) => {
+	renderMessages = () => {
+		return messages.map((message, index) => {
 			return (
-				<div key={index} className={css.item}>
-					{`${item.firstname} ${item.lastname}`}
-				</div>
+				<TmMessageItem key={index} message={message}/>
 			);
 		});
+	}
 
+	render() {
 		return (
 			<div className={css.root}>
 				<Tabs onChange={this.handleChange} value={this.state.slideIndex}>
@@ -47,13 +48,13 @@ class TmTabs extends Component {
 				<SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange}>
 					<Scrollbars autoHide autoHideTimeout={1000}
 						autoHideDuration={200} className={css.scrollableView}>
-						{itemsTemplate}
-						{itemsTemplate}
-						{itemsTemplate}
+						{this.renderMessages()}
+						{this.renderMessages()}
 					</Scrollbars>
-					<div>
+					<Scrollbars autoHide autoHideTimeout={1000}
+						autoHideDuration={200} className={css.scrollableView}>
 						tab #2
-					</div>
+					</Scrollbars>
 				</SwipeableViews>
 			</div>
 		);
