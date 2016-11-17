@@ -17,6 +17,10 @@ class TmCanvasDesktop extends Component {
 	props: Props;
 
 	render() {
+		const contentLayoutStyle = {
+			'padding-bottom': this.props.messagePanelHeight > 0 ? this.props.messagePanelHeight : ''
+		};
+
 		const itemsTemplate = items.map((item, index) => {
 			return (
 				<div key={index} className={css.item}>
@@ -27,7 +31,7 @@ class TmCanvasDesktop extends Component {
 
 		return (
 			<div className={css.root}>
-				<div className={css.contentLayout} style={{ paddingBottom: this.props.messagePanelHeight }}>
+				<div className={css.contentLayout} style={contentLayoutStyle}>
 					<Scrollbars autoHide autoHideTimeout={1000}
 						autoHideDuration={200} className={css.scrollableView}>
 						{itemsTemplate}
