@@ -7,7 +7,10 @@ import css from './messageItem.css';
 
 
 type Props = {
+	currentInterlocutor: any,
+	changeCurrentInterlocutor: Function,
 	message: {
+		userId: number,
 		avatar: string,
 		firstname: string,
 		lastname: string,
@@ -27,19 +30,27 @@ class TmMessageItem extends Component {
 		super(props);
 	}
 
-	render() {
-		const avatar: string = this.props.message.avatar;
-		const firstname: string = this.props.message.firstname;
-		const lastname: string = this.props.message.lastname;
-		const message: string = this.props.message.lastMessage;
-		const online: boolean = this.props.message.online;
-		const sender = this.props.message.sender;
+	handleClick = () => {
+		const { userId } = this.props.message;
 
+		this.props.changeCurrentInterlocutor(userId);
+	}
+
+	render() {
+		const {
+			userId,
+			avatar,
+			firstname,
+			lastname,
+			lastMessage: message,
+			online,
+			sender } = this.props.message;
 		const avatarStatusClass = online ? css.online : css.offline;
 		const you = sender === 'you' ? 'Вы:' : '';
+		const selectedMessageClass = this.props.currentInterlocutor.userId === userId ? css.selected : '';
 
 		return (
-			<div className={css.root}>
+			<div className={`${css.root} ${selectedMessageClass}`} onClick={this.handleClick}>
 				<Flex>
 					<Box>
 						<div className={`${css.avatarLayout} ${avatarStatusClass}`}>

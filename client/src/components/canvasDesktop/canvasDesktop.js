@@ -5,8 +5,6 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import TmMessagePanel from '../messagePanel';
 import css from './canvasDesktop.css';
 
-import items from '../../models/message-items.json';
-
 
 type Props = {
 	messagePanelHeight: number,
@@ -18,25 +16,15 @@ class TmCanvasDesktop extends Component {
 
 	render() {
 		const contentLayoutStyle = {
-			'padding-bottom': this.props.messagePanelHeight > 0 ? this.props.messagePanelHeight : ''
+			paddingBottom: this.props.messagePanelHeight > 0 ? this.props.messagePanelHeight : ''
 		};
-
-		const itemsTemplate = items.map((item, index) => {
-			return (
-				<div key={index} className={css.item}>
-					{`${item.firstname} ${item.lastname}`}
-				</div>
-			);
-		});
 
 		return (
 			<div className={css.root}>
 				<div className={css.contentLayout} style={contentLayoutStyle}>
 					<Scrollbars autoHide autoHideTimeout={1000}
 						autoHideDuration={200} className={css.scrollableView}>
-						{itemsTemplate}
-						{itemsTemplate}
-						{itemsTemplate}
+						<div/>
 					</Scrollbars>
 				</div>
 				<div className={css.messagePanelLayout}>

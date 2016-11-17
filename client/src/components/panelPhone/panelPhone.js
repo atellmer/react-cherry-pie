@@ -21,8 +21,6 @@ class TmPanelPhone extends Component {
 				<Scrollbars autoHide autoHideTimeout={1000}
 					autoHideDuration={200} className={css.scrollableView}>
 					{itemsTemplate}
-					{itemsTemplate}
-					{itemsTemplate}
 				</Scrollbars>
 			</div>
 		);

@@ -8,7 +8,12 @@ import TmMessageItem from '../messageItem';
 import messages from '../../models/message-items.json';
 import css from './tabs.css';
 
-type Props = {};
+
+type Props = {
+	currentInterlocutor: any,
+	changeCurrentInterlocutor: Function
+};
+
 type State = {
 	slideIndex: number
 }
@@ -31,9 +36,15 @@ class TmTabs extends Component {
 	}
 
 	renderMessages = () => {
+		const { currentInterlocutor, changeCurrentInterlocutor } = this.props;
+
 		return messages.map((message, index) => {
 			return (
-				<TmMessageItem key={index} message={message}/>
+				<TmMessageItem
+					key={index}
+					message={message}
+					currentInterlocutor={currentInterlocutor}
+					changeCurrentInterlocutor={changeCurrentInterlocutor}/>
 			);
 		});
 	}
@@ -48,7 +59,6 @@ class TmTabs extends Component {
 				<SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange}>
 					<Scrollbars autoHide autoHideTimeout={1000}
 						autoHideDuration={200} className={css.scrollableView}>
-						{this.renderMessages()}
 						{this.renderMessages()}
 					</Scrollbars>
 					<Scrollbars autoHide autoHideTimeout={1000}

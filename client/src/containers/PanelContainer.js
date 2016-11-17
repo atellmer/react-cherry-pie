@@ -1,9 +1,11 @@
 /** @flow */
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import TmPanelDesktop from '../components/panelDesktop';
 import TmPanelPhone from '../components/panelPhone';
+import * as interlocutorActions from '../actions/InterlocutorActions';
 
 
 type Props = {
@@ -15,6 +17,12 @@ type Props = {
 	widthWindow: number
 }
 
+type State = {
+	interlocutor: {
+		userId: number
+	}
+}
+
 class TmPanelContainer extends Component {
 	props: Props;
 
@@ -23,9 +31,9 @@ class TmPanelContainer extends Component {
 	}
 
 	renderTemplate = () => {
-		const { isPhone } = this.props;
+		const { isPhone, widthWindow } = this.props;
 
-		if (isPhone) {
+		if (isPhone || widthWindow <= 600) {
 			return (
 				<TmPanelPhone {...this.props}/>
 			);
@@ -40,5 +48,20 @@ class TmPanelContainer extends Component {
 	}
 }
 
+function mapStateToProps(state: State): any {
+	const { interlocutor } = state;
 
-export default connect()(TmPanelContainer);
+	return {
+		currentInterlocutor: interlocutor
+	};
+}
+
+function mapDispatchToProps(dispatch: Function): any {
+	const { changeCurrentInterlocutor } = interlocutorActions;
+
+	return {
+		changeCurrentInterlocutor: bindActionCreators(changeCurrentInterlocutor, dispatch)
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TmPanelContainer);

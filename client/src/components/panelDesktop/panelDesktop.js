@@ -8,7 +8,15 @@ import TmSearchbar from '../searchbar';
 import TmTabs from '../tabs';
 
 
+type Props = {};
+
 class TmPanelDesktop extends Component {
+	props: Props;
+
+	constructor(props: Props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<div className={css.root}>
@@ -21,7 +29,7 @@ class TmPanelDesktop extends Component {
 					</Flex>
 				</div>
 				<div>
-					<TmTabs/>
+					<TmTabs {...this.props}/>
 				</div>
 			</div>
 		);

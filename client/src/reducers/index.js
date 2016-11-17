@@ -1,13 +1,15 @@
 /** @flow */
 import { combineReducers } from 'redux';
 
-import layout from './layout';
 import environment from './environment';
+import layout from './layout';
+import interlocutor from './interlocutor';
 
 
 const rootReducer = combineReducers({
 	environment,
-	layout
+	layout,
+	interlocutor
 });
 
 export default rootReducer;

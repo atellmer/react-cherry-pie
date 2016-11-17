@@ -5,6 +5,11 @@
 	padding: 8px 16px;
 	width: 100%;
 	height: auto;
+	cursor: pointer;
+}
+
+:local(.selected) {
+	background-color: var(--selectedMessageColor);
 }
 
 :local(.avatarLayout) {
