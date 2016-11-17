@@ -1,3 +1,4 @@
+/** @flow */
 import {
 	createStore,
 	applyMiddleware,
@@ -6,10 +7,12 @@ import {
 import rootReducer from '../reducers/index';
 import ReduxPromise from 'redux-promise';
 
-export default function configureStore(initialState) {
+const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
+
+export default function configureStore(initialState: any) {
 	const store = createStore(rootReducer, initialState, compose(
 		applyMiddleware(ReduxPromise),
-		window.devToolsExtension ? window.devToolsExtension() : f => f
+		process.env.NODE_ENV !== 'production' ? devTools : f => f
 	));
 
 	return store;

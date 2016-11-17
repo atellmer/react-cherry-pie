@@ -10,7 +10,7 @@ import css from './messagePanel.css';
 
 
 type Props = {
-	reciveMessagePanelHeight: Function
+	changeMessagePanelHeight: Function
 }
 
 class TmMessagePanel extends Component {
@@ -18,7 +18,9 @@ class TmMessagePanel extends Component {
 	rootNode: HTMLElement;
 
 	handleHeightChange = () => {
-		this.props.reciveMessagePanelHeight(this.rootNode.clientHeight);
+		if (this.rootNode !== null) {
+			this.props.changeMessagePanelHeight(this.rootNode.clientHeight);
+		}
 	}
 
 	render() {

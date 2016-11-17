@@ -1,4 +1,6 @@
+/** @flow */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import TmAppbar from '../components/appbar';
 
@@ -10,4 +12,4 @@ class TmAppbarContainer extends Component {
 }
 
 
-export default TmAppbarContainer;
+export default connect()(TmAppbarContainer);

@@ -1,5 +1,16 @@
+/** @flow */
 import * as types from '../constants/ActionTypes';
 
+type State = {
+	messagePanel: {
+		height: number
+	}
+}
+
+type Action = {
+	type: string,
+	payload: any
+}
 
 const initialState = {
 	messagePanel: {
@@ -7,9 +18,9 @@ const initialState = {
 	}
 };
 
-export default function layout(state = initialState, action) {
+export default function layout(state: State = initialState, action: Action): any {
 	switch (action.type) {
-	case types.RECIVE_MESSAGE_PANEL_HEIGHT:
+	case types.CHANGE_MESSAGE_PANEL_HEIGHT:
 		return {
 			...state,
 			messagePanel: {

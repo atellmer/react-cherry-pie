@@ -1,9 +1,16 @@
+/** @flow */
 import * as types from '../constants/ActionTypes';
 
+type Action = {
+	type: string,
+	payload: {
+		height: number
+	}
+}
 
-export function reciveMessagePanelHeight(height) {
+export function changeMessagePanelHeight(height: number): Action {
 	return {
-		type: types.RECIVE_MESSAGE_PANEL_HEIGHT,
+		type: types.CHANGE_MESSAGE_PANEL_HEIGHT,
 		payload: {
 			height
 		}

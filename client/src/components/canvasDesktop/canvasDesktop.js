@@ -10,7 +10,7 @@ import items from '../../models/message-items.json';
 
 type Props = {
 	messagePanelHeight: number,
-	reciveMessagePanelHeight: Function
+	changeMessagePanelHeight: Function
 }
 
 class TmCanvasDesktop extends Component {
@@ -36,7 +36,7 @@ class TmCanvasDesktop extends Component {
 					</Scrollbars>
 				</div>
 				<div className={css.messagePanelLayout}>
-					<TmMessagePanel reciveMessagePanelHeight={this.props.reciveMessagePanelHeight}/>
+					<TmMessagePanel changeMessagePanelHeight={this.props.changeMessagePanelHeight}/>
 				</div>
 			</div>
 		);

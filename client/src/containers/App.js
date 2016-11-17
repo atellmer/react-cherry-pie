@@ -1,14 +1,33 @@
 /** @flow */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Flex, Box } from 'reflexbox';
-import detector from 'device-detect.js/lib/device';
 
+import { detectDevice, detectSizeWindow } from '../actions/EnvironmentActions';
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
 import TmCanvasContainer from './CanvasContainer';
 import css from './App.css';
 
-type Props = {};
+
+type Props = {
+	dispatch: Function,
+	isPhone: boolean,
+	isTablet: boolean,
+	isDesktop: boolean,
+	heightWindow: number,
+	widthWindow: number
+};
+
+type State = {
+	environment: {
+		isPhone: boolean,
+		isTablet: boolean,
+		isDesktop: boolean,
+		width: number,
+		height: number
+	}
+}
 
 class App extends Component {
 	props: Props;
@@ -17,10 +36,24 @@ class App extends Component {
 		super(props);
 	}
 
+	componentWillMount() {
+		const { dispatch } = this.props;
+
+		dispatch(detectDevice());
+		dispatch(detectSizeWindow());
+		window.addEventListener('resize', () => dispatch(detectSizeWindow()));
+	}
+
+	componentWillUnmount() {
+		const { dispatch } = this.props;
+
+		window.removeEventListener('resize', () => dispatch(detectSizeWindow()));
+	}
+
 	getAppbarTemplate = () => {
 		return (
 			<div className={css.appbarLayout}>
-				<TmAppbarContainer/>
+				<TmAppbarContainer {...this.props}/>
 			</div>
 		);
 	}
@@ -29,10 +62,10 @@ class App extends Component {
 		return (
 			<Flex className={css.contentPhoneLayout}>
 				<Box className={css.panelPhoneLayout}>
-					<TmPanelContainer/>
+					<TmPanelContainer {...this.props}/>
 				</Box>
 				<Box className={css.canvasPhoneLayout}>
-					<TmCanvasContainer/>
+					<TmCanvasContainer {...this.props}/>
 				</Box>
 			</Flex>
 		);
@@ -42,10 +75,10 @@ class App extends Component {
 		return (
 			<Flex className={css.contentDesktopLayout}>
 				<Box className={css.panelDesktopLayout}>
-					<TmPanelContainer/>
+					<TmPanelContainer {...this.props}/>
 				</Box>
 				<Box className={css.canvasDesktopLayout}>
-					<TmCanvasContainer/>
+					<TmCanvasContainer {...this.props}/>
 				</Box>
 			</Flex>
 		);
@@ -80,10 +113,12 @@ class App extends Component {
 	}
 
 	renderTemplate = () => {
-		if (detector.mobile()) {
+		const { isPhone, isTablet } = this.props;
+
+		if (isPhone) {
 			return this.renderPhoneTemplate();
 		}
-		if (detector.tablet()) {
+		if (isTablet) {
 			return this.renderTabletTemplate();
 		}
 		return this.renderDesktopTemplate();
@@ -94,4 +129,16 @@ class App extends Component {
 	}
 }
 
-export default App;
+function mapStateToProps(state: State): any {
+	const { environment } = state;
+
+	return {
+		isPhone: environment.isPhone,
+		isTablet: environment.isTablet,
+		isDesktop: environment.isDesktop,
+		widthWindow: environment.width,
+		heightWindow: environment.height
+	};
+}
+
+export default connect(mapStateToProps)(App);
