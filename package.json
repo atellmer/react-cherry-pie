@@ -1,16 +1,17 @@
 {
   "name": "cherry-pie",
   "version": "0.0.1",
-  "description": "cherry-pie",
+  "author": "AlexPlex",
+  "licence": "UNLICENSED",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "set NODE_ENV=development&& npm run dev && node webpack.dev-server.js",
     "build": "set NODE_ENV=production&& webpack --config webpack.prod.config.js",
     "dev": "webpack --config webpack.dev.config.js",
-    "test": "jest"
+    "test": "jest",
+    "typings": "flow-typed install"
   },
-  "private": true,
-  "author": "AlexPlex",
   "devDependencies": {
     "babel-core": "^6.14.0",
     "babel-eslint": "^6.1.2",
@@ -62,9 +63,9 @@
     "webpack-dev-server": "^1.15.1"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "device-detect.js": "^0.2.7",
     "material-ui": "^0.16.0",
-    "radium": "^0.18.1",
     "react": "^15.3.2",
     "react-custom-scrollbars": "^4.0.0",
     "react-dom": "^15.3.2",
@@ -76,7 +77,8 @@
     "react-textarea-autosize": "^4.0.5",
     "redux": "^3.6.0",
     "redux-promise": "^0.5.3",
-    "reflexbox": "^2.2.2"
+    "reflexbox": "^2.2.2",
+    "rxjs": "^5.0.2"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -15,7 +15,6 @@ import App from './containers/App';
 injectTapEventPlugin();
 
 const store = configureStore();
-const root = document.querySelector('#react-root');
 
 render(
 	<Provider store={store}>
@@ -25,5 +24,5 @@ render(
 			</StyleRoot>
 		</MuiThemeProvider>
 	</Provider>,
-	root
+	document.querySelector('#react-root')
 );

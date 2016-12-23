@@ -26,10 +26,9 @@ exports[`test Jest: TmAppbar (Snapshot) 1`] = `
           "boxSizing": "border-box",
         }
       }>
-      <img
+      <div
         className={undefined}
         size={34}
-        src="test-file-stub"
         style={
           Object {
             "alignItems": "center",

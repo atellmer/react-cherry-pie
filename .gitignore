@@ -33,3 +33,5 @@ testem.log
 Thumbs.db
 
 index.html
+
+/flow-typed
