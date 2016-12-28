@@ -1,18 +1,16 @@
 /** @flow */
 import * as types from '../constants/ActionTypes';
 
-type changeCurrentInterlocutorAction = {
+type changeInterlocutorAction = {
   type: string,
   payload: {
-    userId: number
+    id: string
   }
 }
 
-export function changeCurrentInterlocutor(userId: number): changeCurrentInterlocutorAction {
+export function changeInterlocutor(id: string): changeInterlocutorAction {
   return {
-    type: types.CHANGE_CURRENT_INTERLOCUTOR,
-    payload: {
-      userId
-    }
+    type: types.CHANGE_INTERLOCUTOR,
+    payload: { id }
   };
 }

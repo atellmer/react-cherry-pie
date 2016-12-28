@@ -6,24 +6,35 @@ import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import { FakeUserService } from '../../utils/fakeUsers';
+import type { UserType } from '../../models/user';
 import css from './appbar.css';
 import TmLogo from '../logo';
 
 type Props = {};
 type State = {
-  userAvatar: string
+  user: UserType
 }
 
 class TmAppbar extends Component {
   props: Props;
   state: State;
   fakeUserService: FakeUserService;
-  userAvatar: string;
+  user: UserType;
 
   constructor(props: Props) {
     super(props);
     this.state = {
-      userAvatar: ''
+      user: {
+        id: '',
+        name: {
+          first: '',
+          last: ''
+        },
+        avatar: {
+          thumbnail: ''
+        },
+        online: false
+      }
     };
     this.fakeUserService = new FakeUserService();
   }
@@ -31,9 +42,24 @@ class TmAppbar extends Component {
   componentWillMount() {
     this.fakeUserService
       .getFakeUser({ results: 1 })
-      .subscribe(res => {
+      .map(res => {
+        return res.results.map(item => {
+          return {
+            id: item.login.salt,
+            name: {
+              first: item.name.first,
+              last: item.name.last
+            },
+            avatar: {
+              thumbnail: item.picture.thumbnail
+            },
+            online: true
+          };
+        });
+      })
+      .subscribe((res: Array<UserType>) => {
         this.setState({
-          userAvatar: res.results[0].picture.thumbnail
+          user: res[0]
         });
       });
   }
@@ -48,7 +74,10 @@ class TmAppbar extends Component {
         </div>
         <Flex align='center'>
           <Box className={css.avatarLayout}>
-            <Avatar src={this.state.userAvatar} size={34} backgroundColor={'transparent'}/>
+            <Avatar
+              src={this.state.user.avatar.thumbnail}
+              size={34}
+              backgroundColor={'transparent'}/>
           </Box>
           <Box className={css.iconButtonLayout}>
             <IconButton>

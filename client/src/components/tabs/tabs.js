@@ -4,14 +4,14 @@ import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-import TmMessageItem from '../messageItem';
+import TmDialogItem from '../dialogItem';
 import messages from '../../models/message-items.json';
 import css from './tabs.css';
 
 
 type Props = {
-  currentInterlocutor: any,
-  changeCurrentInterlocutor: Function
+  interlocutor: any,
+  changeInterlocutor: Function
 };
 
 type State = {
@@ -36,15 +36,12 @@ class TmTabs extends Component {
   }
 
   renderMessages = () => {
-    const { currentInterlocutor, changeCurrentInterlocutor } = this.props;
-
     return messages.map((message, index) => {
       return (
-        <TmMessageItem
+        <TmDialogItem
           key={index}
-          message={message}
-          currentInterlocutor={currentInterlocutor}
-          changeCurrentInterlocutor={changeCurrentInterlocutor}/>
+          {...this.props}
+          message={message}/>
       );
     });
   }
@@ -56,13 +53,21 @@ class TmTabs extends Component {
           <Tab label='Все' value={0}/>
           <Tab label='Новые' value={1}/>
         </Tabs>
-        <SwipeableViews index={this.state.slideIndex} onChangeIndex={this.handleChange}>
-          <Scrollbars autoHide autoHideTimeout={1000}
-            autoHideDuration={200} className={css.scrollableView}>
+        <SwipeableViews
+          index={this.state.slideIndex}
+          onChangeIndex={this.handleChange}>
+          <Scrollbars
+            autoHide
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            className={css.scrollableView}>
             {this.renderMessages()}
           </Scrollbars>
-          <Scrollbars autoHide autoHideTimeout={1000}
-            autoHideDuration={200} className={css.scrollableView}>
+          <Scrollbars
+            autoHide
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            className={css.scrollableView}>
             tab #2
           </Scrollbars>
         </SwipeableViews>

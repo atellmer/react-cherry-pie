@@ -28,8 +28,11 @@ class TmCanvasPhone extends Component {
     return (
       <div className={css.root}>
         <div className={css.contentLayout} style={{ paddingBottom: this.props.messagePanelHeight }}>
-          <Scrollbars autoHide autoHideTimeout={1000}
-            autoHideDuration={200} className={css.scrollableView}>
+          <Scrollbars
+            autoHide
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            className={css.scrollableView}>
             {itemsTemplate}
             {itemsTemplate}
             {itemsTemplate}

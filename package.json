@@ -66,6 +66,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "classnames": "^2.2.5",
     "device-detect.js": "^0.2.7",
     "material-ui": "^0.16.0",
     "react": "^15.3.2",
