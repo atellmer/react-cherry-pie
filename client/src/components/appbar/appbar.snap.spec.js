@@ -10,15 +10,15 @@ jest.mock('react-dom');
 jest.mock('react/lib/ReactDefaultInjection');
 
 beforeEach(() => {
-	window.matchMedia = windowMatchMedia;
+  window.matchMedia = windowMatchMedia;
 });
 
 test('Jest: TmAppbar (Snapshot)', () => {
-	const component = renderer.create(
-		<MuiThemeProvider muiTheme={muiTheme}>
-			<TmAppbar/>
-		</MuiThemeProvider>
-	);
-	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+  const component = renderer.create(
+    <MuiThemeProvider muiTheme={muiTheme}>
+      <TmAppbar/>
+    </MuiThemeProvider>
+  );
+  let tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });

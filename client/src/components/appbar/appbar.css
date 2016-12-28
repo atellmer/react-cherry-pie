@@ -1,42 +1,42 @@
 @import '../../variables.css';
 
 :local(.root) {
-	position: relative;
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: space-between;
-	padding: 0 16px;
-	min-height: 42px;
-	width: 100%;
-	height: auto;
-	background-color: var(--primaryColorFirst);
-	box-shadow: var(--shadowElevationZ1);
-	transition: height .2s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  min-height: 42px;
+  width: 100%;
+  height: auto;
+  background-color: var(--primaryColorFirst);
+  box-shadow: var(--shadowElevationZ1);
+  transition: height .2s ease-in-out;
 
-	@media (min-width: 600px) {
-		min-height: 48px;
-	}
+  @media (min-width: 600px) {
+    min-height: 48px;
+  }
 }
 
 :local(.logoLayout) {
-	@media (min-width: 600px) {
-		display: none;
-	}
+  @media (min-width: 600px) {
+    display: none;
+  }
 }
 
 :local(.avatarLayout) {
-	margin: 2px;
+  margin: 2px;
 }
 
 :local(.iconButtonLayout) {
-	margin: 0 -16px 0 0;
+  margin: 0 -16px 0 0;
 
-	button {
-		@media (max-width: 600px) {
-			padding: 9px !important;
-			width: 42px !important;
-			height: 42px !important;
-		}
-	}
+  button {
+    @media (max-width: 600px) {
+      padding: 9px !important;
+      width: 42px !important;
+      height: 42px !important;
+    }
+  }
 }

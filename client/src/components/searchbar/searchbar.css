@@ -1,36 +1,36 @@
 @import '../../variables.css';
 
 :local(.root) {
-	position: relative;
-	display: flex;
-	flex-flow: row nowrap;
-	align-items: center;
-	justify-content: flex-start;
-	padding: 0 16px;
-	width: 100%;
-	height: 42px;
-	border-radius: 3px;
-	background-color: rgba(255, 255, 255, 0.15);
-	box-shadow: var(--shadowElevationZ1);
-	transition: background-color .2s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 16px;
+  width: 100%;
+  height: 42px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadowElevationZ1);
+  transition: background-color .2s ease-in-out;
 }
 
 :local(.iconLayout) {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 :local(.inputLayout) {
-	display: flex;
-	align-items: center;
-	width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 :local(.input) {
-	padding: 0 8px;
-	width: 100%;
-	border: 0;
-	background-color: transparent;
-	color: #fff;
-	font-size: 1.6em;
+  padding: 0 8px;
+  width: 100%;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.6em;
 }

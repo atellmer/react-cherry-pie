@@ -9,59 +9,59 @@ import * as interlocutorActions from '../actions/InterlocutorActions';
 
 
 type Props = {
-	dispatch: Function,
-	isPhone: boolean,
-	isTablet: boolean,
-	isDesktop: boolean,
-	heightWindow: number,
-	widthWindow: number
+  dispatch: Function,
+  isPhone: boolean,
+  isTablet: boolean,
+  isDesktop: boolean,
+  heightWindow: number,
+  widthWindow: number
 }
 
 type State = {
-	interlocutor: {
-		userId: number
-	}
+  interlocutor: {
+    userId: number
+  }
 }
 
 class TmPanelContainer extends Component {
-	props: Props;
+  props: Props;
 
-	constructor(props: Props) {
-		super(props);
-	}
+  constructor(props: Props) {
+    super(props);
+  }
 
-	renderTemplate = () => {
-		const { isPhone, widthWindow } = this.props;
+  renderTemplate = () => {
+    const { isPhone, widthWindow } = this.props;
 
-		if (isPhone || widthWindow <= 600) {
-			return (
-				<TmPanelPhone {...this.props}/>
-			);
-		}
-		return (
-			<TmPanelDesktop {...this.props}/>
-		);
-	}
+    if (isPhone || widthWindow <= 600) {
+      return (
+        <TmPanelPhone {...this.props}/>
+      );
+    }
+    return (
+      <TmPanelDesktop {...this.props}/>
+    );
+  }
 
-	render() {
-		return this.renderTemplate();
-	}
+  render() {
+    return this.renderTemplate();
+  }
 }
 
 function mapStateToProps(state: State): any {
-	const { interlocutor } = state;
+  const { interlocutor } = state;
 
-	return {
-		currentInterlocutor: interlocutor
-	};
+  return {
+    currentInterlocutor: interlocutor
+  };
 }
 
 function mapDispatchToProps(dispatch: Function): any {
-	const { changeCurrentInterlocutor } = interlocutorActions;
+  const { changeCurrentInterlocutor } = interlocutorActions;
 
-	return {
-		changeCurrentInterlocutor: bindActionCreators(changeCurrentInterlocutor, dispatch)
-	};
+  return {
+    changeCurrentInterlocutor: bindActionCreators(changeCurrentInterlocutor, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TmPanelContainer);

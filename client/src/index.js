@@ -16,10 +16,10 @@ injectTapEventPlugin();
 const store = configureStore();
 
 render(
-	<Provider store={store}>
-		<MuiThemeProvider muiTheme={muiTheme}>
-			<App/>
-		</MuiThemeProvider>
-	</Provider>,
-	document.querySelector('#react-root')
+  <Provider store={store}>
+    <MuiThemeProvider muiTheme={muiTheme}>
+      <App/>
+    </MuiThemeProvider>
+  </Provider>,
+  document.querySelector('#react-root')
 );

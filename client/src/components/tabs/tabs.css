@@ -1,17 +1,17 @@
 @import '../../variables.css';
 
 :local(.root) {
-	position: relative;
+  position: relative;
 }
 
 :local(.scrollableView) {
-	width: 100%;
-	height: calc(100vh - 152px) !important;
+  width: 100%;
+  height: calc(100vh - 152px) !important;
 }
 
 /* Temp */
 :local(.item) {
-	padding: 15px 16px;
-	color: #fff;
-	font-size: 1.4em;
+  padding: 15px 16px;
+  color: #fff;
+  font-size: 1.4em;
 }
