@@ -7,9 +7,9 @@ import interlocutor from './interlocutor';
 
 
 const rootReducer = combineReducers({
-	environment,
-	layout,
-	interlocutor
+  environment,
+  layout,
+  interlocutor
 });
 
 export default rootReducer;

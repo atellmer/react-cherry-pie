@@ -7,32 +7,32 @@ import css from './canvasDesktop.css';
 
 
 type Props = {
-	messagePanelHeight: number,
-	changeMessagePanelHeight: Function
+  messagePanelHeight: number,
+  changeMessagePanelHeight: Function
 }
 
 class TmCanvasDesktop extends Component {
-	props: Props;
+  props: Props;
 
-	render() {
-		const contentLayoutStyle = {
-			paddingBottom: this.props.messagePanelHeight > 0 ? this.props.messagePanelHeight : ''
-		};
+  render() {
+    const contentLayoutStyle = {
+      paddingBottom: this.props.messagePanelHeight > 0 ? this.props.messagePanelHeight : ''
+    };
 
-		return (
-			<div className={css.root}>
-				<div className={css.contentLayout} style={contentLayoutStyle}>
-					<Scrollbars autoHide autoHideTimeout={1000}
-						autoHideDuration={200} className={css.scrollableView}>
-						<div/>
-					</Scrollbars>
-				</div>
-				<div className={css.messagePanelLayout}>
-					<TmMessagePanel changeMessagePanelHeight={this.props.changeMessagePanelHeight}/>
-				</div>
-			</div>
-		);
-	}
+    return (
+      <div className={css.root}>
+        <div className={css.contentLayout} style={contentLayoutStyle}>
+          <Scrollbars autoHide autoHideTimeout={1000}
+            autoHideDuration={200} className={css.scrollableView}>
+            <div/>
+          </Scrollbars>
+        </div>
+        <div className={css.messagePanelLayout}>
+          <TmMessagePanel changeMessagePanelHeight={this.props.changeMessagePanelHeight}/>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default TmCanvasDesktop;

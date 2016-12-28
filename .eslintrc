@@ -206,7 +206,7 @@
 			2,
 			"declaration"
 		],
-		"indent": ["error", "tab"],
+		"indent": ["error", 2],
 		"jsx-quotes": [
 			2,
 			"prefer-single"
@@ -320,9 +320,9 @@
 		"react/jsx-handler-names": 2,
 		"react/jsx-indent-props": [
 			2,
-			"tab"
+			2
 		],
-		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent": ["error", 2],
 		"react/jsx-key": 2,
 		"react/jsx-max-props-per-line": [
 			2,
