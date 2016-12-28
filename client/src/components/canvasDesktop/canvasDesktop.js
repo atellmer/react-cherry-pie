@@ -22,10 +22,11 @@ class TmCanvasDesktop extends Component {
     return (
       <div className={css.root}>
         <div className={css.contentLayout} style={contentLayoutStyle}>
-          <Scrollbars autoHide autoHideTimeout={1000}
-            autoHideDuration={200} className={css.scrollableView}>
-            <div/>
-          </Scrollbars>
+          <Scrollbars
+            autoHide
+            autoHideTimeout={1000}
+            autoHideDuration={200}
+            className={css.scrollableView}/>
         </div>
         <div className={css.messagePanelLayout}>
           <TmMessagePanel changeMessagePanelHeight={this.props.changeMessagePanelHeight}/>

@@ -1,85 +1,148 @@
 [{
-	"id": 0,
-	"userId": 0,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/1.png",
-	"firstname": "Нина",
-	"lastname": "Ковалева",
-	"lastMessage": "Привет, как дела, че молчим?",
-	"timestamp": "12:57",
-	"sender": "you",
-	"messageStatus": "delivered",
-	"newMessageCount": 0,
-	"online": true
-}, {
-	"id": 1,
-	"userId": 1,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/2.png",
-	"firstname": "Марина",
-	"lastname": "Петрова",
-	"lastMessage": "Я тоже так хочу. А когда вы планируете приехать?",
-	"timestamp": "12:57",
-	"sender": "you",
-	"messageStatus": "read",
-	"newMessageCount": 0,
-	"online": false
-}, {
-	"id": 2,
-	"userId": 2,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/3.png",
-	"firstname": "Александра",
-	"lastname": "Вышнегородская",
-	"lastMessage": "Привет. Все также. А вы как поживаете?",
-	"timestamp": "12:57",
-	"sender": "interlocutor",
-	"messageStatus": "new",
-	"newMessageCount": 2,
-	"online": false
-}, {
-	"id": 3,
-	"userId": 3,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/4.png",
-	"firstname": "Кристина",
-	"lastname": "Инокентьева",
-	"lastMessage": "Привет, как дела?",
-	"timestamp": "12:57",
-	"sender": "interlocutor",
-	"messageStatus": "read",
-	"newMessageCount": 0,
-	"online": true
-}, {
-	"id": 4,
-	"userId": 4,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/5.png",
-	"firstname": "Ирина",
-	"lastname": "Кондратьева",
-	"lastMessage": "Приветики)))",
-	"timestamp": "12:57",
-	"sender": "you",
-	"messageStatus": "delivered",
-	"newMessageCount": 0,
-	"online": true
-}, {
-	"id": 5,
-	"userId": 5,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/6.png",
-	"firstname": "Валерия",
-	"lastname": "Александрович",
-	"lastMessage": "А ты что делаешь? Я вот, например, играю в компьютерные игры...",
-	"timestamp": "12:57",
-	"sender": "interlocutor",
-	"messageStatus": "new",
-	"newMessageCount": 14,
-	"online": true
-}, {
-	"id": 6,
-	"userId": 6,
-	"avatar": "http://golovinpavel.ru/cherry/api/users/7.png",
-	"firstname": "Кристина",
-	"lastname": "Иванова",
-	"lastMessage": "Почему молчим?",
-	"timestamp": "12:57",
-	"sender": "you",
-	"messageStatus": "read",
-	"newMessageCount": 0,
-	"online": false
+	"id": "dialogid",
+  "user": {
+    "id": "userid0",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/1.png"
+    },
+    "online": true
+  },
+  "message": {
+    "id": "messageid",
+    "value": {
+    "text": "Привет, как дела, че молчим?"
+  },
+  "sender": {
+    "id": "senderid",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/1.png"
+    },
+    "online": true
+  },
+  "status": {
+    "delivered": true,
+    "read": false,
+    "new": false
+  },
+  "timestamp": "12:57"
+  }
+},
+{
+	"id": "dialogid",
+  "user": {
+    "id": "userid1",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/2.png"
+    },
+    "online": true
+  },
+  "message": {
+    "id": "messageid",
+    "value": {
+    "text": "Привет, как дела, че молчим?"
+  },
+  "sender": {
+    "id": "senderid",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/1.png"
+    },
+    "online": true
+  },
+  "status": {
+    "delivered": true,
+    "read": false,
+    "new": false
+  },
+  "timestamp": "12:57"
+  }
+},
+{
+	"id": "dialogid2",
+  "user": {
+    "id": "userid",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/3.png"
+    },
+    "online": true
+  },
+  "message": {
+    "id": "messageid",
+    "value": {
+    "text": "Привет, как дела, че молчим?"
+  },
+  "sender": {
+    "id": "senderid",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/1.png"
+    },
+    "online": true
+  },
+  "status": {
+    "delivered": true,
+    "read": false,
+    "new": false
+  },
+  "timestamp": "12:57"
+  }
+},
+{
+	"id": "dialogid",
+  "user": {
+    "id": "userid3",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/4.png"
+    },
+    "online": true
+  },
+  "message": {
+    "id": "messageid",
+    "value": {
+    "text": "Привет, как дела, че молчим?"
+  },
+  "sender": {
+    "id": "senderid",
+    "name": {
+      "first": "Marina",
+      "last": "Karpova"
+    },
+    "avatar": {
+      "thumbnail": "http://golovinpavel.ru/cherry/api/users/1.png"
+    },
+    "online": true
+  },
+  "status": {
+    "delivered": true,
+    "read": false,
+    "new": false
+  },
+  "timestamp": "12:57"
+  }
 }]

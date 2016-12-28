@@ -51,16 +51,14 @@ class TmPanelContainer extends Component {
 function mapStateToProps(state: State): any {
   const { interlocutor } = state;
 
-  return {
-    currentInterlocutor: interlocutor
-  };
+  return { interlocutor };
 }
 
 function mapDispatchToProps(dispatch: Function): any {
-  const { changeCurrentInterlocutor } = interlocutorActions;
+  const { changeInterlocutor } = interlocutorActions;
 
   return {
-    changeCurrentInterlocutor: bindActionCreators(changeCurrentInterlocutor, dispatch)
+    changeInterlocutor: bindActionCreators(changeInterlocutor, dispatch)
   };
 }
 

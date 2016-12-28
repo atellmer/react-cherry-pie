@@ -25,7 +25,7 @@ class TmTextarea extends Component {
         minRows={1}
         maxRows={10}
         onHeightChange={this.handleHeightChange}
-        placeholder='Ввведите ваше сообщение...'/>
+        placeholder='Введите ваше сообщение...'/>
     );
   }
 }

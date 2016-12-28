@@ -22,8 +22,12 @@ class TmSearchbar extends Component {
           <SearchIcon color={'#fff'}/>
         </div>
         <div className={css.inputLayout}>
-          <input type='text' placeholder='Поиск' className={css.input}
-            onFocus={this.handleFocus} onBlur={this.handleBlur}/>
+          <input
+            type='text'
+            placeholder='Поиск'
+            className={css.input}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}/>
         </div>
       </div>
     );

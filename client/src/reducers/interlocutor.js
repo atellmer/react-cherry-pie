@@ -2,7 +2,7 @@
 import * as types from '../constants/ActionTypes';
 
 type State = {
-  userId: number | null
+  id: string
 }
 
 type Action = {
@@ -11,15 +11,15 @@ type Action = {
 }
 
 const initialState = {
-  userId: null
+  id: ''
 };
 
 export default function interlocutor(state: State = initialState, action: Action): any {
   switch (action.type) {
-  case types.CHANGE_CURRENT_INTERLOCUTOR:
+  case types.CHANGE_INTERLOCUTOR:
     return {
       ...state,
-      userId: action.payload.userId
+      id: action.payload.id
     };
 
   default:
