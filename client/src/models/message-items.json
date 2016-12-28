@@ -1,5 +1,5 @@
 [{
-	"id": "dialogid",
+	"id": "0",
   "user": {
     "id": "userid0",
     "name": {
@@ -36,7 +36,7 @@
   }
 },
 {
-	"id": "dialogid",
+	"id": "1",
   "user": {
     "id": "userid1",
     "name": {
@@ -73,7 +73,7 @@
   }
 },
 {
-	"id": "dialogid2",
+	"id": "2",
   "user": {
     "id": "userid",
     "name": {
@@ -110,7 +110,7 @@
   }
 },
 {
-	"id": "dialogid",
+	"id": "3",
   "user": {
     "id": "userid3",
     "name": {

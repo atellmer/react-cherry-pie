@@ -1,5 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import items from '../../models/message-items.json';
@@ -10,9 +11,11 @@ class TmPanelPhone extends Component {
   render() {
     const itemsTemplate = items.map((item, index) => {
       return (
-        <div key={index} className={css.item}>
-          {`${item.user.name.first} ${item.user.name.last}`}
-        </div>
+        <Link to={`/dialogs/${item.id}`} key={index}>
+          <div className={css.item}>
+            {`${item.user.name.first} ${item.user.name.last}`}
+          </div>
+        </Link>
       );
     });
 

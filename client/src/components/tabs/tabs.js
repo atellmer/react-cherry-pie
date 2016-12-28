@@ -1,5 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -38,10 +39,11 @@ class TmTabs extends Component {
   renderMessages = () => {
     return messages.map((message, index) => {
       return (
-        <TmDialogItem
-          key={index}
-          {...this.props}
-          message={message}/>
+        <Link to={`/dialogs/${message.id}`} key={index}>
+          <TmDialogItem
+            {...this.props}
+            message={message}/>
+        </Link>
       );
     });
   }
