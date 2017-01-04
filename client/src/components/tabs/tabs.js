@@ -1,18 +1,25 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
 
+// Components
 import TmDialogItem from '../dialogItem';
-import messages from '../../models/message-items.json';
+
+// Styles
 import css from './tabs.css';
+
+// Types
+import type { IDialog } from '../../models/dialogItem';
 
 
 type Props = {
   interlocutor: any,
-  changeInterlocutor: Function
+  changeInterlocutor: Function,
+  dialogs: Array<IDialog>
 };
 
 type State = {
@@ -36,13 +43,13 @@ class TmTabs extends Component {
     });
   }
 
-  renderMessages = () => {
-    return messages.map((message, index) => {
+  renderDialogs = () => {
+    const { dialogs } = this.props;
+
+    return dialogs.map((dialog, index) => {
       return (
-        <Link to={`/dialogs/${message.id}`} key={index}>
-          <TmDialogItem
-            {...this.props}
-            message={message}/>
+        <Link to={`/dialogs/${dialog.id}`} key={index}>
+          <TmDialogItem {...this.props} dialog={dialog}/>
         </Link>
       );
     });
@@ -63,7 +70,7 @@ class TmTabs extends Component {
             autoHideTimeout={1000}
             autoHideDuration={200}
             className={css.scrollableView}>
-            {this.renderMessages()}
+            {this.renderDialogs()}
           </Scrollbars>
           <Scrollbars
             autoHide

@@ -6,20 +6,20 @@ import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 import { FakeUserService } from '../../utils/fakeUsers';
-import type { UserType } from '../../models/user';
+import type { IUser } from '../../models/user';
 import css from './appbar.css';
 import TmLogo from '../logo';
 
 type Props = {};
 type State = {
-  user: UserType
+  user: IUser
 }
 
 class TmAppbar extends Component {
   props: Props;
   state: State;
   fakeUserService: FakeUserService;
-  user: UserType;
+  user: IUser;
 
   constructor(props: Props) {
     super(props);
@@ -57,7 +57,7 @@ class TmAppbar extends Component {
           };
         });
       })
-      .subscribe((res: Array<UserType>) => {
+      .subscribe((res: Array<IUser>) => {
         this.setState({
           user: res[0]
         });

@@ -1,17 +1,21 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
 import { Flex, Box } from 'reflexbox';
 import cx from 'classnames';
 import Avatar from 'material-ui/Avatar/index';
 
-import type { DialogItemType } from '../../models/dialog-item';
+// Types
+import type { IDialog } from '../../models/dialogItem';
+
+// Styles
 import css from './dialogItem.css';
 
 
 type Props = {
   interlocutor: any,
   changeInterlocutor: Function,
-  message: DialogItemType
+  dialog: IDialog
 }
 
 class TmDialogItem extends Component {
@@ -22,40 +26,46 @@ class TmDialogItem extends Component {
   }
 
   handleClick = () => {
-    const { user } = this.props.message;
+    const { user } = this.props.dialog;
 
     this.props.changeInterlocutor(user.id);
   }
 
-  render() {
-    const { user, message } = this.props.message;
-    const statusStyle = user.online ? css.online : css.offline;
-    const selectedStyle = this.props.interlocutor.id === user.id ? css.selected : '';
+  renderDialog() {
+    if (this.props.dialog) {
+      const { user, message } = this.props.dialog;
+      const statusStyle = user.online ? css.online : css.offline;
+      const selectedStyle = this.props.interlocutor.id === user.id ? css.selected : '';
 
-    return (
-      <div className={cx(css.root, selectedStyle)} onClick={this.handleClick}>
-        <Flex>
-          <Box>
-            <div className={cx(css.avatarLayout, statusStyle)}>
-              <Avatar
-                src={user.avatar.thumbnail}
-                size={48}
-                backgroundColor={'transparent'}/>
-            </div>
-          </Box>
-          <Box flexAuto className={css.messageBodyLayout}>
-            <div className={css.messageBody}>
-              <div className={cx(css.name, css.textClip)}>
-                {`${user.name.first} ${user.name.last}`}
+      return (
+        <div className={cx(css.root, selectedStyle)} onClick={this.handleClick}>
+          <Flex>
+            <Box>
+              <div className={cx(css.avatarLayout, statusStyle)}>
+                <Avatar
+                  src={user.avatar.thumbnail}
+                  size={48}
+                  backgroundColor={'transparent'}/>
               </div>
-              <div className={cx(css.textMessage, css.textClip)}>
-                {`${message.value.text}`}
+            </Box>
+            <Box flexAuto className={css.messageBodyLayout}>
+              <div className={css.messageBody}>
+                <div className={cx(css.name, css.textClip)}>
+                  {`${user.name.first} ${user.name.last}`}
+                </div>
+                <div className={cx(css.textMessage, css.textClip)}>
+                  {`${message.value.text}`}
+                </div>
               </div>
-            </div>
-          </Box>
-        </Flex>
-      </div>
-    );
+            </Box>
+          </Flex>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    return this.renderDialog();
   }
 }
 
