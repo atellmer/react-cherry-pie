@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import TmCanvasDesktop from '../components/canvasDesktop';
-import TmCanvasPhone from '../components/canvasPhone';
+import TmCanvasDesktop from '../components/canvas/desktop';
+import TmCanvasPhone from '../components/canvas/phone';
 import * as layoutActions from '../actions/LayoutActions';
 
 

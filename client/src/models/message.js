@@ -1,19 +1,19 @@
 /** @flow */
-import type { UserType } from './user';
+import type { IUser } from './user';
 
 
-type MessageType = {
-  id: string,
+type IMessage = {
+  from: IUser,
+  to: IUser,
   value: {
     text: string
   },
-  sender: UserType,
   status: {
     delivered: boolean,
     read: boolean,
     new: boolean
-  },
+  };
   timestamp: Date
 }
 
-export type { MessageType };
+export type { IMessage };

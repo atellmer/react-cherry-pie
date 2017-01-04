@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import TmPanelDesktop from '../components/panelDesktop';
-import TmPanelPhone from '../components/panelPhone';
+import TmPanelDesktop from '../components/panel/desktop';
+import TmPanelPhone from '../components/panel/phone';
 import * as interlocutorActions from '../actions/InterlocutorActions';
 
 

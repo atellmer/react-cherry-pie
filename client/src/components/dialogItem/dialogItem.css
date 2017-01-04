@@ -55,6 +55,7 @@
 :local(.name) {
   font-weight: 400;
   font-size: 1.4em;
+  text-transform: capitalize;
 }
 
 :local(.textMessage) {

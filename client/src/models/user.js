@@ -1,6 +1,6 @@
 /** @flow */
 
-type UserType = {
+type IUser = {
   id: string,
   name: {
     first: string,
@@ -12,4 +12,4 @@ type UserType = {
   online: boolean
 }
 
-export type { UserType };
+export type { IUser };
