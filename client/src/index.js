@@ -11,6 +11,7 @@ import configureStore from './store/configureStore';
 import muiTheme from './config/theme';
 import './main.css';
 import App from './containers/App';
+import TmCanvasContainer from './containers/CanvasContainer';
 
 
 injectTapEventPlugin();
@@ -21,8 +22,9 @@ render(
     <MuiThemeProvider muiTheme={muiTheme}>
       <Router history={browserHistory}>
         <Route path='/' component={App}>
-          <Route path='*' component={App}/>
+          <Route path='/dialogs/:id' component={TmCanvasContainer}/>
         </Route>
+        <Route path='*' component={App}/>
       </Router>
     </MuiThemeProvider>
   </Provider>,

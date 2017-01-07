@@ -7,6 +7,7 @@ import css from './canvas.css';
 
 
 type Props = {
+  params: any,
   messagePanelHeight: number,
   changeMessagePanelHeight: Function
 }
@@ -22,7 +23,9 @@ class TmCanvasPhone extends Component {
             autoHide
             autoHideTimeout={1000}
             autoHideDuration={200}
-            className={css.scrollableView}/>
+            className={css.scrollableView}>
+            <div>{`Route: ${this.props.params.id}`}</div>
+          </Scrollbars>
         </div>
         <div className={css.messagePanelLayout}>
           <TmMessagePanel changeMessagePanelHeight={this.props.changeMessagePanelHeight}/>

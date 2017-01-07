@@ -6,7 +6,6 @@ import { Flex, Box } from 'reflexbox';
 import { detectDevice, detectSizeWindow } from '../actions/EnvironmentActions';
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
-import TmCanvasContainer from './CanvasContainer';
 import css from './App.css';
 
 
@@ -16,7 +15,8 @@ type Props = {
   isTablet: boolean,
   isDesktop: boolean,
   heightWindow: number,
-  widthWindow: number
+  widthWindow: number,
+  children: any
 };
 
 type State = {
@@ -59,26 +59,38 @@ class App extends Component {
   }
 
   getPhoneTemplate = () => {
+    let children = null;
+
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, this.props);
+    }
+
     return (
       <Flex className={css.contentPhoneLayout}>
         <Box className={css.panelPhoneLayout}>
           <TmPanelContainer {...this.props}/>
         </Box>
         <Box className={css.canvasPhoneLayout}>
-          <TmCanvasContainer {...this.props}/>
+          {children}
         </Box>
       </Flex>
     );
   }
 
   getTabletTemplate = () => {
+    let children = null;
+
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, this.props);
+    }
+
     return (
       <Flex className={css.contentDesktopLayout}>
         <Box className={css.panelDesktopLayout}>
           <TmPanelContainer {...this.props}/>
         </Box>
         <Box className={css.canvasDesktopLayout}>
-          <TmCanvasContainer {...this.props}/>
+          {children}
         </Box>
       </Flex>
     );

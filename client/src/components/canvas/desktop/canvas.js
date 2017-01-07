@@ -28,7 +28,7 @@ class TmCanvasDesktop extends Component {
             autoHideTimeout={1000}
             autoHideDuration={200}
             className={css.scrollableView}>
-            <div>{this.props.params.splat}</div>
+            <div>{`Route: ${this.props.params.id}`}</div>
           </Scrollbars>
         </div>
         <div className={css.messagePanelLayout}>
