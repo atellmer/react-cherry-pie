@@ -5,7 +5,29 @@
   padding: 8px 16px;
   width: 100%;
   height: auto;
+  border-bottom: 1px solid var(--hintColorDivider);
+  background-color: #fff;
   cursor: pointer;
+
+  @media (min-width: 600px) {
+    border-bottom: none;
+    background-color: var(--primaryColorSecond);
+  }
+}
+
+:local(.flex) {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+:local(.box) {
+  align-self: inherit;
+}
+
+:local(.flexAuto) {
+  flex: 1 1 auto;
 }
 
 :local(.selected) {
@@ -20,11 +42,20 @@
   &::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
+    border: 2px solid #fff;
+
+    @media (min-width: 600px) {
+      top: 0;
+      right: 0;
+      width: 6px;
+      height: 6px;
+      border: none;
+    }
   }
 }
 
@@ -40,27 +71,38 @@
   }
 }
 
-:local(.messageBodyLayout) {
+:local(.messageLayout) {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   max-width: calc(100% - 48px);
 }
 
-:local(.messageBody) {
-  padding: 0 8px;
-  color: #fff;
+:local(.message) {
+  position: relative;
+  padding-left: 8px;
+  font-size: calc(14 / var(--baseFontSize) * 1em);
 }
 
 :local(.name) {
-  font-weight: 400;
-  font-size: 1.4em;
+  margin-bottom: 4px;
+  max-width: calc(100% - 82px);
+  color: var(--primaryColorText);
   text-transform: capitalize;
+  font-weight: 500;
+
+  @media (min-width: 600px) {
+    color: #fff;
+  }
 }
 
-:local(.textMessage) {
+:local(.text) {
+  color: var(--hintColorText);
   font-weight: 300;
-  font-size: 1.4em;
+
+  @media (min-width: 600px) {
+    color: #fff;
+  }
 }
 
 :local(.textClip) {
@@ -68,4 +110,38 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   -moz-binding: url('/examples/text-overflow.xml#ellipsis');
+}
+
+:local(.indicators) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+}
+
+:local(.icon) {
+  width: 14px !important;
+  height: 14px !important;
+  margin-right: 8px;
+  color: var(--primaryColorSecond) !important;
+
+  @media (min-width: 600px) {
+    color: #fff !important;
+  }
+}
+
+:local(.timestamp) {
+  font-size: calc(12 / var(--baseFontSize) * 1em);
+  font-weight: 300;
+  color: var(--hintColorText);
+
+  @media (min-width: 600px) {
+    color: #fff;
+  }
+}
+
+:local(.badgeLayout) {
+  position: relative;
+  top: -2px;
+  margin-right: 8px;
 }

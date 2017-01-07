@@ -32,5 +32,5 @@
   border: 0;
   background-color: transparent;
   color: #fff;
-  font-size: 1.6em;
+  font-size: calc(16 / var(--baseFontSize) * 1em);
 }
