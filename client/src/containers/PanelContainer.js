@@ -6,21 +6,16 @@ import { connect } from 'react-redux';
 import TmPanelDesktop from '../components/panel/desktop';
 import TmPanelPhone from '../components/panel/phone';
 import * as interlocutorActions from '../actions/InterlocutorActions';
+import type { IDialog } from '../models/dialogItem';
 
 
 type Props = {
-  dispatch: Function,
+  dialogs: IDialog,
   isPhone: boolean,
   isTablet: boolean,
   isDesktop: boolean,
   heightWindow: number,
   widthWindow: number
-}
-
-type State = {
-  interlocutor: {
-    userId: number
-  }
 }
 
 class TmPanelContainer extends Component {
@@ -31,16 +26,25 @@ class TmPanelContainer extends Component {
   }
 
   renderTemplate = () => {
-    const { isPhone, widthWindow } = this.props;
+    const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
 
-    if (isPhone || widthWindow <= 600) {
-      return (
-        <TmPanelPhone {...this.props}/>
-      );
+    if (isPhone) {
+      return <TmPanelPhone {...this.props}/>;
     }
-    return (
-      <TmPanelDesktop {...this.props}/>
-    );
+
+    if (isTablet) {
+      return <TmPanelDesktop {...this.props}/>;
+    }
+
+    if (isDesktop && widthWindow > 0 && widthWindow <= 600) {
+      return <TmPanelPhone {...this.props}/>;
+    }
+
+    if (isDesktop && widthWindow > 600) {
+      return <TmPanelDesktop {...this.props}/>;
+    }
+
+    return null;
   }
 
   render() {
@@ -48,10 +52,13 @@ class TmPanelContainer extends Component {
   }
 }
 
-function mapStateToProps(state: State): any {
-  const { interlocutor } = state;
+function mapStateToProps(state: any): any {
+  const { interlocutor, user } = state;
 
-  return { interlocutor };
+  return {
+    interlocutor,
+    dialogs: user.dialogs
+  };
 }
 
 function mapDispatchToProps(dispatch: Function): any {

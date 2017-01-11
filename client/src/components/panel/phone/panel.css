@@ -1,6 +1,6 @@
 @import '../../../variables.css';
 
-:local(.root) {
+:local(.rootPhone) {
   position: relative;
   padding: 42px 0 0;
   width: 100%;

@@ -7,3 +7,7 @@ export const CHANGE_MESSAGE_PANEL_HEIGHT = 'CHANGE_MESSAGE_PANEL_HEIGHT';
 
 // interlocutor
 export const CHANGE_INTERLOCUTOR = 'CHANGE_INTERLOCUTOR';
+
+// User
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_DIALOGS = 'FETCH_DIALOGS';

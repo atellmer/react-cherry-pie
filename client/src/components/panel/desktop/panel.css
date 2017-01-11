@@ -1,6 +1,6 @@
 @import '../../../variables.css';
 
-:local(.root) {
+:local(.rootDesktop) {
   position: relative;
   width: 100%;
   height: 100%;

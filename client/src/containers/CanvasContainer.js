@@ -9,7 +9,6 @@ import * as layoutActions from '../actions/LayoutActions';
 
 
 type Props = {
-  dispatch: Function,
   isPhone: boolean,
   isTablet: boolean,
   isDesktop: boolean,
@@ -17,14 +16,6 @@ type Props = {
   widthWindow: number,
   messagePanelHeight: number,
   changeMessagePanelHeight: Function
-}
-
-type State = {
-  layout: {
-    messagePanel: {
-      height: number
-    }
-  }
 }
 
 class TmCanvasContainer extends Component {
@@ -48,7 +39,7 @@ class TmCanvasContainer extends Component {
   }
 }
 
-function mapStateToProps(state: State): any {
+function mapStateToProps(state: any): any {
   const { layout } = state;
 
   return {

@@ -1,16 +1,21 @@
 /** @flow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Flex, Box } from 'reflexbox';
 
-import { detectDevice, detectSizeWindow } from '../actions/EnvironmentActions';
+import * as environmentActions from '../actions/EnvironmentActions';
+import * as userActions from '../actions/UserActions';
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
 import css from './App.css';
 
 
 type Props = {
-  dispatch: Function,
+  detectDevice: Function,
+  detectSizeWindow: Function,
+  fetchUser: Function,
+  fetchDialogs: Function,
   isPhone: boolean,
   isTablet: boolean,
   isDesktop: boolean,
@@ -18,16 +23,6 @@ type Props = {
   widthWindow: number,
   children: any
 };
-
-type State = {
-  environment: {
-    isPhone: boolean,
-    isTablet: boolean,
-    isDesktop: boolean,
-    width: number,
-    height: number
-  }
-}
 
 class App extends Component {
   props: Props;
@@ -37,17 +32,18 @@ class App extends Component {
   }
 
   componentWillMount() {
-    const { dispatch } = this.props;
+    this.props.detectDevice();
+    this.props.detectSizeWindow();
+    window.addEventListener('resize', () => this.props.detectSizeWindow());
+  }
 
-    dispatch(detectDevice());
-    dispatch(detectSizeWindow());
-    window.addEventListener('resize', () => dispatch(detectSizeWindow()));
+  componentDidMount() {
+    this.props.fetchUser();
+    this.props.fetchDialogs();
   }
 
   componentWillUnmount() {
-    const { dispatch } = this.props;
-
-    window.removeEventListener('resize', () => dispatch(detectSizeWindow()));
+    window.removeEventListener('resize', () => this.props.detectSizeWindow());
   }
 
   getAppbarTemplate = () => {
@@ -66,8 +62,8 @@ class App extends Component {
     }
 
     return (
-      <Flex className={css.contentPhoneLayout}>
-        <Box className={css.panelPhoneLayout}>
+      <Flex className={css.contentLayout}>
+        <Box className={css.panelLayout}>
           <TmPanelContainer {...this.props}/>
         </Box>
         <Box className={css.canvasPhoneLayout}>
@@ -85,8 +81,27 @@ class App extends Component {
     }
 
     return (
-      <Flex className={css.contentDesktopLayout}>
-        <Box className={css.panelDesktopLayout}>
+      <Flex className={css.contentLayout}>
+        <Box className={css.panelLayout}>
+          <TmPanelContainer {...this.props}/>
+        </Box>
+        <Box className={css.canvasDesktopLayout}>
+          {children}
+        </Box>
+      </Flex>
+    );
+  }
+
+  getDesktopTemplate = () => {
+    let children = null;
+
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, this.props);
+    }
+
+    return (
+      <Flex className={css.contentLayout}>
+        <Box className={css.panelLayout}>
           <TmPanelContainer {...this.props}/>
         </Box>
         <Box className={css.canvasDesktopLayout}>
@@ -118,8 +133,7 @@ class App extends Component {
     return (
       <div className={css.root}>
         {this.getAppbarTemplate()}
-        {this.getPhoneTemplate()}
-        {this.getTabletTemplate()}
+        {this.getDesktopTemplate()}
       </div>
     );
   }
@@ -133,6 +147,7 @@ class App extends Component {
     if (isTablet) {
       return this.renderTabletTemplate();
     }
+
     return this.renderDesktopTemplate();
   }
 
@@ -141,7 +156,7 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state: State): any {
+function mapStateToProps(state: any) {
   const { environment } = state;
 
   return {
@@ -153,4 +168,16 @@ function mapStateToProps(state: State): any {
   };
 }
 
-export default connect(mapStateToProps)(App);
+function mapDispatchToProps(dispatch: Function) {
+  const { detectDevice, detectSizeWindow } = environmentActions;
+  const { fetchUser, fetchDialogs } = userActions;
+
+  return {
+    detectDevice: bindActionCreators(detectDevice, dispatch),
+    detectSizeWindow: bindActionCreators(detectSizeWindow, dispatch),
+    fetchUser: bindActionCreators(fetchUser, dispatch),
+    fetchDialogs: bindActionCreators(fetchDialogs, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
