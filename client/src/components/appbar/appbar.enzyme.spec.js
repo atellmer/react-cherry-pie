@@ -2,12 +2,23 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import TmAppbar from './index';
 
+const me = {
+  id: '',
+  name: {
+    first: '',
+    last: ''
+  },
+  avatar: {
+    thumbnail: ''
+  },
+  online: false
+};
 
 describe('Enzyme: TmAbbar', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<TmAppbar/>);
+    component = shallow(<TmAppbar me={me}/>);
   });
 
   it('TmAbbar renders TmLogo', () => {

@@ -9,6 +9,18 @@ import TmAppbar from './index';
 jest.mock('react-dom');
 jest.mock('react/lib/ReactDefaultInjection');
 
+const me = {
+  id: '',
+  name: {
+    first: '',
+    last: ''
+  },
+  avatar: {
+    thumbnail: ''
+  },
+  online: false
+};
+
 beforeEach(() => {
   window.matchMedia = windowMatchMedia;
 });
@@ -16,7 +28,7 @@ beforeEach(() => {
 test('Jest: TmAppbar (Snapshot)', () => {
   const component = renderer.create(
     <MuiThemeProvider muiTheme={muiTheme}>
-      <TmAppbar/>
+      <TmAppbar me={me}/>
     </MuiThemeProvider>
   );
   let tree = component.toJSON();
