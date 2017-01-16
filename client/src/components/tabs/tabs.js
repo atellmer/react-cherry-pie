@@ -10,7 +10,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import TmDialogItem from '../dialogItem';
 
 // Styles
-import css from './tabs.css';
+import * as css from './tabs.css';
 
 // Types
 import type { IDialog } from '../../models/dialogItem';

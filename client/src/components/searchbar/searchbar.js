@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-import css from './searchbar.css';
+import * as css from './searchbar.css';
 
 class TmSearchbar extends Component {
   rootNode: HTMLElement;

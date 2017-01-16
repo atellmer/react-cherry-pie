@@ -7,7 +7,6 @@ import muiTheme from '../../config/theme';
 import TmAppbar from './index';
 
 jest.mock('react-dom');
-jest.mock('react/lib/ReactDefaultInjection');
 
 const me = {
   id: '',

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 import TmDialogItem from '../../dialogItem';
 import type { IDialog } from '../../../models/dialogItem';
-import css from './panel.css';
+import * as css from './panel.css';
 
 
 type Props = {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import css from './badge.css';
+import * as css from './badge.css';
 
 
 type Props = {

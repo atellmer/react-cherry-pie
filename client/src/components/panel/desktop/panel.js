@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Flex } from 'reflexbox';
 
 import type { IDialog } from '../../../models/dialogItem';
-import css from './panel.css';
+import * as css from './panel.css';
 import TmLogo from '../../logo';
 import TmSearchbar from '../../searchbar';
 import TmTabs from '../../tabs';

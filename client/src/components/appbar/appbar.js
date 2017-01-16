@@ -5,7 +5,7 @@ import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import css from './appbar.css';
+import * as css from './appbar.css';
 import TmLogo from '../logo';
 import type { IUser } from '../../models/user';
 

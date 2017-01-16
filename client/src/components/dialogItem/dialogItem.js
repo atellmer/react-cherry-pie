@@ -13,7 +13,7 @@ import TmBadge from '../badge';
 import type { IDialog } from '../../models/dialogItem';
 
 // Styles
-import css from './dialogItem.css';
+import * as css from './dialogItem.css';
 
 
 type Props = {

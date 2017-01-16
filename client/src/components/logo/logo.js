@@ -1,7 +1,7 @@
 /** @flow */
 import React from 'react';
 
-import css from './logo.css';
+import * as css from './logo.css';
 
 function TmLogo() {
   return (

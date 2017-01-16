@@ -57,9 +57,7 @@ module.exports = {
 	postcss: function (webpack) {
 		return [
 			require('stylelint')(),
-			require('postcss-import')({
-				addDependencyTo: webpack
-			}),
+			require('postcss-import')(),
 			require('postcss-url')(),
 			require('postcss-css-reset')(),
 			require('postcss-cssnext')({

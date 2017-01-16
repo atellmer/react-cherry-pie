@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import TmMessagePanel from '../../messagePanel';
-import css from './canvas.css';
+import * as css from './canvas.css';
 
 
 type Props = {

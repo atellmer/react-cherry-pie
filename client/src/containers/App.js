@@ -8,7 +8,7 @@ import * as environmentActions from '../actions/EnvironmentActions';
 import * as userActions from '../actions/UserActions';
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
-import css from './App.css';
+import * as css from './App.css';
 
 
 type Props = {

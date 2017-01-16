@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import css from './textarea.css';
+import * as css from './textarea.css';
 
 type Props = {
   onHeightChange: Function
