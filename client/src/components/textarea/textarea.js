@@ -1,8 +1,12 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import TextareaAutosize from 'react-textarea-autosize';
 
+// Styles
 import * as css from './textarea.css';
+
 
 type Props = {
   onHeightChange: Function
@@ -30,4 +34,4 @@ class TmTextarea extends Component {
   }
 }
 
-export default TmTextarea;
+export default pureRender(TmTextarea);

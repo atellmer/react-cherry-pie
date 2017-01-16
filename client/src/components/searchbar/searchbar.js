@@ -1,8 +1,12 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
+// Styles
 import * as css from './searchbar.css';
+
 
 class TmSearchbar extends Component {
   rootNode: HTMLElement;
@@ -34,4 +38,4 @@ class TmSearchbar extends Component {
   }
 }
 
-export default TmSearchbar;
+export default pureRender(TmSearchbar);

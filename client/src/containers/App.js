@@ -1,13 +1,20 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Flex, Box } from 'reflexbox';
 
+// Actions
 import * as environmentActions from '../actions/EnvironmentActions';
 import * as userActions from '../actions/UserActions';
+
+// Components
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
+
+// Styles
 import * as css from './App.css';
 
 
@@ -180,4 +187,4 @@ function mapDispatchToProps(dispatch: Function) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(pureRender(App));

@@ -1,10 +1,17 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router';
 
-import TmDialogItem from '../../dialogItem';
+// Models
 import type { IDialog } from '../../../models/dialogItem';
+
+// Components
+import TmDialogItem from '../../dialogItem';
+
+// Styles
 import * as css from './panel.css';
 
 
@@ -44,4 +51,4 @@ class TmPanelPhone extends Component {
   }
 }
 
-export default TmPanelPhone;
+export default pureRender(TmPanelPhone);

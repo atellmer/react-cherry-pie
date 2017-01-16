@@ -1,16 +1,17 @@
 /** @flow */
 // Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import cx from 'classnames';
 import Avatar from 'material-ui/Avatar/index';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionDoneAll from 'material-ui/svg-icons/action/done-all';
 
+// Models
+import type { IDialog } from '../../models/dialogItem';
+
 // Components
 import TmBadge from '../badge';
-
-// Types
-import type { IDialog } from '../../models/dialogItem';
 
 // Styles
 import * as css from './dialogItem.css';
@@ -94,4 +95,4 @@ class TmDialogItem extends Component {
   }
 }
 
-export default TmDialogItem;
+export default pureRender(TmDialogItem);

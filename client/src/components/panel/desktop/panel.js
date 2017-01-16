@@ -1,12 +1,19 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { Flex } from 'reflexbox';
 
+// Models
 import type { IDialog } from '../../../models/dialogItem';
-import * as css from './panel.css';
+
+// Components
 import TmLogo from '../../logo';
 import TmSearchbar from '../../searchbar';
 import TmTabs from '../../tabs';
+
+// Styles
+import * as css from './panel.css';
 
 
 type Props = {
@@ -39,4 +46,4 @@ class TmPanelDesktop extends Component {
   }
 }
 
-export default TmPanelDesktop;
+export default pureRender(TmPanelDesktop);

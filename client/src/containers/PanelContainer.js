@@ -1,12 +1,19 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
+// Actions
+import * as interlocutorActions from '../actions/InterlocutorActions';
+
+// Models
+import type { IDialog } from '../models/dialogItem';
+
+// Components
 import TmPanelDesktop from '../components/panel/desktop';
 import TmPanelPhone from '../components/panel/phone';
-import * as interlocutorActions from '../actions/InterlocutorActions';
-import type { IDialog } from '../models/dialogItem';
 
 
 type Props = {
@@ -69,4 +76,4 @@ function mapDispatchToProps(dispatch: Function): any {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TmPanelContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(pureRender(TmPanelContainer));

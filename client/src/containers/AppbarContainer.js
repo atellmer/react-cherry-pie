@@ -1,9 +1,14 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
 
-import TmAppbar from '../components/appbar';
+// Models
 import type { IUser } from '../models/user';
+
+// Components
+import TmAppbar from '../components/appbar';
 
 
 type Props = {
@@ -33,4 +38,4 @@ function mapStateToProps(state: any) {
 }
 
 
-export default connect(mapStateToProps)(TmAppbarContainer);
+export default connect(mapStateToProps)(pureRender(TmAppbarContainer));

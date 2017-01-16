@@ -1,13 +1,20 @@
 /** @flow */
+// Core
 import React, { Component } from 'react';
+import pureRender from 'pure-render-decorator';
 import { Flex, Box } from 'reflexbox';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-import * as css from './appbar.css';
-import TmLogo from '../logo';
+// Models
 import type { IUser } from '../../models/user';
+
+// Components
+import TmLogo from '../logo';
+
+// Styles
+import * as css from './appbar.css';
 
 
 type Props = {
@@ -49,4 +56,4 @@ class TmAppbar extends Component {
   }
 }
 
-export default TmAppbar;
+export default pureRender(TmAppbar);

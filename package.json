@@ -69,6 +69,7 @@
     "classnames": "^2.2.5",
     "device-detect.js": "^0.2.7",
     "material-ui": "^0.16.7",
+    "pure-render-decorator": "^1.2.1",
     "react": "^15.4.2",
     "react-custom-scrollbars": "^4.0.0",
     "react-dom": "^15.4.2",

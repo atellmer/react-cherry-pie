@@ -1,5 +1,9 @@
+/** @flow */
+// Core
 import React from 'react';
+import pureRender from 'pure-render-decorator';
 
+// Styles
 import * as css from './badge.css';
 
 
@@ -13,4 +17,4 @@ function TmBagde(props: Props) {
   );
 }
 
-export default TmBagde;
+export default pureRender(TmBagde);
