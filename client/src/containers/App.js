@@ -53,109 +53,28 @@ class App extends Component {
     window.removeEventListener('resize', () => this.props.detectSizeWindow());
   }
 
-  getAppbarTemplate = () => {
-    return (
-      <div className={css.appbarLayout}>
-        <TmAppbarContainer {...this.props}/>
-      </div>
-    );
-  }
-
-  getPhoneTemplate = () => {
-    let children = null;
-
-    if (this.props.children) {
-      children = React.cloneElement(this.props.children, this.props);
-    }
-
-    return (
-      <Flex className={css.contentLayout}>
-        <Box className={css.panelLayout}>
-          <TmPanelContainer {...this.props}/>
-        </Box>
-        <Box className={css.canvasPhoneLayout}>
-          {children}
-        </Box>
-      </Flex>
-    );
-  }
-
-  getTabletTemplate = () => {
-    let children = null;
-
-    if (this.props.children) {
-      children = React.cloneElement(this.props.children, this.props);
-    }
-
-    return (
-      <Flex className={css.contentLayout}>
-        <Box className={css.panelLayout}>
-          <TmPanelContainer {...this.props}/>
-        </Box>
-        <Box className={css.canvasDesktopLayout}>
-          {children}
-        </Box>
-      </Flex>
-    );
-  }
-
-  getDesktopTemplate = () => {
-    let children = null;
-
-    if (this.props.children) {
-      children = React.cloneElement(this.props.children, this.props);
-    }
-
-    return (
-      <Flex className={css.contentLayout}>
-        <Box className={css.panelLayout}>
-          <TmPanelContainer {...this.props}/>
-        </Box>
-        <Box className={css.canvasDesktopLayout}>
-          {children}
-        </Box>
-      </Flex>
-    );
-  }
-
-  renderPhoneTemplate = () => {
-    return (
-      <div className={css.root}>
-        {this.getAppbarTemplate()}
-        {this.getPhoneTemplate()}
-      </div>
-    );
-  }
-
-  renderTabletTemplate = () => {
-    return (
-      <div className={css.root}>
-        {this.getAppbarTemplate()}
-        {this.getTabletTemplate()}
-      </div>
-    );
-  }
-
-  renderDesktopTemplate = () => {
-    return (
-      <div className={css.root}>
-        {this.getAppbarTemplate()}
-        {this.getDesktopTemplate()}
-      </div>
-    );
-  }
-
   renderTemplate = () => {
-    const { isPhone, isTablet } = this.props;
+    let children = null;
 
-    if (isPhone) {
-      return this.renderPhoneTemplate();
-    }
-    if (isTablet) {
-      return this.renderTabletTemplate();
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, this.props);
     }
 
-    return this.renderDesktopTemplate();
+    return (
+      <div className={css.root}>
+        <div className={css.appbarLayout}>
+          <TmAppbarContainer {...this.props}/>
+        </div>
+        <Flex className={css.contentLayout}>
+          <Box className={css.panelLayout}>
+            <TmPanelContainer {...this.props}/>
+          </Box>
+          <Box className={css.canvasLayout}>
+            {children}
+          </Box>
+        </Flex>
+      </div>
+    );
   }
 
   render() {

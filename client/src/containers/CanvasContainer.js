@@ -27,16 +27,25 @@ class TmCanvasContainer extends Component {
   props: Props;
 
   renderTemplate = () => {
-    const { isPhone } = this.props;
+    const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
 
     if (isPhone) {
-      return (
-        <TmCanvasPhone {...this.props}/>
-      );
+      return <TmCanvasPhone {...this.props}/>;
     }
-    return (
-      <TmCanvasDesktop {...this.props}/>
-    );
+
+    if (isTablet) {
+      return <TmCanvasDesktop {...this.props}/>;
+    }
+
+    if (isDesktop && widthWindow > 0 && widthWindow <= 600) {
+      return <TmCanvasPhone {...this.props}/>;
+    }
+
+    if (isDesktop && widthWindow > 600) {
+      return <TmCanvasDesktop {...this.props}/>;
+    }
+
+    return null;
   }
 
   render() {

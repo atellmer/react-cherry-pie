@@ -19,7 +19,8 @@
   --textareaPhoneBackground: #f5f5f5;
   --onlineStatusColor: #76ff03;
   --offlineStatusColor: #e91e63;
-  --selectedMessageColor: #836bed;
+  --selectedMessageColorDesktop: #836bed;
+  --selectedMessageColorPhone: #eee;
   --primaryColorText: #212121;
   --hintColorText: #616161;
   --hintColorDivider: #dcdcdd;

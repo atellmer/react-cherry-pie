@@ -11,8 +11,4 @@
   @media (min-width: 600px) {
     background-color: transparent;
   }
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }

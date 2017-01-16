@@ -31,7 +31,11 @@
 }
 
 :local(.selected) {
-  background-color: var(--selectedMessageColor);
+  background-color: var(--selectedMessageColorPhone);
+
+  @media (min-width: 600px) {
+    background-color: var(--selectedMessageColorDesktop);
+  }
 }
 
 :local(.avatarLayout) {

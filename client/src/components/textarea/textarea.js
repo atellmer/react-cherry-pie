@@ -24,12 +24,14 @@ class TmTextarea extends Component {
   }
 
   render() {
+    const plaseholder = 'Введите ваше сообщение...';
+
     return (
       <TextareaAutosize className={css.root}
         minRows={1}
         maxRows={10}
         onHeightChange={this.handleHeightChange}
-        placeholder='Введите ваше сообщение...'/>
+        placeholder={plaseholder}/>
     );
   }
 }
