@@ -65,6 +65,7 @@
     "webpack-dev-server": "^1.15.1"
   },
   "dependencies": {
+    "asteroid": "^2.0.3",
     "axios": "^0.15.3",
     "classnames": "^2.2.5",
     "device-detect.js": "^0.2.7",
