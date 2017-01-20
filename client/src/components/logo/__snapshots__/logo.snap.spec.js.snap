@@ -1,0 +1,4 @@
+exports[`test Jest: TmLogo (Snapshot) 1`] = `
+<div
+  className={undefined} />
+`;

@@ -7,9 +7,6 @@ import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
 import SendIcon from 'material-ui/svg-icons/content/send';
 
-// API
-import fromAPI from '../../api';
-
 // Components
 import TmTextarea from '../textarea';
 
@@ -46,16 +43,6 @@ class TmMessagePanel extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-
-    fromAPI.testItems.call('addItem', this.state.value)
-      .then(() => {
-        this.setState({ value: '' });
-      });
-
-    fromAPI.testItems.call('getItems')
-      .then(data => {
-        console.log('all items: ', data);
-      });
   }
 
   handleChangeInput = (message: string) => {

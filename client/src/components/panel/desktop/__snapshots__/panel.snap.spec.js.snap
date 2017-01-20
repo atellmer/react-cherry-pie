@@ -1,0 +1,22 @@
+exports[`test Jest: TmPanelDesktop (Snapshot) 1`] = `
+<div
+  className={undefined}>
+  <div
+    className={undefined}>
+    <Flex
+      align="center"
+      className={undefined}>
+      <TmLogo />
+    </Flex>
+    <Flex
+      align="center"
+      className={undefined}>
+      <TmSearchbar />
+    </Flex>
+  </div>
+  <div>
+    <TmTabs
+      dialogs={Array []} />
+  </div>
+</div>
+`;

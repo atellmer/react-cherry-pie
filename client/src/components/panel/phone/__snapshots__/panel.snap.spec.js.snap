@@ -1,0 +1,24 @@
+exports[`test Jest: TmPanelPhone (Snapshot) 1`] = `
+<div
+  className={undefined}>
+  <Scrollbars
+    autoHeight={false}
+    autoHeightMax={200}
+    autoHeightMin={0}
+    autoHide={true}
+    autoHideDuration={200}
+    autoHideTimeout={1000}
+    className={undefined}
+    hideTracksWhenNotNeeded={false}
+    renderThumbHorizontal={[Function]}
+    renderThumbVertical={[Function]}
+    renderTrackHorizontal={[Function]}
+    renderTrackVertical={[Function]}
+    renderView={[Function]}
+    tagName="div"
+    thumbMinSize={30}
+    universal={false}>
+    
+  </Scrollbars>
+</div>
+`;

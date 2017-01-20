@@ -1,0 +1,11 @@
+exports[`test Jest: TmTextarea (Snapshot) 1`] = `
+<TextareaAutosize
+  className={undefined}
+  maxRows={10}
+  minRows={1}
+  onChange={[Function]}
+  onHeightChange={[Function]}
+  placeholder="Введите ваше сообщение..."
+  useCacheForDOMMeasurements={false}
+  value="lorem ipsum" />
+`;

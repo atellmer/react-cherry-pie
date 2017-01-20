@@ -1,0 +1,6 @@
+exports[`test Jest: TmBagde (Snapshot) 1`] = `
+<div
+  className={undefined}>
+  5
+</div>
+`;

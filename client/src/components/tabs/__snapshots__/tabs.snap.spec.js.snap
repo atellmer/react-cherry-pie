@@ -1,0 +1,70 @@
+exports[`test Jest: TmTabs (Snapshot) 1`] = `
+<div
+  className={undefined}>
+  <Tabs
+    initialSelectedIndex={0}
+    onChange={[Function]}
+    value={0}>
+    <Tab
+      label="Все"
+      value={0} />
+    <Tab
+      label="Новые"
+      value={1} />
+  </Tabs>
+  <SwipeableViews
+    animateHeight={false}
+    animateTransitions={true}
+    axis="x"
+    disabled={false}
+    index={0}
+    onChangeIndex={[Function]}
+    resistance={false}
+    springConfig={
+      Object {
+        "damping": 30,
+        "stiffness": 300,
+      }
+    }
+    threshold={5}>
+    <Scrollbars
+      autoHeight={false}
+      autoHeightMax={200}
+      autoHeightMin={0}
+      autoHide={true}
+      autoHideDuration={200}
+      autoHideTimeout={1000}
+      className={undefined}
+      hideTracksWhenNotNeeded={false}
+      renderThumbHorizontal={[Function]}
+      renderThumbVertical={[Function]}
+      renderTrackHorizontal={[Function]}
+      renderTrackVertical={[Function]}
+      renderView={[Function]}
+      tagName="div"
+      thumbMinSize={30}
+      universal={false}>
+      
+    </Scrollbars>
+    <Scrollbars
+      autoHeight={false}
+      autoHeightMax={200}
+      autoHeightMin={0}
+      autoHide={true}
+      autoHideDuration={200}
+      autoHideTimeout={1000}
+      className={undefined}
+      hideTracksWhenNotNeeded={false}
+      renderThumbHorizontal={[Function]}
+      renderThumbVertical={[Function]}
+      renderTrackHorizontal={[Function]}
+      renderTrackVertical={[Function]}
+      renderView={[Function]}
+      tagName="div"
+      thumbMinSize={30}
+      universal={false}>
+      tab #2
+    </Scrollbars>
+  </SwipeableViews>
+</div>
+`;

@@ -1,0 +1,39 @@
+exports[`test Jest: TmMessagePanel (Snapshot) 1`] = `
+<form
+  onSubmit={[Function]}>
+  <Flex
+    align="center"
+    className={undefined}>
+    <Box>
+      <IconButton
+        disableTouchRipple={false}
+        disabled={false}
+        iconStyle={Object {}}
+        tooltipPosition="bottom-center"
+        touch={false}>
+        <SocialSentimentSatisfied
+          color="#7f7f7f" />
+      </IconButton>
+    </Box>
+    <Box
+      flexAuto={true}>
+      <TmTextarea
+        onChangeInput={[Function]}
+        onHeightChange={[Function]}
+        value="" />
+    </Box>
+    <Box>
+      <IconButton
+        disableTouchRipple={false}
+        disabled={false}
+        iconStyle={Object {}}
+        tooltipPosition="bottom-center"
+        touch={false}
+        type="submit">
+        <ContentSend
+          color="#9a85cd" />
+      </IconButton>
+    </Box>
+  </Flex>
+</form>
+`;
