@@ -8,7 +8,7 @@ const props = {
   dialogs: []
 };
 
-test('Jest: TmPanelDesktop (Snapshot)', () => {
+test('Jest: TmPanelDesktop (Shallow Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
 
   const result = shallowRenderer.render(<TmPanelDesktop {...props}/>);

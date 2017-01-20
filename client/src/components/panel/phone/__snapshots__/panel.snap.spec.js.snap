@@ -1,4 +1,4 @@
-exports[`test Jest: TmPanelPhone (Snapshot) 1`] = `
+exports[`test Jest: TmPanelPhone (Shallow Snapshot) 1`] = `
 <div
   className={undefined}>
   <Scrollbars

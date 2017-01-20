@@ -8,7 +8,7 @@ const props = {
   dialogs: []
 };
 
-test('Jest: TmPanelPhone (Snapshot)', () => {
+test('Jest: TmPanelPhone (Shallow Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
 
   const result = shallowRenderer.render(<TmPanelPhone {...props}/>);

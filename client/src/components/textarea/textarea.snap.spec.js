@@ -1,18 +1,22 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import renderer from 'react-test-renderer';
 
 import TmTextarea from './index';
 
 
-const props = {
-  value: 'lorem ipsum',
-  onChangeInput: (value) => {},
-  onHeightChange: () => {}
-};
+jest.mock('react-dom');
+jest.mock('react-textarea-autosize', () => 'TextareaAutosize');
 
 test('Jest: TmTextarea (Snapshot)', () => {
-  const shallowRenderer = ReactTestUtils.createRenderer();
+  const props = {
+    value: 'lorem ipsum',
+    onChangeInput: (value) => {},
+    onHeightChange: () => {}
+  };
 
-  const result = shallowRenderer.render(<TmTextarea {...props}/>);
-  expect(result).toMatchSnapshot();
+  const component = renderer.create(<TmTextarea {...props}/>);
+
+  let tree = component.toJSON();
+
+  expect(tree).toMatchSnapshot();
 });

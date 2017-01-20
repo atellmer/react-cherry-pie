@@ -1,18 +1,39 @@
 import React from 'react';
-import ReactTestUtils from 'react-addons-test-utils';
+import renderer from 'react-test-renderer';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import { windowMatchMedia } from '../../../../test/__mocks__/matchMediaMock';
+import muiTheme from '../../../config/theme';
 import TmCanvasPhone from './index';
 
 
-const props = {
-  params: {},
-  messagePanelHeight: 0,
-  changeMessagePanelHeight: () => {}
-};
+jest.mock('react-dom');
+jest.mock('react-custom-scrollbars', () => {
+  return {
+    Scrollbars: 'Scrollbars'
+  };
+});
+jest.mock('react-textarea-autosize', () => 'TextareaAutosize');
+
+beforeEach(() => {
+  window.matchMedia = windowMatchMedia;
+});
 
 test('Jest: TmCanvasPhone (Snapshot)', () => {
-  const shallowRenderer = ReactTestUtils.createRenderer();
+  const props = {
+    params: {},
+    messagePanelHeight: 0,
+    changeMessagePanelHeight: () => {}
+  };
 
-  const result = shallowRenderer.render(<TmCanvasPhone {...props}/>);
-  expect(result).toMatchSnapshot();
+  const component = renderer.create(
+    <MuiThemeProvider muiTheme={muiTheme}>
+      <TmCanvasPhone {...props}/>
+    </MuiThemeProvider>
+  );
+
+  let tree = component.toJSON();
+
+  expect(tree).toMatchSnapshot();
 });
+

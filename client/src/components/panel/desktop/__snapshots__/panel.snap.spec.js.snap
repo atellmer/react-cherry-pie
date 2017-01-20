@@ -1,4 +1,4 @@
-exports[`test Jest: TmPanelDesktop (Snapshot) 1`] = `
+exports[`test Jest: TmPanelDesktop (Shallow Snapshot) 1`] = `
 <div
   className={undefined}>
   <div
