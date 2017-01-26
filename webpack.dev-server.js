@@ -1,38 +1,38 @@
 'use strict';
 
-var webpack = require('webpack');
-var webpackDevServer = require('webpack-dev-server');
-var clc = require('cli-color');
+const webpack = require('webpack');
+const webpackDevServer = require('webpack-dev-server');
+const clc = require('cli-color');
 
-var webpackConfig = require('./webpack.dev.config');
-var config = require('./config');
+const webpackConfig = require('./webpack.dev.config');
+const config = require('./config');
 
-var compiler = webpack(webpackConfig);
-var port = config.port;
+const compiler = webpack(webpackConfig);
+const port = config.port;
 
-var server = new webpackDevServer(compiler, {
-	contentBase: './' + config.root + '/public/',
-	publicPath: webpackConfig.output.publicPath,
-	hot: true,
-	historyApiFallback: true,
-	quiet: false,
-	noInfo: false,
-	stats: {
-		assets: false,
-		colors: true,
-		version: false,
-		hash: false,
-		timings: true,
-		chunks: true,
-		chunkModules: false
-	}
+const server = new webpackDevServer(compiler, {
+  contentBase: `./${config.root}/public/`,
+  publicPath: webpackConfig.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
+  quiet: false,
+  noInfo: false,
+  stats: {
+    assets: false,
+    colors: true,
+    version: false,
+    hash: false,
+    timings: true,
+    chunks: true,
+    chunkModules: false
+  }
 });
 
-server.listen(config.port, 'localhost', function (error, result) {
-	if (error) {
-		console.error(clc.red(error))
-	} else {
-		console.log(clc.green('DevServer: ') + clc.yellow('http://localhost:' + port));
-		console.log(clc.green('-------------------------------------------'));
-	}
+server.listen(config.port, 'localhost', (error, result) => {
+  if (error) {
+    console.error(clc.red(error))
+  } else {
+    console.log(clc.green('DevServer: ') + clc.yellow(`http://localhost:${port}`));
+    console.log(clc.green('-------------------------------------------'));
+  }
 });
