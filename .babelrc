@@ -1,15 +1,16 @@
 {
-	"presets": [
-		"es2015", 
-		"stage-0", 
-		"react"
-	],
-	"plugins": [
-		"react-html-attrs", 
-		"transform-class-properties", 
-		"transform-decorators-legacy", 
-		"add-module-exports",
-		"transform-runtime",
-		"transform-flow-strip-types"
-	]
+  "presets": [
+    "es2015", 
+    "stage-0", 
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "react-html-attrs", 
+    "transform-class-properties", 
+    "transform-decorators-legacy", 
+    "add-module-exports",
+    "transform-runtime",
+    "transform-flow-strip-types"
+  ]
 }

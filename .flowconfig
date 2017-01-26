@@ -6,6 +6,7 @@
 .*/src/.*
 
 [libs]
+./flow-typed/global/
 
 [options]
 esproposal.class_static_fields=enable

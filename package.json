@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run typings",
-    "start": "set NODE_ENV=development&& npm run dev && node webpack.dev-server.js",
+    "start": "set NODE_ENV=development&& npm run dev && node webpack.server.js",
     "build": "set NODE_ENV=production&& webpack --config webpack.prod.config.js",
     "dev": "webpack --config webpack.dev.config.js",
     "test": "jest",
@@ -76,7 +76,7 @@
     "postcss-reporter": "^3.0.0",
     "postcss-url": "^5.1.2",
     "react-addons-test-utils": "^15.4.2",
-    "react-hot-loader": "^1.3.0",
+    "react-hot-loader": "v3.0.0-beta.6",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.1",
     "stylelint": "^7.5.0",

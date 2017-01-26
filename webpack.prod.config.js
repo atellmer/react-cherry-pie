@@ -4,7 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const clc = require('cli-color');
 const config = require('./config');
 
@@ -83,9 +82,6 @@ const webpackConfig = {
       filename: path.resolve(__dirname, `${config.root}/public/index.html`),
       template: path.resolve(__dirname, `${config.root}/src/assets/template.html`)
     }),
-    new FlowStatusWebpackPlugin({
-      failOnError: true
-    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {
@@ -99,7 +95,7 @@ const webpackConfig = {
             require('postcss-css-reset')(),
             require('postcss-cssnext')({
               browsers: ['> 1%'],
-              warnForDuplicates: true,
+              warnForDuplicates: false,
             }),
             require('cssnano')(),
             require('postcss-browser-reporter')(),
@@ -110,14 +106,23 @@ const webpackConfig = {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			},
+      compress: {
+        warnings: false
+      },
       comments: false
-		})
+    })
   ],
   watchOptions: {
     aggregateTimeout: 100,
+  },
+  stats: {
+    assets: true,
+    colors: true,
+    version: false,
+    hash: false,
+    timings: true,
+    chunks: true,
+    chunkModules: false
   }
 };
 

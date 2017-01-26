@@ -22,6 +22,7 @@ const webpackConfig = {
     extensions: ['.js', '.jsx', '.json', '.css', '.html']
   },
   entry: [
+    'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${config.port}`,
     'webpack/hot/only-dev-server',
     'babel-polyfill',
@@ -37,7 +38,6 @@ const webpackConfig = {
       {
         test: /\.(js|jsx)$/,
         use: [
-          { loader: 'react-hot-loader' },
           { loader: 'babel-loader' },
           { loader: 'eslint-loader' }
         ],
@@ -106,7 +106,7 @@ const webpackConfig = {
             require('postcss-css-reset')(),
             require('postcss-cssnext')({
               browsers: ['> 1%'],
-              warnForDuplicates: true,
+              warnForDuplicates: false,
             }),
             require('postcss-browser-reporter')(),
             require('postcss-reporter')()
