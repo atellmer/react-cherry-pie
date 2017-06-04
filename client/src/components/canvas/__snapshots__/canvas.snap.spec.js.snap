@@ -1,42 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Jest: TmTabs (Snapshot) 1`] = `
+exports[`Jest: TmCanvasDesktop (Snapshot) 1`] = `
 <div
   className={undefined}
 >
-  <Tabs
-    initialSelectedIndex={0}
-    onChange={[Function]}
-    value={0}
-  >
-    <Tab
-      label="Все"
-      value={0}
-    />
-    <Tab
-      label="Новые"
-      value={1}
-    />
-  </Tabs>
-  <ReactSwipableView
-    animateHeight={false}
-    animateTransitions={true}
-    axis="x"
-    disabled={false}
-    enableMouseEvents={false}
-    hysteresis={0.6}
-    ignoreNativeScroll={false}
-    index={0}
-    onChangeIndex={[Function]}
-    resistance={false}
-    springConfig={
+  <div
+    className={undefined}
+    style={
       Object {
-        "delay": "0s",
-        "duration": "0.35s",
-        "easeFunction": "cubic-bezier(0.15, 0.3, 0.25, 1)",
+        "paddingBottom": "",
       }
     }
-    threshold={5}
   >
     <Scrollbars
       autoHeight={false}
@@ -56,8 +30,33 @@ exports[`Jest: TmTabs (Snapshot) 1`] = `
       thumbMinSize={30}
       universal={false}
     >
-      
+      <div>
+        Route: undefined
+      </div>
     </Scrollbars>
+  </div>
+  <div
+    className={undefined}
+  >
+    <TmMessagePanel
+      changeMessagePanelHeight={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Jest: TmCanvasPhone (Snapshot) 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "paddingBottom": 0,
+      }
+    }
+  >
     <Scrollbars
       autoHeight={false}
       autoHeightMax={200}
@@ -76,8 +75,17 @@ exports[`Jest: TmTabs (Snapshot) 1`] = `
       thumbMinSize={30}
       universal={false}
     >
-      tab #2
+      <div>
+        Route: undefined
+      </div>
     </Scrollbars>
-  </ReactSwipableView>
+  </div>
+  <div
+    className={undefined}
+  >
+    <TmMessagePanel
+      changeMessagePanelHeight={[Function]}
+    />
+  </div>
 </div>
 `;

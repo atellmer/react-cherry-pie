@@ -1,6 +1,9 @@
-exports[`test Jest: TmBagde (Snapshot) 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest: TmBagde (Snapshot) 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   5
 </div>
 `;

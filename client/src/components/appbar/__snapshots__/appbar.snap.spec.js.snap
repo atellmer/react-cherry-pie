@@ -1,123 +1,42 @@
-exports[`test Jest: TmAppbar (Snapshot) 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest: TmAppbar (Snapshot) 1`] = `
 <div
-  className={undefined}>
+  className={undefined}
+>
   <div>
     <div
-      className={undefined}>
-      <div
-        className={undefined} />
+      className={undefined}
+    >
+      <TmLogo />
     </div>
   </div>
   <div
-    className="Flex"
-    style={
-      Object {
-        "WebkitAlignItems": "center",
-        "alignItems": "center",
-        "boxSizing": "border-box",
-        "display": "flex",
-        "msAlignItems": "center",
-      }
-    }>
+    className={undefined}
+  >
     <div
-      className="Box"
-      style={
-        Object {
-          "boxSizing": "border-box",
-        }
-      }>
-      <div
-        className={undefined}
+      className={undefined}
+    >
+      <Avatar
+        backgroundColor="transparent"
         size={34}
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "borderRadius": "50%",
-            "color": "#ffffff",
-            "display": "inline-flex",
-            "fontSize": 17,
-            "height": 34,
-            "justifyContent": "center",
-            "muiPrepared": true,
-            "userSelect": "none",
-            "width": 34,
-          }
-        } />
+        src=""
+      />
     </div>
     <div
-      className="Box"
-      style={
-        Object {
-          "boxSizing": "border-box",
-        }
-      }>
-      <button
+      className={undefined}
+    >
+      <IconButton
+        disableTouchRipple={false}
         disabled={false}
-        href={undefined}
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseOut={[Function]}
-        onTouchStart={[Function]}
-        onTouchTap={[Function]}
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-            "background": "none",
-            "border": 10,
-            "boxSizing": "border-box",
-            "cursor": "pointer",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
-            "fontSize": 0,
-            "fontWeight": "inherit",
-            "height": 48,
-            "margin": 0,
-            "muiPrepared": true,
-            "outline": "none",
-            "overflow": "visible",
-            "padding": 12,
-            "position": "relative",
-            "textDecoration": "none",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-            "verticalAlign": null,
-            "width": 48,
-          }
-        }
-        tabIndex={0}
-        type="button">
-        <div
-          onMouseDown={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}>
-          <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            style={
-              Object {
-                "color": "rgba(0, 0, 0, 0.87)",
-                "display": "inline-block",
-                "fill": "#fff",
-                "height": 24,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 24,
-              }
-            }
-            viewBox="0 0 24 24">
-            <path
-              d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-          </svg>
-        </div>
-      </button>
+        iconStyle={Object {}}
+        tooltipPosition="bottom-center"
+        touch={false}
+      >
+        <NavigationMoreVert
+          color="#fff"
+        />
+      </IconButton>
     </div>
   </div>
 </div>

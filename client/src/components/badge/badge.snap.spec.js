@@ -1,13 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 
 import TmBagde from './index';
 
-jest.mock('react-dom');
 
 test('Jest: TmBagde (Snapshot)', () => {
-  const component = renderer.create(<TmBagde count={5}/>);
-  let tree = component.toJSON();
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmBagde count={5}/>);
 
   expect(tree).toMatchSnapshot();
 });

@@ -10,7 +10,7 @@ const props = {
 
 test('Jest: TmPanelPhone (Shallow Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmPanelPhone {...props}/>);
 
-  const result = shallowRenderer.render(<TmPanelPhone {...props}/>);
-  expect(result).toMatchSnapshot();
+  expect(tree).toMatchSnapshot();
 });

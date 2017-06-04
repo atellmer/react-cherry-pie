@@ -1,12 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ReactTestUtils from 'react-addons-test-utils';
 
-import { windowMatchMedia } from '../../../test/__mocks__/matchMediaMock';
-import muiTheme from '../../config/theme';
 import TmAppbar from './index';
-
-jest.mock('react-dom');
 
 const me = {
   id: '',
@@ -20,16 +15,9 @@ const me = {
   online: false
 };
 
-beforeEach(() => {
-  window.matchMedia = windowMatchMedia;
-});
-
 test('Jest: TmAppbar (Snapshot)', () => {
-  const component = renderer.create(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <TmAppbar me={me}/>
-    </MuiThemeProvider>
-  );
-  let tree = component.toJSON();
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmAppbar me={me}/>);
+
   expect(tree).toMatchSnapshot();
 });

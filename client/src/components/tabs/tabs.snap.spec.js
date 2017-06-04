@@ -12,7 +12,7 @@ const props = {
 
 test('Jest: TmTabs (Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmTabs {...props}/>);
 
-  const result = shallowRenderer.render(<TmTabs {...props}/>);
-  expect(result).toMatchSnapshot();
+  expect(tree).toMatchSnapshot();
 });

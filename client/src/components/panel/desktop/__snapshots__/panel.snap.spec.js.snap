@@ -1,18 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest: TmPanelDesktop (Shallow Snapshot) 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <div
+      className={undefined}
+    >
+      <TmLogo />
+    </div>
+    <div
+      className={undefined}
+    >
+      <TmSearchbar />
+    </div>
+  </div>
+  <div>
+    <TmTabs
+      dialogs={Array []}
+    />
+  </div>
+</div>
+`;
+
 exports[`test Jest: TmPanelDesktop (Shallow Snapshot) 1`] = `
 <div
   className={undefined}>
   <div
     className={undefined}>
-    <Flex
-      align="center"
+    <div
       className={undefined}>
       <TmLogo />
-    </Flex>
-    <Flex
-      align="center"
+    </div>
+    <div
       className={undefined}>
       <TmSearchbar />
-    </Flex>
+    </div>
   </div>
   <div>
     <TmTabs

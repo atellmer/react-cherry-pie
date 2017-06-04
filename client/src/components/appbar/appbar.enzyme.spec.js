@@ -25,14 +25,6 @@ describe('Enzyme: TmAbbar', () => {
     expect(component.find('TmLogo').length).toEqual(1);
   });
 
-  it('TmAbbar renders Flex', () => {
-    expect(component.find('Flex').length).toEqual(1);
-  });
-
-  it('TmAbbar renders Box', () => {
-    expect(component.find('Box').length).toEqual(2);
-  });
-
   it('TmAbbar renders Avatar', () => {
     expect(component.find('Avatar').length).toEqual(1);
   });

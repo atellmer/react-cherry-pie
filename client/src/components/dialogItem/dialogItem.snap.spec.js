@@ -1,9 +1,8 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ReactTestUtils from 'react-addons-test-utils';
 
-import muiTheme from '../../config/theme';
 import TmDialogItem from './index';
+
 
 const props = {
   interlocutor: {},
@@ -34,14 +33,10 @@ const props = {
   }
 };
 
-jest.mock('react-dom');
-
 test('Jest: TmDialogItem (Snapshot)', () => {
-  const component = renderer.create(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <TmDialogItem {...props}/>
-    </MuiThemeProvider>
-  );
-  let tree = component.toJSON();
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmDialogItem {...props}/>);
+
   expect(tree).toMatchSnapshot();
 });
+

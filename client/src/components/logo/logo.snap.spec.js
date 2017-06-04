@@ -1,14 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import ReactTestUtils from 'react-addons-test-utils';
 
 import TmLogo from './index';
 
 
-jest.mock('react-dom');
-
 test('Jest: TmLogo (Snapshot)', () => {
-  const component = renderer.create(<TmLogo/>);
-  let tree = component.toJSON();
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmLogo/>);
 
   expect(tree).toMatchSnapshot();
 });

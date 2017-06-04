@@ -1,18 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import ReactTestUtils from 'react-addons-test-utils';
 
-import muiTheme from '../../config/theme';
 import TmSearchbar from './index';
 
-jest.mock('react-dom');
 
 test('Jest: TmSearchbar (Snapshot)', () => {
-  const component = renderer.create(
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <TmSearchbar/>
-    </MuiThemeProvider>
-  );
-  let tree = component.toJSON();
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  const tree = shallowRenderer.render(<TmSearchbar/>);
+
   expect(tree).toMatchSnapshot();
 });
