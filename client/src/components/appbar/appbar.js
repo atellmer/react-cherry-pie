@@ -1,19 +1,12 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { Flex, Box } from 'reflexbox';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-// Models
 import type { IUser } from '../../models/user';
-
-// Components
 import TmLogo from '../logo';
-
-// Styles
 import * as css from './appbar.css';
 
 
@@ -38,19 +31,19 @@ class TmAppbar extends Component {
             <TmLogo/>
           </div>
         </div>
-        <Flex align='center'>
-          <Box className={css.avatarLayout}>
+        <div className={css.controlsLayout}>
+          <div className={css.avatarLayout}>
             <Avatar
               src={avatar}
               size={34}
               backgroundColor={'transparent'}/>
-          </Box>
-          <Box className={css.iconButtonLayout}>
+          </div>
+          <div className={css.iconButtonLayout}>
             <IconButton>
               <MoreVertIcon color={'#fff'}/>
             </IconButton>
-          </Box>
-        </Flex>
+          </div>
+        </div>
       </div>
     );
   }

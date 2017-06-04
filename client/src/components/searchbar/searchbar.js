@@ -1,10 +1,8 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-// Styles
 import * as css from './searchbar.css';
 
 

@@ -1,8 +1,6 @@
 /** @flow */
-// Core
 import React from 'react';
 
-// Styles
 import * as css from './logo.css';
 
 

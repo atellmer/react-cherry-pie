@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import TextareaAutosize from 'react-textarea-autosize';
 
-// Styles
 import * as css from './textarea.css';
 
 

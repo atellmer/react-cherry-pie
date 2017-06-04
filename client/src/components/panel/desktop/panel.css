@@ -17,10 +17,14 @@
   min-height: 48px;
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 
 :local(.searchbarLayout) {
   padding: 0 16px;
   width: 100%;
   height: 56px;
+  display: flex;
+  align-items: center;
 }

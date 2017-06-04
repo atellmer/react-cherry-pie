@@ -1,13 +1,9 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-// Components
 import TmMessagePanel from '../../messagePanel';
-
-// Styles
 import * as css from './canvas.css';
 
 

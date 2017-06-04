@@ -1,18 +1,11 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { Flex } from 'reflexbox';
 
-// Models
 import type { IDialog } from '../../../models/dialogItem';
-
-// Components
 import TmLogo from '../../logo';
 import TmSearchbar from '../../searchbar';
 import TmTabs from '../../tabs';
-
-// Styles
 import * as css from './panel.css';
 
 
@@ -31,12 +24,12 @@ class TmPanelDesktop extends Component {
     return (
       <div className={css.rootDesktop}>
         <div className={css.headerLayout}>
-          <Flex className={css.logoLayout} align='center'>
+          <div className={css.logoLayout}>
             <TmLogo/>
-          </Flex>
-          <Flex className={css.searchbarLayout} align='center'>
+          </div>
+          <div className={css.searchbarLayout}>
             <TmSearchbar/>
-          </Flex>
+          </div>
         </div>
         <div>
           <TmTabs {...this.props} dialogs={this.props.dialogs}/>

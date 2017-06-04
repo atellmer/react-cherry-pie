@@ -29,6 +29,13 @@
   margin: 2px;
 }
 
+:local(.controlsLayout) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 :local(.iconButtonLayout) {
   margin: 0 -16px 0 0;
 

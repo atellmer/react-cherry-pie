@@ -7,13 +7,8 @@ import Avatar from 'material-ui/Avatar/index';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import ActionDoneAll from 'material-ui/svg-icons/action/done-all';
 
-// Models
 import type { IDialog } from '../../models/dialogItem';
-
-// Components
 import TmBadge from '../badge';
-
-// Styles
 import * as css from './dialogItem.css';
 
 

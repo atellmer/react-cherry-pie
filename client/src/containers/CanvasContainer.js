@@ -1,14 +1,10 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-// Actions
 import * as layoutActions from '../actions/LayoutActions';
-
-// Components
 import TmCanvasDesktop from '../components/canvas/desktop';
 import TmCanvasPhone from '../components/canvas/phone';
 

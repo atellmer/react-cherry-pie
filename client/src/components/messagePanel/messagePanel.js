@@ -1,16 +1,11 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { Flex, Box } from 'reflexbox';
 import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
 import SendIcon from 'material-ui/svg-icons/content/send';
 
-// Components
 import TmTextarea from '../textarea';
-
-// Styles
 import * as css from './messagePanel.css';
 
 
@@ -52,24 +47,24 @@ class TmMessagePanel extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} ref={node => this.rootNode = node}>
-        <Flex className={css.root} align='center'>
-          <Box>
+        <div className={css.root}>
+          <div>
             <IconButton>
               <SentimentSatisfiedIcon color={'#7f7f7f'}/>
             </IconButton>
-          </Box>
-          <Box flexAuto>
+          </div>
+          <div className={css.txtLayout}>
             <TmTextarea
               value={this.state.value}
               onChangeInput={this.handleChangeInput}
               onHeightChange={this.handleHeightChange}/>
-          </Box>
-          <Box>
+          </div>
+          <div>
             <IconButton type={'submit'}>
               <SendIcon color={'#9a85cd'}/>
             </IconButton>
-          </Box>
-        </Flex>
+          </div>
+        </div>
       </form>
     );
   }

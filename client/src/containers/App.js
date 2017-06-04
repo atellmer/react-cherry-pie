@@ -1,20 +1,13 @@
 /** @flow */
-// Core
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Flex, Box } from 'reflexbox';
 
-// Actions
 import * as environmentActions from '../actions/EnvironmentActions';
 import * as userActions from '../actions/UserActions';
-
-// Components
 import TmAppbarContainer from '../containers/AppbarContainer';
 import TmPanelContainer from '../containers/PanelContainer';
-
-// Styles
 import * as css from './App.css';
 
 
@@ -65,14 +58,14 @@ class App extends Component {
         <div className={css.appbarLayout}>
           <TmAppbarContainer {...this.props}/>
         </div>
-        <Flex className={css.contentLayout}>
-          <Box className={css.panelLayout}>
+        <div className={css.contentLayout}>
+          <div className={css.panelLayout}>
             <TmPanelContainer {...this.props}/>
-          </Box>
-          <Box className={css.canvasLayout}>
+          </div>
+          <div className={css.canvasLayout}>
             {children}
-          </Box>
-        </Flex>
+          </div>
+        </div>
       </div>
     );
   }

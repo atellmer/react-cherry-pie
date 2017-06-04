@@ -7,13 +7,8 @@ import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
 
-// Components
 import TmDialogItem from '../dialogItem';
-
-// Styles
 import * as css from './tabs.css';
-
-// Types
 import type { IDialog } from '../../models/dialogItem';
 
 
