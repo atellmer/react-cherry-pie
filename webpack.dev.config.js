@@ -19,7 +19,10 @@ const webpackConfig = {
   devtool: 'eval',
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx', '.json', '.css', '.html']
+    extensions: ['.js', '.jsx', '.json', '.css', '.html'],
+    alias: {
+      '@': path.resolve(__dirname, 'client', 'src')
+    }
   },
   entry: [
     'react-hot-loader/patch',
@@ -91,7 +94,7 @@ const webpackConfig = {
       template: path.resolve(__dirname, `${config.root}/src/assets/template.html`)
     }),
     new FlowStatusWebpackPlugin({
-      failOnError: true
+      failOnError: false
     }),
     new webpack.LoaderOptionsPlugin({
       options: {

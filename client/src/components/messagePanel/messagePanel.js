@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
 import SendIcon from 'material-ui/svg-icons/content/send';
 
-import TmTextarea from '../textarea';
+import TmTextarea from '@/components/textarea';
 import * as css from './messagePanel.css';
 
 

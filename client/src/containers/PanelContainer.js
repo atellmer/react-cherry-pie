@@ -53,7 +53,7 @@ class TmPanelContainer extends Component {
   }
 }
 
-function mapStateToProps(state: any): any {
+function mapStateToProps(state: any) {
   const { interlocutor, user } = state;
 
   return {
@@ -62,7 +62,7 @@ function mapStateToProps(state: any): any {
   };
 }
 
-function mapDispatchToProps(dispatch: Function): any {
+function mapDispatchToProps(dispatch: any)  {
   const { changeInterlocutor } = interlocutorActions;
 
   return {

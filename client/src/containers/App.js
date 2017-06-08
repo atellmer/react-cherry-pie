@@ -87,7 +87,7 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: Function) {
+function mapDispatchToProps(dispatch: any) {
   const { detectDevice, detectSizeWindow } = environmentActions;
   const { fetchUser, fetchDialogs } = userActions;
 

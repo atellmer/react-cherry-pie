@@ -49,7 +49,7 @@ class TmCanvasContainer extends Component {
   }
 }
 
-function mapStateToProps(state: any): any {
+function mapStateToProps(state: any) {
   const { layout } = state;
 
   return {
@@ -57,7 +57,7 @@ function mapStateToProps(state: any): any {
   };
 }
 
-function mapDispatchToProps(dispatch: Function): any {
+function mapDispatchToProps(dispatch: any) {
   const { changeMessagePanelHeight } = layoutActions;
 
   return {

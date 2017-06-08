@@ -18,7 +18,10 @@ const webpackConfig = {
   devtool: false,
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.jsx', '.json', '.css', '.html']
+    extensions: ['.js', '.jsx', '.json', '.css', '.html'],
+    alias: {
+      '@': path.resolve(__dirname, 'client', 'src')
+    }
   },
   entry: path.resolve(__dirname, `${config.root}/src/index`),
   output: {
