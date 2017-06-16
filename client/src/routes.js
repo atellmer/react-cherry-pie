@@ -7,15 +7,15 @@ import {
   Redirect
 } from 'react-router';
 
-import App from './containers/App';
-import TmCanvasContainer from './containers/CanvasContainer';
+import App from './App';
+import TmCanvasContainer from './features/messenger/containers/canvasContainer';
 
 const routes = (
   <Router history={browserHistory}>
     <Route path='/' component={App}>
-      <Route path='/dialogs/:id' component={TmCanvasContainer}/>
+      <Route path='/dialogs/:id' component={TmCanvasContainer} />
     </Route>
-    <Redirect from='*' to='/'/>
+    <Redirect from='*' to='/' />
   </Router>
 );
 

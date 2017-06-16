@@ -1,0 +1,21 @@
+@import '../../../../variables.css';
+
+:local(.root) {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 48px;
+  width: 100%;
+  height: auto;
+  border: 0;
+  border-top: 1px solid #c6c6c6;
+  background-color: #fff;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+:local(.txtLayout) {
+  flex: 1 0 auto;
+}

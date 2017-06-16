@@ -1,0 +1,18 @@
+@import '../../../variables.css';
+
+:local(.root) {
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 6px;
+  background-color: var(--accentColor);
+  color: #fff;
+  font-weight: 300;
+  font-size: calc(11 / var(--baseFontSize) * 1em);
+  line-height: 0;
+}

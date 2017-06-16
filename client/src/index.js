@@ -7,10 +7,10 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { AppContainer } from 'react-hot-loader';
 
-import configureStore from './store/configureStore';
-import muiTheme from './config/theme';
+import configureStore from './flux/store/configureStore';
+import muiTheme from './shared/config/theme';
 import routes from './routes';
-import './main.css';
+import './styles.css';
 
 
 injectTapEventPlugin();
