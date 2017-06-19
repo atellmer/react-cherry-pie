@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
+import { pure, compose } from 'recompose';
 
 import type { IUser } from '@/shared/models/user';
 import TmAppbar from '../components/appbar';
@@ -33,4 +33,4 @@ function mapStateToProps(state: any) {
   };
 }
 
-export default connect(mapStateToProps)(pureRender(TmAppbarContainer));
+export default compose(connect(mapStateToProps), pure)(TmAppbarContainer);

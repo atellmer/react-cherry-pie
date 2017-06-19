@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import { Link } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
@@ -83,4 +83,4 @@ class TmTabs extends Component {
   }
 }
 
-export default pureRender(TmTabs);
+export default pure(TmTabs);

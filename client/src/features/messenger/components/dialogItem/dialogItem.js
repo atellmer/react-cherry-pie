@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import cx from 'classnames';
 import Avatar from 'material-ui/Avatar/index';
 import ActionDone from 'material-ui/svg-icons/action/done';
@@ -89,4 +89,4 @@ class TmDialogItem extends Component {
   }
 }
 
-export default pureRender(TmDialogItem);
+export default pure(TmDialogItem);

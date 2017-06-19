@@ -6,7 +6,8 @@ import {
   Redirect
 } from 'react-router-dom';
 import { connect } from 'react-redux';
-import pureRender from 'pure-render-decorator';
+import { bindActionCreators } from 'redux';
+import { pure, compose } from 'recompose';
 
 import * as environmentActions from '@/flux/actions/environmentActions';
 import * as userActions from '@/flux/actions/userActions';
@@ -99,10 +100,10 @@ function mapDispatchToProps(dispatch: any) {
   const { fetchUser } = userActions;
 
   return {
-    detectDevice: () => dispatch(detectDevice()),
-    detectSizeWindow: () => dispatch(detectSizeWindow()),
-    fetchUser: () => dispatch(fetchUser())
+    detectDevice: bindActionCreators(detectDevice, dispatch),
+    detectSizeWindow: bindActionCreators(detectSizeWindow, dispatch),
+    fetchUser: bindActionCreators(fetchUser, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(pureRender(AppShell));
+export default compose(connect(mapStateToProps, mapDispatchToProps), pure)(AppShell);

@@ -1,6 +1,6 @@
 /** @flow */
 import React from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 
 import * as css from './badge.css';
 
@@ -15,4 +15,4 @@ function TmBagde(props: Props) {
   );
 }
 
-export default pureRender(TmBagde);
+export default pure(TmBagde);

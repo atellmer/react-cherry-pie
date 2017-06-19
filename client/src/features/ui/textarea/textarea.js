@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import TextareaAutosize from 'react-textarea-autosize';
 
 import * as css from './textarea.css';
@@ -42,4 +42,4 @@ class TmTextarea extends Component {
   }
 }
 
-export default pureRender(TmTextarea);
+export default pure(TmTextarea);

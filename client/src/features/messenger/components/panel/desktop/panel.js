@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import TmLogo from '@/features/ui/logo';
@@ -10,7 +10,8 @@ import * as css from './panel.css';
 
 
 type Props = {
-  dialogs: Array<IDialog>
+  dialogs: Array<IDialog>,
+  changeInterlocutor: Function
 };
 
 class TmPanelDesktop extends Component {
@@ -39,4 +40,4 @@ class TmPanelDesktop extends Component {
   }
 }
 
-export default pureRender(TmPanelDesktop);
+export default pure(TmPanelDesktop);

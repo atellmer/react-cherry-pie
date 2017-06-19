@@ -1,11 +1,12 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure, compose } from 'recompose';
 import {
   Route
 } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import * as userActions from '@/flux/actions/userActions';
 import TmPanelContainer from '../containers/panelContainer';
@@ -72,8 +73,8 @@ function mapDispatchToProps(dispatch: any) {
   const { fetchDialogs } = userActions;
 
   return {
-    fetchDialogs: () => dispatch(fetchDialogs())
+    fetchDialogs: bindActionCreators(fetchDialogs, dispatch)
   };
 }
 
-export default connect(null, mapDispatchToProps)(pureRender(TmMessenger));
+export default compose(connect(null, mapDispatchToProps), pure)(TmMessenger);

@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 import TmMessagePanel from '../../messagePanel';
@@ -40,4 +40,4 @@ class TmCanvasPhone extends Component {
   }
 }
 
-export default pureRender(TmCanvasPhone);
+export default pure(TmCanvasPhone);

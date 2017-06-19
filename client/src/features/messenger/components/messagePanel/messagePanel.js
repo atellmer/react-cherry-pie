@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
 import SendIcon from 'material-ui/svg-icons/content/send';
@@ -70,4 +70,4 @@ class TmMessagePanel extends Component {
   }
 }
 
-export default pureRender(TmMessagePanel);
+export default pure(TmMessagePanel);

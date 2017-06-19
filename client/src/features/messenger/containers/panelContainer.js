@@ -1,7 +1,8 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { pure, compose } from 'recompose';
 
 import * as interlocutorActions from '@/flux/actions/interlocutorActions';
 import type { IDialog } from '@/shared/models/dialogItem';
@@ -15,7 +16,8 @@ type Props = {
   isTablet: boolean,
   isDesktop: boolean,
   heightWindow: number,
-  widthWindow: number
+  widthWindow: number,
+  changeInterlocutor: Function
 }
 
 class TmPanelContainer extends Component {
@@ -65,8 +67,8 @@ function mapDispatchToProps(dispatch: any)  {
   const { changeInterlocutor } = interlocutorActions;
 
   return {
-    changeInterlocutor: () => dispatch(changeInterlocutor())
+    changeInterlocutor: bindActionCreators(changeInterlocutor, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(pureRender(TmPanelContainer));
+export default compose(connect(mapStateToProps, mapDispatchToProps), pure)(TmPanelContainer);

@@ -1,7 +1,8 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { pure, compose } from 'recompose';
 
 import * as layoutActions from '@/flux/actions/layoutActions';
 import TmCanvasDesktop from '../components/canvas/desktop';
@@ -60,8 +61,8 @@ function mapDispatchToProps(dispatch: any) {
   const { changeMessagePanelHeight } = layoutActions;
 
   return {
-    changeMessagePanelHeight: () => dispatch(changeMessagePanelHeight())
+    changeMessagePanelHeight: bindActionCreators(changeMessagePanelHeight, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(pureRender(TmCanvasContainer));
+export default compose(connect(mapStateToProps, mapDispatchToProps), pure)(TmCanvasContainer);

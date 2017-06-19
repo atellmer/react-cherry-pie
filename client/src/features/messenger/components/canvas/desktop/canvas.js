@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { pure } from 'recompose';
 
 import TmMessagePanel from '../../messagePanel';
 import * as css from './canvas.css';
@@ -45,4 +45,4 @@ class TmCanvasDesktop extends Component {
   }
 }
 
-export default pureRender(TmCanvasDesktop);
+export default pure(TmCanvasDesktop);

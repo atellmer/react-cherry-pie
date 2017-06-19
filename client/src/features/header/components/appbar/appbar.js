@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -49,4 +49,4 @@ class TmAppbar extends Component {
   }
 }
 
-export default pureRender(TmAppbar);
+export default pure(TmAppbar);

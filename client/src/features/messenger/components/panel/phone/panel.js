@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import pureRender from 'pure-render-decorator';
+import { pure } from 'recompose';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ import * as css from './panel.css';
 
 type Props = {
   dialogs: Array<IDialog>,
+  changeInterlocutor: Function,
   match: {
     url: string
   }
@@ -48,4 +49,4 @@ class TmPanelPhone extends Component {
   }
 }
 
-export default pureRender(TmPanelPhone);
+export default pure(TmPanelPhone);
