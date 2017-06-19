@@ -1,48 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jest: TmMessagePanel (Snapshot) 1`] = `
-<form
-  onSubmit={[Function]}
->
-  <div
-    className={undefined}
-  >
-    <div>
-      <IconButton
-        disableTouchRipple={false}
-        disabled={false}
-        iconStyle={Object {}}
-        tooltipPosition="bottom-center"
-        touch={false}
-      >
-        <SocialSentimentSatisfied
-          color="#7f7f7f"
-        />
-      </IconButton>
-    </div>
-    <div
-      className={undefined}
-    >
-      <TmTextarea
-        onChangeInput={[Function]}
-        onHeightChange={[Function]}
-        value=""
-      />
-    </div>
-    <div>
-      <IconButton
-        disableTouchRipple={false}
-        disabled={false}
-        iconStyle={Object {}}
-        tooltipPosition="bottom-center"
-        touch={false}
-        type="submit"
-      >
-        <ContentSend
-          color="#9a85cd"
-        />
-      </IconButton>
-    </div>
-  </div>
-</form>
+<TmMessagePanel
+  changeMessagePanelHeight={[Function]}
+/>
 `;

@@ -1,43 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jest: TmAppbar (Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  <div>
-    <div
-      className={undefined}
-    >
-      <TmLogo />
-    </div>
-  </div>
-  <div
-    className={undefined}
-  >
-    <div
-      className={undefined}
-    >
-      <Avatar
-        backgroundColor="transparent"
-        size={34}
-        src=""
-      />
-    </div>
-    <div
-      className={undefined}
-    >
-      <IconButton
-        disableTouchRipple={false}
-        disabled={false}
-        iconStyle={Object {}}
-        tooltipPosition="bottom-center"
-        touch={false}
-      >
-        <NavigationMoreVert
-          color="#fff"
-        />
-      </IconButton>
-    </div>
-  </div>
-</div>
+<TmAppbar
+  me={
+    Object {
+      "avatar": Object {
+        "thumbnail": "",
+      },
+      "id": "",
+      "name": Object {
+        "first": "",
+        "last": "",
+      },
+      "online": false,
+    }
+  }
+/>
 `;

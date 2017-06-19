@@ -45,7 +45,7 @@ class TmDialogItem extends Component {
         }
         { status.new &&
           <div className={css.badgeLayout}>
-            <TmBadge count='5'/>
+            <TmBadge count='1'/>
           </div>
         }
         <div className={css.timestamp}>

@@ -90,7 +90,7 @@
 
 :local(.name) {
   margin-bottom: 4px;
-  max-width: calc(100% - 82px);
+  max-width: calc(100% - 124px);
   color: var(--primaryColorText);
   text-transform: capitalize;
   font-weight: 500;

@@ -1,54 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jest: TmPanelDesktop (Shallow Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  <div
-    className={undefined}
-  >
-    <div
-      className={undefined}
-    >
-      <TmLogo />
-    </div>
-    <div
-      className={undefined}
-    >
-      <TmSearchbar />
-    </div>
-  </div>
-  <div>
-    <TmTabs
-      dialogs={Array []}
-    />
-  </div>
-</div>
+<TmPanelDesktop
+  dialogs={Array []}
+/>
 `;
 
 exports[`Jest: TmPanelPhone (Shallow Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  <Scrollbars
-    autoHeight={false}
-    autoHeightMax={200}
-    autoHeightMin={0}
-    autoHide={true}
-    autoHideDuration={200}
-    autoHideTimeout={1000}
-    className={undefined}
-    hideTracksWhenNotNeeded={false}
-    renderThumbHorizontal={[Function]}
-    renderThumbVertical={[Function]}
-    renderTrackHorizontal={[Function]}
-    renderTrackVertical={[Function]}
-    renderView={[Function]}
-    tagName="div"
-    thumbMinSize={30}
-    universal={false}
-  >
-    
-  </Scrollbars>
-</div>
+<TmPanelPhone
+  dialogs={Array []}
+/>
 `;

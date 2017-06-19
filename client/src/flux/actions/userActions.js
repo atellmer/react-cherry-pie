@@ -7,7 +7,7 @@ import type { IDialog } from '../models/dialogItem';
 
 const fakeUserService = new FakeUserService();
 
-export function fetchUser() {
+function fetchUser() {
   return (dispatch: Function) => {
     fakeUserService.getFakeUser({ results: 1 })
       .map(res => {
@@ -36,7 +36,7 @@ export function fetchUser() {
   };
 }
 
-export function fetchDialogs() {
+function fetchDialogs() {
   return (dispatch: Function) => {
     fakeUserService.getFakeUser({ results: 20 })
       .map(res => {
@@ -52,7 +52,7 @@ export function fetchDialogs() {
               avatar: {
                 thumbnail: item.picture.thumbnail
               },
-              online: false
+              online: Math.random() > 0.5
             },
             message: {
               from: {
@@ -64,7 +64,7 @@ export function fetchDialogs() {
                 avatar: {
                   thumbnail: item.picture.thumbnail
                 },
-                online: false
+                online: Math.random() > 0.5
               },
               to: {
                 id: item.login.salt,
@@ -75,15 +75,15 @@ export function fetchDialogs() {
                 avatar: {
                   thumbnail: item.picture.thumbnail
                 },
-                online: false
+                online: Math.random() > 0.5
               },
               value: {
                 text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
               },
               status: {
-                delivered: false,
-                read: true,
-                new: false
+                delivered: Math.random() > 0.5,
+                read: false,
+                new: Math.random() > 0.5
               },
               timestamp: new Date()
             }
@@ -100,3 +100,26 @@ export function fetchDialogs() {
       });
   };
 }
+
+function filterDialogs(term) {
+  return (dispatch: Function, getState: Function) => {
+    const dialogs = getState().user.dialogs;
+    let filteredDialogs = [];
+    const regexp = new RegExp(`${term}`, 'ig');
+
+    filteredDialogs = dialogs.filter((item) => {
+      const fullname = `${item.user.name.first} ${item.user.name.last}`;
+
+      return regexp.test(fullname);
+    });
+
+    dispatch({
+      type: types.FILTER_DIALOGS,
+      payload: {
+        filteredDialogs
+      }
+    });
+  };
+}
+
+export { fetchUser, fetchDialogs, filterDialogs };

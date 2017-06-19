@@ -1,52 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jest: TmDialogItem (Snapshot) 1`] = `
-<div
-  className=""
-  onClick={[Function]}
->
-  <div
-    className={undefined}
-  >
-    <div
-      className=""
-    >
-      <Avatar
-        backgroundColor="transparent"
-        size={48}
-        src="path/to/avatar"
-      />
-    </div>
-    <div
-      className=""
-    >
-      <div
-        className={undefined}
-      >
-        <div
-          className=""
-        >
-          Alex Plex
-        </div>
-        <div
-          className=""
-        >
-          lorem ipsum
-        </div>
-        <div
-          className={undefined}
-        >
-          <ActionDone
-            className={undefined}
-          />
-          <div
-            className={undefined}
-          >
-            Mon Jun 19 2017
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<TmDialogItem
+  changeInterlocutor={[Function]}
+  dialog={
+    Object {
+      "message": Object {
+        "status": Object {
+          "delivered": true,
+          "new": false,
+          "read": false,
+        },
+        "timestamp": 2017-06-19T12:35:25.824Z,
+        "value": Object {
+          "text": "lorem ipsum",
+        },
+      },
+      "user": Object {
+        "avatar": Object {
+          "thumbnail": "path/to/avatar",
+        },
+        "id": "12345",
+        "name": Object {
+          "first": "Alex",
+          "last": "Plex",
+        },
+        "online": false,
+      },
+    }
+  }
+  interlocutor={Object {}}
+/>
 `;

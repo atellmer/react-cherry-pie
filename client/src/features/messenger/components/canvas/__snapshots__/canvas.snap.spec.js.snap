@@ -1,91 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Jest: TmCanvasDesktop (Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  <div
-    className={undefined}
-    style={
-      Object {
-        "paddingBottom": "",
-      }
+<TmCanvasDesktop
+  changeMessagePanelHeight={[Function]}
+  match={
+    Object {
+      "params": Object {
+        "id": 0,
+      },
     }
-  >
-    <Scrollbars
-      autoHeight={false}
-      autoHeightMax={200}
-      autoHeightMin={0}
-      autoHide={true}
-      autoHideDuration={200}
-      autoHideTimeout={1000}
-      className={undefined}
-      hideTracksWhenNotNeeded={false}
-      renderThumbHorizontal={[Function]}
-      renderThumbVertical={[Function]}
-      renderTrackHorizontal={[Function]}
-      renderTrackVertical={[Function]}
-      renderView={[Function]}
-      tagName="div"
-      thumbMinSize={30}
-      universal={false}
-    >
-      <div>
-        Route: 0
-      </div>
-    </Scrollbars>
-  </div>
-  <div
-    className={undefined}
-  >
-    <TmMessagePanel
-      changeMessagePanelHeight={[Function]}
-    />
-  </div>
-</div>
+  }
+  messagePanelHeight={0}
+/>
 `;
 
 exports[`Jest: TmCanvasPhone (Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  <div
-    className={undefined}
-    style={
-      Object {
-        "paddingBottom": 0,
-      }
+<TmCanvasPhone
+  changeMessagePanelHeight={[Function]}
+  match={
+    Object {
+      "params": Object {
+        "id": 0,
+      },
     }
-  >
-    <Scrollbars
-      autoHeight={false}
-      autoHeightMax={200}
-      autoHeightMin={0}
-      autoHide={true}
-      autoHideDuration={200}
-      autoHideTimeout={1000}
-      className={undefined}
-      hideTracksWhenNotNeeded={false}
-      renderThumbHorizontal={[Function]}
-      renderThumbVertical={[Function]}
-      renderTrackHorizontal={[Function]}
-      renderTrackVertical={[Function]}
-      renderView={[Function]}
-      tagName="div"
-      thumbMinSize={30}
-      universal={false}
-    >
-      <div>
-        Route: 0
-      </div>
-    </Scrollbars>
-  </div>
-  <div
-    className={undefined}
-  >
-    <TmMessagePanel
-      changeMessagePanelHeight={[Function]}
-    />
-  </div>
-</div>
+  }
+  messagePanelHeight={0}
+/>
 `;

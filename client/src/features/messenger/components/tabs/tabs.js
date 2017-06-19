@@ -8,6 +8,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import TmDialogItem from '../dialogItem';
+import { filterItemsByPath } from '@/shared/utils/methods';
 import * as css from './tabs.css';
 
 
@@ -41,16 +42,31 @@ class TmTabs extends Component {
     });
   }
 
-  renderDialogs = () => {
-    const { dialogs, match } = this.props;
+  getDialogs = (dialogs) => {
+    const { match } = this.props;
 
-    return dialogs.map((dialog, index) => {
+    return dialogs.map((item, index) => {
       return (
-        <Link to={`${match.url}/${dialog.id}`} key={index}>
-          <TmDialogItem {...this.props} dialog={dialog}/>
+        <Link
+          to={`${match.url}/${item.id}`}
+          key={index}>
+          <TmDialogItem {...this.props} dialog={item}/>
         </Link>
       );
     });
+  }
+
+  renderDialogs = () => {
+    const { dialogs } = this.props;
+
+    return dialogs.length ? this.getDialogs(dialogs) : null;
+  }
+
+  renderFilteredDialogs = ({ path, value }) => {
+    const { dialogs } = this.props;
+    const items = filterItemsByPath(path)(value)(dialogs);
+
+    return items.length ? this.getDialogs(items) : null;
   }
 
   render() {
@@ -75,7 +91,10 @@ class TmTabs extends Component {
             autoHideTimeout={1000}
             autoHideDuration={200}
             className={css.scrollableView}>
-            tab #2
+            {this.renderFilteredDialogs({
+              path: ['message', 'status', 'new'],
+              value: true
+            })}
           </Scrollbars>
         </SwipeableViews>
       </div>

@@ -26,7 +26,8 @@ const initialState = {
     },
     online: false
   },
-  dialogs: []
+  dialogs: [],
+  filteredDialogs: []
 };
 
 export default function user(state: State = initialState, action: Action): any {
@@ -40,7 +41,14 @@ export default function user(state: State = initialState, action: Action): any {
   case types.FETCH_DIALOGS:
     return {
       ...state,
-      dialogs: action.payload.dialogs
+      dialogs: action.payload.dialogs,
+      filteredDialogs: action.payload.dialogs
+    };
+
+  case types.FILTER_DIALOGS:
+    return {
+      ...state,
+      filteredDialogs: action.payload.filteredDialogs
     };
 
   default:

@@ -11,3 +11,4 @@ export const CHANGE_INTERLOCUTOR = 'CHANGE_INTERLOCUTOR';
 // User
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_DIALOGS = 'FETCH_DIALOGS';
+export const FILTER_DIALOGS = 'FILTER_DIALOGS';

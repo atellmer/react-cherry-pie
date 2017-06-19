@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
 import * as interlocutorActions from '@/flux/actions/interlocutorActions';
+import * as userActions from '@/flux/actions/userActions';
 import type { IDialog } from '@/shared/models/dialogItem';
 import TmPanelDesktop from '../components/panel/desktop';
 import TmPanelPhone from '../components/panel/phone';
@@ -17,7 +18,8 @@ type Props = {
   isDesktop: boolean,
   heightWindow: number,
   widthWindow: number,
-  changeInterlocutor: Function
+  changeInterlocutor: Function,
+  filterDialogs: Function
 }
 
 class TmPanelContainer extends Component {
@@ -59,15 +61,17 @@ function mapStateToProps(state: any) {
 
   return {
     interlocutor,
-    dialogs: user.dialogs
+    dialogs: user.filteredDialogs
   };
 }
 
 function mapDispatchToProps(dispatch: any)  {
   const { changeInterlocutor } = interlocutorActions;
+  const { filterDialogs } = userActions;
 
   return {
-    changeInterlocutor: bindActionCreators(changeInterlocutor, dispatch)
+    changeInterlocutor: bindActionCreators(changeInterlocutor, dispatch),
+    filterDialogs: bindActionCreators(filterDialogs, dispatch)
   };
 }
 

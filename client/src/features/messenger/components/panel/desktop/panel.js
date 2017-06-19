@@ -11,7 +11,8 @@ import * as css from './panel.css';
 
 type Props = {
   dialogs: Array<IDialog>,
-  changeInterlocutor: Function
+  changeInterlocutor: Function,
+  filterDialogs: Function
 };
 
 class TmPanelDesktop extends Component {
@@ -19,6 +20,10 @@ class TmPanelDesktop extends Component {
 
   constructor(props: Props) {
     super(props);
+  }
+
+  filterDialogs = (term) => {
+    this.props.filterDialogs(term);
   }
 
   render() {
@@ -29,7 +34,7 @@ class TmPanelDesktop extends Component {
             <TmLogo/>
           </div>
           <div className={css.searchbarLayout}>
-            <TmSearchbar/>
+            <TmSearchbar filterItems={this.filterDialogs}/>
           </div>
         </div>
         <div>
