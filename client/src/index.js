@@ -9,7 +9,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './flux/store/configureStore';
 import muiTheme from './shared/config/theme';
-import routes from './routes';
+import AppRouting from './routing';
 import './styles.css';
 
 
@@ -21,7 +21,7 @@ render(
   <AppContainer>
     <Provider store={store}>
       <MuiThemeProvider muiTheme={muiTheme}>
-        {routes}
+        <AppRouting />
       </MuiThemeProvider>
     </Provider>
   </AppContainer>,
@@ -29,8 +29,8 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    const nextRoutes = require('./routes').default;
+  module.hot.accept('./routing', () => {
+    const nextRoutes = require('./routing').default;
 
     render(
       <AppContainer>

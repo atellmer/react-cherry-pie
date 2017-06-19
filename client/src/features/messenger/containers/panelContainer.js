@@ -1,7 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as interlocutorActions from '@/flux/actions/interlocutorActions';
@@ -66,7 +65,7 @@ function mapDispatchToProps(dispatch: any)  {
   const { changeInterlocutor } = interlocutorActions;
 
   return {
-    changeInterlocutor: bindActionCreators(changeInterlocutor, dispatch)
+    changeInterlocutor: () => dispatch(changeInterlocutor())
   };
 }
 

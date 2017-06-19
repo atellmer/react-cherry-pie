@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import TmDialogItem from '../../dialogItem';
@@ -10,7 +10,10 @@ import * as css from './panel.css';
 
 
 type Props = {
-  dialogs: Array<IDialog>
+  dialogs: Array<IDialog>,
+  match: {
+    url: string
+  }
 };
 
 class TmPanelPhone extends Component {
@@ -23,7 +26,7 @@ class TmPanelPhone extends Component {
   renderDialogs = () => {
     return this.props.dialogs.map((dialog, index) => {
       return (
-        <Link to={`/dialogs/${dialog.id}`} key={index}>
+        <Link to={`${this.props.match.url}/${dialog.id}`} key={index}>
           <TmDialogItem {...this.props} dialog={dialog}/>
         </Link>
       );

@@ -5,11 +5,15 @@ import TmCanvasDesktop from './desktop';
 import TmCanvasPhone from './phone';
 
 
- const props = {
-    params: {},
-    messagePanelHeight: 0,
-    changeMessagePanelHeight: () => {}
-  };
+const props = {
+  messagePanelHeight: 0,
+  changeMessagePanelHeight: () => {},
+  match: {
+    params: {
+      id: 0
+    }
+  }
+};
 
 test('Jest: TmCanvasDesktop (Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();

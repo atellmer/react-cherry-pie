@@ -33,5 +33,4 @@ function mapStateToProps(state: any) {
   };
 }
 
-
 export default connect(mapStateToProps)(pureRender(TmAppbarContainer));

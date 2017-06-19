@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 import { Scrollbars } from 'react-custom-scrollbars';
@@ -14,7 +14,10 @@ import * as css from './tabs.css';
 type Props = {
   interlocutor: any,
   changeInterlocutor: Function,
-  dialogs: Array<IDialog>
+  dialogs: Array<IDialog>,
+  match: {
+    url: string
+  }
 };
 
 type State = {
@@ -39,11 +42,11 @@ class TmTabs extends Component {
   }
 
   renderDialogs = () => {
-    const { dialogs } = this.props;
+    const { dialogs, match } = this.props;
 
     return dialogs.map((dialog, index) => {
       return (
-        <Link to={`/dialogs/${dialog.id}`} key={index}>
+        <Link to={`${match.url}/${dialog.id}`} key={index}>
           <TmDialogItem {...this.props} dialog={dialog}/>
         </Link>
       );

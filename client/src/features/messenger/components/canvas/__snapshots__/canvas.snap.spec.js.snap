@@ -31,7 +31,7 @@ exports[`Jest: TmCanvasDesktop (Snapshot) 1`] = `
       universal={false}
     >
       <div>
-        Route: undefined
+        Route: 0
       </div>
     </Scrollbars>
   </div>
@@ -76,7 +76,7 @@ exports[`Jest: TmCanvasPhone (Snapshot) 1`] = `
       universal={false}
     >
       <div>
-        Route: undefined
+        Route: 0
       </div>
     </Scrollbars>
   </div>

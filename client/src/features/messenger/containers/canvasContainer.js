@@ -1,7 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
 import pureRender from 'pure-render-decorator';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as layoutActions from '@/flux/actions/layoutActions';
@@ -61,7 +60,7 @@ function mapDispatchToProps(dispatch: any) {
   const { changeMessagePanelHeight } = layoutActions;
 
   return {
-    changeMessagePanelHeight: bindActionCreators(changeMessagePanelHeight, dispatch)
+    changeMessagePanelHeight: () => dispatch(changeMessagePanelHeight())
   };
 }
 
