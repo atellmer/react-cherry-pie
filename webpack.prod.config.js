@@ -83,12 +83,15 @@ const webpackConfig = {
       }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, `${config.root}/public/index.html`),
-      template: path.resolve(__dirname, `${config.root}/src/assets/template.html`)
+      template: path.resolve(__dirname, `${config.root}/src/assets/template.html`),
+      hash: true
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {
-          configFile: '.eslintrc'
+          configFile: '.eslintrc',
+          mitError: false,
+          emitWarning: true
         },
         postcss: () => {
           return [

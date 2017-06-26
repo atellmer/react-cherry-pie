@@ -91,7 +91,8 @@ const webpackConfig = {
       }),
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, `${config.root}/public/index.html`),
-      template: path.resolve(__dirname, `${config.root}/src/assets/template.html`)
+      template: path.resolve(__dirname, `${config.root}/src/assets/template.html`),
+      hash: true
     }),
     new FlowStatusWebpackPlugin({
       failOnError: false

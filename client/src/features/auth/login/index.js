@@ -1,3 +1,3 @@
-import TmLogin from './login';
+import TmLogin from './layouts/login';
 
 export default TmLogin;
