@@ -1,7 +1,8 @@
 /** @flow */
 import React from 'react';
 import createBrowserHistory from 'history/createBrowserHistory';
-import { Router, Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
+import { Route } from 'react-router-dom';
 
 import AppShell from '../shell';
 
@@ -10,9 +11,9 @@ export const history = createBrowserHistory();
 
 function AppRouting() {
   return (
-    <Router history={history}>
+    <ConnectedRouter history={history}>
       <Route path='/' component={AppShell} />
-    </Router>
+    </ConnectedRouter>
   );
 }
 
