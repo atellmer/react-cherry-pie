@@ -3,51 +3,32 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { actionTypes as AuthActionTypes } from '../actions/auth';
 import { history } from '@/routing/routing';
+import checkUser from '@/features/auth/services/checkUser';
 
-function getUser(login, password) {
-  const promise = new Promise((resolve, reject) => {
-    if (login === 'alex' && password === '123') {
-      resolve({
-        _id: '1',
-        name: 'Alex'
-      });
-    } else {
-      reject('User is not existing');
-    }
-  });
-
-  return promise;
-}
 
 function* authorize({ payload: { login, password } }) {
   try {
-    const user = yield call(getUser, login, password);
+    const { user, token } = yield call(checkUser, login, password);
 
     yield put({
-      type: AuthActionTypes.AUTH_SUCCESS,
-      payload: {
-        status: 'ok',
-        user
-      }
+      type: AuthActionTypes.AUTHORIZE_SUCCESS,
+      payload: { user }
     });
 
-    localStorage.setItem('user', user);
+    localStorage.setItem('token', JSON.stringify(token));
     history.push('/messenger');
   } catch (error) {
     yield put({
-      type: AuthActionTypes.AUTH_FAILURE,
-      payload: {
-        status: 'error',
-        error
-      }
+      type: AuthActionTypes.AUTHORIZE_FAILURE,
+      payload: { error }
     });
 
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   }
 }
 
 function* authSaga() {
-  yield takeLatest(AuthActionTypes.AUTH_REQUEST, authorize);
+  yield takeLatest(AuthActionTypes.AUTHORIZE_REQUEST, authorize);
 }
 
 export default authSaga;

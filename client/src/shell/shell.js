@@ -1,21 +1,19 @@
 /** @flow */
 import React, { Component } from 'react';
-import {
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
 import * as environmentActions from '@/flux/actions/environmentActions';
 import * as userActions from '@/flux/actions/userActions';
+import PrivateRoute from '@/features/auth/components/privateRoute';
 import TmAppbarContainer from '@/features/header/containers/appbarContainer';
-import TmLogin from '@/features/auth/login';
-import TmRegister from '@/features/auth/register';
+import TmLogin from '@/features/auth/layouts/login';
+import TmRegister from '@/features/auth/layouts/register';
 import TmHome from '@/features/home';
 import TmMessenger from '@/features/messenger';
+import checkRoute from '@/features/auth/services/checkRoute';
 import * as s from './shell.css';
 
 
@@ -70,11 +68,12 @@ class AppShell extends Component {
             <Route exact path='/' component={TmHome} />
             <Route exact path='/login' component={TmLogin} />
             <Route exact path='/register' component={TmRegister} />
-            <Route
+            <PrivateRoute
+              {...sharedProps}
               path='/messenger'
-              render={(props) => (
-                <TmMessenger {...sharedProps} {...props}/>
-              )}/>
+              component={TmMessenger}
+              canActivate={checkRoute}
+              redirectTo='/login'/>
             <Redirect to='/' />
           </Switch>
         </div>
@@ -83,9 +82,7 @@ class AppShell extends Component {
   }
 }
 
-function mapStateToProps(state: any) {
-  const { environment } = state;
-
+function mapStateToProps({ environment }) {
   return {
     isPhone: environment.isPhone,
     isTablet: environment.isTablet,
@@ -95,7 +92,7 @@ function mapStateToProps(state: any) {
   };
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch) {
   const { detectDevice, detectSizeWindow } = environmentActions;
   const { fetchUser } = userActions;
 

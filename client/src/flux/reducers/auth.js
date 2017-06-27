@@ -3,39 +3,35 @@ import { actionTypes } from '../actions/auth';
 
 
 type State = {
-  status: string,
-  error: string | null,
-  user: any
+  user: any,
+  error: string | null
 }
 
 const initialState = {
-  status: null,
-  error: null,
-  user: {}
+  user: null,
+  error: null
 };
 
 export default function auth(state: State = initialState, action) {
   switch (action.type) {
 
-  case actionTypes.AUTH_SUCCESS: {
-    const { status, user } = action.payload;
+  case actionTypes.AUTHORIZE_SUCCESS: {
+    const { user } = action.payload;
 
     return {
       ...state,
-      status,
-      error: null,
-      user
+      user,
+      error: null
     };
   }
 
-  case actionTypes.AUTH_FAILURE: {
-    const { status, error } = action.payload;
+  case actionTypes.AUTHORIZE_FAILURE: {
+    const { error } = action.payload;
 
     return {
       ...state,
-      status,
-      error,
-      user: {}
+      user: null,
+      error
     };
   }
 

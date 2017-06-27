@@ -3,8 +3,8 @@
 type authorizeAction = {
   type: string,
   payload: {
-    userName: string | null,
-    userPass: string | null,
+    login: string | null,
+    password: string | null,
   }
 }
 
@@ -13,15 +13,15 @@ type LogoutAction = {
 }
 
 export const actionTypes = {
-  AUTH_REQUEST: '[Auth] Auth Request',
-  AUTH_SUCCESS: '[Auth] Auth Success',
-  AUTH_FAILURE: '[Auth] Auth Failure',
+  AUTHORIZE_REQUEST: '[Auth] Authorize Request',
+  AUTHORIZE_SUCCESS: '[Auth] Authorize Success',
+  AUTHORIZE_FAILURE: '[Auth] Authorize Failure',
   LOGOUT: '[Auth] Logout'
 };
 
 export function authorize(login, password): authorizeAction {
   return {
-    type: actionTypes.AUTH_REQUEST,
+    type: actionTypes.AUTHORIZE_REQUEST,
     payload: { login, password }
   };
 }
