@@ -107,7 +107,10 @@ const webpackConfig = {
         postcss: () => {
           return [
             require('stylelint')(),
-            require('postcss-import')(),
+            require('postcss-import')({
+              addDependencyTo: webpack,
+              path: [ path.resolve(__dirname, 'client', 'src') ]
+            }),
             require('postcss-url')(),
             require('postcss-css-reset')(),
             require('postcss-cssnext')({
