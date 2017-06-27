@@ -1,32 +1,32 @@
 /** @flow */
 import React, { Component } from 'react';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as authActions from '@/flux/actions/authActions';
+
+import * as authActions from '@/flux/actions/auth';
 import TmLoginForm from '../components/form';
 
 type Props = {
-  login: Function
+  authorize: Function
 }
 
 class TmLoginFormContainer extends Component {
   props: Props;
 
   render() {
-    const { login } = this.props;
+    const { authorize } = this.props;
 
     return (
-      <TmLoginForm login={login}/>
+      <TmLoginForm authorize={authorize}/>
     );
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  const { login } = authActions;
+  const { authorize } = authActions;
 
   return {
-    login: bindActionCreators(login, dispatch)
+    authorize: bindActionCreators(authorize, dispatch)
   };
 }
 

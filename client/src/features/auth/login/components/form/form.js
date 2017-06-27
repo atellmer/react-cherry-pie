@@ -4,7 +4,7 @@ import * as s from './form.css';
 
 
 type Props = {
-  login: Function
+  authorize: Function
 }
 
 class TmLoginForm extends Component {
@@ -13,18 +13,18 @@ class TmLoginForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
 
-    this.props.login({
-      userName: ev.target.userName.value,
-      userPass: ev.target.userPass.value
-    });
+    this.props.authorize(
+      ev.target.login.value,
+      ev.target.password.value
+    );
   }
 
   render() {
     return (
       <form className={s.root} onSubmit={this.handleSubmit}>
-        <input type='text' name='userName'/>
+        <input type='text' name='login'/>
         <br/>
-        <input type='password' name='userPass'/>
+        <input type='password' name='password'/>
         <br/>
         <button type='submit'>Log In</button>
       </form>

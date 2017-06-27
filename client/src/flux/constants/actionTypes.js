@@ -12,7 +12,3 @@ export const CHANGE_INTERLOCUTOR = 'CHANGE_INTERLOCUTOR';
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_DIALOGS = 'FETCH_DIALOGS';
 export const FILTER_DIALOGS = 'FILTER_DIALOGS';
-
-// Auth
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';

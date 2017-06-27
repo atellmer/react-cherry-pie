@@ -1,32 +1,47 @@
 /** @flow */
-import * as types from '../constants/ActionTypes';
+import { actionTypes } from '../actions/auth';
+
 
 type State = {
-  userName: string,
-  userPass: string,
-}
-
-type Action = {
-  type: string,
-  payload: any
+  status: string,
+  error: string | null,
+  user: any
 }
 
 const initialState = {
-  userName: null,
-  userPass: null
+  status: null,
+  error: null,
+  user: {}
 };
 
-export default function auth(state: State = initialState, action: Action): any {
+export default function auth(state: State = initialState, action) {
   switch (action.type) {
-  case types.LOGIN:
+
+  case actionTypes.AUTH_SUCCESS: {
+    const { status, user } = action.payload;
+
     return {
       ...state,
-      userName: action.payload.userName,
-      userPass: action.payload.userPass
+      status,
+      error: null,
+      user
     };
+  }
 
-  case types.LOGOUT:
+  case actionTypes.AUTH_FAILURE: {
+    const { status, error } = action.payload;
+
+    return {
+      ...state,
+      status,
+      error,
+      user: {}
+    };
+  }
+
+  case actionTypes.LOGOUT: {
     return state;
+  }
 
   default:
     return state;
