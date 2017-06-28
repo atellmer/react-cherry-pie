@@ -25,7 +25,6 @@ const webpackConfig = {
     }
   },
   entry: [
-    'react-hot-loader/patch',
     `webpack-dev-server/client?http://localhost:${config.port}`,
     'webpack/hot/only-dev-server',
     'babel-polyfill',
@@ -41,6 +40,7 @@ const webpackConfig = {
       {
         test: /\.(js|jsx)$/,
         use: [
+          { loader: 'react-hot-loader' },
           { loader: 'babel-loader' },
           { loader: 'eslint-loader' }
         ],

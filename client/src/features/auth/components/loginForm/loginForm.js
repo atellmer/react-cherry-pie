@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import * as s from './form.css';
+import * as s from './loginForm.css';
 
 
 type Props = {

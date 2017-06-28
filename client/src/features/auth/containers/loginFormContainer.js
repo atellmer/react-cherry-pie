@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as authActions from '@/flux/actions/auth';
-import TmLoginForm from '../components/form';
+import TmLoginForm from '../components/loginForm';
 
 type Props = {
   authorize: Function

@@ -19,12 +19,6 @@
   }
 }
 
-:local(.logoLayout) {
-  @media (min-width: 600px) {
-    display: none;
-  }
-}
-
 :local(.avatarLayout) {
   margin: 2px;
 }

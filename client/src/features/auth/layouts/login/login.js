@@ -2,7 +2,7 @@
 import React from 'react';
 
 import * as s from './login.css';
-import TmLoginFormContainer from '../../containers/formContainer';
+import TmLoginFormContainer from '../../containers/loginFormContainer';
 
 
 function TmLogin() {
