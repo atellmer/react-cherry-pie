@@ -84,13 +84,15 @@
 
 :local(.message) {
   position: relative;
+  width: 100%;
+  height: auto;
   padding-left: 8px;
   font-size: calc(14 / var(--baseFontSize) * 1em);
 }
 
 :local(.name) {
   margin-bottom: 4px;
-  max-width: calc(100% - 124px);
+  max-width: 100%;
   color: var(--primaryColorText);
   text-transform: capitalize;
   font-weight: 500;
@@ -102,6 +104,7 @@
 
 :local(.text) {
   color: var(--hintColorText);
+  max-width: 100%;
   font-weight: 300;
 
   @media (min-width: 600px) {

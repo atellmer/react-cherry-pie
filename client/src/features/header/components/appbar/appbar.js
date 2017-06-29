@@ -1,12 +1,12 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure } from 'recompose';
+import { Link } from 'react-router-dom';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import ArrowBackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 
 import type { IUser } from '@/shared/models/user';
-import TmLogo from '@/features/ui/logo';
 import * as css from './appbar.css';
 
 
@@ -17,18 +17,18 @@ type Props = {
 class TmAppbar extends Component {
   props: Props;
 
-  constructor(props: Props) {
-    super(props);
-  }
-
   render() {
     const avatar = this.props.me.avatar.thumbnail;
 
     return (
       <div className={css.root}>
         <div>
-          <div className={css.logoLayout}>
-            <TmLogo/>
+          <div className={css.arrowBackLayout}>
+            <Link to='/messenger'>
+              <IconButton>
+                <ArrowBackIcon color={'#fff'}/>
+              </IconButton>
+            </Link>
           </div>
         </div>
         <div className={css.controlsLayout}>
@@ -49,4 +49,4 @@ class TmAppbar extends Component {
   }
 }
 
-export default pure(TmAppbar);
+export default TmAppbar;

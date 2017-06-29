@@ -9,17 +9,24 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  overflow-x: hidden;
 }
 
 :local(.panelLayout) {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: var(--zIndex1);
 
   @media (min-width: 600px) {
+    position: relative;
     width: 300px;
-    z-index: var(--panelZIndex);
+    z-index: var(--zIndex2);
   }
 
   @media (min-width: 768px) {
@@ -28,8 +35,30 @@
 }
 
 :local(.canvasLayout) {
-  position: relative;
-  z-index: var(--canvasZIndex);
-  flex-grow: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
+  z-index: var(--zIndex1);
+  transform: translate3d(100%, 0, 0);
+  box-shadow: var(--shadowElevationZ1);
+  transition: transform .2s ease-in-out;
+
+  @media (min-width: 600px) {
+    position: relative;
+    width: calc(100% - 300px);
+    transform: translate3d(0, 0, 0);
+  }
+
+  @media (min-width: 768px) {
+    width: calc(100% - 320px);
+  }
+
+  &.isActiveLayout {
+    transform: translate3d(0, 0, 0);
+  }
 }
+
