@@ -1,3 +1,3 @@
-import TmAppbar from './appbar';
+import Appbar from './appbar';
 
-export default TmAppbar;
+export default Appbar;

@@ -1,13 +1,14 @@
 /** @flow */
 import React from 'react';
+import cn from 'classnames';
 
-import * as css from './logo.css';
+import * as s from './logo.css';
 
 
-function TmLogo() {
+function Logo() {
   return (
-    <div className={css.root}/>
+    <div className={cn(s.root)}/>
   );
 }
 
-export default TmLogo;
+export default Logo;

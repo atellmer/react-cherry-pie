@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import TmBagde from './index';
+import Bagde from './index';
 
 
-test('Jest: TmBagde (Snapshot)', () => {
+test('Bagde (Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
-  const tree = shallowRenderer.render(<TmBagde count={5}/>);
+  const tree = shallowRenderer.render(<Bagde count={5}/>);
 
   expect(tree).toMatchSnapshot();
 });

@@ -1,18 +1,21 @@
 /** @flow */
 import React, { Component } from 'react';
+import createBrowserHistory from 'history/createBrowserHistory';
+import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
+import cn from 'classnames';
 
 import * as environmentActions from '@/flux/actions/environmentActions';
 import * as userActions from '@/flux/actions/userActions';
 import PrivateRoute from '@/features/auth/components/privateRoute';
-import TmAppbarContainer from '@/features/header/containers/appbarContainer';
+import AppbarContainer from '@/features/header';
 import LoginPage from '@/features/auth/layouts/login';
 import RegisterPage from '@/features/auth/layouts/register';
-import TmHome from '@/features/home';
-import TmMessenger from '@/features/messenger';
+import HomePage from '@/features/home';
+import MessengerPage from '@/features/messenger';
 import checkRoute from '@/features/auth/services/checkRoute';
 import * as s from './shell.css';
 
@@ -28,12 +31,10 @@ type Props = {
   widthWindow: number
 };
 
+export const history = createBrowserHistory();
+
 class AppShell extends Component {
   props: Props;
-
-  constructor(props: Props) {
-    super(props);
-  }
 
   componentWillMount() {
     this.props.detectDevice();
@@ -59,25 +60,27 @@ class AppShell extends Component {
     };
 
     return (
-      <div className={s.root}>
-        <div className={s.appbarLayout}>
-          <TmAppbarContainer {...sharedProps}/>
+      <ConnectedRouter history={history}>
+        <div className={cn(s.root)}>
+          <div className={cn(s.appbarLayout)}>
+            <AppbarContainer {...sharedProps}/>
+          </div>
+          <div className={cn(s.contentLayout)}>
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/login' component={LoginPage} />
+              <Route exact path='/register' component={RegisterPage} />
+              <PrivateRoute
+                {...sharedProps}
+                path='/messenger'
+                component={MessengerPage}
+                canActivate={checkRoute}
+                redirectTo='/login'/>
+              <Redirect to='/' />
+            </Switch>
+          </div>
         </div>
-        <div className={s.contentLayout}>
-          <Switch>
-            <Route exact path='/' component={TmHome} />
-            <Route exact path='/login' component={LoginPage} />
-            <Route exact path='/register' component={RegisterPage} />
-            <PrivateRoute
-              {...sharedProps}
-              path='/messenger'
-              component={TmMessenger}
-              canActivate={checkRoute}
-              redirectTo='/login'/>
-            <Redirect to='/' />
-          </Switch>
-        </div>
-      </div>
+      </ConnectedRouter>
     );
   }
 }
@@ -103,4 +106,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default compose(connect(mapStateToProps, mapDispatchToProps), pure)(AppShell);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  pure
+)(AppShell);

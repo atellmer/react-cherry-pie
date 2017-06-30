@@ -1,3 +1,3 @@
-import TmBagde from './badge';
+import Bagde from './badge';
 
-export default TmBagde;
+export default Bagde;

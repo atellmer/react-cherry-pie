@@ -1,5 +1,4 @@
 /** @flow */
-
 type registerAction = {
   type: string,
   payload: {

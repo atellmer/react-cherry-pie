@@ -1,18 +1,21 @@
 /** @flow */
 import React, { Component } from 'react';
+import cn from 'classnames';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-import * as css from './searchbar.css';
+import * as s from './searchbar.css';
 
 type Props = {
   filterItems: Function
 }
 
-class TmSearchbar extends Component {
+const PLACEHOLDER = 'Поиск';
+
+class Searchbar extends Component {
   props: Props;
   rootNode: HTMLElement;
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.props.filterItems(event.target.value);
   }
 
@@ -26,15 +29,15 @@ class TmSearchbar extends Component {
 
   render() {
     return (
-      <div className={css.root} ref={node => this.rootNode = node}>
-        <div className={css.iconLayout}>
+      <div className={cn(s.root)} ref={node => this.rootNode = node}>
+        <div className={cn(s.iconLayout)}>
           <SearchIcon color={'#fff'}/>
         </div>
-        <div className={css.inputLayout}>
+        <div className={cn(s.inputLayout)}>
           <input
             type='text'
-            placeholder='Поиск'
-            className={css.input}
+            placeholder={PLACEHOLDER}
+            className={cn(s.input)}
             onChange={this.handleChange}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}/>
@@ -44,4 +47,4 @@ class TmSearchbar extends Component {
   }
 }
 
-export default TmSearchbar;
+export default Searchbar;

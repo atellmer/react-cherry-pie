@@ -5,8 +5,8 @@ import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 
 import rootReducer from '../reducers';
-import AuthSaga from '../sagas/auth';
-import { history } from '@/routing/routing';
+import AuthSaga from '../effects/auth';
+import { history } from '@/shell';
 
 
 const routerMiddleware = createRouterMiddleware(history);

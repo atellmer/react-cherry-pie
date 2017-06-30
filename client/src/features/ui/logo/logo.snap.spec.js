@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import TmLogo from './index';
+import Logo from './index';
 
 
-test('Jest: TmLogo (Snapshot)', () => {
+test('Logo (Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
-  const tree = shallowRenderer.render(<TmLogo/>);
+  const tree = shallowRenderer.render(<Logo/>);
 
   expect(tree).toMatchSnapshot();
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
-import TmAppbar from './index';
+import Appbar from './index';
 
 const me = {
   id: '',
@@ -15,9 +15,9 @@ const me = {
   online: false
 };
 
-test('Jest: TmAppbar (Snapshot)', () => {
+test('Appbar (Snapshot)', () => {
   const shallowRenderer = ReactTestUtils.createRenderer();
-  const tree = shallowRenderer.render(<TmAppbar me={me}/>);
+  const tree = shallowRenderer.render(<Appbar me={me}/>);
 
   expect(tree).toMatchSnapshot();
 });

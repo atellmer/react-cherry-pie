@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Jest: TmTabs (Snapshot) 1`] = `
-<TmTabs
-  changeInterlocutor={[Function]}
-  dialogs={Array []}
-  interlocutor={Object {}}
-/>
-`;

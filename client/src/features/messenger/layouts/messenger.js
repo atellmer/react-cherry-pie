@@ -5,12 +5,13 @@ import { Route } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import cx from 'classnames';
+import cn from 'classnames';
 
 import * as userActions from '@/flux/actions/userActions';
-import TmPanelContainer from '../containers/panelContainer';
-import TmCanvasContainer from '../containers/canvasContainer';
-import * as css from './messenger.css';
+import DialogPanelContainer from '../containers/dialogPanel';
+import DialogDetailContainer from '../containers/dialogDetail';
+import * as s from './messenger.css';
+import { MESSENGER_ROUTE } from '@/shared/constants';
 
 
 type Props = {
@@ -28,29 +29,31 @@ type Props = {
   }
 };
 
-class TmMessenger extends Component {
+class MessengerPage extends Component {
   props: Props;
-
-  constructor(props: Props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.fetchDialogs();
   }
 
-  renderTemplate = () => {
-    const activeLayoutTrigger = /messenger\/./.test(this.props.location.pathname);
+  getActiveTrigger = () => {
+    const { pathname } = this.props.location;
+    const regexp = `${MESSENGER_ROUTE}\/.`;
+    const activeTrigger = new RegExp(regexp).test(pathname);
 
+    return activeTrigger;
+  }
+
+  renderTemplate = () => {
     return (
-      <div className={css.root}>
-        <div className={css.panelLayout}>
-          <TmPanelContainer {...this.props}/>
+      <div className={cn(s.root)}>
+        <div className={cn(s.panelLayout)}>
+          <DialogPanelContainer {...this.props}/>
         </div>
         <Route render={({ location }) => (
           <CSSTransitionGroup
             component='div'
-            className={cx(css.canvasLayout, { 'isActiveLayout': activeLayoutTrigger })}
+            className={cn(s.canvasLayout, { 'isActive': this.getActiveTrigger() })}
             transitionName='fade'
             transitionEnterTimeout={300}
             transitionLeaveTimeout={300}>
@@ -59,8 +62,8 @@ class TmMessenger extends Component {
               location={location}
               key={location.key}
               path={`${this.props.match.url}/:id`}
-              render={(props) => (
-                <TmCanvasContainer {...this.props} {...props}/>
+              render={routeProps => (
+                <DialogDetailContainer {...this.props} {...routeProps}/>
               )}/>
           </CSSTransitionGroup>
         )}/>
@@ -84,4 +87,4 @@ function mapDispatchToProps(dispatch) {
 export default compose(
   connect(null, mapDispatchToProps),
   pure
-)(TmMessenger);
+)(MessengerPage);

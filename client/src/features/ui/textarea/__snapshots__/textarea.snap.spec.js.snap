@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Jest: TmTextarea (Snapshot) 1`] = `
-<TmTextarea
-  onChangeInput={[Function]}
-  onHeightChange={[Function]}
-  value="lorem ipsum"
-/>
-`;

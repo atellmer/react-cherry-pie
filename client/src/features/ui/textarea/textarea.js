@@ -1,9 +1,10 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure } from 'recompose';
+import { pure, compose } from 'recompose';
+import cn from 'classnames';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import * as css from './textarea.css';
+import * as s from './textarea.css';
 
 
 type Props = {
@@ -12,34 +13,30 @@ type Props = {
   onHeightChange: Function
 };
 
-class TmTextarea extends Component {
-  props: Props;
+const PLACEHOLDER = 'Введите ваше сообщение...';
 
-  constructor(props: Props) {
-    super(props);
-  }
+class Textarea extends Component {
+  props: Props;
 
   handleHeightChange = () => {
     this.props.onHeightChange();
   }
 
-  handleChange = (ev: any) => {
+  handleChange = ev => {
     this.props.onChangeInput(ev.target.value);
   }
 
   render() {
-    const plaseholder = 'Введите ваше сообщение...';
-
     return (
-      <TextareaAutosize className={css.root}
+      <TextareaAutosize className={cn(s.root)}
         value={this.props.value}
         minRows={1}
         maxRows={10}
         onChange={this.handleChange}
         onHeightChange={this.handleHeightChange}
-        placeholder={plaseholder}/>
+        placeholder={PLACEHOLDER}/>
     );
   }
 }
 
-export default pure(TmTextarea);
+export default compose(pure(Textarea));

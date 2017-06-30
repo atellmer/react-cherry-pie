@@ -22,6 +22,7 @@
   width: 100%;
   height: 100%;
   z-index: var(--zIndex1);
+  transition: transform .2s ease-in-out;
 
   @media (min-width: 600px) {
     position: relative;
@@ -43,8 +44,8 @@
   width: 100%;
   height: 100%;
   z-index: var(--zIndex1);
-  transform: translate3d(100%, 0, 0);
   box-shadow: var(--shadowElevationZ1);
+  transform: translate3d(100%, 0, 0);
   transition: transform .2s ease-in-out;
 
   @media (min-width: 600px) {
@@ -57,7 +58,7 @@
     width: calc(100% - 320px);
   }
 
-  &.isActiveLayout {
+  &.isActive {
     transform: translate3d(0, 0, 0);
   }
 }

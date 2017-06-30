@@ -1,3 +1,3 @@
-import TmMessenger from './layouts/messenger';
+import MessengerPage from './layouts/messenger';
 
-export default TmMessenger;
+export default MessengerPage;

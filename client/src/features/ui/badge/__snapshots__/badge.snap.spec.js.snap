@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Jest: TmBagde (Snapshot) 1`] = `
-<div
-  className={undefined}
->
-  5
-</div>
-`;

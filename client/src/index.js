@@ -8,7 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import configureStore from './flux/store/configureStore';
 import muiTheme from './shared/config/theme';
-import AppRouting from './routing';
+import AppShell from './shell';
 import './styles.css';
 
 
@@ -19,7 +19,7 @@ const mount = document.querySelector('#react-root');
 render(
   <Provider store={store}>
     <MuiThemeProvider muiTheme={muiTheme}>
-      <AppRouting />
+      <AppShell />
     </MuiThemeProvider>
   </Provider>,
   mount

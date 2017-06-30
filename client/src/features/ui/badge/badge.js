@@ -1,18 +1,21 @@
 /** @flow */
 import React from 'react';
 import { pure } from 'recompose';
+import cn from 'classnames';
 
-import * as css from './badge.css';
+import * as s from './badge.css';
 
 
 type Props = {
   count: number
 }
 
-function TmBagde(props: Props) {
+function Bagde(props: Props) {
+  const { count } = props;
+
   return (
-    <div className={css.root}>{props.count}</div>
+    <div className={cn(s.root)}>{count}</div>
   );
 }
 
-export default pure(TmBagde);
+export default pure(Bagde);

@@ -1,15 +1,14 @@
 /** @flow */
 import React from 'react';
-import {
-  Link
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
 import * as s from './home.css';
 
 
-function TmHome() {
+function HomePage() {
   return (
-    <div className={s.root}>
+    <div className={cn(s.root)}>
       <Link to='/messenger'>Messenger</Link>
       <br/>
       <Link to='/login'>Login</Link>
@@ -19,4 +18,4 @@ function TmHome() {
   );
 }
 
-export default TmHome;
+export default HomePage;

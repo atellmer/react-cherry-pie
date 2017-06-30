@@ -1,3 +1,3 @@
-import TmHome from './home';
+import HomePage from './home';
 
-export default TmHome;
+export default HomePage;
