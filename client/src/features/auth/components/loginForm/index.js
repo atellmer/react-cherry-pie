@@ -1,3 +1,3 @@
-import TmLoginForm from './loginForm';
+import LoginForm from './loginForm';
 
-export default TmLoginForm;
+export default LoginForm;

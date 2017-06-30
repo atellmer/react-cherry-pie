@@ -1,3 +1,3 @@
-import TmRegister from './register';
+import RegisterPage from './register';
 
-export default TmRegister;
+export default RegisterPage;

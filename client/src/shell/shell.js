@@ -9,8 +9,8 @@ import * as environmentActions from '@/flux/actions/environmentActions';
 import * as userActions from '@/flux/actions/userActions';
 import PrivateRoute from '@/features/auth/components/privateRoute';
 import TmAppbarContainer from '@/features/header/containers/appbarContainer';
-import TmLogin from '@/features/auth/layouts/login';
-import TmRegister from '@/features/auth/layouts/register';
+import LoginPage from '@/features/auth/layouts/login';
+import RegisterPage from '@/features/auth/layouts/register';
 import TmHome from '@/features/home';
 import TmMessenger from '@/features/messenger';
 import checkRoute from '@/features/auth/services/checkRoute';
@@ -66,8 +66,8 @@ class AppShell extends Component {
         <div className={s.contentLayout}>
           <Switch>
             <Route exact path='/' component={TmHome} />
-            <Route exact path='/login' component={TmLogin} />
-            <Route exact path='/register' component={TmRegister} />
+            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/register' component={RegisterPage} />
             <PrivateRoute
               {...sharedProps}
               path='/messenger'

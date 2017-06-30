@@ -4,20 +4,20 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as authActions from '@/flux/actions/auth';
-import TmLoginForm from '../components/loginForm';
+import LoginForm from '../components/loginForm';
 
 type Props = {
   authorize: Function
 }
 
-class TmLoginFormContainer extends Component {
+class LoginFormContainer extends Component {
   props: Props;
 
   render() {
     const { authorize } = this.props;
 
     return (
-      <TmLoginForm authorize={authorize}/>
+      <LoginForm authorize={authorize}/>
     );
   }
 }
@@ -30,4 +30,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(TmLoginFormContainer);
+export default connect(null, mapDispatchToProps)(LoginFormContainer);

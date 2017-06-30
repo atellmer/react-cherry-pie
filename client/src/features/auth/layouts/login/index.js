@@ -1,3 +1,3 @@
-import TmLogin from './login';
+import LoginPage from './login';
 
-export default TmLogin;
+export default LoginPage;

@@ -1,3 +1,3 @@
-import TmRegisterForm from './registerForm';
+import RegisterForm from './registerForm';
 
-export default TmRegisterForm;
+export default RegisterForm;

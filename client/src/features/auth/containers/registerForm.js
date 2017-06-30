@@ -4,20 +4,20 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as authActions from '@/flux/actions/auth';
-import TmRegisterForm from '../components/registerFrom';
+import RegisterForm from '../components/registerFrom';
 
 type Props = {
   register: Function
 }
 
-class TmRegisterFormContainer extends Component {
+class RegisterFormContainer extends Component {
   props: Props;
 
   render() {
     const { register } = this.props;
 
     return (
-      <TmRegisterForm register={register}/>
+      <RegisterForm register={register}/>
     );
   }
 }
@@ -30,4 +30,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(TmRegisterFormContainer);
+export default connect(null, mapDispatchToProps)(RegisterFormContainer);

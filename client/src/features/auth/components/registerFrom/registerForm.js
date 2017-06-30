@@ -1,5 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
+import cn from 'classnames';
+
 import * as s from './registerForm.css';
 
 
@@ -7,7 +9,7 @@ type Props = {
   register: Function
 }
 
-class TmRegisterForm extends Component {
+class RegisterForm extends Component {
   props: Props;
 
   handleSubmit = (ev) => {
@@ -21,7 +23,7 @@ class TmRegisterForm extends Component {
 
   render() {
     return (
-      <form className={s.root} onSubmit={this.handleSubmit}>
+      <form className={cn(s.root)} onSubmit={this.handleSubmit}>
         <input type='email' name='email'/>
         <br/>
         <input type='password' name='password'/>
@@ -32,4 +34,4 @@ class TmRegisterForm extends Component {
   }
 }
 
-export default TmRegisterForm;
+export default RegisterForm;

@@ -1,17 +1,18 @@
 /** @flow */
 import React from 'react';
+import cn from 'classnames';
 
 import * as s from './login.css';
-import TmLoginFormContainer from '../../containers/loginFormContainer';
+import LoginFormContainer from '../../containers/loginForm';
 
 
-function TmLogin() {
+function LoginPage() {
   return (
-    <div className={s.root}>
+    <div className={cn(s.root)}>
       Login page
-      <TmLoginFormContainer />
+      <LoginFormContainer />
     </div>
   );
 }
 
-export default TmLogin;
+export default LoginPage;

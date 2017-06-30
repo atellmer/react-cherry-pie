@@ -1,17 +1,18 @@
 /** @flow */
 import React from 'react';
+import cn from 'classnames';
 
-import TmRegisterFormContainer from '../../containers/registerFormContainer';
+import RegisterFormContainer from '../../containers/registerForm';
 import * as s from './register.css';
 
 
-function TmRegister() {
+function RegisterPage() {
   return (
-    <div className={s.root}>
+    <div className={cn(s.root)}>
       Register page
-      <TmRegisterFormContainer />
+      <RegisterFormContainer />
     </div>
   );
 }
 
-export default TmRegister;
+export default RegisterPage;
