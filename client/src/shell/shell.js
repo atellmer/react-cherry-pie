@@ -23,12 +23,7 @@ import * as s from './shell.css';
 type Props = {
   detectDevice: Function,
   detectSizeWindow: Function,
-  fetchUser: Function,
-  isPhone: boolean,
-  isTablet: boolean,
-  isDesktop: boolean,
-  heightWindow: number,
-  widthWindow: number
+  fetchUser: Function
 };
 
 export const history = createBrowserHistory();
@@ -51,19 +46,11 @@ class AppShell extends Component {
   }
 
   render() {
-    const sharedProps = {
-      isPhone: this.props.isPhone,
-      isTablet: this.props.isTablet,
-      isDesktop: this.props.isDesktop,
-      heightWindow: this.props.heightWindow,
-      widthWindow: this.props.widthWindow
-    };
-
     return (
       <ConnectedRouter history={history}>
         <div className={cn(s.root)}>
           <div className={cn(s.appbarLayout)}>
-            <AppbarContainer {...sharedProps}/>
+            <AppbarContainer />
           </div>
           <div className={cn(s.contentLayout)}>
             <Switch>
@@ -71,7 +58,6 @@ class AppShell extends Component {
               <Route exact path='/login' component={LoginPage} />
               <Route exact path='/register' component={RegisterPage} />
               <PrivateRoute
-                {...sharedProps}
                 path='/messenger'
                 component={MessengerPage}
                 canActivate={checkRoute}
@@ -85,28 +71,18 @@ class AppShell extends Component {
   }
 }
 
-function mapStateToProps({ environment }) {
-  return {
-    isPhone: environment.isPhone,
-    isTablet: environment.isTablet,
-    isDesktop: environment.isDesktop,
-    widthWindow: environment.width,
-    heightWindow: environment.height
-  };
-}
-
 function mapDispatchToProps(dispatch) {
   const { detectDevice, detectSizeWindow } = environmentActions;
   const { fetchUser } = userActions;
 
-  return {
-    detectDevice: bindActionCreators(detectDevice, dispatch),
-    detectSizeWindow: bindActionCreators(detectSizeWindow, dispatch),
-    fetchUser: bindActionCreators(fetchUser, dispatch)
-  };
+  return bindActionCreators({
+    detectDevice,
+    detectSizeWindow,
+    fetchUser
+  }, dispatch);
 }
 
 export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  pure
+  pure,
+  connect(null, mapDispatchToProps)
 )(AppShell);

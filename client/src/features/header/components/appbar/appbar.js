@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
+import { pure } from 'recompose';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
@@ -52,4 +53,4 @@ class Appbar extends Component {
   }
 }
 
-export default Appbar;
+export default pure(Appbar);

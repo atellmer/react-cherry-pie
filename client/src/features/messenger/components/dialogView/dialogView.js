@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import cn from 'classnames';
 import Avatar from 'material-ui/Avatar/index';
 import ActionDone from 'material-ui/svg-icons/action/done';
@@ -12,23 +12,15 @@ import * as s from './dialogView.css';
 
 
 type Props = {
-  interlocutor: any,
-  changeInterlocutor: Function,
+  isActive: boolean,
   dialog: IDialog
 }
 
 class DialogView extends Component {
   props: Props;
 
-
-  handleClick = () => {
-    const { user } = this.props.dialog;
-
-    this.props.changeInterlocutor(user.id);
-  }
-
   renderIndicators() {
-    const { message } = this.props.dialog;
+    const { dialog: { message } } = this.props;
     const { status } = message;
     const timestamp = new Date(message.timestamp).toDateString();
 
@@ -54,14 +46,17 @@ class DialogView extends Component {
 
   renderDialog() {
     if (this.props.dialog) {
-      const { user, message } = this.props.dialog;
-      const statusStyle = user.online ? s.online : s.offline;
-      const selectedStyle = this.props.interlocutor.id === user.id ? s.selected : '';
+      const { dialog: { user, message }, isActive } = this.props;
+
+      const avatarLayoutStyle = cn(s.box, s.avatarLayout, {
+        [s.online]: user.online,
+        [s.offline]: !user.online
+      });
 
       return (
-        <div className={cn(s.root, selectedStyle)} onClick={this.handleClick}>
+        <div className={cn(s.root, { [s.isActive]: isActive })}>
           <div className={cn(s.flex)}>
-            <div className={cn(s.box, s.avatarLayout, statusStyle)}>
+            <div className={avatarLayoutStyle}>
               <Avatar
                 src={user.avatar.thumbnail}
                 size={48}
@@ -89,4 +84,4 @@ class DialogView extends Component {
   }
 }
 
-export default compose(pure(DialogView));
+export default pure(DialogView);

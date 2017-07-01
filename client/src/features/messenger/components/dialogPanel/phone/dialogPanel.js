@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import cn from 'classnames';
 import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
@@ -12,9 +12,11 @@ import * as s from './dialogPanel.css';
 
 type Props = {
   dialogs: Array<IDialog>,
-  changeInterlocutor: Function,
   match: {
     url: string
+  },
+  location: {
+    pathname: string
   }
 };
 
@@ -22,10 +24,17 @@ class DialogPanelPhone extends Component {
   props: Props;
 
   renderDialogs = () => {
-    return this.props.dialogs.map((dialog, index) => {
+    const { dialogs, match, location } = this.props;
+
+    return dialogs.map((item, index) => {
+      const url = `${match.url}/${item.id}`;
+      const isActive = location.pathname === url;
+
       return (
-        <Link to={`${this.props.match.url}/${dialog.id}`} key={index}>
-          <DialogView {...this.props} dialog={dialog}/>
+        <Link to={url} key={index}>
+          <DialogView
+            dialog={item}
+            isActive={isActive}/>
         </Link>
       );
     });
@@ -46,4 +55,4 @@ class DialogPanelPhone extends Component {
   }
 }
 
-export default compose(pure(DialogPanelPhone));
+export default pure(DialogPanelPhone);

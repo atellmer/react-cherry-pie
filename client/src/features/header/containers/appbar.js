@@ -30,6 +30,6 @@ function mapStateToProps({ user }) {
 }
 
 export default compose(
+  pure,
   connect(mapStateToProps),
-  pure
 )(AppbarContainer);

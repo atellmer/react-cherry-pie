@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import cn from 'classnames';
 
 import type { IDialog } from '@/shared/models/dialogItem';
@@ -11,8 +11,9 @@ import * as s from './dialogPanel.css';
 
 type Props = {
   dialogs: Array<IDialog>,
-  changeInterlocutor: Function,
-  filterDialogs: Function
+  filterDialogs: Function,
+  match: {},
+  location: {}
 };
 
 class DialogPanelDesktop extends Component {
@@ -23,6 +24,12 @@ class DialogPanelDesktop extends Component {
   }
 
   render() {
+    const tabsProps = {
+      dialogs: this.props.dialogs,
+      match: this.props.match,
+      location: this.props.location
+    };
+
     return (
       <div className={cn(s.rootDesktop)}>
         <div className={cn(s.headerLayout)}>
@@ -34,11 +41,11 @@ class DialogPanelDesktop extends Component {
           </div>
         </div>
         <div>
-          <DialogTabs {...this.props} dialogs={this.props.dialogs}/>
+          <DialogTabs {...tabsProps}/>
         </div>
       </div>
     );
   }
 }
 
-export default compose(pure(DialogPanelDesktop));
+export default pure(DialogPanelDesktop);

@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import cn from 'classnames';
 
 import DialogForm from '../../dialogForm';
@@ -9,7 +9,6 @@ import * as s from './dialogDetail.css';
 
 
 type Props = {
-  params: any,
   messagePanelHeight: number,
   changeMessagePanelHeight: Function,
   match: {
@@ -52,4 +51,4 @@ class DialogDetailDesktop extends Component {
   }
 }
 
-export default compose(pure(DialogDetailDesktop));
+export default pure(DialogDetailDesktop);

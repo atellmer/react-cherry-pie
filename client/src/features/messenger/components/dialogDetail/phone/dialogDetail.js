@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { compose, pure } from 'recompose';
+import { pure } from 'recompose';
 import { Scrollbars } from 'react-custom-scrollbars';
 import cn from 'classnames';
 
@@ -51,4 +51,4 @@ class DialogDetailPhone extends Component {
   }
 }
 
-export default compose(pure(DialogDetailPhone));
+export default pure(DialogDetailPhone);

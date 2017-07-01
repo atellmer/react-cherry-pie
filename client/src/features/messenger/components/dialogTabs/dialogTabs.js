@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
@@ -14,11 +14,12 @@ import * as s from './dialogTabs.css';
 
 
 type Props = {
-  interlocutor: any,
-  changeInterlocutor: Function,
   dialogs: Array<IDialog>,
   match: {
     url: string
+  },
+  location: {
+    pathname: string
   }
 };
 
@@ -48,14 +49,17 @@ class DialogTabs extends Component {
   }
 
   getDialogs = dialogs => {
-    const { match } = this.props;
+    const { match, location } = this.props;
 
     return dialogs.map((item, index) => {
+      const url = `${match.url}/${item.id}`;
+      const isActive = location.pathname === url;
+
       return (
-        <Link
-          to={`${match.url}/${item.id}`}
-          key={index}>
-          <DialogView {...this.props} dialog={item}/>
+        <Link to={url} key={index}>
+          <DialogView
+            dialog={item}
+            isActive={isActive}/>
         </Link>
       );
     });
@@ -107,4 +111,4 @@ class DialogTabs extends Component {
   }
 }
 
-export default compose(pure(DialogTabs));
+export default pure(DialogTabs);

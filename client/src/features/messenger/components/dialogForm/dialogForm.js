@@ -1,6 +1,6 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
+import { pure } from 'recompose';
 import cn from 'classnames';
 import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
@@ -71,4 +71,4 @@ class DialogForm extends Component {
   }
 }
 
-export default compose(pure(DialogForm));
+export default pure(DialogForm);

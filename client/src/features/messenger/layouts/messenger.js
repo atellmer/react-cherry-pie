@@ -16,11 +16,6 @@ import { MESSENGER_ROUTE } from '@/shared/constants';
 
 type Props = {
   fetchDialogs: Function,
-  isPhone: boolean,
-  isTablet: boolean,
-  isDesktop: boolean,
-  heightWindow: number,
-  widthWindow: number,
   match: {
     url: string
   },
@@ -45,10 +40,15 @@ class MessengerPage extends Component {
   }
 
   renderTemplate = () => {
+    const sharedProps = {
+      match: this.props.match,
+      location: this.props.location
+    };
+
     return (
       <div className={cn(s.root)}>
         <div className={cn(s.panelLayout)}>
-          <DialogPanelContainer {...this.props}/>
+          <DialogPanelContainer {...sharedProps}/>
         </div>
         <Route render={({ location }) => (
           <CSSTransitionGroup
@@ -63,7 +63,7 @@ class MessengerPage extends Component {
               key={location.key}
               path={`${this.props.match.url}/:id`}
               render={routeProps => (
-                <DialogDetailContainer {...this.props} {...routeProps}/>
+                <DialogDetailContainer {...routeProps} />
               )}/>
           </CSSTransitionGroup>
         )}/>
@@ -79,12 +79,12 @@ class MessengerPage extends Component {
 function mapDispatchToProps(dispatch) {
   const { fetchDialogs } = userActions;
 
-  return {
-    fetchDialogs: bindActionCreators(fetchDialogs, dispatch)
-  };
+  return bindActionCreators({
+    fetchDialogs
+  }, dispatch);
 }
 
 export default compose(
+  pure,
   connect(null, mapDispatchToProps),
-  pure
 )(MessengerPage);
