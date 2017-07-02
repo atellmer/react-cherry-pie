@@ -6,7 +6,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
-import cn from 'classnames';
 
 import * as envActions from '@/flux/actions/env';
 import * as userActions from '@/flux/actions/user';
@@ -17,7 +16,11 @@ import RegisterView from '@/features/auth/layouts/register';
 import HomeView from '@/features/home';
 import MessengerView from '@/features/messenger';
 import checkRoute from '@/features/auth/services/checkRoute';
-import * as s from './shell.css';
+import {
+  Root,
+  AppbarLayout,
+  ContentLayout
+} from './styled';
 
 
 type Props = {
@@ -48,11 +51,11 @@ class AppShell extends Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-        <div className={cn(s.root)}>
-          <div className={cn(s.appbarLayout)}>
+        <Root>
+          <AppbarLayout>
             <AppbarContainer />
-          </div>
-          <div className={cn(s.contentLayout)}>
+          </AppbarLayout>
+          <ContentLayout>
             <Switch>
               <Route exact path='/' component={HomeView} />
               <Route exact path='/login' component={LoginView} />
@@ -64,8 +67,8 @@ class AppShell extends Component {
                 redirectTo='/login'/>
               <Redirect to='/' />
             </Switch>
-          </div>
-        </div>
+          </ContentLayout>
+        </Root>
       </ConnectedRouter>
     );
   }

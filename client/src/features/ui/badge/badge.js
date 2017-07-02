@@ -1,9 +1,8 @@
 /** @flow */
 import React from 'react';
 import { pure } from 'recompose';
-import cn from 'classnames';
 
-import * as s from './badge.css';
+import { Root } from './styled';
 
 
 type Props = {
@@ -11,10 +10,8 @@ type Props = {
 }
 
 function Bagde(props: Props) {
-  const { count } = props;
-
   return (
-    <div className={cn(s.root)}>{count}</div>
+    <Root>{props.count}</Root>
   );
 }
 

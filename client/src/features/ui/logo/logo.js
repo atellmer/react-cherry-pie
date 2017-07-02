@@ -1,13 +1,12 @@
 /** @flow */
 import React from 'react';
-import cn from 'classnames';
 
-import * as s from './logo.css';
+import { Root } from './styled';
 
 
 function Logo() {
   return (
-    <div className={cn(s.root)}/>
+    <Root />
   );
 }
 

@@ -1,6 +1,10 @@
-@import 'variables.css';
+/** @flow */
+import styled from 'styled-components';
 
-:local(.root) {
+import * as vars from '@/vars';
+
+
+const Root = styled.div`
   position: relative;
   display: flex;
   flex-flow: row nowrap;
@@ -10,9 +14,13 @@
   min-width: 16px;
   min-height: 16px;
   border-radius: 6px;
-  background-color: var(--accentColor);
+  background-color: ${vars.accentColor};
   color: #fff;
   font-weight: 300;
-  font-size: calc(11 / var(--baseFontSize) * 1em);
+  font-size: calc(11 / ${vars.baseFontSize} * 1em);
   line-height: 0;
-}
+`;
+
+export {
+  Root
+};

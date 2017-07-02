@@ -1,9 +1,14 @@
 /** @flow */
 import React, { Component } from 'react';
-import cn from 'classnames';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-import * as s from './searchbar.css';
+import {
+  Root,
+  IconLayout,
+  InputLayout,
+  Input
+} from './styled';
+
 
 type Props = {
   filterItems: Function
@@ -13,36 +18,42 @@ const PLACEHOLDER = 'Поиск';
 
 class Searchbar extends Component {
   props: Props;
-  rootNode: HTMLElement;
+
+  state = {
+    focus: false
+  };
 
   handleChange = event => {
     this.props.filterItems(event.target.value);
   }
 
   handleFocus = () => {
-    this.rootNode.style.backgroundColor = 'rgba(255, 255, 255, 0.20)';
+    this.setState({
+      focus: true
+    });
   }
 
   handleBlur = () => {
-    this.rootNode.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+    this.setState({
+      focus: false
+    });
   }
 
   render() {
     return (
-      <div className={cn(s.root)} ref={node => this.rootNode = node}>
-        <div className={cn(s.iconLayout)}>
+      <Root focus={this.state.focus}>
+        <IconLayout>
           <SearchIcon color={'#fff'}/>
-        </div>
-        <div className={cn(s.inputLayout)}>
-          <input
+        </IconLayout>
+        <InputLayout>
+          <Input
             type='text'
             placeholder={PLACEHOLDER}
-            className={cn(s.input)}
             onChange={this.handleChange}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}/>
-        </div>
-      </div>
+        </InputLayout>
+      </Root>
     );
   }
 }

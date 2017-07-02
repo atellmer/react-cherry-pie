@@ -1,10 +1,8 @@
 /** @flow */
 import React, { Component } from 'react';
-import { pure, compose } from 'recompose';
-import cn from 'classnames';
-import TextareaAutosize from 'react-textarea-autosize';
+import { pure } from 'recompose';
 
-import * as s from './textarea.css';
+import { Root } from './styled';
 
 
 type Props = {
@@ -28,7 +26,7 @@ class Textarea extends Component {
 
   render() {
     return (
-      <TextareaAutosize className={cn(s.root)}
+      <Root
         value={this.props.value}
         minRows={1}
         maxRows={10}
@@ -39,4 +37,4 @@ class Textarea extends Component {
   }
 }
 
-export default compose(pure(Textarea));
+export default pure(Textarea);
