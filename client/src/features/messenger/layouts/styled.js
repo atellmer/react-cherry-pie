@@ -1,6 +1,10 @@
-@import 'variables.css';
+/** @flow */
+import styled from 'styled-components';
 
-:local(.root) {
+import * as vars from '@/vars';
+
+
+const Root = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -11,9 +15,9 @@
   display: flex;
   flex-flow: row nowrap;
   overflow-x: hidden;
-}
+`;
 
-:local(.panelLayout) {
+const DialogPanelLayout = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -21,21 +25,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: var(--zIndex1);
+  z-index: ${vars.zIndex1};
   transition: transform .2s ease-in-out;
 
-  @media (min-width: 640px) {
+  @media (min-width: ${vars.phone}px) {
     position: relative;
     width: 300px;
-    z-index: var(--zIndex2);
+    z-index: ${vars.zIndex2};
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${vars.tablet}px) {
     width: 320px;
   }
-}
+`;
 
-:local(.canvasLayout) {
+const TransitionLayout = styled.div`
   position: absolute;
   top: 0;
   right: 0;
@@ -43,23 +47,24 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: var(--zIndex1);
-  box-shadow: var(--shadowElevationZ1);
-  transform: translate3d(100%, 0, 0);
+  z-index: ${vars.zIndex1};
+  box-shadow: ${vars.shadowElevationZ1};
+  transform: ${props => props.isActive ? 'translate3d(0, 0, 0)' : 'translate3d(100%, 0, 0)'};
   transition: transform .2s ease-in-out;
 
-  @media (min-width: 640px) {
+  @media (min-width:  ${vars.phone}px) {
     position: relative;
     width: calc(100% - 300px);
     transform: translate3d(0, 0, 0);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width:  ${vars.tablet}px) {
     width: calc(100% - 320px);
   }
+`;
 
-  &.isActive {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
+export {
+  Root,
+  DialogPanelLayout,
+  TransitionLayout
+};

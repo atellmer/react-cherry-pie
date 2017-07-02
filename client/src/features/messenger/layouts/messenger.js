@@ -2,15 +2,18 @@
 import React, { Component } from 'react';
 import { pure, compose } from 'recompose';
 import { Route } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import cn from 'classnames';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import * as userActions from '@/flux/actions/user';
 import DialogPanelContainer from '../containers/dialogPanel';
 import DialogDetailContainer from '../containers/dialogDetail';
-import * as s from './messenger.css';
+import {
+  Root,
+  DialogPanelLayout,
+  TransitionLayout
+} from './styled';
 import { MESSENGER_ROUTE } from '@/shared/constants';
 
 
@@ -46,17 +49,17 @@ class MessengerView extends Component {
     };
 
     return (
-      <div className={cn(s.root)}>
-        <div className={cn(s.panelLayout)}>
+      <Root>
+        <DialogPanelLayout>
           <DialogPanelContainer {...sharedProps}/>
-        </div>
+        </DialogPanelLayout>
         <Route render={({ location }) => (
           <CSSTransitionGroup
-            component='div'
-            className={cn(s.canvasLayout, { 'isActive': this.getActiveTrigger() })}
+            component={TransitionLayout}
             transitionName='fade'
             transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}>
+            transitionLeaveTimeout={300}
+            isActive={this.getActiveTrigger()}>
             <Route
               exact
               location={location}
@@ -67,7 +70,7 @@ class MessengerView extends Component {
               )}/>
           </CSSTransitionGroup>
         )}/>
-      </div>
+      </Root>
     );
   }
 

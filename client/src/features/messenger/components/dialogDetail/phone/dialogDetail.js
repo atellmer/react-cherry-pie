@@ -1,11 +1,14 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure } from 'recompose';
-import { Scrollbars } from 'react-custom-scrollbars';
-import cn from 'classnames';
 
 import DialogForm from '../../dialogForm';
-import * as s from './dialogDetail.css';
+import {
+  Root,
+  ContentLayout,
+  ScrollableView,
+  DialogFormLayout
+ } from './styled';
 
 
 type Props = {
@@ -18,37 +21,30 @@ type Props = {
   }
 }
 
-class DialogDetailPhone extends Component {
+class DialogDetailDesktop extends Component {
   props: Props;
 
-  getContentLayoutStyle = () => {
-    const { dialogFormHeight } = this.props;
-
-    return {
-      paddingBottom: dialogFormHeight > 0 ? dialogFormHeight : ''
-    };
-  }
-
   render() {
-    const { resizeDialogForm } = this.props;
+    const { resizeDialogForm, dialogFormHeight } = this.props;
 
     return (
-      <div className={cn(s.root)}>
-        <div className={cn(s.contentLayout)} style={this.getContentLayoutStyle()}>
-          <Scrollbars
+      <Root>
+        <ContentLayout paddingBottom={dialogFormHeight} >
+          <ScrollableView
             autoHide
             autoHideTimeout={1000}
-            autoHideDuration={200}
-            className={cn(s.scrollableView)}>
-            <div>{`Route: ${this.props.match.params.id}`}</div>
-          </Scrollbars>
-        </div>
-        <div className={cn(s.dialogPanelLayout)}>
+            autoHideDuration={200}>
+            <div>
+              {`Route: ${this.props.match.params.id}`}
+            </div>
+          </ScrollableView>
+        </ContentLayout>
+        <DialogFormLayout>
           <DialogForm resizeDialogForm={resizeDialogForm}/>
-        </div>
-      </div>
+        </DialogFormLayout>
+      </Root>
     );
   }
 }
 
-export default pure(DialogDetailPhone);
+export default pure(DialogDetailDesktop);
