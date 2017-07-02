@@ -1,3 +1,3 @@
-import RegisterPage from './register';
+import RegisterView from './register';
 
-export default RegisterPage;
+export default RegisterView;

@@ -6,7 +6,7 @@ import * as s from './login.css';
 import LoginFormContainer from '../../containers/loginForm';
 
 
-function LoginPage() {
+function LoginView() {
   return (
     <div className={cn(s.root)}>
       Login page
@@ -15,4 +15,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default LoginView;

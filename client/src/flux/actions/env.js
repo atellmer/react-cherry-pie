@@ -1,9 +1,14 @@
 /** @flow */
-import * as types from '../constants/ActionTypes';
 import DeviceDetector from 'device-detect.js/lib/device';
 
+
+export const actionTypes = {
+  DETECT_DEVICE:  '[Env] Detect Device',
+  RESIZE_WINDOW: '[Env] Resize Window'
+};
+
 type DetectDeviceAction = {
-  type: string,
+  type: actionTypes.DETECT_DEVICE,
   payload: {
     isPhone: boolean,
     isTablet: boolean,
@@ -12,20 +17,20 @@ type DetectDeviceAction = {
 }
 
 type detectSizeWindowAction = {
-  type: string,
+  type: actionTypes.RESIZE_WINDOW,
   payload: {
     width: number,
     height: number
   }
 }
 
-export function detectDevice(): DetectDeviceAction {
+function detectDevice(): DetectDeviceAction {
   const isPhone: boolean = DeviceDetector.mobile();
   const isTablet: boolean = DeviceDetector.tablet();
   const isDesktop: boolean = DeviceDetector.desktop();
 
   return {
-    type: types.CURRENT_DEVICE,
+    type: actionTypes.DETECT_DEVICE,
     payload: {
       isPhone,
       isTablet,
@@ -34,15 +39,20 @@ export function detectDevice(): DetectDeviceAction {
   };
 }
 
-export function detectSizeWindow(): detectSizeWindowAction {
+function detectSizeWindow(): detectSizeWindowAction {
   const width = window.innerWidth;
   const height = window.innerHeight;
 
   return {
-    type: types.CHANGE_WIDTH_OR_HEIGHT_WINDOW,
+    type: actionTypes.RESIZE_WINDOW,
     payload: {
       width,
       height
     }
   };
 }
+
+export {
+  detectDevice,
+  detectSizeWindow
+};

@@ -9,8 +9,8 @@ import * as s from './dialogDetail.css';
 
 
 type Props = {
-  messagePanelHeight: number,
-  changeMessagePanelHeight: Function,
+  dialogFormHeight: number,
+  resizeDialogForm: Function,
   match: {
     params: {
       id: number
@@ -22,15 +22,15 @@ class DialogDetailDesktop extends Component {
   props: Props;
 
   getContentLayoutStyle = () => {
-    const { messagePanelHeight } = this.props;
+    const { dialogFormHeight } = this.props;
 
     return {
-      paddingBottom: messagePanelHeight > 0 ? messagePanelHeight : ''
+      paddingBottom: dialogFormHeight > 0 ? dialogFormHeight : ''
     };
   }
 
   render() {
-    const { changeMessagePanelHeight } = this.props;
+    const { resizeDialogForm } = this.props;
 
     return (
       <div className={cn(s.root)}>
@@ -40,11 +40,13 @@ class DialogDetailDesktop extends Component {
             autoHideTimeout={1000}
             autoHideDuration={200}
             className={cn(s.scrollableView)}>
-            <div>{`Route: ${this.props.match.params.id}`}</div>
+            <div>
+              {`Route: ${this.props.match.params.id}`}
+            </div>
           </Scrollbars>
         </div>
         <div className={cn(s.messagePanelLayout)}>
-          <DialogForm changeMessagePanelHeight={changeMessagePanelHeight}/>
+          <DialogForm resizeDialogForm={resizeDialogForm}/>
         </div>
       </div>
     );

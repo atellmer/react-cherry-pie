@@ -8,14 +8,14 @@ import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 import cn from 'classnames';
 
-import * as environmentActions from '@/flux/actions/environmentActions';
-import * as userActions from '@/flux/actions/userActions';
+import * as envActions from '@/flux/actions/env';
+import * as userActions from '@/flux/actions/user';
 import PrivateRoute from '@/features/auth/components/privateRoute';
 import AppbarContainer from '@/features/header';
-import LoginPage from '@/features/auth/layouts/login';
-import RegisterPage from '@/features/auth/layouts/register';
-import HomePage from '@/features/home';
-import MessengerPage from '@/features/messenger';
+import LoginView from '@/features/auth/layouts/login';
+import RegisterView from '@/features/auth/layouts/register';
+import HomeView from '@/features/home';
+import MessengerView from '@/features/messenger';
 import checkRoute from '@/features/auth/services/checkRoute';
 import * as s from './shell.css';
 
@@ -54,12 +54,12 @@ class AppShell extends Component {
           </div>
           <div className={cn(s.contentLayout)}>
             <Switch>
-              <Route exact path='/' component={HomePage} />
-              <Route exact path='/login' component={LoginPage} />
-              <Route exact path='/register' component={RegisterPage} />
+              <Route exact path='/' component={HomeView} />
+              <Route exact path='/login' component={LoginView} />
+              <Route exact path='/register' component={RegisterView} />
               <PrivateRoute
                 path='/messenger'
-                component={MessengerPage}
+                component={MessengerView}
                 canActivate={checkRoute}
                 redirectTo='/login'/>
               <Redirect to='/' />
@@ -72,7 +72,7 @@ class AppShell extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  const { detectDevice, detectSizeWindow } = environmentActions;
+  const { detectDevice, detectSizeWindow } = envActions;
   const { fetchUser } = userActions;
 
   return bindActionCreators({

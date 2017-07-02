@@ -9,7 +9,7 @@
   background-color: #fff;
   cursor: pointer;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     border-bottom: none;
     background-color: var(--primaryColorSecond);
   }
@@ -18,7 +18,7 @@
 :local(.isActive) {
   background-color: var(--selectedMessageColorPhone);
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     background-color: var(--selectedMessageColorDesktop);
   }
 }
@@ -53,7 +53,7 @@
     border-radius: 50%;
     border: 2px solid #fff;
 
-    @media (min-width: 600px) {
+    @media (min-width: 640px) {
       top: 0;
       right: 0;
       width: 6px;
@@ -97,7 +97,7 @@
   text-transform: capitalize;
   font-weight: 500;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     color: #fff;
   }
 }
@@ -107,7 +107,7 @@
   max-width: 100%;
   font-weight: 300;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     color: #fff;
   }
 }
@@ -132,7 +132,7 @@
   margin-right: 8px;
   color: var(--primaryColorSecond) !important;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     color: #fff !important;
   }
 }
@@ -142,7 +142,7 @@
   font-weight: 300;
   color: var(--hintColorText);
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     color: #fff;
   }
 }

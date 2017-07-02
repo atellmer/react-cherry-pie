@@ -1,34 +1,34 @@
 /** @flow */
-import * as types from '../constants/ActionTypes';
+import { actionTypes } from '../actions/layout';
+
 
 type State = {
-  messagePanel: {
+  dialogForm: {
     height: number
   }
 }
 
-type Action = {
-  type: string,
-  payload: any
-}
-
 const initialState = {
-  messagePanel: {
+  dialogForm: {
     height: 0
   }
 };
 
-export default function layout(state: State = initialState, action: Action): any {
+function layout(state: State = initialState, action) {
   switch (action.type) {
-  case types.CHANGE_MESSAGE_PANEL_HEIGHT:
+  case actionTypes.RESIZE_DIALOG_FORM: {
+    const { payload: { height } } = action;
+
     return {
       ...state,
-      messagePanel: {
-        height: action.payload.height
+      dialogForm: {
+        height
       }
     };
-
+  }
   default:
     return state;
   }
 }
+
+export default layout;

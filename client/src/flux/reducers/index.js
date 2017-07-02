@@ -2,7 +2,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 
-import environment from './environment';
+import env from './env';
 import layout from './layout';
 import user from './user';
 import auth from './auth';
@@ -10,7 +10,7 @@ import auth from './auth';
 
 const rootReducer = combineReducers({
   router,
-  environment,
+  env,
   layout,
   user,
   auth

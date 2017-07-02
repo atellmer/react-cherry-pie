@@ -6,7 +6,7 @@ import cn from 'classnames';
 import * as s from './home.css';
 
 
-function HomePage() {
+function HomeView() {
   return (
     <div className={cn(s.root)}>
       <Link to='/messenger'>Messenger</Link>
@@ -18,4 +18,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default HomeView;

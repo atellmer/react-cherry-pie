@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as userActions from '@/flux/actions/userActions';
+import * as userActions from '@/flux/actions/user';
 import withPlatform from '@/shared/hocs/withPlatform';
 import type { IDialog } from '@/shared/models/dialogItem';
 import DialogPanelDesktop from '../components/dialogPanel/desktop';

@@ -1,3 +1,3 @@
-import MessengerPage from './layouts/messenger';
+import MessengerView from './layouts/messenger';
 
-export default MessengerPage;
+export default MessengerView;

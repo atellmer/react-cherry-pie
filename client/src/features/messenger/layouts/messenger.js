@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import cn from 'classnames';
 
-import * as userActions from '@/flux/actions/userActions';
+import * as userActions from '@/flux/actions/user';
 import DialogPanelContainer from '../containers/dialogPanel';
 import DialogDetailContainer from '../containers/dialogDetail';
 import * as s from './messenger.css';
@@ -24,7 +24,7 @@ type Props = {
   }
 };
 
-class MessengerPage extends Component {
+class MessengerView extends Component {
   props: Props;
 
   componentDidMount() {
@@ -87,4 +87,4 @@ function mapDispatchToProps(dispatch) {
 export default compose(
   pure,
   connect(null, mapDispatchToProps),
-)(MessengerPage);
+)(MessengerView);

@@ -1,9 +1,14 @@
 /** @flow */
-import * as types from '../constants/ActionTypes';
 import { FakeUserService } from '@/shared/services/fakeUsers';
 import type { IUser } from '../models/user';
 import type { IDialog } from '../models/dialogItem';
 
+
+export const actionTypes = {
+  FETCH_USER: '[User] Fetch User',
+  FETCH_DIALOGS: '[User] Fetch Dialogs',
+  FILTER_DIALOGS: '[User] Filter Dialogs'
+};
 
 const fakeUserService = new FakeUserService();
 
@@ -27,7 +32,7 @@ function fetchUser() {
       })
       .subscribe((res: Array <IUser>) => {
         dispatch({
-          type: types.FETCH_USER,
+          type: actionTypes.FETCH_USER,
           payload: {
             me: res[0]
           }
@@ -92,7 +97,7 @@ function fetchDialogs() {
       })
       .subscribe((res: Array <IDialog>) => {
         dispatch({
-          type: types.FETCH_DIALOGS,
+          type: actionTypes.FETCH_DIALOGS,
           payload: {
             dialogs: res
           }
@@ -114,7 +119,7 @@ function filterDialogs(term) {
     });
 
     dispatch({
-      type: types.FILTER_DIALOGS,
+      type: actionTypes.FILTER_DIALOGS,
       payload: {
         filteredDialogs
       }
@@ -122,4 +127,8 @@ function filterDialogs(term) {
   };
 }
 
-export { fetchUser, fetchDialogs, filterDialogs };
+export {
+  fetchUser,
+  fetchDialogs,
+  filterDialogs
+};

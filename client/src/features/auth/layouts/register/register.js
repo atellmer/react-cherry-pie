@@ -6,7 +6,7 @@ import RegisterFormContainer from '../../containers/registerForm';
 import * as s from './register.css';
 
 
-function RegisterPage() {
+function RegisterView() {
   return (
     <div className={cn(s.root)}>
       Register page
@@ -15,4 +15,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default RegisterView;

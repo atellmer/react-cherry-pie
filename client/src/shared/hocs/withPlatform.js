@@ -18,7 +18,7 @@ function withPlatform(WrappedComponent) {
     );
   }
 
-  function mapStateToProps({ environment: { isPhone, isTablet, isDesktop, width, height } }) {
+  function mapStateToProps({ env: { isPhone, isTablet, isDesktop, width, height } }) {
     return {
       isPhone,
       isTablet,

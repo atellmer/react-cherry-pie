@@ -24,7 +24,7 @@
   z-index: var(--zIndex1);
   transition: transform .2s ease-in-out;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     position: relative;
     width: 300px;
     z-index: var(--zIndex2);
@@ -48,7 +48,7 @@
   transform: translate3d(100%, 0, 0);
   transition: transform .2s ease-in-out;
 
-  @media (min-width: 600px) {
+  @media (min-width: 640px) {
     position: relative;
     width: calc(100% - 300px);
     transform: translate3d(0, 0, 0);

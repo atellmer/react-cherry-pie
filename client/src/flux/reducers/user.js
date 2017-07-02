@@ -1,5 +1,5 @@
 /** @flow */
-import * as types from '../constants/ActionTypes';
+import { actionTypes } from '../actions/user';
 import type { IUser } from '@/shared/models/user';
 import type { IDialog } from '@/shared/models/dialogItem';
 
@@ -7,11 +7,6 @@ import type { IDialog } from '@/shared/models/dialogItem';
 type State = {
   me: IUser,
   dialogs: Array<IDialog>
-}
-
-type Action = {
-  type: string,
-  payload: any
 }
 
 const initialState = {
@@ -30,26 +25,35 @@ const initialState = {
   filteredDialogs: []
 };
 
-export default function user(state: State = initialState, action: Action): any {
+export default function user(state: State = initialState, action) {
   switch (action.type) {
-  case types.FETCH_USER:
-    return {
-      ...state,
-      me: action.payload.me
-    };
+  case actionTypes.FETCH_USER: {
+    const { payload: { me } } = action;
 
-  case types.FETCH_DIALOGS:
     return {
       ...state,
-      dialogs: action.payload.dialogs,
-      filteredDialogs: action.payload.dialogs
+      me
     };
+  }
 
-  case types.FILTER_DIALOGS:
+  case actionTypes.FETCH_DIALOGS: {
+    const { payload: { dialogs } } = action;
+
     return {
       ...state,
-      filteredDialogs: action.payload.filteredDialogs
+      dialogs,
+      filteredDialogs: dialogs
     };
+  }
+
+  case actionTypes.FILTER_DIALOGS: {
+    const { payload: { filteredDialogs } } = action;
+
+    return {
+      ...state,
+      filteredDialogs
+    };
+  }
 
   default:
     return state;

@@ -11,7 +11,7 @@ import * as s from './dialogForm.css';
 
 
 type Props = {
-  changeMessagePanelHeight: Function
+  resizeDialogForm: Function
 }
 
 type State = {
@@ -33,7 +33,7 @@ class DialogForm extends Component {
 
   handleHeightChange = () => {
     if (this.rootNode !== null) {
-      this.props.changeMessagePanelHeight(this.rootNode.clientHeight);
+      this.props.resizeDialogForm(this.rootNode.clientHeight);
     }
   }
 

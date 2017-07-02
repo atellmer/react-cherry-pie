@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as layoutActions from '@/flux/actions/layoutActions';
+import * as layoutActions from '@/flux/actions/layout';
 import withPlatform from '@/shared/hocs/withPlatform';
 import DialogDetailDesktop from '../components/dialogDetail/desktop';
 import DialogDetailPhone from '../components/dialogDetail/phone';
@@ -16,8 +16,8 @@ type Props = {
   isTablet: boolean,
   isDesktop: boolean,
   widthWindow: number,
-  messagePanelHeight: number,
-  changeMessagePanelHeight: Function,
+  dialogFormHeight: number,
+  resizeDialogForm: Function,
   match: {}
 }
 
@@ -27,8 +27,8 @@ class DialogDetailContainer extends Component {
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
     const sharedProps = {
-      messagePanelHeight: this.props.messagePanelHeight,
-      changeMessagePanelHeight: this.props.changeMessagePanelHeight,
+      dialogFormHeight: this.props.dialogFormHeight,
+      resizeDialogForm: this.props.resizeDialogForm,
       match: this.props.match
     };
 
@@ -57,18 +57,18 @@ class DialogDetailContainer extends Component {
 }
 
 function mapStateToProps({ layout }) {
-  const { messagePanel: { height } } = layout;
+  const { dialogForm: { height } } = layout;
 
   return {
-    messagePanelHeight: height
+    dialogFormHeight: height
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  const { changeMessagePanelHeight } = layoutActions;
+  const { resizeDialogForm } = layoutActions;
 
   return bindActionCreators({
-    changeMessagePanelHeight
+    resizeDialogForm
   }, dispatch);
 }
 
