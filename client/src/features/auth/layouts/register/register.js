@@ -1,17 +1,16 @@
 /** @flow */
 import React from 'react';
-import cn from 'classnames';
 
 import RegisterFormContainer from '../../containers/registerForm';
-import * as s from './register.css';
+import { Root } from './styled';
 
 
 function RegisterView() {
   return (
-    <div className={cn(s.root)}>
+    <Root>
       Register page
       <RegisterFormContainer />
-    </div>
+    </Root>
   );
 }
 

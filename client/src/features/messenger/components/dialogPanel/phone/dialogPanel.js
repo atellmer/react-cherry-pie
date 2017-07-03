@@ -1,13 +1,14 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure } from 'recompose';
-import cn from 'classnames';
-import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import DialogView from '../../dialogView';
-import * as s from './dialogPanel.css';
+import {
+  Root,
+  ScrollableView
+} from './styled';
 
 
 type Props = {
@@ -42,15 +43,14 @@ class DialogPanelPhone extends Component {
 
   render() {
     return (
-      <div className={cn(s.rootPhone)}>
-        <Scrollbars
+      <Root>
+        <ScrollableView
           autoHide
           autoHideTimeout={1000}
-          autoHideDuration={200}
-          className={cn(s.scrollableView)}>
+          autoHideDuration={200}>
           {this.renderDialogs()}
-        </Scrollbars>
-      </div>
+        </ScrollableView>
+      </Root>
     );
   }
 }

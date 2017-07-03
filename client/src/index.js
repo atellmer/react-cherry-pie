@@ -6,15 +6,15 @@ import { Provider } from 'react-redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import './reset.css';
+import './styles';
 import configureStore from './flux/store/configureStore';
 import muiTheme from './shared/config/theme';
 import AppShell from './shell';
-import './styles.css';
 
 
 injectTapEventPlugin();
 const store = configureStore();
-const mount = document.querySelector('#react-root');
 
 render(
   <Provider store={store}>
@@ -22,5 +22,5 @@ render(
       <AppShell />
     </MuiThemeProvider>
   </Provider>,
-  mount
+  document.querySelector('#react-root')
 );

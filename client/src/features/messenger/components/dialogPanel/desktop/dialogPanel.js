@@ -1,12 +1,17 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure } from 'recompose';
-import cn from 'classnames';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import { Logo, Searchbar }  from '@/features/ui';
 import DialogTabs from '../../dialogTabs';
-import * as s from './dialogPanel.css';
+import {
+  Root,
+  HeaderLayout,
+  LogoLayout,
+  SearchbarLayout,
+  ContentLayout
+} from './styled';
 
 
 type Props = {
@@ -31,19 +36,19 @@ class DialogPanelDesktop extends Component {
     };
 
     return (
-      <div className={cn(s.rootDesktop)}>
-        <div className={cn(s.headerLayout)}>
-          <div className={cn(s.logoLayout)}>
+      <Root>
+        <HeaderLayout>
+          <LogoLayout>
             <Logo/>
-          </div>
-          <div className={cn(s.searchbarLayout)}>
+          </LogoLayout>
+          <SearchbarLayout>
             <Searchbar filterItems={this.filterDialogs}/>
-          </div>
-        </div>
-        <div>
+          </SearchbarLayout>
+        </HeaderLayout>
+        <ContentLayout>
           <DialogTabs {...tabsProps}/>
-        </div>
-      </div>
+        </ContentLayout>
+      </Root>
     );
   }
 }

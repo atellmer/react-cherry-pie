@@ -1,8 +1,5 @@
 /** @flow */
 import React, { Component } from 'react';
-import cn from 'classnames';
-
-import * as s from './loginForm.css';
 
 
 type Props = {
@@ -23,7 +20,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form className={cn(s.root)} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input type='text' name='login'/>
         <br/>
         <input type='password' name='password'/>

@@ -1,6 +1,8 @@
-@import 'variables.css';
+/** @flow */
+import styled from 'styled-components';
 
-:local(.root) {
+
+const Form = styled.form`
   position: relative;
   margin: 0;
   padding: 0;
@@ -14,8 +16,17 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-}
+`;
 
-:local(.txtLayout) {
+const TextareaLayout = styled.div`
   flex: 1 0 auto;
-}
+`;
+
+const WrapLayout = styled.div`
+`;
+
+export {
+  Form,
+  TextareaLayout,
+  WrapLayout
+};

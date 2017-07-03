@@ -2,15 +2,16 @@
 import React, { Component } from 'react';
 import { pure } from 'recompose';
 import { Link } from 'react-router-dom';
-import cn from 'classnames';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
-import { Scrollbars } from 'react-custom-scrollbars';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import DialogView from '../dialogView';
 import { filterItemsByPath } from '@/shared/utils/methods';
-import * as s from './dialogTabs.css';
+import {
+  Root,
+  ScrollableView
+} from './styled';
 
 
 type Props = {
@@ -34,15 +35,11 @@ class DialogTabs extends Component {
   props: Props;
   state: State;
 
-  constructor(props: Props) {
-    super(props);
+  state: State = {
+    slideIndex: 0
+  };
 
-    this.state = {
-      slideIndex: 0
-    };
-  }
-
-  handleChange = (value: number): void => {
+  handleChange = (value: number) => {
     this.setState({
       slideIndex: value
     });
@@ -57,9 +54,7 @@ class DialogTabs extends Component {
 
       return (
         <Link to={url} key={index}>
-          <DialogView
-            dialog={item}
-            isActive={isActive}/>
+          <DialogView dialog={item} isActive={isActive}/>
         </Link>
       );
     });
@@ -80,7 +75,7 @@ class DialogTabs extends Component {
 
   render() {
     return (
-      <div className={cn(s.root)}>
+      <Root>
         <Tabs onChange={this.handleChange} value={this.state.slideIndex}>
           <Tab label={TAB_ONE} value={0}/>
           <Tab label={TAB_TWO} value={1}/>
@@ -88,25 +83,23 @@ class DialogTabs extends Component {
         <SwipeableViews
           index={this.state.slideIndex}
           onChangeIndex={this.handleChange}>
-          <Scrollbars
+          <ScrollableView
             autoHide
             autoHideTimeout={1000}
-            autoHideDuration={200}
-            className={cn(s.scrollableView)}>
+            autoHideDuration={200}>
             {this.renderDialogs()}
-          </Scrollbars>
-          <Scrollbars
+          </ScrollableView>
+          <ScrollableView
             autoHide
             autoHideTimeout={1000}
-            autoHideDuration={200}
-            className={cn(s.scrollableView)}>
+            autoHideDuration={200}>
             {this.renderFilteredDialogs({
               path: ['message', 'status', 'new'],
               value: true
             })}
-          </Scrollbars>
+          </ScrollableView>
         </SwipeableViews>
-      </div>
+      </Root>
     );
   }
 }

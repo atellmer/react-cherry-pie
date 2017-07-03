@@ -1,14 +1,23 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure } from 'recompose';
-import cn from 'classnames';
 import Avatar from 'material-ui/Avatar/index';
-import ActionDone from 'material-ui/svg-icons/action/done';
-import ActionDoneAll from 'material-ui/svg-icons/action/done-all';
 
 import type { IDialog } from '@/shared/models/dialogItem';
 import TmBadge from '@/features/ui/badge';
-import * as s from './dialogView.css';
+import {
+  Root,
+  AvatarLayout,
+  MessageLayout,
+  MessageStyled,
+  NameStyled,
+  TextStyled,
+  IndicatorsStyled,
+  ActionDoneIconStyled,
+  ActionDoneAllIconStyled,
+  BadgeLayout,
+  TimestampStyled
+} from './styled';
 
 
 type Props = {
@@ -25,58 +34,39 @@ class DialogView extends Component {
     const timestamp = new Date(message.timestamp).toDateString();
 
     return (
-      <div className={cn(s.indicators)}>
-        { status.delivered &&
-          <ActionDone className={cn(s.icon)}/>
-        }
-        { status.read &&
-          <ActionDoneAll className={cn(s.icon)}/>
-        }
+      <IndicatorsStyled>
+        { status.delivered && <ActionDoneIconStyled /> }
+        { status.read && <ActionDoneAllIconStyled /> }
         { status.new &&
-          <div className={cn(s.badgeLayout)}>
+          <BadgeLayout>
             <TmBadge count='1'/>
-          </div>
+          </BadgeLayout>
         }
-        <div className={cn(s.timestamp)}>
-          {timestamp}
-        </div>
-      </div>
+        <TimestampStyled>{timestamp}</TimestampStyled>
+      </IndicatorsStyled>
     );
   }
 
   renderDialog() {
-    if (this.props.dialog) {
-      const { dialog: { user, message }, isActive } = this.props;
+    const { dialog: { user, message }, isActive } = this.props;
 
-      const avatarLayoutStyle = cn(s.box, s.avatarLayout, {
-        [s.online]: user.online,
-        [s.offline]: !user.online
-      });
-
-      return (
-        <div className={cn(s.root, { [s.isActive]: isActive })}>
-          <div className={cn(s.flex)}>
-            <div className={avatarLayoutStyle}>
-              <Avatar
-                src={user.avatar.thumbnail}
-                size={48}
-                backgroundColor={'transparent'}/>
-            </div>
-            <div className={cn(s.box, s.flexAuto, s.messageLayout)}>
-              <div className={cn(s.message)}>
-                <div className={cn(s.name, s.textClip)}>
-                  {`${user.name.first} ${user.name.last}`}
-                </div>
-                <div className={cn(s.text, s.textClip)}>
-                  {`${message.value.text}`}
-                </div>
-                {this.renderIndicators()}
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
+    return (
+      <Root isActive={isActive}>
+        <AvatarLayout isOnline={user.online}>
+          <Avatar
+            src={user.avatar.thumbnail}
+            size={48}
+            backgroundColor={'transparent'}/>
+        </AvatarLayout>
+        <MessageLayout>
+          <MessageStyled>
+            <NameStyled>{`${user.name.first} ${user.name.last}`}</NameStyled>
+            <TextStyled>{`${message.value.text}`}</TextStyled>
+            {this.renderIndicators()}
+          </MessageStyled>
+        </MessageLayout>
+      </Root>
+    );
   }
 
   render() {

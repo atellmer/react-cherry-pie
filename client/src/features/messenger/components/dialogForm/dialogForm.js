@@ -1,13 +1,16 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure } from 'recompose';
-import cn from 'classnames';
 import IconButton from 'material-ui/IconButton/index';
 import SentimentSatisfiedIcon from 'material-ui/svg-icons/social/sentiment-satisfied';
 import SendIcon from 'material-ui/svg-icons/content/send';
 
 import { Textarea } from '@/features/ui';
-import * as s from './dialogForm.css';
+import {
+  Form,
+  TextareaLayout,
+  WrapLayout
+} from './styled';
 
 
 type Props = {
@@ -20,16 +23,11 @@ type State = {
 
 class DialogForm extends Component {
   props: Props;
-  state: State;
   rootNode: HTMLElement;
 
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      value: ''
-    };
-  }
+  state: State = {
+    value: ''
+  };
 
   handleHeightChange = () => {
     if (this.rootNode !== null) {
@@ -47,26 +45,26 @@ class DialogForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} ref={node => this.rootNode = node}>
-        <div className={cn(s.root)}>
-          <div>
-            <IconButton>
-              <SentimentSatisfiedIcon color={'#7f7f7f'}/>
-            </IconButton>
-          </div>
-          <div className={cn(s.txtLayout)}>
-            <Textarea
-              value={this.state.value}
-              onChangeInput={this.handleChangeInput}
-              onHeightChange={this.handleHeightChange}/>
-          </div>
-          <div>
-            <IconButton type={'submit'}>
-              <SendIcon color={'#9a85cd'}/>
-            </IconButton>
-          </div>
-        </div>
-      </form>
+      <Form
+        onSubmit={this.handleSubmit}
+        innerRef={node => this.rootNode = node}>
+        <WrapLayout>
+          <IconButton>
+            <SentimentSatisfiedIcon color={'#7f7f7f'}/>
+          </IconButton>
+        </WrapLayout>
+        <TextareaLayout>
+          <Textarea
+            value={this.state.value}
+            onChangeInput={this.handleChangeInput}
+            onHeightChange={this.handleHeightChange}/>
+        </TextareaLayout>
+        <WrapLayout>
+          <IconButton type={'submit'}>
+            <SendIcon color={'#9a85cd'}/>
+          </IconButton>
+        </WrapLayout>
+      </Form>
     );
   }
 }
