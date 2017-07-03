@@ -1,45 +1,14 @@
 /** @flow */
 import { FakeUserService } from '@/shared/services/fakeUsers';
-import type { IUser } from '../models/user';
-import type { IDialog } from '../models/dialogItem';
+import type { IDialog } from '@/shared/models/dialogItem';
 
 
 export const actionTypes = {
-  FETCH_USER: '[User] Fetch User',
-  FETCH_DIALOGS: '[User] Fetch Dialogs',
-  FILTER_DIALOGS: '[User] Filter Dialogs'
+  FETCH_DIALOGS: '[Messenger] Fetch Dialogs',
+  FILTER_DIALOGS: '[Messenger] Filter Dialogs'
 };
 
 const fakeUserService = new FakeUserService();
-
-function fetchUser() {
-  return (dispatch: Function) => {
-    fakeUserService.getFakeUser({ results: 1 })
-      .map(res => {
-        return res.results.map(item => {
-          return {
-            id: item.login.salt,
-            name: {
-              first: item.name.first,
-              last: item.name.last
-            },
-            avatar: {
-              thumbnail: item.picture.thumbnail
-            },
-            online: true
-          };
-        });
-      })
-      .subscribe((res: Array <IUser>) => {
-        dispatch({
-          type: actionTypes.FETCH_USER,
-          payload: {
-            me: res[0]
-          }
-        });
-      });
-  };
-}
 
 function fetchDialogs() {
   return (dispatch: Function) => {
@@ -108,7 +77,7 @@ function fetchDialogs() {
 
 function filterDialogs(term) {
   return (dispatch: Function, getState: Function) => {
-    const dialogs = getState().user.dialogs;
+    const dialogs = getState().messenger.dialogs.dialogs;
     let filteredDialogs = [];
     const regexp = new RegExp(`${term}`, 'ig');
 
@@ -128,7 +97,6 @@ function filterDialogs(term) {
 }
 
 export {
-  fetchUser,
   fetchDialogs,
   filterDialogs
 };

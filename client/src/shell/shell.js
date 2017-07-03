@@ -7,15 +7,16 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as envActions from '@/flux/actions/env';
-import * as userActions from '@/flux/actions/user';
-import PrivateRoute from '@/features/auth/components/privateRoute';
-import AppbarContainer from '@/features/header';
-import LoginView from '@/features/auth/layouts/login';
-import RegisterView from '@/features/auth/layouts/register';
+import * as envActions from '@/features/common/actions/env';
+import * as userActions from '@/features/common/actions/user';
+import { AppbarContainer, PrivateRoute } from '@/features/common';
+import {
+  LoginView,
+  RegisterView,
+  checkRoute
+} from '@/features/auth';
 import HomeView from '@/features/home';
 import MessengerView from '@/features/messenger';
-import checkRoute from '@/features/auth/services/checkRoute';
 import {
   Root,
   AppbarLayout,
@@ -29,7 +30,7 @@ type Props = {
   fetchUser: Function
 };
 
-export const history = createBrowserHistory();
+const history = createBrowserHistory();
 
 class AppShell extends Component {
   props: Props;
@@ -84,6 +85,10 @@ function mapDispatchToProps(dispatch) {
     fetchUser
   }, dispatch);
 }
+
+export {
+  history
+};
 
 export default compose(
   pure,

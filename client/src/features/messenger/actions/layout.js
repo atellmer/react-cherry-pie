@@ -1,6 +1,6 @@
 /** @flow */
 export const actionTypes = {
-  RESIZE_DIALOG_FORM:  '[Layout] Resize Dialog Form'
+  RESIZE_DIALOG_FORM:  '[Messenger] Resize Dialog Form'
 };
 
 type resizeDialogFormAction = {

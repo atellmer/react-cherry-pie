@@ -4,26 +4,28 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 
-import rootReducer from '../reducers';
-import AuthSaga from '../effects/auth';
+import rootReducer from './rootReducer';
 import { history } from '@/shell';
+import AuthSaga from '@/features/auth/effects/auth';
 
 
-const routerMiddleware = createRouterMiddleware(history);
-const sagaMiddleware = createSagaMiddleware();
-const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
-
-export default function configureStore(initialState) {
-  const store = createStore(rootReducer, initialState, compose(
+function configureStore(initialState) {
+  const routerMiddleware = createRouterMiddleware(history);
+  const sagaMiddleware = createSagaMiddleware();
+  const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
+  const enhancers = compose(
     applyMiddleware(
       routerMiddleware,
       sagaMiddleware,
       thunk
     ),
     process.env.NODE_ENV !== 'production' ? devTools : f => f
-  ));
+  );
+  const store = createStore(rootReducer, initialState, enhancers);
 
   sagaMiddleware.run(AuthSaga);
 
   return store;
 }
+
+export default configureStore;

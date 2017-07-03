@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as authActions from '@/flux/actions/auth';
+import * as authActions from '../actions/auth';
 import RegisterForm from '../components/registerFrom';
 
 type Props = {

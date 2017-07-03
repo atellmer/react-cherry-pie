@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as userActions from '@/flux/actions/user';
-import withPlatform from '@/shared/hocs/withPlatform';
+import * as dialogsActions from '../actions/dialogs';
+import withPlatform from '@/features/common/hocs/withPlatform';
 import type { IDialog } from '@/shared/models/dialogItem';
 import DialogPanelDesktop from '../components/dialogPanel/desktop';
 import DialogPanelPhone from '../components/dialogPanel/phone';
@@ -61,8 +61,8 @@ class DialogPanelContainer extends Component {
   }
 }
 
-function mapStateToProps({ user }) {
-  const { filteredDialogs } = user;
+function mapStateToProps({ messenger }) {
+  const { dialogs: { filteredDialogs } } = messenger;
 
   return {
     dialogs: filteredDialogs
@@ -70,7 +70,7 @@ function mapStateToProps({ user }) {
 }
 
 function mapDispatchToProps(dispatch)  {
-  const { filterDialogs } = userActions;
+  const { filterDialogs } = dialogsActions;
 
   return bindActionCreators({
     filterDialogs

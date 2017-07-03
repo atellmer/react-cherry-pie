@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as layoutActions from '@/flux/actions/layout';
-import withPlatform from '@/shared/hocs/withPlatform';
+import * as layoutActions from '../actions/layout';
+import withPlatform from '@/features/common/hocs/withPlatform';
 import DialogDetailDesktop from '../components/dialogDetail/desktop';
 import DialogDetailPhone from '../components/dialogDetail/phone';
 import { PHONE_WIDTH } from '@/shared/constants';
@@ -56,8 +56,8 @@ class DialogDetailContainer extends Component {
   }
 }
 
-function mapStateToProps({ layout }) {
-  const { dialogForm: { height } } = layout;
+function mapStateToProps({ messenger }) {
+  const { layout: { dialogForm: { height } } } = messenger;
 
   return {
     dialogFormHeight: height

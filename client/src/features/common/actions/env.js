@@ -3,8 +3,8 @@ import DeviceDetector from 'device-detect.js/lib/device';
 
 
 export const actionTypes = {
-  DETECT_DEVICE:  '[Env] Detect Device',
-  RESIZE_WINDOW: '[Env] Resize Window'
+  DETECT_DEVICE:  '[Common] Detect Device',
+  RESIZE_WINDOW: '[Common] Resize Window'
 };
 
 type DetectDeviceAction = {

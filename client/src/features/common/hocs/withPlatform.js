@@ -18,7 +18,9 @@ function withPlatform(WrappedComponent) {
     );
   }
 
-  function mapStateToProps({ env: { isPhone, isTablet, isDesktop, width, height } }) {
+  function mapStateToProps({ common }) {
+    const { env: { isPhone, isTablet, isDesktop, width, height } }  = common;
+
     return {
       isPhone,
       isTablet,

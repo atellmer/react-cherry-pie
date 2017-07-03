@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import * as userActions from '@/flux/actions/user';
+import * as dialogsActions from '../actions/dialogs';
 import DialogPanelContainer from '../containers/dialogPanel';
 import DialogDetailContainer from '../containers/dialogDetail';
 import {
@@ -80,7 +80,7 @@ class MessengerView extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  const { fetchDialogs } = userActions;
+  const { fetchDialogs } = dialogsActions;
 
   return bindActionCreators({
     fetchDialogs

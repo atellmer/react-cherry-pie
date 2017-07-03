@@ -21,8 +21,8 @@ class AppbarContainer extends Component {
   }
 }
 
-function mapStateToProps({ user }) {
-  const { me } = user;
+function mapStateToProps({ common }) {
+  const { user: { me } } = common;
 
   return {
     me

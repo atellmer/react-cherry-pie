@@ -8,16 +8,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './reset.css';
 import './styles';
-import configureStore from './flux/store/configureStore';
+import configureStore from './flux/configureStore';
 import muiTheme from './shared/config/theme';
 import AppShell from './shell';
 
 
 injectTapEventPlugin();
-const store = configureStore();
 
 render(
-  <Provider store={store}>
+  <Provider store={configureStore()}>
     <MuiThemeProvider muiTheme={muiTheme}>
       <AppShell />
     </MuiThemeProvider>

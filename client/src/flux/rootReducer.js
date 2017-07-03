@@ -2,18 +2,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 
-import env from './env';
-import layout from './layout';
-import user from './user';
-import auth from './auth';
+import { authReducer as auth } from '@/features/auth';
+import common from '@/features/common/reducers';
+import messenger from '@/features/messenger/reducers';
 
 
 const rootReducer = combineReducers({
   router,
-  env,
-  layout,
-  user,
-  auth
+  auth,
+  common,
+  messenger
 });
 
 export default rootReducer;

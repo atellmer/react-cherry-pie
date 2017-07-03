@@ -1,10 +1,10 @@
 /** @flow */
 import { call, put, takeLatest } from 'redux-saga/effects';
 
-import { actionTypes as AuthActionTypes } from '../actions/auth';
+import { actionTypes } from '../actions/auth';
+import addUser from '../services/addUser';
+import checkUser from '../services/checkUser';
 import { history } from '@/shell';
-import addUser from '@/features/auth/services/addUser';
-import checkUser from '@/features/auth/services/checkUser';
 
 
 function* register({ payload: { login, password } }) {
@@ -12,14 +12,14 @@ function* register({ payload: { login, password } }) {
     const { user } = yield call(addUser, login, password);
 
     yield put({
-      type: AuthActionTypes.REGISTER_SUCCESS,
+      type: actionTypes.REGISTER_SUCCESS,
       payload: { user }
     });
 
     history.push('/login');
   } catch (error) {
     yield put({
-      type: AuthActionTypes.REGISTER_FAILURET,
+      type: actionTypes.REGISTER_FAILURET,
       payload: { error }
     });
   }
@@ -30,7 +30,7 @@ function* authorize({ payload: { login, password } }) {
     const { user, token } = yield call(checkUser, login, password);
 
     yield put({
-      type: AuthActionTypes.AUTHORIZE_SUCCESS,
+      type: actionTypes.AUTHORIZE_SUCCESS,
       payload: { user }
     });
 
@@ -38,7 +38,7 @@ function* authorize({ payload: { login, password } }) {
     history.push('/messenger');
   } catch (error) {
     yield put({
-      type: AuthActionTypes.AUTHORIZE_FAILURE,
+      type: actionTypes.AUTHORIZE_FAILURE,
       payload: { error }
     });
 
@@ -47,8 +47,8 @@ function* authorize({ payload: { login, password } }) {
 }
 
 function* authSaga() {
-  yield takeLatest(AuthActionTypes.REGISTER_REQUEST, register);
-  yield takeLatest(AuthActionTypes.AUTHORIZE_REQUEST, authorize);
+  yield takeLatest(actionTypes.REGISTER_REQUEST, register);
+  yield takeLatest(actionTypes.AUTHORIZE_REQUEST, authorize);
 }
 
 export default authSaga;
