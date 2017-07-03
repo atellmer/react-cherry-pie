@@ -15,7 +15,7 @@ import {
 
 
 type Props = {
-  dialogs: Array<IDialog>,
+  dialogItems: Array<IDialog>,
   match: {
     url: string
   },
@@ -45,10 +45,10 @@ class DialogTabs extends Component {
     });
   }
 
-  getDialogs = dialogs => {
+  getDialogs = dialogItems => {
     const { match, location } = this.props;
 
-    return dialogs.map((item, index) => {
+    return dialogItems.map((item, index) => {
       const url = `${match.url}/${item.id}`;
       const isActive = location.pathname === url;
 
@@ -61,14 +61,14 @@ class DialogTabs extends Component {
   }
 
   renderDialogs = () => {
-    const { dialogs } = this.props;
+    const { dialogItems } = this.props;
 
-    return dialogs.length ? this.getDialogs(dialogs) : null;
+    return dialogItems.length ? this.getDialogs(dialogItems) : null;
   }
 
   renderFilteredDialogs = ({ path, value }) => {
-    const { dialogs } = this.props;
-    const items = filterItemsByPath(path)(value)(dialogs);
+    const { dialogItems } = this.props;
+    const items = filterItemsByPath(path)(value)(dialogItems);
 
     return items.length ? this.getDialogs(items) : null;
   }

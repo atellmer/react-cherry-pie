@@ -4,32 +4,32 @@ import type { IDialog } from '@/shared/models/dialogItem';
 
 
 type State = {
-  dialogs: Array<IDialog>,
-  filteredDialogs: Array<IDialog>
+  dialogItems: Array<IDialog>,
+  term: string
 }
 
 const initialState = {
-  dialogs: [],
-  filteredDialogs: []
+  dialogItems: [],
+  term: ''
 };
 
 export default function dialogs(state: State = initialState, action) {
   switch (action.type) {
-
   case actionTypes.FETCH_DIALOGS: {
+    const { payload: { dialogItems } } = action;
+
     return {
       ...state,
-      dialogs: action.payload.dialogs,
-      filteredDialogs: action.payload.dialogs
+      dialogItems
     };
   }
 
   case actionTypes.FILTER_DIALOGS: {
-    const { payload: { filteredDialogs } } = action;
+    const { payload: { term } } = action;
 
     return {
       ...state,
-      filteredDialogs
+      term
     };
   }
 

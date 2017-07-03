@@ -15,7 +15,7 @@ import {
 
 
 type Props = {
-  dialogs: Array<IDialog>,
+  dialogItems: Array<IDialog>,
   filterDialogs: Function,
   match: {},
   location: {}
@@ -30,7 +30,7 @@ class DialogPanelDesktop extends Component {
 
   render() {
     const tabsProps = {
-      dialogs: this.props.dialogs,
+      dialogItems: this.props.dialogItems,
       match: this.props.match,
       location: this.props.location
     };

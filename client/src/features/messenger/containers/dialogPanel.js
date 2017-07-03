@@ -10,6 +10,7 @@ import type { IDialog } from '@/shared/models/dialogItem';
 import DialogPanelDesktop from '../components/dialogPanel/desktop';
 import DialogPanelPhone from '../components/dialogPanel/phone';
 import { PHONE_WIDTH } from '@/shared/constants';
+import { getFilteredDialogs } from '../selectors';
 
 
 type Props = {
@@ -18,7 +19,7 @@ type Props = {
   isDesktop: boolean,
   widthWindow: number,
   heightWindow: number,
-  dialogs: IDialog,
+  dialogItems: IDialog,
   filterDialogs: Function,
   match: {},
   location: {}
@@ -31,10 +32,10 @@ class DialogPanelContainer extends Component {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
 
     const sharedProps = {
-      dialogs: this.props.dialogs,
+      dialogItems: this.props.dialogItems,
+      filterDialogs: this.props.filterDialogs,
       match: this.props.match,
-      location: this.props.location,
-      filterDialogs: this.props.filterDialogs
+      location: this.props.location
     };
 
     if (isPhone) {
@@ -61,11 +62,9 @@ class DialogPanelContainer extends Component {
   }
 }
 
-function mapStateToProps({ messenger }) {
-  const { dialogs: { filteredDialogs } } = messenger;
-
+function mapStateToProps(state) {
   return {
-    dialogs: filteredDialogs
+    dialogItems: getFilteredDialogs(state)
   };
 }
 

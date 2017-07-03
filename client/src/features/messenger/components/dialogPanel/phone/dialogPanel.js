@@ -12,7 +12,7 @@ import {
 
 
 type Props = {
-  dialogs: Array<IDialog>,
+  dialogItems: Array<IDialog>,
   match: {
     url: string
   },
@@ -25,9 +25,9 @@ class DialogPanelPhone extends Component {
   props: Props;
 
   renderDialogs = () => {
-    const { dialogs, match, location } = this.props;
+    const { dialogItems, match, location } = this.props;
 
-    return dialogs.map((item, index) => {
+    return dialogItems.map((item, index) => {
       const url = `${match.url}/${item.id}`;
       const isActive = location.pathname === url;
 

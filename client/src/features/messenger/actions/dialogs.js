@@ -68,31 +68,19 @@ function fetchDialogs() {
         dispatch({
           type: actionTypes.FETCH_DIALOGS,
           payload: {
-            dialogs: res
+            dialogItems: res
           }
         });
       });
   };
 }
 
-function filterDialogs(term) {
-  return (dispatch: Function, getState: Function) => {
-    const dialogs = getState().messenger.dialogs.dialogs;
-    let filteredDialogs = [];
-    const regexp = new RegExp(`${term}`, 'ig');
-
-    filteredDialogs = dialogs.filter((item) => {
-      const fullname = `${item.user.name.first} ${item.user.name.last}`;
-
-      return regexp.test(fullname);
-    });
-
-    dispatch({
-      type: actionTypes.FILTER_DIALOGS,
-      payload: {
-        filteredDialogs
-      }
-    });
+function filterDialogs(term: string) {
+  return {
+    type: actionTypes.FILTER_DIALOGS,
+    payload: {
+      term
+    }
   };
 }
 
