@@ -6,10 +6,9 @@ type Props = {
   authorize: Function
 }
 
-class LoginForm extends Component {
-  props: Props;
+class LoginForm extends Component<void, Props, *> {
 
-  handleSubmit = (ev) => {
+  handleSubmit = (ev: Event & {target: {login: any, password: any}}) => {
     ev.preventDefault();
 
     this.props.authorize(

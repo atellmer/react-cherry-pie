@@ -21,8 +21,7 @@ type Props = {
   }
 };
 
-class DialogPanelPhone extends Component {
-  props: Props;
+class DialogPanelPhone extends Component<void, Props, *> {
 
   renderDialogs = () => {
     const { dialogItems, match, location } = this.props;

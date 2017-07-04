@@ -1,6 +1,5 @@
 /** @flow */
-
-function addUser(login, password) {
+function addUser(login: string, password: string) {
   const promise = new Promise(resolve => {
     console.log(password);
 

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
 import * as layoutActions from '../actions/layout';
@@ -21,9 +22,7 @@ type Props = {
   match: {}
 }
 
-class DialogDetailContainer extends Component {
-  props: Props;
-
+class DialogDetailContainer extends Component<void, Props, *> {
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
     const sharedProps = {
@@ -64,7 +63,7 @@ function mapStateToProps({ messenger }) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<*>) {
   const { resizeDialogForm } = layoutActions;
 
   return bindActionCreators({

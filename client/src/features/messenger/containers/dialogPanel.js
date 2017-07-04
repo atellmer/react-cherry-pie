@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
 import * as dialogsActions from '../actions/dialogs';
@@ -25,8 +26,7 @@ type Props = {
   location: {}
 }
 
-class DialogPanelContainer extends Component {
-  props: Props;
+class DialogPanelContainer extends Component<void, Props, *> {
 
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
@@ -68,7 +68,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch)  {
+function mapDispatchToProps(dispatch: Dispatch<*>)  {
   const { filterDialogs } = dialogsActions;
 
   return bindActionCreators({

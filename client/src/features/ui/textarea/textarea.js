@@ -13,8 +13,7 @@ type Props = {
 
 const PLACEHOLDER = 'Введите ваше сообщение...';
 
-class Textarea extends Component {
-  props: Props;
+class Textarea extends Component <void, Props, *> {
 
   handleHeightChange = () => {
     this.props.onHeightChange();

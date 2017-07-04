@@ -1,6 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import * as authActions from '../actions/auth';
@@ -10,8 +11,7 @@ type Props = {
   register: Function
 }
 
-class RegisterFormContainer extends Component {
-  props: Props;
+class RegisterFormContainer extends Component <void, Props, *> {
 
   render() {
     const { register } = this.props;
@@ -22,7 +22,7 @@ class RegisterFormContainer extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<*>) {
   const { register } = authActions;
 
   return {

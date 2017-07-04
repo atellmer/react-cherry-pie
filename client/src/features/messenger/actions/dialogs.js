@@ -1,6 +1,7 @@
 /** @flow */
 import { FakeUserService } from '@/shared/services/fakeUsers';
 import type { IDialog } from '@/shared/models/dialogItem';
+import type { Dispatch } from 'redux';
 
 
 export const actionTypes = {
@@ -11,7 +12,7 @@ export const actionTypes = {
 const fakeUserService = new FakeUserService();
 
 function fetchDialogs() {
-  return (dispatch: Function) => {
+  return (dispatch: Dispatch<*>) => {
     fakeUserService.getFakeUser({ results: 20 })
       .map(res => {
         return res.results.map((item, index) => {

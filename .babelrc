@@ -5,12 +5,12 @@
     "react"
   ],
   "plugins": [
+    "transform-flow-strip-types",
     "react-html-attrs", 
     "transform-class-properties", 
     "transform-decorators-legacy", 
     "add-module-exports",
     "transform-runtime",
-    "transform-flow-strip-types",
     ["styled-components", {
       "displayName": true
     }]

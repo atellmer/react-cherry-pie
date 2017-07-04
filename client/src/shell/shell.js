@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
 import * as envActions from '@/features/common/actions/env';
@@ -32,8 +33,7 @@ type Props = {
 
 const history = createBrowserHistory();
 
-class AppShell extends Component {
-  props: Props;
+class AppShell extends Component<void, Props, *> {
 
   componentWillMount() {
     this.props.detectDevice();
@@ -75,7 +75,7 @@ class AppShell extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<*>) {
   const { detectDevice, detectSizeWindow } = envActions;
   const { fetchUser } = userActions;
 

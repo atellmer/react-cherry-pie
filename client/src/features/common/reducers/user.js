@@ -21,7 +21,7 @@ const initialState = {
   }
 };
 
-function user(state: State = initialState, action) {
+function user(state: State = initialState, action: any) {
   switch (action.type) {
   case actionTypes.FETCH_USER: {
     const { payload: { me } } = action;

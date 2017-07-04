@@ -21,8 +21,7 @@ type Props = {
   location: {}
 };
 
-class DialogPanelDesktop extends Component {
-  props: Props;
+class DialogPanelDesktop extends Component<void, Props, *> {
 
   filterDialogs = term => {
     this.props.filterDialogs(term);

@@ -13,7 +13,7 @@ const initialState = {
   term: ''
 };
 
-export default function dialogs(state: State = initialState, action) {
+export default function dialogs(state: State = initialState, action: any) {
   switch (action.type) {
   case actionTypes.FETCH_DIALOGS: {
     const { payload: { dialogItems } } = action;

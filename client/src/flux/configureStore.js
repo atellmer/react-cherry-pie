@@ -1,5 +1,6 @@
 /** @flow */
 import { createStore, applyMiddleware, compose } from 'redux';
+import type { Store } from 'redux';
 import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
@@ -9,7 +10,7 @@ import { history } from '@/shell';
 import AuthSaga from '@/features/auth/effects/auth';
 
 
-function configureStore(initialState) {
+function configureStore(initialState: any): Store<*, *> {
   const routerMiddleware = createRouterMiddleware(history);
   const sagaMiddleware = createSagaMiddleware();
   const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;

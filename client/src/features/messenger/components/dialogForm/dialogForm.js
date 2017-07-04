@@ -21,11 +21,10 @@ type State = {
   value: string
 }
 
-class DialogForm extends Component {
-  props: Props;
+class DialogForm extends Component <void, Props, State> {
   rootNode: HTMLElement;
 
-  state: State = {
+  state = {
     value: ''
   };
 

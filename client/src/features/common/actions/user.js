@@ -1,16 +1,17 @@
 /** @flow */
 import { FakeUserService } from '@/shared/services/fakeUsers';
 import type { IUser } from '@/shared/models/user';
+import type { Dispatch } from 'redux';
 
 
-export const actionTypes = {
+const actionTypes = {
   FETCH_USER: '[Common] Fetch User'
 };
 
 const fakeUserService = new FakeUserService();
 
 function fetchUser() {
-  return (dispatch: Function) => {
+  return (dispatch: Dispatch<*>) => {
     fakeUserService.getFakeUser({ results: 1 })
       .map(res => {
         return res.results.map(item => {
@@ -39,5 +40,6 @@ function fetchUser() {
 }
 
 export {
+  actionTypes,
   fetchUser
 };

@@ -11,7 +11,7 @@ type Props = {
   heightWindow: number
 }
 
-function withPlatform(WrappedComponent) {
+function withPlatform(WrappedComponent: ReactClass<*>) {
   function WithPlatform(props: Props) {
     return (
       <WrappedComponent {...props}/>

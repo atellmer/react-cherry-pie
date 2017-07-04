@@ -1,6 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
 import * as authActions from '../actions/auth';
@@ -10,8 +11,7 @@ type Props = {
   authorize: Function
 }
 
-class LoginFormContainer extends Component {
-  props: Props;
+class LoginFormContainer extends Component<void, Props, *> {
 
   render() {
     const { authorize } = this.props;
@@ -22,7 +22,7 @@ class LoginFormContainer extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<*>) {
   const { authorize } = authActions;
 
   return {

@@ -11,8 +11,7 @@ type Props = {
   me: IUser,
 };
 
-class AppbarContainer extends Component {
-  props: Props;
+class AppbarContainer extends Component<void, Props, *> {
 
   render() {
     const { me } = this.props;

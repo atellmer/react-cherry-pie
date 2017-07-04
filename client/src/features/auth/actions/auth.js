@@ -1,42 +1,42 @@
 /** @flow */
-export const actionTypes = {
+const actionTypes = {
   REGISTER_REQUEST: '[Auth] Register Request',
   REGISTER_SUCCESS: '[Auth] Register Success',
-  REGISTER_FAILURET: '[Auth] Register Failure',
+  REGISTER_FAILURE: '[Auth] Register Failure',
   AUTHORIZE_REQUEST: '[Auth] Authorize Request',
   AUTHORIZE_SUCCESS: '[Auth] Authorize Success',
   AUTHORIZE_FAILURE: '[Auth] Authorize Failure',
   LOGOUT: '[Auth] Logout'
 };
 
-type registerAction = {
-  type: actionTypes.REGISTER_REQUEST,
+export type registerAction = {
+  type: string,
   payload: {
     login: string | null,
     password: string | null
   }
 }
 
-type authorizeAction = {
-  type: actionTypes.AUTHORIZE_REQUEST,
+export type authorizeAction = {
+  type: string,
   payload: {
     login: string | null,
     password: string | null
   }
 }
 
-type LogoutAction = {
-  type: actionTypes.LOGOUT
+export type LogoutAction = {
+  type: string
 }
 
-function register(login, password): registerAction {
+function register(login: string, password: string): registerAction {
   return {
     type: actionTypes.REGISTER_REQUEST,
     payload: { login, password }
   };
 }
 
-function authorize(login, password): authorizeAction {
+function authorize(login: string, password: string): authorizeAction {
   return {
     type: actionTypes.AUTHORIZE_REQUEST,
     payload: { login, password }
@@ -50,6 +50,7 @@ function logout(): LogoutAction {
 }
 
 export {
+  actionTypes,
   register,
   authorize,
   logout

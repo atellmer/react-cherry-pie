@@ -12,7 +12,7 @@ const initialState = {
   error: null
 };
 
-function authReducer(state: State = initialState, action) {
+function authReducer(state: State = initialState, action: any) {
   switch (action.type) {
 
   case actionTypes.REGISTER_SUCCESS: {
@@ -25,7 +25,7 @@ function authReducer(state: State = initialState, action) {
     };
   }
 
-  case actionTypes.REGISTER_FAILURET: {
+  case actionTypes.REGISTER_FAILURE: {
     const { error } = action.payload;
 
     return {

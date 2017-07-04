@@ -4,7 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 const clc = require('cli-color');
 const config = require('./config');
 
@@ -94,13 +93,10 @@ const webpackConfig = {
       template: path.resolve(__dirname, `${config.root}/src/assets/template.html`),
       hash: true
     }),
-    new FlowStatusWebpackPlugin({
-      failOnError: false
-    }),
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {
-          configFile: '.eslintrc',
+          configFile: '.eslintrc.json',
           emitError: false,
           emitWarning: true
         },

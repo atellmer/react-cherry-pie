@@ -14,7 +14,7 @@ const initialState = {
   }
 };
 
-function layout(state: State = initialState, action) {
+function layout(state: State = initialState, action: any) {
   switch (action.type) {
   case actionTypes.RESIZE_DIALOG_FORM: {
     const { payload: { height } } = action;

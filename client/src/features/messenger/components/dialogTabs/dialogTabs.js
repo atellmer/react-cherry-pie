@@ -31,11 +31,9 @@ type State = {
 const TAB_ONE = 'Все';
 const TAB_TWO = 'Новые';
 
-class DialogTabs extends Component {
-  props: Props;
-  state: State;
+class DialogTabs extends Component<void, Props, State> {
 
-  state: State = {
+  state = {
     slideIndex: 0
   };
 

@@ -1,5 +1,4 @@
 /** @flow */
-
 function checkRoute() {
   const authorized = localStorage.getItem('token');
 

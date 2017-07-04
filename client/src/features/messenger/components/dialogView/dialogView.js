@@ -25,8 +25,7 @@ type Props = {
   dialog: IDialog
 }
 
-class DialogView extends Component {
-  props: Props;
+class DialogView extends Component<void, Props, *> {
 
   renderIndicators() {
     const { dialog: { message } } = this.props;

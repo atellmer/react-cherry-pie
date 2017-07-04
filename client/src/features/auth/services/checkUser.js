@@ -1,6 +1,5 @@
 /** @flow */
-
-function checkUser(login, password) {
+function checkUser(login: string, password: string) {
   const promise = new Promise((resolve, reject) => {
     if (login === 'alex' && password === '123') {
       resolve({

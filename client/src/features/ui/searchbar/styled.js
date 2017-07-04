@@ -15,7 +15,7 @@ const Root = styled.div`
   height: 42px;
   border-radius: 3px;
   background-color: ${props => props.focus ? 'rgba(255, 255, 255, 0.20)' : 'rgba(255, 255, 255, 0.15)'};
-  box-shadow: ${vars.hadowElevationZ1};
+  box-shadow: ${vars.shadowElevationZ1};
   transition: background-color .2s ease-in-out;
 `;
 

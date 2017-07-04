@@ -14,17 +14,20 @@ type Props = {
   filterItems: Function
 }
 
+type State = {
+  focus: boolean
+}
+
 const PLACEHOLDER = 'Поиск';
 
-class Searchbar extends Component {
-  props: Props;
+class Searchbar extends Component<void, Props, State> {
 
   state = {
     focus: false
   };
 
-  handleChange = event => {
-    this.props.filterItems(event.target.value);
+  handleChange = (ev: Event & { target: {value: string} }) => {
+    this.props.filterItems(ev.target.value);
   }
 
   handleFocus = () => {

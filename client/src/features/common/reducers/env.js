@@ -18,7 +18,7 @@ const initialState = {
   height: 0
 };
 
-function env(state: State = initialState, action) {
+function env(state: State = initialState, action: any) {
   switch (action.type) {
   case actionTypes.DETECT_DEVICE: {
     const { payload: { isPhone, isTablet, isDesktop } } = action;

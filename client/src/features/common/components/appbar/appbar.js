@@ -23,8 +23,7 @@ type Props = {
   me: IUser
 };
 
-class Appbar extends Component {
-  props: Props;
+class Appbar extends Component<void, Props, *> {
 
   render() {
     const avatar = this.props.me.avatar.thumbnail;

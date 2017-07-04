@@ -21,8 +21,7 @@ type Props = {
   }
 }
 
-class DialogDetailDesktop extends Component {
-  props: Props;
+class DialogDetailDesktop extends Component<void, Props, *> {
 
   render() {
     const { resizeDialogForm, dialogFormHeight } = this.props;

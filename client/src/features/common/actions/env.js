@@ -2,13 +2,13 @@
 import DeviceDetector from 'device-detect.js/lib/device';
 
 
-export const actionTypes = {
+const actionTypes = {
   DETECT_DEVICE:  '[Common] Detect Device',
   RESIZE_WINDOW: '[Common] Resize Window'
 };
 
-type DetectDeviceAction = {
-  type: actionTypes.DETECT_DEVICE,
+type detectDeviceAction = {
+  type: string,
   payload: {
     isPhone: boolean,
     isTablet: boolean,
@@ -17,14 +17,14 @@ type DetectDeviceAction = {
 }
 
 type detectSizeWindowAction = {
-  type: actionTypes.RESIZE_WINDOW,
+  type: string,
   payload: {
     width: number,
     height: number
   }
 }
 
-function detectDevice(): DetectDeviceAction {
+function detectDevice(): detectDeviceAction {
   const isPhone: boolean = DeviceDetector.mobile();
   const isTablet: boolean = DeviceDetector.tablet();
   const isDesktop: boolean = DeviceDetector.desktop();
@@ -53,6 +53,7 @@ function detectSizeWindow(): detectSizeWindowAction {
 }
 
 export {
+  actionTypes,
   detectDevice,
   detectSizeWindow
 };

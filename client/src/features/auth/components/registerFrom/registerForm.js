@@ -6,10 +6,9 @@ type Props = {
   register: Function
 }
 
-class RegisterForm extends Component {
-  props: Props;
+class RegisterForm extends Component<void, Props, *> {
 
-  handleSubmit = (ev) => {
+  handleSubmit = (ev: Event & {target: {email: any, password: any}}) => {
     ev.preventDefault();
 
     this.props.register(

@@ -4,6 +4,7 @@ import { pure, compose } from 'recompose';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import type { Dispatch } from 'redux';
 import { CSSTransitionGroup } from 'react-transition-group';
 
 import * as dialogsActions from '../actions/dialogs';
@@ -27,8 +28,7 @@ type Props = {
   }
 };
 
-class MessengerView extends Component {
-  props: Props;
+class MessengerView extends Component<void, Props, *> {
 
   componentDidMount() {
     this.props.fetchDialogs();
@@ -79,7 +79,7 @@ class MessengerView extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Dispatch<*>) {
   const { fetchDialogs } = dialogsActions;
 
   return bindActionCreators({

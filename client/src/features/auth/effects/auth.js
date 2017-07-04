@@ -7,7 +7,7 @@ import checkUser from '../services/checkUser';
 import { history } from '@/shell';
 
 
-function* register({ payload: { login, password } }) {
+function* register({ payload: { login, password } }): Generator<*, *, *> {
   try {
     const { user } = yield call(addUser, login, password);
 
@@ -19,13 +19,13 @@ function* register({ payload: { login, password } }) {
     history.push('/login');
   } catch (error) {
     yield put({
-      type: actionTypes.REGISTER_FAILURET,
+      type: actionTypes.REGISTER_FAILURE,
       payload: { error }
     });
   }
 }
 
-function* authorize({ payload: { login, password } }) {
+function* authorize({ payload: { login, password } }): Generator<*, *, *> {
   try {
     const { user, token } = yield call(checkUser, login, password);
 
@@ -46,7 +46,7 @@ function* authorize({ payload: { login, password } }) {
   }
 }
 
-function* authSaga() {
+function* authSaga(): Generator<*, *, *> {
   yield takeLatest(actionTypes.REGISTER_REQUEST, register);
   yield takeLatest(actionTypes.AUTHORIZE_REQUEST, authorize);
 }

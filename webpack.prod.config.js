@@ -89,7 +89,7 @@ const webpackConfig = {
     new webpack.LoaderOptionsPlugin({
       options: {
         eslint: {
-          configFile: '.eslintrc',
+          configFile: '.eslintrc.json',
           mitError: false,
           emitWarning: true
         },
