@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { pure } from 'recompose';
 
-import type { IDialog } from '@/shared/models/dialogItem';
+import type { DialogType } from '@/features/messenger';
 import { Logo, Searchbar }  from '@/features/ui';
-import DialogTabs from '../../dialogTabs';
+import { DialogTabs } from '@/features/messenger';
 import {
   Root,
   HeaderLayout,
@@ -15,7 +15,7 @@ import {
 
 
 type Props = {
-  dialogItems: Array<IDialog>,
+  dialogItems: Array<DialogType>,
   filterDialogs: Function,
   match: {},
   location: {}

@@ -5,11 +5,13 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as layoutActions from '../actions/layout';
-import withPlatform from '@/features/common/hocs/withPlatform';
-import DialogDetailDesktop from '../components/dialogDetail/desktop';
-import DialogDetailPhone from '../components/dialogDetail/phone';
-import { PHONE_WIDTH } from '@/shared/constants';
+import {
+  resizeDialogForm,
+  DialogDetailDesktop,
+  DialogDetailPhone
+} from '@/features/messenger';
+import { withPlatform } from '@/features/common';
+import { PHONE_WIDTH } from '@/vars';
 
 
 type Props = {
@@ -64,8 +66,6 @@ function mapStateToProps({ messenger }) {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
-  const { resizeDialogForm } = layoutActions;
-
   return bindActionCreators({
     resizeDialogForm
   }, dispatch);

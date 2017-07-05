@@ -2,11 +2,11 @@
 import { createSelector } from 'reselect';
 
 
-const getDialogs = state => state.messenger.dialogs.dialogItems;
+const getDialogs = (state: any) => state.messenger.dialogs.dialogItems;
 
-const getTerm = state => state.messenger.dialogs.term;
+const getTerm = (state: any) => state.messenger.dialogs.term;
 
-const filterDialogs = (dialogs, term) => {
+const filterDialogs = (dialogs: Array<*>, term: string) => {
   return dialogs.filter(item => {
     const fullname = `${item.user.name.first} ${item.user.name.last}`;
     const regexp = new RegExp(`${term}`, 'ig');
@@ -18,7 +18,7 @@ const filterDialogs = (dialogs, term) => {
 const getFilteredDialogs = createSelector(
   getDialogs,
   getTerm,
-  (dialogs, term) => filterDialogs(dialogs, term)
+  (dialogs: Array<*>, term: string) => filterDialogs(dialogs, term)
 );
 
 export {

@@ -5,9 +5,9 @@ import env from './env';
 import user from './user';
 
 
-const common = combineReducers({
+const commonReducer = combineReducers({
   env,
   user
 });
 
-export default common;
+export default commonReducer;

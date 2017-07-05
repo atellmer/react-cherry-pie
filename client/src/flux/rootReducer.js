@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 
 import { authReducer as auth } from '@/features/auth';
-import common from '@/features/common/reducers';
-import messenger from '@/features/messenger/reducers';
+import { commonReducer as common } from '@/features/common';
+import { messengerReducer as messenger } from '@/features/messenger';
 
 
 const rootReducer = combineReducers({

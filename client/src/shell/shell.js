@@ -8,16 +8,21 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as envActions from '@/features/common/actions/env';
-import * as userActions from '@/features/common/actions/user';
-import { AppbarContainer, PrivateRoute } from '@/features/common';
+import {
+  detectDevice,
+  detectSizeWindow,
+  fetchUser,
+  AppbarContainer,
+  PrivateRoute
+} from '@/features/common';
 import {
   LoginView,
   RegisterView,
   checkRoute
 } from '@/features/auth';
 import HomeView from '@/features/home';
-import MessengerView from '@/features/messenger';
+import { MessengerView } from '@/features/messenger';
+import { MESSENGER_ROUTE } from '@/vars';
 import {
   Root,
   AppbarLayout,
@@ -51,18 +56,28 @@ class AppShell extends Component<void, Props, *> {
 
   render() {
     return (
-      <ConnectedRouter history={history}>
+      <ConnectedRouter
+        history={history}>
         <Root>
           <AppbarLayout>
             <AppbarContainer />
           </AppbarLayout>
           <ContentLayout>
             <Switch>
-              <Route exact path='/' component={HomeView} />
-              <Route exact path='/login' component={LoginView} />
-              <Route exact path='/register' component={RegisterView} />
+              <Route
+                exact
+                path='/'
+                component={HomeView} />
+              <Route
+                exact
+                path='/login'
+                component={LoginView} />
+              <Route
+                exact
+                path='/register'
+                component={RegisterView} />
               <PrivateRoute
-                path='/messenger'
+                path={`/${MESSENGER_ROUTE}`}
                 component={MessengerView}
                 canActivate={checkRoute}
                 redirectTo='/login'/>
@@ -76,9 +91,6 @@ class AppShell extends Component<void, Props, *> {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
-  const { detectDevice, detectSizeWindow } = envActions;
-  const { fetchUser } = userActions;
-
   return bindActionCreators({
     detectDevice,
     detectSizeWindow,

@@ -1,6 +1,6 @@
 /** @flow */
 import { FakeUserService } from '@/shared/services/fakeUsers';
-import type { IUser } from '@/shared/models/user';
+import type { UserType } from '@/features/common';
 import type { Dispatch } from 'redux';
 
 
@@ -28,7 +28,7 @@ function fetchUser() {
           };
         });
       })
-      .subscribe((res: Array <IUser>) => {
+      .subscribe((res: Array <UserType>) => {
         dispatch({
           type: actionTypes.FETCH_USER,
           payload: {

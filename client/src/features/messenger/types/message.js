@@ -1,10 +1,10 @@
 /** @flow */
-import type { IUser } from './user';
+import type { UserType } from '@/features/common';
 
 
-type IMessage = {
-  from: IUser,
-  to: IUser,
+type MessageType = {
+  from: UserType,
+  to: UserType,
   value: {
     text: string
   },
@@ -16,4 +16,4 @@ type IMessage = {
   timestamp: Date
 }
 
-export type { IMessage };
+export type { MessageType };

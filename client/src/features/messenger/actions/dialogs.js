@@ -1,10 +1,10 @@
 /** @flow */
 import { FakeUserService } from '@/shared/services/fakeUsers';
-import type { IDialog } from '@/shared/models/dialogItem';
+import type { DialogType } from '@/features/messenger';
 import type { Dispatch } from 'redux';
 
 
-export const actionTypes = {
+const actionTypes = {
   FETCH_DIALOGS: '[Messenger] Fetch Dialogs',
   FILTER_DIALOGS: '[Messenger] Filter Dialogs'
 };
@@ -65,7 +65,7 @@ function fetchDialogs() {
           };
         });
       })
-      .subscribe((res: Array <IDialog>) => {
+      .subscribe((res: Array <DialogType>) => {
         dispatch({
           type: actionTypes.FETCH_DIALOGS,
           payload: {
@@ -86,6 +86,7 @@ function filterDialogs(term: string) {
 }
 
 export {
+  actionTypes,
   fetchDialogs,
   filterDialogs
 };

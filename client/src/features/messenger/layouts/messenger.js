@@ -7,15 +7,17 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import * as dialogsActions from '../actions/dialogs';
-import DialogPanelContainer from '../containers/dialogPanel';
-import DialogDetailContainer from '../containers/dialogDetail';
+import {
+  fetchDialogs,
+  DialogPanelContainer,
+  DialogDetailContainer
+} from '@/features/messenger';
 import {
   Root,
   DialogPanelLayout,
   TransitionLayout
 } from './styled';
-import { MESSENGER_ROUTE } from '@/shared/constants';
+import { MESSENGER_ROUTE } from '@/vars';
 
 
 type Props = {
@@ -80,8 +82,6 @@ class MessengerView extends Component<void, Props, *> {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
-  const { fetchDialogs } = dialogsActions;
-
   return bindActionCreators({
     fetchDialogs
   }, dispatch);

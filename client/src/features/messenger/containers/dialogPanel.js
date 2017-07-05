@@ -5,12 +5,14 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
-import * as dialogsActions from '../actions/dialogs';
-import withPlatform from '@/features/common/hocs/withPlatform';
-import type { IDialog } from '@/shared/models/dialogItem';
-import DialogPanelDesktop from '../components/dialogPanel/desktop';
-import DialogPanelPhone from '../components/dialogPanel/phone';
-import { PHONE_WIDTH } from '@/shared/constants';
+import {
+  filterDialogs,
+  DialogPanelDesktop,
+  DialogPanelPhone
+} from '@/features/messenger';
+import { withPlatform } from '@/features/common';
+import type { DialogType } from '@/features/messenger';
+import { PHONE_WIDTH } from '@/vars';
 import { getFilteredDialogs } from '../selectors';
 
 
@@ -20,7 +22,7 @@ type Props = {
   isDesktop: boolean,
   widthWindow: number,
   heightWindow: number,
-  dialogItems: IDialog,
+  dialogItems: DialogType,
   filterDialogs: Function,
   match: {},
   location: {}
@@ -69,8 +71,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>)  {
-  const { filterDialogs } = dialogsActions;
-
   return bindActionCreators({
     filterDialogs
   }, dispatch);

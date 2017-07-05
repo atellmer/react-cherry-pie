@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pure, compose } from 'recompose';
 
-import type { IUser } from '@/shared/models/user';
-import Appbar from '../components/appbar';
+import type { UserType } from '@/features/common';
+import { Appbar } from '@/features/common';
 
 
 type Props = {
-  me: IUser,
+  me: UserType,
 };
 
 class AppbarContainer extends Component<void, Props, *> {

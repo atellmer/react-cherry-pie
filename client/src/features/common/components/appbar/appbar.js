@@ -7,7 +7,8 @@ import IconButton from 'material-ui/IconButton/index';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ArrowBackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 
-import type { IUser } from '@/shared/models/user';
+import type { UserType } from '@/features/common';
+import { MESSENGER_ROUTE } from '@/vars';
 import {
   Root,
   ArrowBackLayout,
@@ -17,10 +18,10 @@ import {
 } from './styled';
 
 
-const BACK_ROUTE = '/messenger';
+const BACK_ROUTE = `/${MESSENGER_ROUTE}`;
 
 type Props = {
-  me: IUser
+  me: UserType
 };
 
 class Appbar extends Component<void, Props, *> {

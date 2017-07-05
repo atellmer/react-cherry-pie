@@ -1,10 +1,10 @@
 /** @flow */
 import { actionTypes } from '../actions/dialogs';
-import type { IDialog } from '@/shared/models/dialogItem';
+import type { DialogType } from '@/features/messenger';
 
 
 type State = {
-  dialogItems: Array<IDialog>,
+  dialogItems: Array<DialogType>,
   term: string
 }
 

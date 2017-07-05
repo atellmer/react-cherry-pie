@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { pure } from 'recompose';
 import { Link } from 'react-router-dom';
 
-import type { IDialog } from '@/shared/models/dialogItem';
-import DialogView from '../../dialogView';
+import type { DialogType } from '@/features/messenger';
+import { DialogView } from '@/features/messenger';
 import {
   Root,
   ScrollableView
@@ -12,7 +12,7 @@ import {
 
 
 type Props = {
-  dialogItems: Array<IDialog>,
+  dialogItems: Array<DialogType>,
   match: {
     url: string
   },

@@ -1,10 +1,10 @@
 /** @flow */
 import { actionTypes } from '../actions/user';
-import type { IUser } from '@/shared/models/user';
+import type { UserType } from '@/features/common';
 
 
 type State = {
-  me: IUser
+  me: UserType
 }
 
 const initialState = {

@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 
-import type { IDialog } from '@/shared/models/dialogItem';
-import DialogView from '../dialogView';
+import type { DialogType } from '@/features/messenger';
+import { DialogView } from '@/features/messenger';
 import { filterItemsByPath } from '@/shared/utils/methods';
 import {
   Root,
@@ -15,7 +15,7 @@ import {
 
 
 type Props = {
-  dialogItems: Array<IDialog>,
+  dialogItems: Array<DialogType>,
   match: {
     url: string
   },

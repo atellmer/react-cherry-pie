@@ -5,9 +5,9 @@ import layout from './layout';
 import dialogs from './dialogs';
 
 
-const messenger = combineReducers({
+const messengerReducer = combineReducers({
   layout,
   dialogs
 });
 
-export default messenger;
+export default messengerReducer;

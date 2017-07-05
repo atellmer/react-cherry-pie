@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { pure } from 'recompose';
 import Avatar from 'material-ui/Avatar/index';
 
-import type { IDialog } from '@/shared/models/dialogItem';
-import TmBadge from '@/features/ui/badge';
+import type { DialogType } from '@/features/messenger';
+import { Badge } from '@/features/ui';
 import {
   Root,
   AvatarLayout,
@@ -22,7 +22,7 @@ import {
 
 type Props = {
   isActive: boolean,
-  dialog: IDialog
+  dialog: DialogType
 }
 
 class DialogView extends Component<void, Props, *> {
@@ -38,7 +38,7 @@ class DialogView extends Component<void, Props, *> {
         { status.read && <ActionDoneAllIconStyled /> }
         { status.new &&
           <BadgeLayout>
-            <TmBadge count='1'/>
+            <Badge count='1'/>
           </BadgeLayout>
         }
         <TimestampStyled>{timestamp}</TimestampStyled>
