@@ -385,7 +385,6 @@
 		],
 		"no-bitwise": 2
 	},
-  "excludedFiles": "flow-typed",
 	"globals": {
     "ReactClass": true,
     "Generator": true

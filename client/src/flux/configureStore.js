@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 
+import { client } from '../apollo/client';
 import rootReducer from './rootReducer';
 import { history } from '@/shell';
 import AuthSaga from '@/features/auth/effects/auth';
@@ -16,6 +17,7 @@ function configureStore(initialState: any): Store<*, *> {
   const devTools = window.devToolsExtension ? window.devToolsExtension() : f => f;
   const enhancers = compose(
     applyMiddleware(
+      client.middleware(),
       routerMiddleware,
       sagaMiddleware,
       thunk

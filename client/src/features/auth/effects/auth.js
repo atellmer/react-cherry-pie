@@ -5,6 +5,7 @@ import { actionTypes } from '../actions/auth';
 import addUser from '../services/addUser';
 import checkUser from '../services/checkUser';
 import { history } from '@/shell';
+import { MESSENGER_ROUTE } from '@/vars';
 
 
 function* register({ payload: { login, password } }): Generator<*, *, *> {
@@ -35,7 +36,7 @@ function* authorize({ payload: { login, password } }): Generator<*, *, *> {
     });
 
     localStorage.setItem('token', JSON.stringify(token));
-    history.push('/messenger');
+    history.push(`/${MESSENGER_ROUTE}`);
   } catch (error) {
     yield put({
       type: actionTypes.AUTHORIZE_FAILURE,

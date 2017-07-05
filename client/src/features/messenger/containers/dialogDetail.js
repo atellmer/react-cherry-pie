@@ -1,5 +1,9 @@
 /** @flow */
 import React, { Component } from 'react';
+import {
+  gql,
+  graphql
+} from 'react-apollo';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
@@ -15,6 +19,7 @@ import { PHONE_WIDTH } from '@/vars';
 
 
 type Props = {
+  data: any,
   isPhone: boolean,
   isTablet: boolean,
   isDesktop: boolean,
@@ -28,6 +33,7 @@ class DialogDetailContainer extends Component<void, Props, *> {
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
     const sharedProps = {
+      data: this.props.data,
       dialogFormHeight: this.props.dialogFormHeight,
       resizeDialogForm: this.props.resizeDialogForm,
       match: this.props.match
@@ -71,8 +77,20 @@ function mapDispatchToProps(dispatch: Dispatch<*>) {
   }, dispatch);
 }
 
+const channelsListQuery = gql`
+  query ChannelsListQuery {
+    channels {
+      id
+      name
+    }
+  }
+`;
+
+const withData = graphql(channelsListQuery);
+
 export default compose(
   pure,
   withPlatform,
+  withData,
   connect(mapStateToProps, mapDispatchToProps),
 )(DialogDetailContainer);

@@ -12,6 +12,7 @@ import {
 
 
 type Props = {
+  data: any,
   dialogFormHeight: number,
   resizeDialogForm: Function,
   match: {
@@ -23,8 +24,28 @@ type Props = {
 
 class DialogDetailDesktop extends Component<void, Props, *> {
 
+  renderTestApolloData = () => {
+    const { data: { loading, error, channels } } = this.props;
+
+    if (loading) {
+      return <p>Loading ...</p>;
+    }
+    if (error) {
+      return <p>{error.message}</p>;
+    }
+
+    return (
+      <ul>
+        { channels.map(item => <li key={item.id}>{item.name}</li>) }
+      </ul>
+    );
+  }
+
   render() {
-    const { resizeDialogForm, dialogFormHeight } = this.props;
+    const {
+      resizeDialogForm,
+      dialogFormHeight
+    } = this.props;
 
     return (
       <Root>
@@ -35,6 +56,8 @@ class DialogDetailDesktop extends Component<void, Props, *> {
             autoHideDuration={200}>
             <div>
               {`Route: ${this.props.match.params.id}`}
+              <br/>
+              {this.renderTestApolloData()}
             </div>
           </ScrollableView>
         </ContentLayout>
