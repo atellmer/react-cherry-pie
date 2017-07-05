@@ -28,13 +28,21 @@ function detectDevice(): detectDeviceAction {
   const isPhone: boolean = DeviceDetector.mobile();
   const isTablet: boolean = DeviceDetector.tablet();
   const isDesktop: boolean = DeviceDetector.desktop();
+  const isLandscape: boolean = DeviceDetector.landscape();
+  const isPortrait: boolean = DeviceDetector.portrait();
+  const isIOS: boolean = DeviceDetector.ios();
+  const isAndroid: boolean = DeviceDetector.android();
 
   return {
     type: actionTypes.DETECT_DEVICE,
     payload: {
       isPhone,
       isTablet,
-      isDesktop
+      isDesktop,
+      isLandscape,
+      isPortrait,
+      isIOS,
+      isAndroid
     }
   };
 }
