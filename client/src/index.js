@@ -1,5 +1,6 @@
 /** @flow */
 import 'babel-polyfill';
+
 import React from 'react';
 import { render } from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
@@ -16,7 +17,8 @@ import AppShell from './shell';
 
 injectTapEventPlugin();
 
-const store = configureStore();
+const localState = JSON.parse(String(localStorage.getItem('APP_STATE')));
+const store = configureStore(localState || {});
 
 render(
   <ApolloProvider store={store} client={client}>

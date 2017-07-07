@@ -11,9 +11,9 @@ function HomeView() {
     <Root>
       <Link to={`/${MESSENGER_ROUTE}`}>Messenger</Link>
       <br/>
-      <Link to='/login'>Login</Link>
+      <Link to='/signin'>Login</Link>
       <br/>
-      <Link to='/register'>Register</Link>
+      <Link to='/signup'>Register</Link>
     </Root>
   );
 }

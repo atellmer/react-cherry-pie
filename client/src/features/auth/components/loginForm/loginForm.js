@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 type Props = {
-  authorize: Function
+  signin: Function
 }
 
 class LoginForm extends Component<void, Props, *> {
@@ -11,7 +11,7 @@ class LoginForm extends Component<void, Props, *> {
   handleSubmit = (ev: Event & {target: {login: any, password: any}}) => {
     ev.preventDefault();
 
-    this.props.authorize(
+    this.props.signin(
       ev.target.login.value,
       ev.target.password.value
     );

@@ -1,13 +1,26 @@
 /** @flow */
-function addUser(login: string, password: string) {
-  const promise = new Promise(resolve => {
-    console.log(password);
+import axois from 'axios';
 
-    resolve({
-      user: {
-        _id: 'qqqq',
-        email: login
+const API_URL = 'http://localhost:4000/signup';
+
+function addUser(login: string, password: string) {
+  const promise = new Promise((resolve, reject) => {
+    axois.post(API_URL, {
+      email: login,
+      password
+    })
+    .then(res => {
+      const { data } = res;
+      const { success } = data;
+
+      if (success) {
+        resolve(data);
+      } else {
+        reject(data);
       }
+    })
+    .catch(err => {
+      reject(`error: ${err}`);
     });
   });
 

@@ -5,10 +5,9 @@ import RegisterFormContainer from './containers/registerForm';
 import LoginView from './layouts/login';
 import RegisterView from './layouts/register';
 import authSaga from './effects/auth';
-import { register, authorize, logout } from './actions/auth';
+import { signup, signin, signout } from './actions/auth';
 import authReducer from './reducers/auth';
 import addUser from './services/addUser';
-import checkRoute from './services/checkRoute';
 import checkUser from './services/checkUser';
 
 
@@ -20,11 +19,10 @@ export {
   LoginForm,
   RegisterForm,
   authSaga,
-  register,
-  authorize,
-  logout,
+  signup,
+  signin,
+  signout,
   authReducer,
   addUser,
-  checkRoute,
   checkUser
 };

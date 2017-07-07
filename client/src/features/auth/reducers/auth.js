@@ -3,59 +3,56 @@ import { actionTypes } from '../actions/auth';
 
 
 type State = {
-  user: any,
-  error: string | null
+  success?: boolean,
+  user?: any,
+  error?: string
 }
 
-const initialState = {
-  user: null,
-  error: null
-};
+const initialState = {};
 
 function authReducer(state: State = initialState, action: any) {
   switch (action.type) {
 
-  case actionTypes.REGISTER_SUCCESS: {
-    const { user } = action.payload;
+  case actionTypes.SIGNUP_SUCCESS: {
+    const { success } = action.payload;
 
     return {
       ...state,
-      user,
-      error: null
+      success
     };
   }
 
-  case actionTypes.REGISTER_FAILURE: {
-    const { error } = action.payload;
+  case actionTypes.SIGNUP_FAILURE: {
+    const { success, error } = action.payload;
 
     return {
       ...state,
-      user: null,
+      success,
       error
     };
   }
 
-  case actionTypes.AUTHORIZE_SUCCESS: {
-    const { user } = action.payload;
+  case actionTypes.SIGNIN_SUCCESS: {
+    const { success, user } = action.payload;
 
     return {
       ...state,
-      user,
-      error: null
+      success,
+      user
     };
   }
 
-  case actionTypes.AUTHORIZE_FAILURE: {
-    const { error } = action.payload;
+  case actionTypes.SIGNIN_FAILURE: {
+    const { success, error } = action.payload;
 
     return {
       ...state,
-      user: null,
+      success,
       error
     };
   }
 
-  case actionTypes.LOGOUT: {
+  case actionTypes.SIGNOUT_SUCCESS: {
     return state;
   }
 

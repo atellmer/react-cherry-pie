@@ -4,30 +4,28 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import * as authActions from '../actions/auth';
+import { signin as signinAction } from '@/features/auth';
 import LoginForm from '../components/loginForm';
 
 type Props = {
-  authorize: Function
+  signin: Function
 }
 
 class LoginFormContainer extends Component<void, Props, *> {
 
   render() {
-    const { authorize } = this.props;
+    const { signin } = this.props;
 
     return (
-      <LoginForm authorize={authorize}/>
+      <LoginForm signin={signin}/>
     );
   }
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
-  const { authorize } = authActions;
-
-  return {
-    authorize: bindActionCreators(authorize, dispatch)
-  };
+  return bindActionCreators({
+    signin: signinAction
+  }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(LoginFormContainer);

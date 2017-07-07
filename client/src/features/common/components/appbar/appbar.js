@@ -21,10 +21,15 @@ import {
 const BACK_ROUTE = `/${MESSENGER_ROUTE}`;
 
 type Props = {
-  me: UserType
+  me: UserType,
+  signout: Function
 };
 
 class Appbar extends Component<void, Props, *> {
+
+  handleSignout = () => {
+    this.props.signout();
+  }
 
   render() {
     const avatar = this.props.me.avatar.thumbnail;
@@ -46,8 +51,9 @@ class Appbar extends Component<void, Props, *> {
               backgroundColor={'transparent'}/>
           </AvatarLayout>
           <IconButtonLayout>
-            <IconButton>
-              <MoreVertIcon color={'#fff'}/>
+            <IconButton onClick={this.handleSignout}>
+              <MoreVertIcon
+                color={'#fff'}/>
             </IconButton>
           </IconButtonLayout>
         </ControlsLayout>

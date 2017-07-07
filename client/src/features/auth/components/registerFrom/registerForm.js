@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 
 type Props = {
-  register: Function
+  signup: Function
 }
 
 class RegisterForm extends Component<void, Props, *> {
@@ -11,7 +11,7 @@ class RegisterForm extends Component<void, Props, *> {
   handleSubmit = (ev: Event & {target: {email: any, password: any}}) => {
     ev.preventDefault();
 
-    this.props.register(
+    this.props.signup(
       ev.target.email.value,
       ev.target.password.value
     );

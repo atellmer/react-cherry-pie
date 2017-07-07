@@ -86,7 +86,9 @@ const channelsListQuery = gql`
   }
 `;
 
-const withData = graphql(channelsListQuery);
+const withData = graphql(channelsListQuery, {
+  options: { pollInterval: 20000 }
+});
 
 export default compose(
   pure,

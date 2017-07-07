@@ -17,8 +17,7 @@ import {
 } from '@/features/common';
 import {
   LoginView,
-  RegisterView,
-  checkRoute
+  RegisterView
 } from '@/features/auth';
 import HomeView from '@/features/home';
 import { MessengerView } from '@/features/messenger';
@@ -33,7 +32,8 @@ import {
 type Props = {
   detectDevice: Function,
   detectSizeWindow: Function,
-  fetchUser: Function
+  fetchUser: Function,
+  isLogged: boolean
 };
 
 const history = createBrowserHistory();
@@ -55,6 +55,8 @@ class AppShell extends Component<void, Props, *> {
   }
 
   render() {
+    const { isLogged } = this.props;
+
     return (
       <ConnectedRouter
         history={history}>
@@ -70,17 +72,17 @@ class AppShell extends Component<void, Props, *> {
                 component={HomeView} />
               <Route
                 exact
-                path='/login'
+                path='/signin'
                 component={LoginView} />
               <Route
                 exact
-                path='/register'
+                path='/signup'
                 component={RegisterView} />
               <PrivateRoute
                 path={`/${MESSENGER_ROUTE}`}
                 component={MessengerView}
-                canActivate={checkRoute}
-                redirectTo='/login'/>
+                isLogged={isLogged}
+                redirectTo='/signin'/>
               <Redirect to='/' />
             </Switch>
           </ContentLayout>
@@ -88,6 +90,12 @@ class AppShell extends Component<void, Props, *> {
       </ConnectedRouter>
     );
   }
+}
+
+function mapStateToProps({ auth }) {
+  return {
+    isLogged: !!auth.user
+  };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
@@ -104,5 +112,5 @@ export {
 
 export default compose(
   pure,
-  connect(null, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps)
 )(AppShell);

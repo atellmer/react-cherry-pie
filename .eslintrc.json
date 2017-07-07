@@ -106,7 +106,7 @@
 		"no-param-reassign": [
 			2,
 			{
-				"props": true
+				"props": false
 			}
 		],
 		"no-proto": 2,

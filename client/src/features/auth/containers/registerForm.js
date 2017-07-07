@@ -4,30 +4,28 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import * as authActions from '../actions/auth';
+import { signup as signupAction } from '@/features/auth';
 import RegisterForm from '../components/registerFrom';
 
 type Props = {
-  register: Function
+  signup: Function
 }
 
 class RegisterFormContainer extends Component <void, Props, *> {
 
   render() {
-    const { register } = this.props;
+    const { signup } = this.props;
 
     return (
-      <RegisterForm register={register}/>
+      <RegisterForm signup={signup}/>
     );
   }
 }
 
 function mapDispatchToProps(dispatch: Dispatch<*>) {
-  const { register } = authActions;
-
-  return {
-    register: bindActionCreators(register, dispatch)
-  };
+  return bindActionCreators({
+    signup: signupAction
+  }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(RegisterFormContainer);

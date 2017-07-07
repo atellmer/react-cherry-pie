@@ -4,19 +4,19 @@ import { Route, Redirect } from 'react-router-dom';
 
 type Props = {
   component: any,
-  canActivate: Function,
+  isLogged: boolean,
   redirectTo: boolean
 }
 
-function PrivateRoute({ component: Component, ...rest }: Props) {
-  const { canActivate, redirectTo } = rest;
+function PrivateRoute({ component: Child, ...rest }: Props) {
+  const { isLogged, redirectTo } = rest;
 
   return (
     <Route
       {...rest}
       render={routerProps => (
-        canActivate() ? (
-          <Component {...rest} {...routerProps}/>
+        isLogged ? (
+          <Child {...rest} {...routerProps}/>
         ) : (
           <Redirect to={{
             pathname: redirectTo,

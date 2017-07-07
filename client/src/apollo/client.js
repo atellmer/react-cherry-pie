@@ -1,17 +1,26 @@
 /** @flow */
-import { ApolloClient } from 'react-apollo';
-import { addMockFunctionsToSchema } from 'graphql-tools';
-import { mockNetworkInterfaceWithSchema } from 'apollo-test-utils';
-
-import { schema } from './schema';
+import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 
-addMockFunctionsToSchema({ schema });
+const networkInterface = createNetworkInterface({
+  uri: 'http://localhost:4000/graphql'
+});
 
-const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
+networkInterface.use([ {
+  applyMiddleware(req, next) {
+    const token = JSON.parse(String(localStorage.getItem('token')));
+
+    if (!req.options.headers) {
+      req.options.headers = {};
+    }
+
+    req.options.headers.authorization = token ? token : null;
+    next();
+  }
+} ]);
 
 const client = new ApolloClient({
-  networkInterface: mockNetworkInterface
+  networkInterface
 });
 
 export {
