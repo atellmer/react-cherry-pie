@@ -12,7 +12,11 @@ type detectDeviceAction = {
   payload: {
     isPhone: boolean,
     isTablet: boolean,
-    isDesktop: boolean
+    isDesktop: boolean,
+    isLandscape: boolean,
+    isPortrait: boolean,
+    isIOS: boolean,
+    isAndroid: boolean
   }
 }
 
