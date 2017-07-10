@@ -30,6 +30,36 @@ type Props = {
 }
 
 class DialogDetailContainer extends Component<void, Props, *> {
+  componentWillMount() {
+    this.props.data.subscribeToMore({
+      document: messagesSubscription,
+      variables: {
+        channelId: 1
+      },
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData.data) {
+          return prev;
+        }
+
+        const newMessage = subscriptionData.data.messageAdded;
+
+        if (!prev.channels[0].messages.find((msg) => msg.id === newMessage.id)) {
+          return {
+            ...prev,
+            channels: Object.assign([], prev.channels, {
+              '0': {
+                ...prev.channels[0],
+                messages: [...prev.channels[0].messages, newMessage]
+              }
+            })
+          };
+        }
+
+        return prev;
+      }
+    });
+  }
+
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
     const sharedProps = {
@@ -82,12 +112,25 @@ const channelsListQuery = gql`
     channels {
       id
       name
+      messages {
+        id
+        text
+      }
+    }
+  }
+`;
+
+const messagesSubscription = gql`
+  subscription messageAdded($channelId: ID!) {
+    messageAdded(channelId: $channelId) {
+      id
+      text
     }
   }
 `;
 
 const withData = graphql(channelsListQuery, {
-  options: { pollInterval: 20000 }
+  options: { pollInterval: 2000000 }
 });
 
 export default compose(

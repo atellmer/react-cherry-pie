@@ -36,7 +36,16 @@ class DialogDetailDesktop extends Component<void, Props, *> {
 
     return (
       <ul>
-        { channels.map(item => <li key={item.id}>{item.name}</li>) }
+        { channels.map(ch => (
+          <li key={ch.id}>
+            {ch.name}
+            <ul>
+              {ch.messages.map(ms => (
+                <li key={ms.id} style={{ marginLeft: '30px' }}>{ms.text}</li>
+              ))}
+            </ul>
+          </li>
+        )) }
       </ul>
     );
   }
