@@ -8,4 +8,46 @@ const filterItemsByPath = curry((path: Array<string>, value: any, items: Array<*
   return filter(pathEq(path, value), items);
 });
 
-export { filterItemsByPath };
+type ArgumentForUpdateStateSlice = {
+  path: Array<string>,
+  source: any,
+  value: any,
+  reverse?: boolean
+};
+
+const updateStateSlice = ({ path, source, value, reverse = false }: ArgumentForUpdateStateSlice) => {
+  const segment = Array.isArray(path) ? path[0] : path;
+  const newPath = Array.isArray(path) && path.length > 1 ? path.slice(1) : null;
+
+  if (newPath !== null) {
+    return Object.assign(
+      Array.isArray(source)
+      ? []
+      : {},
+      source, {
+        [segment]: updateStateSlice({
+          path: newPath,
+          source: source[segment],
+          value,
+          reverse
+        })
+      }
+    );
+  }
+
+  return Object.assign(
+    Array.isArray(source)
+    ? []
+    : {},
+    source, {
+      [segment]: Array.isArray(source[segment])
+      ? reverse ? [value, ...source[segment]] : [...source[segment], value]
+      : { ...source[segment], ...value }
+    }
+  );
+};
+
+export {
+  filterItemsByPath,
+  updateStateSlice
+};

@@ -16,6 +16,7 @@ import {
 } from '@/features/messenger';
 import { withPlatform } from '@/features/common';
 import { PHONE_WIDTH } from '@/vars';
+import { updateStateSlice } from '@/shared/utils/methods';
 
 
 type Props = {
@@ -44,15 +45,11 @@ class DialogDetailContainer extends Component<void, Props, *> {
         const newMessage = subscriptionData.data.messageAdded;
 
         if (!prev.channels[0].messages.find((msg) => msg.id === newMessage.id)) {
-          return {
-            ...prev,
-            channels: Object.assign([], prev.channels, {
-              '0': {
-                ...prev.channels[0],
-                messages: [...prev.channels[0].messages, newMessage]
-              }
-            })
-          };
+          return updateStateSlice({
+            path: ['channels', '0', 'messages'],
+            source: prev,
+            value: newMessage
+          });
         }
 
         return prev;

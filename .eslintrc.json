@@ -243,7 +243,7 @@
 				"maxEOF": 1
 			}
 		],
-		"no-nested-ternary": 2,
+		"no-nested-ternary": 0,
 		"no-new-object": 2,
 		"no-spaced-func": 2,
 		"no-trailing-spaces": 2,
