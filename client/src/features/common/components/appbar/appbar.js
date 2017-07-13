@@ -4,14 +4,19 @@ import { Link } from 'react-router-dom';
 import { pure } from 'recompose';
 import Avatar from 'material-ui/Avatar/index';
 import IconButton from 'material-ui/IconButton/index';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import ArrowBackIcon from 'material-ui/svg-icons/navigation/arrow-back';
 
 import type { UserType } from '@/features/common';
-import { MESSENGER_ROUTE } from '@/vars';
+import { AppbarMenu } from '@/features/common';
+import { Logo } from '@/features/ui';
+import {
+  PROFILE_ROUTE,
+  MESSENGER_ROUTE
+} from '@/vars';
 import {
   Root,
   ArrowBackLayout,
+  LogoLayout,
   ControlsLayout,
   AvatarLayout,
   IconButtonLayout
@@ -22,20 +27,16 @@ const BACK_ROUTE = `/${MESSENGER_ROUTE}`;
 
 type Props = {
   me: UserType,
+  user: any,
   signout: Function
 };
 
-class Appbar extends Component<void, Props, *> {
+class Appbar extends Component <void, Props, *> {
+  renderBackBtn = () => {
+    const { user } = this.props;
 
-  handleSignout = () => {
-    this.props.signout();
-  }
-
-  render() {
-    const avatar = this.props.me.avatar.thumbnail;
-
-    return (
-      <Root>
+    if (user) {
+      return (
         <ArrowBackLayout>
           <Link to={BACK_ROUTE}>
             <IconButton>
@@ -43,20 +44,46 @@ class Appbar extends Component<void, Props, *> {
             </IconButton>
           </Link>
         </ArrowBackLayout>
+      );
+    }
+  }
+
+  renderControls = () => {
+    const avatar = this.props.me.avatar.thumbnail;
+    const { signout, user } = this.props;
+    const propsForMenu = {
+      signout
+    };
+
+    if (user) {
+      return (
         <ControlsLayout>
           <AvatarLayout>
-            <Avatar
-              src={avatar}
-              size={34}
-              backgroundColor={'transparent'}/>
+            <Link to={`/${PROFILE_ROUTE}`}>
+              <Avatar
+                src={avatar}
+                size={34}
+                backgroundColor={'transparent'}/>
+            </Link>
           </AvatarLayout>
           <IconButtonLayout>
-            <IconButton onClick={this.handleSignout}>
-              <MoreVertIcon
-                color={'#fff'}/>
-            </IconButton>
+            <AppbarMenu {...propsForMenu}/>
           </IconButtonLayout>
         </ControlsLayout>
+      );
+    }
+
+    return null;
+  }
+
+  render() {
+    return (
+      <Root>
+        {this.renderBackBtn()}
+        <LogoLayout>
+          <Logo />
+        </LogoLayout>
+        {this.renderControls()}
       </Root>
     );
   }

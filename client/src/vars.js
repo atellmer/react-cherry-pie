@@ -43,5 +43,10 @@ export const tablet = 768;
 export const PHONE_WIDTH = phone;
 export const TABLET_WIDTH = tablet;
 
+export const sizes = {
+  phone: 640,
+  tablet: 768
+};
+
 export const MESSENGER_ROUTE = 'im';
 export const PROFILE_ROUTE = 'profile';

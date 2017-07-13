@@ -18,13 +18,17 @@ const Root = styled.div`
   box-shadow: ${vars.shadowElevationZ1};
   transition: height .2s ease-in-out;
 
-  @media (min-width: ${vars.phone}px) {
+  @media (min-width: ${vars.sizes.phone}px) {
     min-height: 48px;
   }
 `;
 
 const ArrowBackLayout = styled.div`
   margin: 0 0 0 -16px;
+
+  @media (min-width: ${vars.sizes.phone}px) {
+    display: none;
+  }
 
   button {
     @media (max-width: ${vars.phone}px) {
@@ -33,6 +37,10 @@ const ArrowBackLayout = styled.div`
       height: 42px !important;
     }
   }
+`;
+
+const LogoLayout = styled.div`
+  position: relative;
 `;
 
 const ControlsLayout = styled.div`
@@ -61,6 +69,7 @@ const IconButtonLayout = styled.div`
 export {
   Root,
   ArrowBackLayout,
+  LogoLayout,
   ControlsLayout,
   AvatarLayout,
   IconButtonLayout

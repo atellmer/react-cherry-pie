@@ -12,23 +12,31 @@ import { signout as signoutAction } from '@/features/auth';
 
 type Props = {
   me: UserType,
+  user: any,
   signout: Function
 };
 
 class AppbarContainer extends Component<void, Props, *> {
 
   render() {
-    const { me, signout } = this.props;
+    const { me, user, signout } = this.props;
+    const propsForAppbar = {
+      me,
+      user,
+      signout
+    };
 
-    return <Appbar me={me} signout={signout}/>;
+    return <Appbar {...propsForAppbar}/>;
   }
 }
 
-function mapStateToProps({ common }) {
+function mapStateToProps({ common, auth }) {
   const { user: { me } } = common;
+  const { user } = auth;
 
   return {
-    me
+    me,
+    user
   };
 }
 

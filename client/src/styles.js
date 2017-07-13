@@ -28,8 +28,12 @@ injectGlobal`
     background-color: cornflowerblue;
   }
 
-  #react-root,
-  [data-reactroot] {
+  #react-root {
+    width: 100%;
+    height: 100%;
+  }
+
+  #react-root > [data-reactroot] {
     width: 100%;
     height: 100%;
   }
