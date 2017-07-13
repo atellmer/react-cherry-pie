@@ -35,6 +35,8 @@ export const appbarZIndex = zIndex2;
 export const panelZIndex = zIndex3;
 export const canvasZIndex = zIndex1;
 
+export const mainLayoutWidth = 1170;
+
 export const phone = 640;
 export const tablet = 768;
 
@@ -42,3 +44,4 @@ export const PHONE_WIDTH = phone;
 export const TABLET_WIDTH = tablet;
 
 export const MESSENGER_ROUTE = 'im';
+export const PROFILE_ROUTE = 'profile';

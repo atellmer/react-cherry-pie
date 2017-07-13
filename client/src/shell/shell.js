@@ -20,8 +20,12 @@ import {
   RegisterView
 } from '@/features/auth';
 import HomeView from '@/features/home';
+import { ProfileView } from '@/features/profile';
 import { MessengerView } from '@/features/messenger';
-import { MESSENGER_ROUTE } from '@/vars';
+import {
+  PROFILE_ROUTE,
+  MESSENGER_ROUTE
+} from '@/vars';
 import {
   Root,
   AppbarLayout,
@@ -78,6 +82,11 @@ class AppShell extends Component<void, Props, *> {
                 exact
                 path='/signup'
                 component={RegisterView} />
+              <PrivateRoute
+                path={`/${PROFILE_ROUTE}`}
+                component={ProfileView}
+                isLogged={isLogged}
+                redirectTo='/signin' />
               <PrivateRoute
                 path={`/${MESSENGER_ROUTE}`}
                 component={MessengerView}
