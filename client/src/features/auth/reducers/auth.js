@@ -5,7 +5,7 @@ import { actionTypes } from '../actions/auth';
 type State = {
   success?: boolean,
   user?: any,
-  error?: string
+  error?: string | null
 }
 
 const initialState = {};
@@ -18,7 +18,8 @@ function authReducer(state: State = initialState, action: any) {
 
     return {
       ...state,
-      success
+      success,
+      error: null
     };
   }
 
@@ -38,7 +39,8 @@ function authReducer(state: State = initialState, action: any) {
     return {
       ...state,
       success,
-      user
+      user,
+      error: null
     };
   }
 
@@ -53,7 +55,10 @@ function authReducer(state: State = initialState, action: any) {
   }
 
   case actionTypes.SIGNOUT_SUCCESS: {
-    return state;
+    return {
+      ...state,
+      user: null
+    };
   }
 
   default:
