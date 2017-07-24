@@ -26,6 +26,8 @@ const MESSAGES_TEXT = 'Сообщения';
 const SIGNOUT_TEXT = 'Выход';
 
 class AppbarMenu extends Component <void, Props, *> {
+  static displayName = 'AppbarMenu';
+
   handleSignout = () => {
     this.props.signout();
   }
@@ -63,4 +65,5 @@ class AppbarMenu extends Component <void, Props, *> {
   }
 }
 
+export { AppbarMenu };
 export default pure(AppbarMenu);

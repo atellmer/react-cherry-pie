@@ -27,8 +27,8 @@ type Props = {
   widthWindow: number,
   dialogFormHeight: number,
   resizeDialogForm: Function,
-  match: {}
-}
+  match: any
+};
 
 class DialogDetailContainer extends Component<void, Props, *> {
   componentWillMount() {
@@ -132,7 +132,7 @@ const withData = graphql(channelsListQuery, {
 
 export default compose(
   pure,
+  connect(mapStateToProps, mapDispatchToProps),
   withPlatform,
   withData,
-  connect(mapStateToProps, mapDispatchToProps),
 )(DialogDetailContainer);

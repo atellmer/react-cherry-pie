@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Appbar Component should render component 1`] = `
+<styled__Root>
+  <styled__ArrowBackLayout>
+    <Link
+      replace={false}
+      to="/im"
+    >
+      <IconButton
+        disableTouchRipple={false}
+        disabled={false}
+        iconStyle={Object {}}
+        tooltipPosition="bottom-center"
+        touch={false}
+      >
+        <NavigationArrowBack
+          color="#fff"
+        />
+      </IconButton>
+    </Link>
+  </styled__ArrowBackLayout>
+  <styled__LogoLayout>
+    <Logo />
+  </styled__LogoLayout>
+  <styled__ControlsLayout>
+    <styled__AvatarLayout>
+      <Link
+        replace={false}
+        to="/profile"
+      >
+        <Avatar
+          backgroundColor="transparent"
+          size={34}
+          src="path"
+        />
+      </Link>
+    </styled__AvatarLayout>
+    <styled__IconButtonLayout>
+      <pure(AppbarMenu)
+        signout={[Function]}
+      />
+    </styled__IconButtonLayout>
+  </styled__ControlsLayout>
+</styled__Root>
+`;
+
+exports[`Appbar Component should render component without controls 1`] = `
+<styled__Root>
+  <styled__LogoLayout>
+    <Logo />
+  </styled__LogoLayout>
+</styled__Root>
+`;

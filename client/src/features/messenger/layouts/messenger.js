@@ -1,7 +1,7 @@
 /** @flow */
 import React, { Component } from 'react';
 import { pure, compose } from 'recompose';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
@@ -31,7 +31,6 @@ type Props = {
 };
 
 class MessengerView extends Component<void, Props, *> {
-
   componentDidMount() {
     this.props.fetchDialogs();
   }
@@ -90,4 +89,5 @@ function mapDispatchToProps(dispatch: Dispatch<*>) {
 export default compose(
   pure,
   connect(null, mapDispatchToProps),
+  withRouter
 )(MessengerView);

@@ -1,6 +1,4 @@
-'use strict';
-
-var config = {
+const config = {
   port: 3000,
   root: 'client',
   mode: process.env.NODE_ENV,
@@ -8,6 +6,6 @@ var config = {
   styles: process.env.NODE_ENV !== 'production' ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:5]',
   distDir: 'dist',
   bundle: 'bundle.js'
-}
+};
 
 module.exports = config;

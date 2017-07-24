@@ -26,10 +26,9 @@ type Props = {
   filterDialogs: Function,
   match: {},
   location: {}
-}
+};
 
 class DialogPanelContainer extends Component<void, Props, *> {
-
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
 
@@ -78,6 +77,6 @@ function mapDispatchToProps(dispatch: Dispatch<*>)  {
 
 export default compose(
   pure,
-  withPlatform,
   connect(mapStateToProps, mapDispatchToProps),
+  withPlatform,
 )(DialogPanelContainer);

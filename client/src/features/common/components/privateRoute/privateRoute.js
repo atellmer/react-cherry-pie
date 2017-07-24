@@ -16,7 +16,7 @@ function PrivateRoute({ component: Child, ...rest }: Props) {
       {...rest}
       render={routerProps => (
         isLogged ? (
-          <Child {...rest} {...routerProps}/>
+          <Child {...rest}/>
         ) : (
           <Redirect to={{
             pathname: redirectTo,
