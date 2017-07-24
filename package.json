@@ -13,7 +13,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "typings": "flow-typed install"
+    "typings": "flow-typed install",
+    "prepush": "npm test"
   },
   "dependencies": {
     "apollo-test-utils": "^0.3.2",
