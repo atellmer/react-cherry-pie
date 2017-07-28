@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogDetail Container query should match expected shape 1`] = `
+"query ChannelsListQuery {
+  channels {
+    id
+    name
+    messages {
+      id
+      text
+    }
+  }
+}
+"
+`;
+
+exports[`DialogDetail Container should render desktop and phone version of component 1`] = `
+<pure(DialogDetailPhone)
+  data={
+    Object {
+      "subscribeToMore": [Function],
+    }
+  }
+  dialogFormHeight={0}
+  resizeDialogForm={[Function]}
+/>
+`;
+
+exports[`DialogDetail Container should render only desktop version of component 1`] = `
+<pure(DialogDetailDesktop)
+  data={
+    Object {
+      "subscribeToMore": [Function],
+    }
+  }
+  dialogFormHeight={0}
+  resizeDialogForm={[Function]}
+/>
+`;
+
+exports[`DialogDetail Container should render phone version of component 1`] = `
+<pure(DialogDetailPhone)
+  data={
+    Object {
+      "subscribeToMore": [Function],
+    }
+  }
+  dialogFormHeight={0}
+  resizeDialogForm={[Function]}
+/>
+`;
+
+exports[`DialogDetail Container should render tablet version of component 1`] = `
+<pure(DialogDetailDesktop)
+  data={
+    Object {
+      "subscribeToMore": [Function],
+    }
+  }
+  dialogFormHeight={0}
+  resizeDialogForm={[Function]}
+/>
+`;

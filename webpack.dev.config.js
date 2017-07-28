@@ -17,7 +17,7 @@ const output = `${config.root}/public/${config.distDir}/`;
 const webpackConfig = {
   devtool: 'eval',
   resolve: {
-    modules: ['node_modules'],
+    modules: [ 'node_modules' ],
     extensions: ['.js', '.jsx', '.json', '.css', '.html'],
     alias: {
       '@': path.resolve(__dirname, 'client', 'src')
@@ -83,7 +83,7 @@ const webpackConfig = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(
-      [path.resolve(__dirname, output)], {
+      [ path.resolve(__dirname, output) ], {
         root: '',
         verbose: true,
         dry: false

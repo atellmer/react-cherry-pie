@@ -10,7 +10,7 @@ import { CSSTransitionGroup } from 'react-transition-group';
 import {
   fetchDialogs,
   DialogPanelContainer,
-  DialogDetailContainer
+  DialogDetail
 } from '@/features/messenger';
 import {
   Root,
@@ -67,7 +67,7 @@ class MessengerView extends Component<void, Props, *> {
               key={location.key}
               path={`${this.props.match.url}/:id`}
               render={routeProps => (
-                <DialogDetailContainer {...routeProps} />
+                <DialogDetail {...routeProps} />
               )}/>
           </CSSTransitionGroup>
         )}/>

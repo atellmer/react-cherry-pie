@@ -1,5 +1,5 @@
 import MessengerView from './layouts/messenger';
-import DialogDetailContainer from './containers/dialogDetail';
+import DialogDetail from './containers/dialogDetail';
 import DialogPanelContainer from './containers/dialogPanel';
 import DialogDetailDesktop from './components/dialogDetail/desktop';
 import DialogDetailPhone from './components/dialogDetail/phone';
@@ -16,7 +16,7 @@ import type { DialogType, MessageType } from './types';
 
 export {
   MessengerView,
-  DialogDetailContainer,
+  DialogDetail,
   DialogPanelContainer,
   DialogDetailDesktop,
   DialogDetailPhone,

@@ -30,7 +30,7 @@ type Props = {
   match: any
 };
 
-class DialogDetailContainer extends Component<void, Props, *> {
+class DialogDetail extends Component<void, Props, *> {
   componentWillMount() {
     this.props.data.subscribeToMore({
       document: messagesSubscription,
@@ -130,9 +130,18 @@ const withData = graphql(channelsListQuery, {
   options: { pollInterval: 2000000 }
 });
 
+export {
+  channelsListQuery,
+  messagesSubscription,
+  mapStateToProps,
+  mapDispatchToProps,
+  withData,
+  DialogDetail
+};
+
 export default compose(
   pure,
   connect(mapStateToProps, mapDispatchToProps),
   withPlatform,
   withData,
-)(DialogDetailContainer);
+)(DialogDetail);
