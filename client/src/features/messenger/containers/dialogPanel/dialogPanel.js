@@ -13,7 +13,7 @@ import {
 import { withPlatform } from '@/features/common';
 import type { DialogType } from '@/features/messenger';
 import { PHONE_WIDTH } from '@/vars';
-import { getFilteredDialogs } from '../selectors';
+import { getFilteredDialogs } from '../../selectors';
 
 
 type Props = {
@@ -21,14 +21,13 @@ type Props = {
   isTablet: boolean,
   isDesktop: boolean,
   widthWindow: number,
-  heightWindow: number,
   dialogItems: DialogType,
   filterDialogs: Function,
   match: {},
   location: {}
 };
 
-class DialogPanelContainer extends Component<void, Props, *> {
+class DialogPanel extends Component<void, Props, *> {
   renderTemplate = () => {
     const { isPhone, isTablet, isDesktop, widthWindow } = this.props;
 
@@ -63,7 +62,7 @@ class DialogPanelContainer extends Component<void, Props, *> {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: any) {
   return {
     dialogItems: getFilteredDialogs(state)
   };
@@ -75,8 +74,14 @@ function mapDispatchToProps(dispatch: Dispatch<*>)  {
   }, dispatch);
 }
 
+export {
+  DialogPanel,
+  mapStateToProps,
+  mapDispatchToProps
+};
+
 export default compose(
   pure,
   connect(mapStateToProps, mapDispatchToProps),
   withPlatform,
-)(DialogPanelContainer);
+)(DialogPanel);

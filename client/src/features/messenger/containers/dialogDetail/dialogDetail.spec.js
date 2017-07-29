@@ -1,13 +1,14 @@
 /* eslint-disable */
 import React, { Component } from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { print } from 'graphql';
 import { connect } from 'react-redux';
 import { addTypenameToDocument } from 'apollo-client/queries/queryTransform';
 
 import {
   mountWithApolloAndContext,
-  mountWithReduxAndContext
+  mountWithReduxAndContext,
+  mountWithContext
 } from 'test/mountWith';
 import {
   DialogDetail,
@@ -95,11 +96,56 @@ describe('DialogDetail Container', () => {
     expect(component).toMatchSnapshot();
   });
 
+  test('should pass props correctly', () => {
+    let component;
+    const expectedProps = {
+      data: {
+        subscribeToMore: jest.fn()
+      },
+      dialogFormHeight: 0,
+      resizeDialogForm: jest.fn(),
+      match: {}
+    };
+    component = shallow(
+      <DialogDetail
+        {...props}
+        {...expectedProps}
+        isPhone={true} />
+    );
+    expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
+
+    component = shallow(
+      <DialogDetail
+        {...props}
+        {...expectedProps}
+        isTablet={true} />
+    );
+    expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);
+
+    component = shallow(
+      <DialogDetail
+        {...props}
+        {...expectedProps}
+        isDesktop={true}
+        widthWindow={480} />
+    );
+    expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
+
+    component = shallow(
+      <DialogDetail
+        {...props}
+        {...expectedProps}
+        isDesktop={true}
+        widthWindow={1920} />
+    );
+    expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);
+  });
+
   test('query should match expected shape', () => {
     expect(print(channelsListQuery)).toMatchSnapshot();
   });
 
-  test('Container should renders with loading first', done => {
+  test('container should renders with loading first', done => {
     class Container extends Component {
       componentWillMount() {
         expect(this.props.data.loading).toBe(true);
@@ -118,7 +164,7 @@ describe('DialogDetail Container', () => {
     );
   });
 
-   test('Container should renders with data', done => {
+   test('container should renders with data', done => {
     class Container extends Component {
       componentWillReceiveProps(props) {
         expect(props.data.loading).toBe(false);
@@ -137,7 +183,7 @@ describe('DialogDetail Container', () => {
     );
   });
 
-  test('Container should renders with an error correctly', done => {
+  test('container should renders with an error correctly', done => {
     try {
       class Container extends Component {
         componentWillReceiveProps(props) {
@@ -175,5 +221,4 @@ describe('DialogDetail Container', () => {
 
     expect(component.find(DialogDetail).props()).toEqual(expectedProps);
   });
-
 });

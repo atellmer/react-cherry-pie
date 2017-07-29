@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogPanel Container should render desktop and phone version of component 1`] = `
+<pure(DialogPanelDesktop)
+  dialogItems={Array []}
+  filterDialogs={[Function]}
+  location={Object {}}
+  match={Object {}}
+/>
+`;
+
+exports[`DialogPanel Container should render desktop and phone version of component 2`] = `
+<pure(DialogPanelPhone)
+  dialogItems={Array []}
+  filterDialogs={[Function]}
+  location={Object {}}
+  match={Object {}}
+/>
+`;
+
+exports[`DialogPanel Container should render phone version of component 1`] = `
+<pure(DialogPanelPhone)
+  dialogItems={Array []}
+  filterDialogs={[Function]}
+  location={Object {}}
+  match={Object {}}
+/>
+`;
+
+exports[`DialogPanel Container should render tablet(desktop) version of component 1`] = `
+<pure(DialogPanelDesktop)
+  dialogItems={Array []}
+  filterDialogs={[Function]}
+  location={Object {}}
+  match={Object {}}
+/>
+`;
