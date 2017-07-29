@@ -31,8 +31,23 @@ const mountWithReduxAndContext = (node, initialState = {}) => {
   return mount(
     <Provider
       store={store}>
-      {node}
+      { node }
     </Provider>,
+    {
+      context: { muiTheme, ...createRouterContext() },
+      childContextTypes: {
+        muiTheme: PropTypes.object,
+        router: PropTypes.object
+      }
+    }
+  );
+};
+
+const mountWithContext = node => {
+  return mount(
+    <div>
+      { node }
+    </div>,
     {
       context: { muiTheme, ...createRouterContext() },
       childContextTypes: {
@@ -45,5 +60,6 @@ const mountWithReduxAndContext = (node, initialState = {}) => {
 
 export {
   mountWithApolloAndContext,
-  mountWithReduxAndContext
+  mountWithReduxAndContext,
+  mountWithContext
 };

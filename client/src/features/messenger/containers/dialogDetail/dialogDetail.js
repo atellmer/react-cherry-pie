@@ -90,7 +90,7 @@ class DialogDetail extends Component<void, Props, *> {
   }
 }
 
-function mapStateToProps({ messenger }) {
+function mapStateToProps({ messenger }: any) {
   const { layout: { dialogForm: { height } } } = messenger;
 
   return {

@@ -6,8 +6,8 @@ import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 
 import rootReducer from './rootReducer';
-import { history } from '../../../src/shell';
-import AuthSaga from '../../../src/features/auth/effects/auth';
+import { history } from '@/shell';
+import AuthSaga from '@/features/auth/effects/auth';
 
 
 function configureStore(initialState: any): Store<*, *> {

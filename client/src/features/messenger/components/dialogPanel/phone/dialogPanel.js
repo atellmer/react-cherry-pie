@@ -54,4 +54,8 @@ class DialogPanelPhone extends Component<void, Props, *> {
   }
 }
 
+export {
+  DialogPanelPhone
+};
+
 export default pure(DialogPanelPhone);

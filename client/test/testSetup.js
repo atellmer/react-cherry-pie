@@ -1,6 +1,8 @@
 import { mocks } from 'mock-browser';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
+injectTapEventPlugin();
 const mock = new mocks.MockBrowser();
 
 global.__DEVELOPMENT__ = false;
