@@ -1,13 +1,16 @@
 {
 	"parser": "babel-eslint",
 	"plugins": [
-		"react"
-	],
+    "react",
+    "jest"
+  ],
+  "extends": ["plugin:jest/recommended"],
 	"env": {
 		"browser": true,
 		"node": true,
 		"mocha": true,
-		"es6": true
+    "es6": true,
+    "jest/globals": true
 	},
 	"ecmaFeatures": {
 		"arrowFunctions": true,
