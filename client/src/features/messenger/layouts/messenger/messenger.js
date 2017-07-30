@@ -7,11 +7,9 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import {
-  fetchDialogs,
-  DialogPanel,
-  DialogDetail
-} from '@/features/messenger';
+import { fetchDialogs } from '../../actions/dialogs';
+import DialogPanel from '../../containers/dialogPanel';
+import DialogDetail from '../../containers/dialogDetail';
 import {
   Root,
   DialogPanelLayout,
@@ -37,8 +35,8 @@ class MessengerView extends Component<void, Props, *> {
 
   getActiveTrigger = () => {
     const { pathname } = this.props.location;
-    const regexp = `${MESSENGER_ROUTE}\/.`;
-    const activeTrigger = new RegExp(regexp).test(pathname);
+    const pattern = `${MESSENGER_ROUTE}[\/][.]?`;
+    const activeTrigger = new RegExp(pattern).test(pathname);
 
     return activeTrigger;
   }
@@ -85,6 +83,11 @@ function mapDispatchToProps(dispatch: Dispatch<*>) {
     fetchDialogs
   }, dispatch);
 }
+
+export {
+  MessengerView,
+  mapDispatchToProps
+};
 
 export default compose(
   pure,

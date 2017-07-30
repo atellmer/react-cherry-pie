@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { Component } from 'react';
 import { shallow } from 'enzyme';
 import { print } from 'graphql';
@@ -7,15 +6,14 @@ import { addTypenameToDocument } from 'apollo-client/queries/queryTransform';
 
 import {
   mountWithApolloAndContext,
-  mountWithReduxAndContext,
-  mountWithContext
+  mountWithReduxAndContext
 } from 'test/mountWith';
 import {
   DialogDetail,
   channelsListQuery,
   withData,
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 } from './dialogDetail';
 
 
@@ -58,7 +56,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isPhone={true} />
+        isPhone='true' />
     );
 
     expect(component).toMatchSnapshot();
@@ -68,7 +66,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isTablet={true} />
+        isTablet='true' />
     );
 
     expect(component).toMatchSnapshot();
@@ -78,7 +76,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={480} />
     );
 
@@ -89,7 +87,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={1920} />
     );
 
@@ -106,11 +104,12 @@ describe('DialogDetail Container', () => {
       resizeDialogForm: jest.fn(),
       match: {}
     };
+
     component = shallow(
       <DialogDetail
         {...props}
         {...expectedProps}
-        isPhone={true} />
+        isPhone='true' />
     );
     expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
 
@@ -118,7 +117,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isTablet={true} />
+        isTablet='true' />
     );
     expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);
 
@@ -126,7 +125,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={480} />
     );
     expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
@@ -135,7 +134,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={1920} />
     );
     expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);
@@ -158,17 +157,18 @@ describe('DialogDetail Container', () => {
     }
 
     const ContainerWithData = withData(Container);
-    const component = mountWithApolloAndContext(
+
+    mountWithApolloAndContext(
       ContainerWithData,
       { request: { query }, result: { data } }
     );
   });
 
-   test('container should renders with data', done => {
+  test('container should renders with data', done => {
     class Container extends Component {
-      componentWillReceiveProps(props) {
-        expect(props.data.loading).toBe(false);
-        expect(props.data.channels).toEqual(data.channels);
+      componentWillReceiveProps(ownProps) {
+        expect(ownProps.data.loading).toBe(false);
+        expect(ownProps.data.channels).toEqual(data.channels);
         done();
       }
       render() {
@@ -177,7 +177,8 @@ describe('DialogDetail Container', () => {
     }
 
     const ContainerWithData = withData(Container);
-    const component = mountWithApolloAndContext(
+
+    mountWithApolloAndContext(
       ContainerWithData,
       { request: { query }, result: { data } }
     );
@@ -186,8 +187,8 @@ describe('DialogDetail Container', () => {
   test('container should renders with an error correctly', done => {
     try {
       class Container extends Component {
-        componentWillReceiveProps(props) {
-          expect(props.data.error).toBeTruthy();
+        componentWillReceiveProps(ownProps) {
+          expect(ownProps.data.error).toBeTruthy();
           done();
         }
         render() {
@@ -196,7 +197,8 @@ describe('DialogDetail Container', () => {
       }
 
       const ContainerWithData = withData(Container);
-      const component = mountWithApolloAndContext(
+
+      mountWithApolloAndContext(
         ContainerWithData,
         { request: { query }, error: new Error('fail') }
       );
@@ -210,7 +212,7 @@ describe('DialogDetail Container', () => {
     const expectedProps = {
       data: { subscribeToMore },
       dialogFormHeight: 0,
-      resizeDialogForm: expect.any(Function),
+      resizeDialogForm: expect.any(Function)
     };
     const DialogDetailWithState = connect(mapStateToProps, mapDispatchToProps)(DialogDetail);
 

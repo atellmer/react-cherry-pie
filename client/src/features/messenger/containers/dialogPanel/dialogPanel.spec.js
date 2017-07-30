@@ -1,7 +1,5 @@
-/* eslint-disable */
-import React, { Component } from 'react';
-import { shallow, mount } from 'enzyme';
-import { print } from 'graphql';
+import React from 'react';
+import { shallow } from 'enzyme';
 import { connect } from 'react-redux';
 
 import { mountWithReduxAndContext } from 'test/mountWith';
@@ -32,7 +30,7 @@ describe('DialogPanel Container', () => {
     const component = shallow(
       <DialogPanel
         {...props}
-        isPhone={true} />
+        isPhone='true' />
     );
 
     expect(component).toMatchSnapshot();
@@ -42,7 +40,7 @@ describe('DialogPanel Container', () => {
     const component = shallow(
       <DialogPanel
         {...props}
-        isTablet={true} />
+        isTablet='true' />
     );
 
     expect(component).toMatchSnapshot();
@@ -54,7 +52,7 @@ describe('DialogPanel Container', () => {
     component = shallow(
       <DialogPanel
         {...props}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={1920} />
     );
     expect(component).toMatchSnapshot();
@@ -62,7 +60,7 @@ describe('DialogPanel Container', () => {
     component = shallow(
       <DialogPanel
         {...props}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={480} />
     );
 
@@ -77,11 +75,12 @@ describe('DialogPanel Container', () => {
       match: {},
       location: {}
     };
+
     component = shallow(
       <DialogPanel
         {...props}
         {...expectedProps}
-        isPhone={true} />
+        isPhone='true' />
     );
     expect(component.find('pure(DialogPanelPhone)').props()).toEqual(expectedProps);
 
@@ -89,7 +88,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isTablet={true} />
+        isTablet='true' />
     );
     expect(component.find('pure(DialogPanelDesktop)').props()).toEqual(expectedProps);
 
@@ -97,7 +96,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={480} />
     );
     expect(component.find('pure(DialogPanelPhone)').props()).toEqual(expectedProps);
@@ -106,7 +105,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isDesktop={true}
+        isDesktop='true'
         widthWindow={1920} />
     );
     expect(component.find('pure(DialogPanelDesktop)').props()).toEqual(expectedProps);
@@ -115,7 +114,7 @@ describe('DialogPanel Container', () => {
   test('should connect to redux correctly', () => {
     const expectedProps = {
       dialogItems: [],
-      filterDialogs: expect.any(Function),
+      filterDialogs: expect.any(Function)
     };
     const DialogPanelWithState = connect(mapStateToProps, mapDispatchToProps)(DialogPanel);
 

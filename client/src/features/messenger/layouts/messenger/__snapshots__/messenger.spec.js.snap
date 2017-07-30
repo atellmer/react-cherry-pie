@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessengerView Layout should match to snapshot 1`] = `
+<styled__Root>
+  <styled__DialogPanelLayout>
+    <pure(Connect(Connect(WithPlatform)))
+      location={
+        Object {
+          "pathname": "path/to/somewhere",
+        }
+      }
+      match={
+        Object {
+          "url": "path/to/somewhere",
+        }
+      }
+    />
+  </styled__DialogPanelLayout>
+  <Route
+    render={[Function]}
+  />
+</styled__Root>
+`;
