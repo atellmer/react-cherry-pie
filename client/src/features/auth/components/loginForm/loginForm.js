@@ -1,31 +1,62 @@
 /** @flow */
 import React, { Component } from 'react';
+import { Form } from 'formsy-react';
+import RaisedButton from 'material-ui/RaisedButton/index';
+
+import { TextInput } from '@/features/ui';
 
 
 type Props = {
   signin: Function
-}
+};
+type State = {
+  canSubmit: boolean
+};
 
-class LoginForm extends Component<void, Props, *> {
+class LoginForm extends Component<void, Props, State> {
+  state = {
+    canSubmit: false
+  }
 
-  handleSubmit = (ev: Event & {target: {login: any, password: any}}) => {
-    ev.preventDefault();
+  handleSubmit = (data: {login: string, password: string}) => {
+    this.props.signin(data.login, data.password);
+    console.log(JSON.stringify(data, null, 4));
+  }
 
-    this.props.signin(
-      ev.target.login.value,
-      ev.target.password.value
-    );
+  handleEnableButton = () => {
+    this.setState({ canSubmit: true });
+  }
+
+  handleDisableButton = () => {
+    this.setState({ canSubmit: false });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type='text' name='login'/>
-        <br/>
-        <input type='password' name='password'/>
-        <br/>
-        <button type='submit'>Log In</button>
-      </form>
+      <Form
+        onSubmit={this.handleSubmit}
+        onValid={this.handleEnableButton}
+        onInvalid={this.handleDisableButton}>
+        <TextInput
+          value=''
+          name='login'
+          title='Email'
+          validations='isEmail'
+          validationError='This is not a valid email'
+          required />
+        <TextInput
+          value=''
+          name='password'
+          title='Password'
+          type='password'
+          required />
+        <RaisedButton
+          label='Sign In'
+          type='submit'
+          disabled={!this.state.canSubmit}
+          secondary
+          fullWidth />
+      </Form>
     );
   }
 }
