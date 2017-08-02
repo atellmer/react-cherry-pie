@@ -8,20 +8,22 @@ type Props = {
   redirectTo: boolean
 }
 
-function PrivateRoute({ component: Child, ...rest }: Props) {
-  const { isLogged, redirectTo } = rest;
+function PrivateRoute({ component: Child, redirectTo, computedMatch, ...rest }: Props) {
+  const { isLogged } = rest;
 
   return (
     <Route
       {...rest}
       render={routerProps => (
         isLogged ? (
-          <Child {...rest}/>
+          <Child
+            {...rest}
+            match={computedMatch} />
         ) : (
           <Redirect to={{
             pathname: redirectTo,
             state: { from: routerProps.location }
-          }}/>
+          }} />
         )
     )}/>
   );

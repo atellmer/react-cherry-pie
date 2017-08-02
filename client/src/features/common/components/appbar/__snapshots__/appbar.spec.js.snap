@@ -27,7 +27,7 @@ exports[`Appbar Component should render component 1`] = `
     <styled__AvatarLayout>
       <Link
         replace={false}
-        to="/profile"
+        to="/user"
       >
         <Avatar
           backgroundColor="transparent"

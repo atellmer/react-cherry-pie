@@ -49,4 +49,4 @@ export const sizes = {
 };
 
 export const MESSENGER_ROUTE = 'im';
-export const PROFILE_ROUTE = 'profile';
+export const PROFILE_ROUTE = 'user';
