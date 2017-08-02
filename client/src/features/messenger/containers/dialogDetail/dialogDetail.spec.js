@@ -48,7 +48,7 @@ describe('DialogDetail Container', () => {
       isDesktop: false,
       widthWindow: 0,
       dialogFormHeight: 0,
-      resizeDialogForm: jest.fn(),
+      resizeDialogForm: jest.fn()
     };
   });
 
@@ -56,7 +56,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isPhone='true' />
+        isPhone />
     );
 
     expect(component).toMatchSnapshot();
@@ -66,7 +66,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isTablet='true' />
+        isTablet />
     );
 
     expect(component).toMatchSnapshot();
@@ -76,7 +76,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isDesktop='true'
+        isDesktop
         widthWindow={480} />
     );
 
@@ -87,7 +87,7 @@ describe('DialogDetail Container', () => {
     const component = shallow(
       <DialogDetail
         {...props}
-        isDesktop='true'
+        isDesktop
         widthWindow={1920} />
     );
 
@@ -109,7 +109,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isPhone='true' />
+        isPhone />
     );
     expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
 
@@ -117,7 +117,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isTablet='true' />
+        isTablet />
     );
     expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);
 
@@ -125,7 +125,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isDesktop='true'
+        isDesktop
         widthWindow={480} />
     );
     expect(component.find('pure(DialogDetailPhone)').props()).toEqual(expectedProps);
@@ -134,7 +134,7 @@ describe('DialogDetail Container', () => {
       <DialogDetail
         {...props}
         {...expectedProps}
-        isDesktop='true'
+        isDesktop
         widthWindow={1920} />
     );
     expect(component.find('pure(DialogDetailDesktop)').props()).toEqual(expectedProps);

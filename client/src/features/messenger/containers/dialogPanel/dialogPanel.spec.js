@@ -30,7 +30,7 @@ describe('DialogPanel Container', () => {
     const component = shallow(
       <DialogPanel
         {...props}
-        isPhone='true' />
+        isPhone />
     );
 
     expect(component).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('DialogPanel Container', () => {
     const component = shallow(
       <DialogPanel
         {...props}
-        isTablet='true' />
+        isTablet />
     );
 
     expect(component).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe('DialogPanel Container', () => {
     component = shallow(
       <DialogPanel
         {...props}
-        isDesktop='true'
+        isDesktop
         widthWindow={1920} />
     );
     expect(component).toMatchSnapshot();
@@ -60,7 +60,7 @@ describe('DialogPanel Container', () => {
     component = shallow(
       <DialogPanel
         {...props}
-        isDesktop='true'
+        isDesktop
         widthWindow={480} />
     );
 
@@ -80,7 +80,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isPhone='true' />
+        isPhone />
     );
     expect(component.find('pure(DialogPanelPhone)').props()).toEqual(expectedProps);
 
@@ -88,7 +88,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isTablet='true' />
+        isTablet />
     );
     expect(component.find('pure(DialogPanelDesktop)').props()).toEqual(expectedProps);
 
@@ -96,7 +96,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isDesktop='true'
+        isDesktop
         widthWindow={480} />
     );
     expect(component.find('pure(DialogPanelPhone)').props()).toEqual(expectedProps);
@@ -105,7 +105,7 @@ describe('DialogPanel Container', () => {
       <DialogPanel
         {...props}
         {...expectedProps}
-        isDesktop='true'
+        isDesktop
         widthWindow={1920} />
     );
     expect(component.find('pure(DialogPanelDesktop)').props()).toEqual(expectedProps);
