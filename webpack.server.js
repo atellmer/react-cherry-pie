@@ -28,9 +28,9 @@ const server = new webpackDevServer(compiler, {
   }
 });
 
-server.listen(config.port, 'localhost', (error, result) => {
+server.listen(config.port, 'localhost', error => {
   if (error) {
-    console.error(clc.red(error))
+    console.error(clc.red(error));
   } else {
     console.log(clc.green('DevServer: ') + clc.yellow(`http://localhost:${port}`));
     console.log(clc.green('-------------------------------------------'));

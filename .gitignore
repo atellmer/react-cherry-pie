@@ -2,6 +2,7 @@
 
 # compiled output
 dist
+index.html
 /tmp
 
 # dependencies
@@ -32,7 +33,5 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
-
-index.html
 
 /flow-typed/npm

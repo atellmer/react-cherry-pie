@@ -76,7 +76,7 @@ const webpackConfig = {
       'process.env.NODE_ENV': JSON.stringify(config.mode)
     }),
     new CleanWebpackPlugin(
-      [path.resolve(__dirname, output)], {
+      [ path.resolve(__dirname, output) ], {
         root: '',
         verbose: true,
         dry: false
@@ -103,8 +103,8 @@ const webpackConfig = {
             require('postcss-url')(),
             require('postcss-css-reset')(),
             require('postcss-cssnext')({
-              browsers: ['> 1%'],
-              warnForDuplicates: false,
+              browsers: [ '> 1%' ],
+              warnForDuplicates: false
             }),
             require('cssnano')(),
             require('postcss-browser-reporter')(),
@@ -122,7 +122,7 @@ const webpackConfig = {
     })
   ],
   watchOptions: {
-    aggregateTimeout: 100,
+    aggregateTimeout: 100
   },
   stats: {
     assets: true,

@@ -14,6 +14,7 @@ import injectValidators from './shared/injectValidators';
 import { client } from './apollo/client';
 import muiTheme from './shared/config/theme';
 import AppShell from './shell';
+import registerServiceWorker from './registerServiceWorker';
 
 
 injectTapEventPlugin();
@@ -30,3 +31,4 @@ render(
   </ApolloProvider>,
   document.querySelector('#react-root')
 );
+registerServiceWorker();
