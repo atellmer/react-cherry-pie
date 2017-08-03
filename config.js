@@ -1,11 +1,16 @@
-const config = {
-  port: 3000,
-  root: 'client',
-  mode: process.env.NODE_ENV,
-  debug: process.env.NODE_ENV !== 'production',
-  styles: process.env.NODE_ENV !== 'production' ? '[name]__[local]___[hash:base64:5]' : '[hash:base64:5]',
-  distDir: 'dist',
-  bundle: 'bundle.js'
-};
+const PORT = 3000;
+const ENV = process.env.NODE_ENV;
+const ROOT_DIR = 'client';
+const WEBPACK_ENTRY_DIR = `${ROOT_DIR}/src/index`;
+const WEBPACK_OUTPUT_DIR = `${ROOT_DIR}/public/dist/`;
+const WEBPACK_PUBLIC_PATH = 'dist';
 
-module.exports = config;
+
+module.exports = {
+  PORT,
+  ENV,
+  ROOT_DIR,
+  WEBPACK_ENTRY_DIR,
+  WEBPACK_OUTPUT_DIR,
+  WEBPACK_PUBLIC_PATH
+};

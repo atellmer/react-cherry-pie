@@ -7,9 +7,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run typings",
-    "start": "set NODE_ENV=development&& npm run dev && node webpack.server.js",
-    "build": "set NODE_ENV=production&& webpack --config webpack.prod.config.js",
-    "dev": "webpack --config webpack.dev.config.js",
+    "start": "set NODE_ENV=development&& npm run build:webpack && node webpack/server.js",
+    "build:prod": "set NODE_ENV=production&& npm run build:webpack",
+    "build:webpack": "node_modules/.bin/webpack --config webpack/common.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",

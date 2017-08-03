@@ -1,17 +1,14 @@
-'use strict';
-
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const clc = require('cli-color');
 
-const webpackConfig = require('./webpack.dev.config');
-const config = require('./config');
+const webpackConfig = require('./common');
+const CONFIG = require('../config');
+
 
 const compiler = webpack(webpackConfig);
-const port = config.port;
-
 const server = new webpackDevServer(compiler, {
-  contentBase: `./${config.root}/public/`,
+  contentBase: `./${CONFIG.ROOT_DIR}/public/`,
   publicPath: webpackConfig.output.publicPath,
   hot: true,
   historyApiFallback: true,
@@ -28,11 +25,11 @@ const server = new webpackDevServer(compiler, {
   }
 });
 
-server.listen(config.port, 'localhost', error => {
+server.listen(CONFIG.PORT, 'localhost', error => {
   if (error) {
     console.error(clc.red(error));
   } else {
-    console.log(clc.green('DevServer: ') + clc.yellow(`http://localhost:${port}`));
+    console.log(clc.green('Development server started on: ') + clc.yellow(`http://localhost:${CONFIG.PORT}`));
     console.log(clc.green('-------------------------------------------'));
   }
 });
