@@ -13,15 +13,9 @@ import {
   detectSizeWindow,
   fetchUser,
   AppbarContainer,
-  PrivateRoute
+  PrivateRoute,
+  lazyLoad
 } from '@/features/common';
-import {
-  LoginView,
-  RegisterView
-} from '@/features/auth';
-import HomeView from '@/features/home';
-import { ProfileView } from '@/features/profile';
-import { MessengerView } from '@/features/messenger';
 import {
   PROFILE_ROUTE,
   MESSENGER_ROUTE
@@ -41,9 +35,13 @@ type Props = {
 };
 
 const history = createBrowserHistory();
+const HomeViewLazy = lazyLoad(() => import('../features/home'));
+const LoginViewLazy = lazyLoad(() => import('../features/auth/layouts/login'));
+const RegisterViewLazy = lazyLoad(() => import('../features/auth/layouts/register'));
+const MessengerViewLazy = lazyLoad(() => import('../features/messenger/layouts/messenger'));
+const ProfileViewLazy = lazyLoad(() => import('../features/profile/layouts/profile'));
 
 class AppShell extends Component<void, Props, *> {
-
   componentWillMount() {
     this.props.detectDevice();
     this.props.detectSizeWindow();
@@ -73,23 +71,23 @@ class AppShell extends Component<void, Props, *> {
               <Route
                 exact
                 path='/'
-                component={HomeView} />
+                component={HomeViewLazy} />
               <Route
                 exact
                 path='/signin'
-                component={LoginView} />
+                component={LoginViewLazy} />
               <Route
                 exact
                 path='/signup'
-                component={RegisterView} />
+                component={RegisterViewLazy} />
               <PrivateRoute
                 path={`/${PROFILE_ROUTE}`}
-                component={ProfileView}
+                component={ProfileViewLazy}
                 isLogged={isLogged}
                 redirectTo='/signin' />
               <PrivateRoute
                 path={`/${MESSENGER_ROUTE}`}
-                component={MessengerView}
+                component={MessengerViewLazy}
                 isLogged={isLogged}
                 redirectTo='/signin'/>
               <Redirect to='/' />

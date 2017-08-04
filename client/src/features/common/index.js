@@ -4,6 +4,7 @@ import AppbarMenu from './components/appbarMenu';
 import PrivateRoute from './components/privateRoute';
 import { detectDevice, detectSizeWindow } from './actions/env';
 import { fetchUser } from './actions/user';
+import lazyLoad from './hocs/lazyLoad';
 import withPlatform from './hocs/withPlatform';
 import commonReducer from './reducers';
 import type { UserType } from './types';
@@ -16,6 +17,7 @@ export {
   detectDevice,
   detectSizeWindow,
   fetchUser,
+  lazyLoad,
   withPlatform,
   commonReducer
 };

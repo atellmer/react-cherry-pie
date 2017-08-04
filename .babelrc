@@ -10,6 +10,8 @@
     "transform-class-properties", 
     "transform-decorators-legacy", 
     "add-module-exports",
+    "syntax-dynamic-import",
+    "dynamic-import-webpack",
     "transform-runtime",
     ["styled-components", {
       "displayName": true

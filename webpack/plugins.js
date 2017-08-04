@@ -30,10 +30,10 @@ const plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(CONFIG.ENV)
   }),
-  new webpack.HotModuleReplacementPlugin(),
   new CleanWebpackPlugin(
-    [ path.resolve(__dirname, `../${CONFIG.WEBPACK_OUTPUT_DIR}`) ], {
-      root: '',
+    [ 'dist' ],
+    {
+      root: path.resolve(__dirname, '../client/public/'),
       verbose: true,
       dry: false
     }),
@@ -51,9 +51,16 @@ const plugins = [
       postcss: () => postcssPlugins
     }
   }),
-  new webpack.optimize.OccurrenceOrderPlugin()
+  new webpack.optimize.OccurrenceOrderPlugin(),
+  new webpack.optimize.CommonsChunkPlugin({
+    names: ['common', 'vendor'],
+    minChunks: 2
+  })
 ];
 
+CONFIG.ENV !== 'production' && plugins.unshift(
+  new webpack.HotModuleReplacementPlugin()
+);
 CONFIG.ENV === 'production' && plugins.push(
   new webpack.optimize.UglifyJsPlugin({
     compress: { warnings: false },

@@ -5,13 +5,11 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
-import {
-  filterDialogs,
-  DialogPanelDesktop,
-  DialogPanelPhone
-} from '@/features/messenger';
+import { filterDialogs } from '../../actions/dialogs';
+import DialogPanelDesktop from '../../components/dialogPanel/desktop';
+import DialogPanelPhone from '../../components/dialogPanel/phone';
 import { withPlatform } from '@/features/common';
-import type { DialogType } from '@/features/messenger';
+import type { DialogType } from '../../types';
 import { PHONE_WIDTH } from '@/vars';
 import { getFilteredDialogs } from '../../selectors';
 

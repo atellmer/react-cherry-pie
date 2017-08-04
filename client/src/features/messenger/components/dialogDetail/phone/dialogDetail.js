@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { pure } from 'recompose';
 
-import { DialogForm } from '@/features/messenger';
+import DialogForm from '../../dialogForm';
 import {
   Root,
   ContentLayout,

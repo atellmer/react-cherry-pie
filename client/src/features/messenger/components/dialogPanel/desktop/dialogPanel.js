@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import { pure } from 'recompose';
 
-import type { DialogType } from '@/features/messenger';
+import type { DialogType } from '../../../types';
 import { Logo, Searchbar }  from '@/features/ui';
-import { DialogTabs } from '@/features/messenger';
+import DialogTabs from '../../dialogTabs';
 import {
   Root,
   HeaderLayout,

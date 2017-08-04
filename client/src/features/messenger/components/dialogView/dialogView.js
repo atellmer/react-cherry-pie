@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { pure } from 'recompose';
 import Avatar from 'material-ui/Avatar/index';
 
-import type { DialogType } from '@/features/messenger';
+import type { DialogType } from '../../types';
 import { Badge } from '@/features/ui';
 import {
   Root,

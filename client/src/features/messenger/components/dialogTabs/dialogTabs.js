@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs/index';
 import SwipeableViews from 'react-swipeable-views';
 
-import type { DialogType } from '@/features/messenger';
-import { DialogView } from '@/features/messenger';
+import type { DialogType } from '../../types';
+import DialogView from '../dialogView';
 import { filterItemsByPath } from '@/shared/utils/methods';
 import {
   Root,

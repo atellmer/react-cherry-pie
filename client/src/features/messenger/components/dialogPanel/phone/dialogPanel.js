@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { pure } from 'recompose';
 import { Link } from 'react-router-dom';
 
-import type { DialogType } from '@/features/messenger';
-import { DialogView } from '@/features/messenger';
+import type { DialogType } from '../../../types';
+import DialogView from '../../dialogView';
 import {
   Root,
   ScrollableView

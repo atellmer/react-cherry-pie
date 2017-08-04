@@ -9,11 +9,9 @@ import { bindActionCreators } from 'redux';
 import type { Dispatch } from 'redux';
 import { pure, compose } from 'recompose';
 
-import {
-  resizeDialogForm,
-  DialogDetailDesktop,
-  DialogDetailPhone
-} from '@/features/messenger';
+import { resizeDialogForm } from '../../actions/layout';
+import DialogDetailDesktop from '../../components/dialogDetail/desktop';
+import DialogDetailPhone from '../../components/dialogDetail/phone';
 import { withPlatform } from '@/features/common';
 import { PHONE_WIDTH } from '@/vars';
 import { updateStateSlice } from '@/shared/utils/methods';

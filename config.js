@@ -1,5 +1,5 @@
 const PORT = 3000;
-const ENV = process.env.NODE_ENV;
+const ENV = process.env.NODE_ENV || 'development';
 const ROOT_DIR = 'client';
 const WEBPACK_ENTRY_DIR = `${ROOT_DIR}/src/index`;
 const WEBPACK_OUTPUT_DIR = `${ROOT_DIR}/public/dist/`;
