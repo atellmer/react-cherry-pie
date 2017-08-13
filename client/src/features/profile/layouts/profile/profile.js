@@ -8,7 +8,7 @@ import {
 
 import MyProfile from '../../containers/myProfile';
 import OtherProfile from '../../components/otherProfile';
-import Settings from '../../components/settings';
+import Settings from '../../containers/settings';
 import { Root } from './styled';
 import { SETTINGS_ROUTE } from '@/constants';
 

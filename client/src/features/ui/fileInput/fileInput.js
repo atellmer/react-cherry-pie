@@ -1,5 +1,6 @@
 /** @flow */
 import React from 'react';
+import { HOC as withFormsy } from 'formsy-react';
 import RaisedButton from 'material-ui/RaisedButton/index';
 
 import {
@@ -12,13 +13,7 @@ type Props = {
   name: string,
   accept: string,
   title: string,
-  onChange: Function
-};
-
-type CustomEvent = {
-  target: {
-    files: Array<any>
-  }
+  setValue: Function
 };
 
 const FileInput = (props: Props) => {
@@ -26,11 +21,13 @@ const FileInput = (props: Props) => {
     name,
     accept,
     title,
-    onChange
+    setValue
   } = props;
 
-  const handleChange = (ev: CustomEvent) => {
-    onChange(ev.target.files);
+  const changeValue = (e: Event & {target: {files: Array<any>}}) => {
+    const files = [ ...e.target.files ];
+
+    setValue(files);
   };
 
   return (
@@ -44,10 +41,10 @@ const FileInput = (props: Props) => {
           name={name}
           accept={accept}
           type='file'
-          onChange={handleChange} />
+          onChange={changeValue} />
       </RaisedButton>
     </Root>
   );
 };
 
-export default FileInput;
+export default withFormsy(FileInput);

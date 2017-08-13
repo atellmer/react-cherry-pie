@@ -9,19 +9,13 @@ import {
 } from '@/features/ui';
 
 
-type SettingsShape = {
-  firstName: string,
-  lastName: string,
-  nickName: string
+type Props = {
+  handleSubmit: Function
 };
 
-class Settings extends Component<void, *, *> {
+class Settings extends Component<void, Props, *> {
   state = {
     canSubmit: false
-  }
-
-  handleSubmit = (data: SettingsShape) => {
-    console.log(JSON.stringify(data, null, 4));
   }
 
   handleEnableButton = () => {
@@ -32,23 +26,22 @@ class Settings extends Component<void, *, *> {
     this.setState({ canSubmit: false });
   }
 
-  handleAvatarChange = (files: Array<any>) => {
-    console.log('file: ', files);
-  }
-
   render() {
+    const {
+      handleSubmit
+    } = this.props;
+
     return (
       <div>
         Settings page:
         <Form
-          onSubmit={this.handleSubmit}
+          onSubmit={handleSubmit}
           onValid={this.handleEnableButton}
           onInvalid={this.handleDisableButton}>
           <FileInput
             name='avatar'
             accept='image/jpeg, image/jpg, image/png'
-            title='Выбрать...'
-            onChange={this.handleAvatarChange} />
+            title='Выбрать...' />
           <TextInput
             value=''
             name='firstName'
