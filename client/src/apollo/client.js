@@ -1,11 +1,16 @@
 /** @flow */
-import { ApolloClient, createNetworkInterface } from 'react-apollo';
+import { ApolloClient } from 'react-apollo';
+import { createNetworkInterface } from 'apollo-upload-client';
 import { SubscriptionClient, addGraphQLSubscriptions } from 'subscriptions-transport-ws';
 
+import {
+  GRAPHQL_API_ENDPOINT,
+  GRAPHQL_API_SUBSCRIPTIONS
+} from '../../../config';
 
-const PORT = 4000;
+
 const networkInterface = createNetworkInterface({
-  uri: `http://localhost:${PORT}/graphql`
+  uri: GRAPHQL_API_ENDPOINT
 });
 
 networkInterface.use([ {
@@ -22,7 +27,7 @@ networkInterface.use([ {
 } ]);
 
 const authToken = JSON.parse(String(localStorage.getItem('token')));
-const wsClient = new SubscriptionClient(`ws://localhost:${PORT}/subscriptions`, {
+const wsClient = new SubscriptionClient(GRAPHQL_API_SUBSCRIPTIONS, {
   reconnect: true,
   connectionParams: {
     authToken

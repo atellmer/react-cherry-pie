@@ -35,6 +35,7 @@ type Props = {
 };
 
 const history = createBrowserHistory();
+
 const HomeViewLazy = lazyLoad(() => import('../features/home'));
 const LoginViewLazy = lazyLoad(() => import('../features/auth/layouts/login'));
 const RegisterViewLazy = lazyLoad(() => import('../features/auth/layouts/register'));

@@ -1,6 +1,7 @@
 [ignore]
 .*/node_modules/.*
 .*/public/.*
+<PROJECT_ROOT>/flow-typed/.*
 
 [include]
 .*/src/.*

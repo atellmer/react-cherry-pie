@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { Form } from 'formsy-react';
 import RaisedButton from 'material-ui/RaisedButton/index';
 
-import { TextInput } from '@/features/ui';
+import {
+  TextInput,
+  FileInput
+} from '@/features/ui';
 
 
 type SettingsShape = {
@@ -29,6 +32,10 @@ class Settings extends Component<void, *, *> {
     this.setState({ canSubmit: false });
   }
 
+  handleAvatarChange = (files: Array<any>) => {
+    console.log('file: ', files);
+  }
+
   render() {
     return (
       <div>
@@ -37,6 +44,11 @@ class Settings extends Component<void, *, *> {
           onSubmit={this.handleSubmit}
           onValid={this.handleEnableButton}
           onInvalid={this.handleDisableButton}>
+          <FileInput
+            name='avatar'
+            accept='image/jpeg, image/jpg, image/png'
+            title='Выбрать...'
+            onChange={this.handleAvatarChange} />
           <TextInput
             value=''
             name='firstName'
